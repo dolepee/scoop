@@ -1,0 +1,179 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T22:18:18.871Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "1535a7adc99fef631012a1dfab8a7f0decac1d4f8c56cddfeb932309d6a7bb50"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,H,STG,GENIUS&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "94e1b90bdb8f6ebea65c40451907c0e5efa0d60d40e9cd7bbea7d5c27e412471"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 6.97599471,
+        "change24h": 66.86130203,
+        "change7d": 497.14291932,
+        "volume24h": 221446373.59011897,
+        "marketCap": 2260863094.553584,
+        "priceUsd": 7.849764827683909,
+        "heat": 162.36
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 20.77793472,
+        "change24h": 5.94043249,
+        "change7d": -68.82820496,
+        "volume24h": 65964974.95799828,
+        "marketCap": 509659367.480504,
+        "priceUsd": 0.1799553882745767,
+        "heat": 57.95
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 7.11789305,
+        "change24h": 24.6655093,
+        "change7d": 52.32200313,
+        "volume24h": 88499301.41640905,
+        "marketCap": 267581146.7758665,
+        "priceUsd": 0.40484241128212517,
+        "heat": 53.87
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.75335662,
+        "change24h": 4.99541964,
+        "change7d": -5.87931767,
+        "volume24h": 135233154.04597256,
+        "marketCap": 156460869.47340146,
+        "priceUsd": 0.4665222777608097,
+        "heat": 9.37
+      },
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": 1.09753327,
+        "change24h": 1.27796795,
+        "change7d": 31.30431196,
+        "volume24h": 27973406.84464507,
+        "marketCap": 350238860.7907911,
+        "priceUsd": 0.14009554431631643,
+        "heat": 9.27
+      },
+      {
+        "symbol": "NEX",
+        "name": "Nexus",
+        "change1h": 0.85855429,
+        "change24h": 4.61378564,
+        "change7d": -1.89168079,
+        "volume24h": 78463595.03457019,
+        "marketCap": 181428047.27911684,
+        "priceUsd": 0.0000030238007879852807,
+        "heat": 6.91
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 7.849764827683909,
+        "change1h": 6.97599471,
+        "change24h": 66.86130203,
+        "change7d": 497.14291932,
+        "volume24h": 221446373.59011897,
+        "volumeChange24h": 169.432
+      },
+      {
+        "symbol": "GENIUS",
+        "priceUsd": 0.4665222777608097,
+        "change1h": 1.75335662,
+        "change24h": 4.99541964,
+        "change7d": -5.87931767,
+        "volume24h": 135233154.04597256,
+        "volumeChange24h": 260.7759
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.40484241128212517,
+        "change1h": 7.11789305,
+        "change24h": 24.6655093,
+        "change7d": 52.32200313,
+        "volume24h": 88499301.41640905,
+        "volumeChange24h": 144.8746
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.1799553882745767,
+        "change1h": 20.77793472,
+        "change24h": 5.94043249,
+        "change7d": -68.82820496,
+        "volume24h": 65964974.95799828,
+        "volumeChange24h": -75.4855
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "BEAT shows exceptional momentum with a 497% 7-day surge, 67% 24-hour gain, and strong volume of $221M, indicating a powerful breakout.",
+    "invalidation": "If price drops below $7.50, breaking the recent hourly uptrend support.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "96ed8b0482be831d4587d7690e0d7a862486a9e56242d022c2d067c53bbdf4d4",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BEAT\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"BEAT shows exceptional momentum with a 497% 7-day surge, 67% 24-hour gain, and strong volume of $221M, indicating a powerful breakout.\",\n  \"invalidation\": \"If price drops bel"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "COMPLIANCE_TRADE",
+      "symbol": "USDT->USD1",
+      "sizedPct": 0,
+      "complianceUsd": 1.25,
+      "reasons": [
+        "conviction_below_floor:0<5500",
+        "compliance_valve:zero_trades_late_day"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.66,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.35,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "e0bed6478c93181989754db47a3ee5c9d7c5efda900ec05e6872f8e001ee1a4f",
+  "checksum": "9da5df468719303c3b39561290a18ec1fa0847b15139966bff44dac888475a35"
+}
