@@ -1,0 +1,72 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T12:28:08.113Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "dryRun": true,
+  "perception": {
+    "mode": "dry_free_data",
+    "calls": [
+      {
+        "kind": "price",
+        "symbol": "BNB",
+        "priceUsd": 583.5387029435618,
+        "responseHash": "890c24d2e4d13aed5ff851ebc7b4582445b1fa99b8cd8f919edeb684f86768c1"
+      },
+      {
+        "kind": "price",
+        "symbol": "CAKE",
+        "priceUsd": 1.2838433785884928,
+        "responseHash": "9204b6adf0980512f022b3ffc9a94764d94900056a97e8c87a7501c4de254767"
+      },
+      {
+        "kind": "price",
+        "symbol": "FLOKI",
+        "priceUsd": 0.000023700389127203435,
+        "responseHash": "9f153a104fa474b3ad2e3a35873960f19ae4bc3a70e1c1ecd213f435834e9b1f"
+      }
+    ],
+    "dataSpendUsd": 0
+  },
+  "proposal": {
+    "kind": "NONE"
+  },
+  "governor": {
+    "config": {
+      "hardDrawdownPct": 18,
+      "giveBackPct": 10,
+      "maxPositionPct": 35,
+      "maxDailyNewRiskPct": 50,
+      "minConvictionBps": 5500,
+      "complianceHourUtc": 21,
+      "complianceUsd": 1.25
+    },
+    "state": {
+      "startEquityUsd": 20,
+      "peakEquityUsd": 20,
+      "floorUsd": 16.400000000000002,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "execution": {
+    "executed": false
+  },
+  "counters": {
+    "equityUsd": 20,
+    "floorUsd": 16.400000000000002,
+    "dataSpendUsd": 0
+  },
+  "prevChecksum": "9defc3d2db7a3d2446d4522d1a23f6ed956fff640360fd44a8c98304a9d6c4b4",
+  "checksum": "603e9b32f792bfdb0f358926e0c6ca5b7689f75997196503977e0ebf01025ecc"
+}

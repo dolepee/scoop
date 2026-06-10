@@ -1,0 +1,16 @@
+{
+  "name": "scoop-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Scoop: self-custody BSC trading agent that pays for its own intelligence via x402 and writes verifiable receipts. BNB Hack: AI Trading Agent Edition.",
+  "scripts": {
+    "cycle": "node src/cycle.mjs",
+    "cycle:dry": "SCOOP_DRY_RUN=1 node src/cycle.mjs",
+    "test": "node --test",
+    "receipts:verify": "node src/verify-receipts.mjs"
+  },
+  "dependencies": {
+    "@trustwallet/cli": "^0.17.0"
+  }
+}
