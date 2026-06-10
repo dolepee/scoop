@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T18:20:47.162Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "89c147a906e54dbaf77d37f931558a0f16a0ce873ea4041b3848eaf9f6227361"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,NEX,ZAMA&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "fdbcd0903b67f2b624ae962b701eec75f5b9cff0cbc8e5edba34da4c2516b4c0"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 1.67563022,
+        "change24h": 30.48324762,
+        "change7d": 362.72313388,
+        "volume24h": 153982065.54117084,
+        "marketCap": 1728871442.100213,
+        "priceUsd": 6.0026784772941335,
+        "heat": 89.92
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": -2.93328181,
+        "change24h": 35.54054694,
+        "change7d": 49.14796973,
+        "volume24h": 86909179.44415219,
+        "marketCap": 260574395.12619254,
+        "priceUsd": 0.3942414019535978,
+        "heat": 34.11
+      },
+      {
+        "symbol": "NEX",
+        "name": "Nexus",
+        "change1h": 2.54239157,
+        "change24h": 11.39348667,
+        "change7d": 5.62024956,
+        "volume24h": 76946220.0853019,
+        "marketCap": 189550861.6405325,
+        "priceUsd": 0.000003159181027342208,
+        "heat": 19.86
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": -0.34688437,
+        "change24h": 8.57750949,
+        "change7d": -9.46896267,
+        "volume24h": 21222153.34605277,
+        "marketCap": 67578554.86966112,
+        "priceUsd": 0.030717524940755053,
+        "heat": 6.12
+      },
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": -2.52754188,
+        "change24h": 6.14712141,
+        "change7d": 26.59004335,
+        "volume24h": 28724107.81346324,
+        "marketCap": 344341986.2709873,
+        "priceUsd": 0.1377367945083949,
+        "heat": 2.55
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "change1h": 0.32977638,
+        "change24h": 2.01782093,
+        "change7d": -3.36656718,
+        "volume24h": 42215149.3042107,
+        "marketCap": 922754113.8888628,
+        "priceUsd": 1.8004871049582294,
+        "heat": 2.5
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 6.0026784772941335,
+        "change1h": 1.67563022,
+        "change24h": 30.48324762,
+        "change7d": 362.72313388,
+        "volume24h": 153982065.54117084,
+        "volumeChange24h": 93.055
+      },
+      {
+        "symbol": "NEX",
+        "priceUsd": 0.000003159181027342,
+        "change1h": 2.54239157,
+        "change24h": 11.39348667,
+        "change7d": 5.62024956,
+        "volume24h": 76946220.0853019,
+        "volumeChange24h": 9.8203
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.3942414019535978,
+        "change1h": -2.93328181,
+        "change24h": 35.54054694,
+        "change7d": 49.14796973,
+        "volume24h": 86909179.44415219,
+        "volumeChange24h": 184.9901
+      },
+      {
+        "symbol": "ZAMA",
+        "priceUsd": 0.030717524940755053,
+        "change1h": -0.34688437,
+        "change24h": 8.57750949,
+        "change7d": -9.46896267,
+        "volume24h": 21217100.96904475,
+        "volumeChange24h": -3.7214
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "BEAT shows extreme 7d gain of 362.72% and strong 24h volume of $154M, but such parabolic moves after a 30% 24h surge carry high risk of a sharp pullback, and the 1h momentum is only +1.68%, indicating potential exhaustion.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "c87677e7f396ba3943dc93f83dc3088e01569046cacba475a6e9336c5305f4df",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"BEAT shows extreme 7d gain of 362.72% and strong 24h volume of $154M, but such parabolic moves after a 30% 24h surge carry high risk of a sharp pullback, and the 1"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.68,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.37,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "474d48800e65ed3e74ad42cf35f6945a19679fcade8e8cb15522d40794cfdfaa",
+  "checksum": "e0bed6478c93181989754db47a3ee5c9d7c5efda900ec05e6872f8e001ee1a4f"
+}
