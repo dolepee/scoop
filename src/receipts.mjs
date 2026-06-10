@@ -39,11 +39,14 @@ export function latestReceipt() {
 export function writeReceipt(body) {
   mkdirSync(RECEIPTS_DIR, { recursive: true });
   const prev = latestReceipt();
-  const receipt = {
+  // Round-trip through JSON before checksumming: undefined values are
+  // dropped by serialization, so hashing the raw object would compute a
+  // checksum the file can never reproduce (write/read asymmetry).
+  const receipt = JSON.parse(JSON.stringify({
     version: "scoop.receipt.v1",
     ...body,
     prevChecksum: prev?.checksum ?? null,
-  };
+  }));
   receipt.checksum = sha256(canonical({ ...receipt, checksum: undefined }));
   const stamp = receipt.generatedAt.replace(/[:.]/g, "").replace("T", "-").slice(0, 17);
   const file = join(RECEIPTS_DIR, `${stamp}-${receipt.checksum.slice(0, 10)}.json`);
