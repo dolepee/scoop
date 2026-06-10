@@ -1,0 +1,68 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T18:06:05.144Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "cf4697abd882934a13281d415c449388ecf09a5d4495f90043c9c0a303654429"
+      },
+      {
+        "skipped": "no_symbols"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No eligible movers or shortlist quotes provided, so there is no data to identify a clear momentum or story with volume support.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "8a635576094f2b6b86e4b83a2886e7c5fc066eebf3ba2befa039c87d4b7db2d8"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 20,
+      "peakEquityUsd": 20,
+      "floorUsd": 16.400000000000002,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 2.48,
+    "usdtUsd": 0,
+    "usd1Usd": 2.48,
+    "positionUsd": 0,
+    "floorUsd": 16.400000000000002
+  },
+  "prevChecksum": "f32e17ab37a6f1d7fb285176b8a1b0f1ddac90e0b0be10d492ddee0b578b0112",
+  "checksum": "336a2ab3818700287468e9d8d7b1446a41275a2c619347d467d474c1f3f42ca2"
+}

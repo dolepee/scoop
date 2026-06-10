@@ -1,0 +1,180 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T18:14:25.182Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "911efea8339466c5a3ce810394d957ae63e95989c5579de0edff42c2742fc2ba"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,NEX,UB&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "7f00b1d61b44d6a4ee3b9b4a22149c88fc7d6ae094a05a6ce1b52a5ee1a15263"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 0.84774479,
+        "change24h": 29.98690277,
+        "change7d": 361.27243965,
+        "volume24h": 153318679.24114263,
+        "marketCap": 1722227197.5084023,
+        "priceUsd": 5.979609518528356,
+        "heat": 86.72
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": -3.42270937,
+        "change24h": 36.04238757,
+        "change7d": 47.94560559,
+        "volume24h": 86869042.30933513,
+        "marketCap": 260541231.09966567,
+        "priceUsd": 0.3941912257561013,
+        "heat": 32.97
+      },
+      {
+        "symbol": "NEX",
+        "name": "Nexus",
+        "change1h": 2.06283845,
+        "change24h": 10.7741955,
+        "change7d": 4.93416258,
+        "volume24h": 76923859.33891417,
+        "marketCap": 188439131.5317906,
+        "priceUsd": 0.0000031406521921965104,
+        "heat": 17.7
+      },
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": -1.19824978,
+        "change24h": 8.6277033,
+        "change7d": 28.52538483,
+        "volume24h": 28734962.4995211,
+        "marketCap": 349864499.3936733,
+        "priceUsd": 0.13994579975746932,
+        "heat": 9.31
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": -0.1216733,
+        "change24h": 8.74875731,
+        "change7d": -9.26501182,
+        "volume24h": 21230997.79593291,
+        "marketCap": 67610658.2816242,
+        "priceUsd": 0.030732117400738272,
+        "heat": 6.99
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": 1.25025967,
+        "change24h": 4.85694921,
+        "change7d": -22.89412074,
+        "volume24h": 107205699.41708294,
+        "marketCap": 124084671.82001486,
+        "priceUsd": 0.03235584662834193,
+        "heat": 5.17
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 5.976610812420089,
+        "change1h": 0.68392121,
+        "change24h": 29.91493081,
+        "change7d": 361.02111409,
+        "volume24h": 153403307.88923505,
+        "volumeChange24h": 92.3687
+      },
+      {
+        "symbol": "NEX",
+        "priceUsd": 0.000003140652192197,
+        "change1h": 2.06283845,
+        "change24h": 10.7741955,
+        "change7d": 4.93416258,
+        "volume24h": 76923859.33891417,
+        "volumeChange24h": 9.8682
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.3959210736713862,
+        "change1h": -2.38083328,
+        "change24h": 36.41792583,
+        "change7d": 48.58719265,
+        "volume24h": 86969437.98544344,
+        "volumeChange24h": 185.8022
+      },
+      {
+        "symbol": "UB",
+        "priceUsd": 0.13994579975746932,
+        "change1h": -1.19824978,
+        "change24h": 8.6277033,
+        "change7d": 28.52538483,
+        "volume24h": 28734962.4995211,
+        "volumeChange24h": 127.3035
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "BEAT shows extreme momentum (+361% 7d, +30% 24h) and high volume, but its heat of 86.72 indicates overbought conditions and a high risk of sharp reversal after such a parabolic move.",
+    "invalidation": "If BEAT price drops below $5.80, signaling momentum exhaustion and profit-taking.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "847d73cc6d4b2144af0844fced171759e134d501655e761fa9f2b4258d9af384",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"BEAT shows extreme momentum (+361% 7d, +30% 24h) and high volume, but its heat of 86.72 indicates overbought conditions and a high risk of sharp reversal after suc"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "equity_degraded",
+        "balance_read_failed:USD1"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.74,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.43,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": true,
+    "equityNotes": [
+      "balance_read_failed:USD1"
+    ]
+  },
+  "prevChecksum": "7a0e674c343aae6d32e934cb4f34c86429c197422ba4916497d88a8acce68f6c",
+  "checksum": "e0803a85ef504b41de2aaf8580dabc108dc30a7dc6b74458f24432dbb5b5d1b7"
+}

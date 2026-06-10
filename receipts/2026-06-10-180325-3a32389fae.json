@@ -1,0 +1,56 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-10T18:03:25.218Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "convictionBps": 0,
+    "rationale": "free_mode",
+    "provider": null,
+    "rawHash": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 20,
+      "peakEquityUsd": 20,
+      "floorUsd": 16.400000000000002,
+      "dayKey": "2026-06-10",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.81,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.5,
+    "positionUsd": 0,
+    "floorUsd": 16.400000000000002
+  },
+  "prevChecksum": "603e9b32f792bfdb0f358926e0c6ca5b7689f75997196503977e0ebf01025ecc",
+  "checksum": "3a32389faea1af1702770db2a51afdbd08488055b67f518eee87c3f2e9d55828"
+}

@@ -1,117 +1,180 @@
-// One Scoop cycle: perceive (paid where it matters) -> decide -> govern ->
-// execute via TWAK -> receipt. Designed to run from cron with no human.
+// One Scoop cycle: perceive (paid) -> think -> govern -> execute -> receipt.
 //
-// SCOOP_DRY_RUN=1 runs the full loop with free price perception only, no
-// x402 spend, no execution: it still writes a real chained receipt labeled
-// dryRun so the receipt history covers the build phase honestly.
+// Safety model, controlled by env:
+//   SCOOP_PAID=1   allow x402 spend (paid perception). Default: free only.
+//   SCOOP_TRADE=1  allow real swaps. Default: decisions are logged, not executed.
+// Cron runs perceive+think+govern for days before the first real trade is
+// enabled; every stage of that ramp leaves the same chained receipts.
 
 import { execFileSync } from "node:child_process";
 import { decide, DEFAULT_CONFIG, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
-import { writeReceipt, sha256, canonical } from "./receipts.mjs";
+import { writeReceipt, latestReceipt, sha256, canonical } from "./receipts.mjs";
+import { buyMovers, buyQuotes, newDataBudget, describeCalls } from "./scout-rest.mjs";
+import { formThesis } from "./thesis.mjs";
+import { loadPosition, savePosition, resolveToken, swap, USDT, USD1 } from "./executor.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-const DRY = process.env.SCOOP_DRY_RUN === "1";
+const PAID = process.env.SCOOP_PAID === "1";
+const TRADE = process.env.SCOOP_TRADE === "1";
+const DATA_CAP_USD = Number(process.env.SCOOP_DATA_CAP_USD ?? 0.05);
 const STATE_FILE = join(process.cwd(), "state", "governor-state.json");
 const WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
 
-function twakJson(args) {
-  const out = execFileSync("npx", ["twak", ...args, "--json"], {
-    encoding: "utf8",
-    timeout: 120_000,
-    env: process.env,
-  });
-  const start = out.indexOf("{");
-  const startArr = out.indexOf("[");
-  const idx = startArr >= 0 && (startArr < start || start < 0) ? startArr : start;
-  return JSON.parse(out.slice(idx));
+function twakJson(args, timeout = 90_000) {
+  const out = execFileSync("npx", ["twak", ...args, "--json"], { encoding: "utf8", timeout, env: process.env });
+  const i = Math.min(...[out.indexOf("{"), out.indexOf("[")].filter((x) => x >= 0));
+  return JSON.parse(out.slice(i));
 }
 
-function loadState(equityUsd, nowMs) {
-  if (existsSync(STATE_FILE)) return JSON.parse(readFileSync(STATE_FILE, "utf8"));
-  return initialState(equityUsd, nowMs);
+function tokenBalance(address) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const b = twakJson(["balance", "--chain", "bsc", "--address", WALLET, "--token", address]);
+      const v = Number(b.totalUsd ?? 0) || Number(b.total ?? 0) || 0;
+      if (v > 0 || attempt === 2) return v;
+    } catch {
+      // retry
+    }
+  }
+  return null; // signals a failed read; caller carries forward
 }
 
-function saveState(state) {
-  writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`);
+function priceUsd(symbol) {
+  try {
+    return Number(twakJson(["price", symbol]).priceUsd) || 0;
+  } catch {
+    return 0;
+  }
 }
 
 async function main() {
   const nowMs = Date.now();
   const generatedAt = new Date(nowMs).toISOString();
+  const budget = newDataBudget(PAID ? DATA_CAP_USD : 0);
+  const position = loadPosition();
 
-  // ---- Perceive (dry: free price endpoints only) ----------------------
-  const perception = { mode: DRY ? "dry_free_data" : "paid_x402", calls: [], dataSpendUsd: 0 };
-  const watch = ["BNB", "CAKE", "FLOKI"];
-  for (const sym of watch) {
+  // ---- Perceive ---------------------------------------------------------
+  let movers = [];
+  let quotes = [];
+  const paidCalls = [];
+  if (PAID) {
+    const m = buyMovers(budget);
+    paidCalls.push(m.call);
+    movers = m.movers;
+    const shortlist = [...new Set([
+      ...movers.slice(0, 4).map((x) => x.symbol),
+      ...(position ? [position.symbol] : []),
+    ])];
+    const q = buyQuotes(shortlist, budget);
+    paidCalls.push(q.call);
+    quotes = q.quotes;
+  }
+
+  // ---- Equity ------------------------------------------------------------
+  // A flaky balance read must never zero the governor's view of equity:
+  // failed components carry forward from the previous receipt and the cycle
+  // is marked degraded, which forbids trading until reads are healthy.
+  const prev = latestReceipt();
+  let degraded = false;
+  const carry = (fresh, prevValue, label, notes) => {
+    if (fresh !== null && fresh !== undefined) return fresh;
+    degraded = true;
+    notes.push(`balance_read_failed:${label}`);
+    return prevValue ?? 0;
+  };
+  const equityNotes = [];
+  const usdtUsd = carry(tokenBalance(USDT.address), prev?.counters?.usdtUsd, "USDT", equityNotes);
+  const usd1Usd = carry(tokenBalance(USD1.address), prev?.counters?.usd1Usd, "USD1", equityNotes);
+  let positionUsd = 0;
+  if (position) {
+    const p = priceUsd(position.symbol);
+    positionUsd = p > 0 ? p * position.units : prev?.counters?.positionUsd ?? position.costUsd ?? 0;
+    if (p <= 0) {
+      degraded = true;
+      equityNotes.push(`price_read_failed:${position.symbol}`);
+    }
+  }
+  const equityUsd = Math.round((usdtUsd + usd1Usd + positionUsd) * 100) / 100;
+
+  // ---- Think -------------------------------------------------------------
+  const { thesis, provider, raw } = PAID
+    ? await formThesis({ movers, quotes, position, equityUsd })
+    : { thesis: { action: "NO_TRADE", convictionBps: 0, rationale: "free_mode" }, provider: null, raw: null };
+
+  const proposal = thesis.action === "TRADE"
+    ? { kind: "TRADE", symbol: thesis.symbol, direction: thesis.direction, convictionBps: thesis.convictionBps }
+    : { kind: "NONE" };
+
+  // ---- Govern ------------------------------------------------------------
+  let state = existsSync(STATE_FILE)
+    ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
+    : initialState(equityUsd, nowMs);
+  if (!degraded) state = syncState(state, equityUsd, nowMs);
+  const ruling = degraded
+    ? { decision: "STAND_DOWN", symbol: null, sizedPct: 0, reasons: ["equity_degraded", ...equityNotes] }
+    : decide(proposal, state, { equityUsd, nowMs, openPositionPct: position ? (positionUsd / equityUsd) * 100 : 0 });
+
+  // ---- Execute -----------------------------------------------------------
+  let execution = { executed: false, mode: TRADE ? "armed" : "observe" };
+  if (TRADE && ruling.decision === "APPROVE") {
     try {
-      const p = twakJson(["price", sym]);
-      perception.calls.push({ kind: "price", symbol: sym, priceUsd: p.priceUsd, responseHash: sha256(canonical(p)) });
+      if (proposal.direction === "enter") {
+        if (position) throw new Error("position_already_open");
+        const token = resolveToken(proposal.symbol);
+        const spendUsd = Math.min((ruling.sizedPct / 100) * equityUsd, usdtUsd * 0.98);
+        const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
+        const entryPrice = priceUsd(proposal.symbol);
+        const units = Number(String(res.output ?? "0").split(" ")[0]) || (entryPrice > 0 ? spendUsd / entryPrice : 0);
+        savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: thesis.invalidation });
+        state = noteEntry(state, ruling.sizedPct);
+        execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
+      } else {
+        if (!position) throw new Error("no_position_to_exit");
+        const res = swap({ amount: String(position.units), from: position.address, to: USDT.address });
+        savePosition(null);
+        state = noteTrade(state);
+        execution = { executed: true, kind: "exit", txHash: res.txHash, closedUnits: position.units };
+      }
     } catch (error) {
-      perception.calls.push({ kind: "price", symbol: sym, error: String(error.message).slice(0, 120) });
+      execution = { executed: false, error: String(error.message).slice(0, 200) };
     }
-  }
-  // Paid perception (news/social via x402) plugs in here when funded:
-  // twak x402 request <cmc-endpoint> --max-payment ... ; each call appends
-  // { kind, endpoint, paymentTx|paymentAuth, costUsd, responseHash }.
-
-  // ---- Equity ----------------------------------------------------------
-  // Dry mode before funding: equity is the planned capital so governor math
-  // is exercised end to end. Live mode reads the wallet portfolio.
-  let equityUsd = 20;
-  if (!DRY) {
+  } else if (TRADE && ruling.decision === "COMPLIANCE_TRADE") {
     try {
-      const b = twakJson(["wallet", "portfolio", "--chain", "bsc"]);
-      equityUsd = Number(b.totalUsd ?? b.total ?? equityUsd);
-    } catch {
-      // keep prior equity; receipt records the read failure below
+      const res = swap({ amount: String(DEFAULT_CONFIG.complianceUsd), from: USDT.address, to: USD1.address });
+      state = noteTrade(state);
+      execution = { executed: true, kind: "compliance_rotation", txHash: res.txHash, usd: DEFAULT_CONFIG.complianceUsd };
+    } catch (error) {
+      execution = { executed: false, error: String(error.message).slice(0, 200) };
     }
   }
+  writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`);
 
-  // ---- Thesis (model plugs in post-funding; dry mode = none) -----------
-  const proposal = { kind: "NONE" };
-
-  // ---- Govern -----------------------------------------------------------
-  let state = syncState(loadState(equityUsd, nowMs), equityUsd, nowMs);
-  const ruling = decide(proposal, state, { equityUsd, nowMs });
-
-  // ---- Execute ----------------------------------------------------------
-  let execution = { executed: false };
-  if (!DRY && ruling.decision === "APPROVE") {
-    // twak swap path wired at funding: quote first, then execute with
-    // --password from env; record tx hash + route in execution.
-    execution = { executed: false, note: "execution_wired_at_funding" };
-  } else if (!DRY && ruling.decision === "COMPLIANCE_TRADE") {
-    execution = { executed: false, note: "compliance_rotation_wired_at_funding" };
-  }
-  if (ruling.decision === "APPROVE" && execution.executed) state = noteEntry(state, ruling.sizedPct);
-  if (ruling.decision === "COMPLIANCE_TRADE" && execution.executed) state = noteTrade(state);
-  saveState(state);
-
-  // ---- Receipt -----------------------------------------------------------
+  // ---- Receipt ------------------------------------------------------------
   const { receipt, file } = writeReceipt({
     generatedAt,
     agent: "Scoop",
     wallet: WALLET,
     chain: "bsc",
-    dryRun: DRY,
-    perception,
-    proposal,
-    governor: {
-      config: DEFAULT_CONFIG,
-      state: { ...state },
-      ruling,
+    modes: { paid: PAID, trade: TRADE },
+    perception: {
+      paidCalls: describeCalls(paidCalls),
+      dataSpendUsd: budget.spentUsd,
+      moversTop: movers.slice(0, 6),
+      quotes,
     },
+    thesis: { ...thesis, provider, rawHash: raw ? sha256(canonical(raw)) : null, rawPreview: raw ? String(raw).slice(0, 280) : null },
+    governor: { state: { ...state }, ruling },
+    position: loadPosition(),
     execution,
-    counters: {
-      equityUsd,
-      floorUsd: state.floorUsd,
-      dataSpendUsd: perception.dataSpendUsd,
-    },
+    counters: { equityUsd, usdtUsd, usd1Usd, positionUsd, floorUsd: state.floorUsd, degraded, equityNotes },
   });
 
   console.log("SCOOP_CYCLE_COMPLETE");
-  console.log(`decision=${ruling.decision}`);
+  console.log(`modes=paid:${PAID},trade:${TRADE}`);
+  console.log(`equityUsd=${equityUsd} dataSpend=$${budget.spentUsd}`);
+  console.log(`thesis=${thesis.action}${thesis.symbol ? ":" + thesis.symbol : ""} conviction=${thesis.convictionBps}`);
+  console.log(`decision=${ruling.decision} reasons=${ruling.reasons.join("|")}`);
   console.log(`receipt=${file}`);
   console.log(`checksum=${receipt.checksum}`);
 }
