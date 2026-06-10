@@ -1,0 +1,66 @@
+name: Scoop Cycle
+
+# The agent's heartbeat. Observe mode (SCOOP_PAID only) until the dress
+# rehearsal arms SCOOP_TRADE; the live trading week runs hourly. Every run
+# pays for its own data from the agent wallet and commits a chained receipt,
+# so the git history timestamps each decision before the market grades it.
+
+on:
+  schedule:
+    - cron: "7 */2 * * *"
+  workflow_dispatch:
+    inputs:
+      trade:
+        description: "Arm real trading for this run (1 = execute)"
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scoop-cycle
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    env:
+      TWAK_ACCESS_ID: ${{ secrets.TWAK_ACCESS_ID }}
+      TWAK_HMAC_SECRET: ${{ secrets.TWAK_HMAC_SECRET }}
+      TWAK_WALLET_PASSWORD: ${{ secrets.TWAK_WALLET_PASSWORD }}
+      BANKR_LLM_KEY: ${{ secrets.BANKR_LLM_KEY }}
+      SCOOP_PAID: "1"
+      SCOOP_TRADE: ${{ inputs.trade || '0' }}
+      SCOOP_DATA_CAP_USD: "0.05"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: restore agent wallet keystore
+        run: |
+          mkdir -p ~/.twak && chmod 700 ~/.twak
+          echo "${{ secrets.TWAK_WALLET_JSON_B64 }}" | base64 -d > ~/.twak/wallet.json
+          chmod 600 ~/.twak/wallet.json
+
+      - name: run cycle
+        run: node src/cycle.mjs
+
+      - name: verify receipt chain
+        run: npm run receipts:verify
+
+      - name: commit receipt
+        run: |
+          git config user.name "scoop-agent"
+          git config user.email "agent@scoop.local"
+          git pull --rebase --autostash origin master
+          git add receipts/ state/
+          if git diff --staged --quiet; then
+            echo "no receipt changes"
+          else
+            git commit -m "cycle receipt $(date -u +%Y-%m-%dT%H:%M)"
+            git push
+          fi
