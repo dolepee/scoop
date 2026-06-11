@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-11T17:34:11.850Z",
+  "generatedAt": "2026-06-11T20:32:43.882Z",
   "summary": {
-    "cycleCount": 15,
+    "cycleCount": 16,
     "firstAt": "2026-06-10T12:27:43.877Z",
-    "lastAt": "2026-06-11T17:34:11.850Z",
-    "equityNow": 16.56,
+    "lastAt": "2026-06-11T20:32:43.882Z",
+    "equityNow": 16.54,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
     "chainOk": true,
@@ -12,6 +12,32 @@
     "chain": "bsc"
   },
   "cycles": [
+    {
+      "at": "2026-06-11T20:32:43.882Z",
+      "file": "2026-06-11-203243-d7b84b0ecb.json",
+      "checksum": "d7b84b0ecb8f10221b942ce63d3747e338f7899e18930049924ca2c24bbb045a",
+      "prevChecksum": "94db5e16c61327eacf693db712745bb0805e993a2e65dacffa0545c32ca45fc8",
+      "equityUsd": 16.54,
+      "usdtUsd": 14.31,
+      "usd1Usd": 2.23,
+      "positionUsd": 0,
+      "floorUsd": 13.726799999999999,
+      "degraded": false,
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "provider": "bankr:deepseek-v3.2",
+      "rationale": "",
+      "invalidation": "",
+      "governorVerdict": "STAND_DOWN",
+      "governorReason": "no_qualifying_thesis",
+      "paid": true,
+      "paidCallCount": 2,
+      "dataSpendUsd": 0.02,
+      "trade": false,
+      "tradeResult": null
+    },
     {
       "at": "2026-06-11T17:34:11.850Z",
       "file": "2026-06-11-173411-94db5e16c6.json",
