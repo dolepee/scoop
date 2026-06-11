@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-11T15:18:45.730Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "4105a288bc8d2b16d30ccaffd796d31d9976d25acc1efb7982f1773d588109fb"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,LAB,DEXE&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "67e4930e2676d36937176544acdd09845bb3eed9b05b5cb7d383866cc409b999"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": -0.81306617,
+        "change24h": 57.51013185,
+        "change7d": 544.88508987,
+        "volume24h": 296319895.85289496,
+        "marketCap": 2649636777.467281,
+        "priceUsd": 9.199595336845128,
+        "heat": 136.8
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 12.46983074,
+        "change24h": 33.11490604,
+        "change7d": 132.96848315,
+        "volume24h": 92722263.54489769,
+        "marketCap": 364615574.54551125,
+        "priceUsd": 0.5516526488081243,
+        "heat": 90.47
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 5.08680899,
+        "change24h": 19.32325669,
+        "change7d": -38.08410078,
+        "volume24h": 47714414.85139775,
+        "marketCap": 2948414390.4384604,
+        "priceUsd": 9.512476936174219,
+        "heat": 28.87
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 3.26994498,
+        "change24h": 15.83621977,
+        "change7d": 5.15748802,
+        "volume24h": 55396491.34336261,
+        "marketCap": 1766518980.044199,
+        "priceUsd": 21.096874596871118,
+        "heat": 26.42
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -5.61637319,
+        "change24h": 36.86541632,
+        "change7d": 21.43356363,
+        "volume24h": 67566566.1341896,
+        "marketCap": 220979495.04480684,
+        "priceUsd": 0.22097949504480685,
+        "heat": 23.23
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 3.2579157,
+        "change24h": 3.32225443,
+        "change7d": -0.55125157,
+        "volume24h": 22776646.99895648,
+        "marketCap": 69760299.2551623,
+        "priceUsd": 0.03170922693416468,
+        "heat": 13.01
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 9.512476936174219,
+        "change1h": 5.08680899,
+        "change24h": 19.32325669,
+        "change7d": -38.08410078,
+        "volume24h": 47714414.85139775,
+        "volumeChange24h": 71.038
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 9.199595336845128,
+        "change1h": -0.81306617,
+        "change24h": 57.51013185,
+        "change7d": 544.88508987,
+        "volume24h": 296319895.85289496,
+        "volumeChange24h": 131.5228
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 21.096874596871118,
+        "change1h": 3.26994498,
+        "change24h": 15.83621977,
+        "change7d": 5.15748802,
+        "volume24h": 55396491.34336261,
+        "volumeChange24h": 45.6187
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.5516526488081243,
+        "change1h": 12.46983074,
+        "change24h": 33.11490604,
+        "change7d": 132.96848315,
+        "volume24h": 92722263.54489769,
+        "volumeChange24h": 9.8917
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 6500,
+    "rationale": "STG shows strong momentum with +12.47% 1h and +33.11% 24h gains, backed by high volume of $92.7M and a 7-day surge of 132.97%, indicating sustained bullish interest.",
+    "invalidation": "Price falls below $0.50 or 1h change turns negative with volume decline.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "4279d8826f541bee2561f212c2f8b273cbb6fd8a753f867955591cdd4f510844",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"STG\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 6500,\n  \"rationale\": \"STG shows strong momentum with +12.47% 1h and +33.11% 24h gains, backed by high volume of $92.7M and a 7-day surge of 132.97%, indicating sustained bullish interest.\",\n  "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-11",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.6,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.29,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "9dc56fa9177c71bf25d2533cec4faf8bf09f1f2835964edbb63237f212af2086",
+  "checksum": "ac686c845c2bbbf5bfb5fe9b1877d5d88f2c818ed33cd9671eb481e1e52df90a"
+}
