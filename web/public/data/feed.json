@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-11T20:32:43.882Z",
+  "generatedAt": "2026-06-11T23:49:00.195Z",
   "summary": {
-    "cycleCount": 16,
+    "cycleCount": 17,
     "firstAt": "2026-06-10T12:27:43.877Z",
-    "lastAt": "2026-06-11T20:32:43.882Z",
-    "equityNow": 16.54,
+    "lastAt": "2026-06-11T23:49:00.195Z",
+    "equityNow": 16.52,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
     "chainOk": true,
@@ -12,6 +12,32 @@
     "chain": "bsc"
   },
   "cycles": [
+    {
+      "at": "2026-06-11T23:49:00.195Z",
+      "file": "2026-06-11-234900-1e0b682db8.json",
+      "checksum": "1e0b682db888d909b49210ec04c3ebb585a29525e2cbff7a034f7f941f7601ec",
+      "prevChecksum": "d7b84b0ecb8f10221b942ce63d3747e338f7899e18930049924ca2c24bbb045a",
+      "equityUsd": 16.52,
+      "usdtUsd": 14.31,
+      "usd1Usd": 2.21,
+      "positionUsd": 0,
+      "floorUsd": 13.726799999999999,
+      "degraded": false,
+      "action": "NO_TRADE",
+      "symbol": "USDT->USD1",
+      "direction": null,
+      "convictionBps": 0,
+      "provider": "bankr:deepseek-v3.2",
+      "rationale": "All top movers show either extreme recent volatility (BEAT -10% 1h, STG -1.8% 1h, SKYAI -2.7% 1h) or lack a clear entry signal with volume divergence, making a disciplined long entry too risky.",
+      "invalidation": "N/A",
+      "governorVerdict": "COMPLIANCE_TRADE",
+      "governorReason": "no_qualifying_thesis, compliance_valve:zero_trades_late_day",
+      "paid": true,
+      "paidCallCount": 2,
+      "dataSpendUsd": 0.02,
+      "trade": false,
+      "tradeResult": null
+    },
     {
       "at": "2026-06-11T20:32:43.882Z",
       "file": "2026-06-11-203243-d7b84b0ecb.json",
