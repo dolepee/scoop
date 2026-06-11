@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-11T17:34:11.850Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "9f394f9bbf812cfa3e7d1784f401d82570c18b9a19956f33e065c7f156127c69"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,SKYAI,ATOM&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "70cf8ce3026068a4b64e5b47b16c475c685a47a15320743661fea59d095f5ff2"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 0.46090512,
+        "change24h": 62.15365006,
+        "change7d": 549.36995443,
+        "volume24h": 289254791.75489634,
+        "marketCap": 2750379151.577827,
+        "priceUsd": 9.549375005881872,
+        "heat": 145.94
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 12.12843767,
+        "change24h": 36.89915173,
+        "change7d": 142.64324107,
+        "volume24h": 97563883.69483559,
+        "marketCap": 364076645.80246633,
+        "priceUsd": 0.5508372654581669,
+        "heat": 94.68
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 7.58063531,
+        "change24h": 52.57873213,
+        "change7d": 51.36609544,
+        "volume24h": 68342705.32613772,
+        "marketCap": 252933336.53690764,
+        "priceUsd": 0.25293333653690764,
+        "heat": 83.03
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "change1h": 0.72552029,
+        "change24h": 9.52383498,
+        "change7d": 7.14173849,
+        "volume24h": 77321273.62604953,
+        "marketCap": 1008958410.2213689,
+        "priceUsd": 1.9659724420640838,
+        "heat": 12.77
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.78581411,
+        "change24h": 14.33372304,
+        "change7d": 3.01051919,
+        "volume24h": 59408032.98264115,
+        "marketCap": 1725855628.5195978,
+        "priceUsd": 20.611247418508427,
+        "heat": 12.43
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 4.02293023,
+        "change24h": 10.74227847,
+        "change7d": -71.04152449,
+        "volume24h": 61085238.23177671,
+        "marketCap": 483457527.6460004,
+        "priceUsd": 0.17070379287226767,
+        "heat": 12.15
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ATOM",
+        "priceUsd": 1.9659724420640838,
+        "change1h": 0.72552029,
+        "change24h": 9.52383498,
+        "change7d": 7.14173849,
+        "volume24h": 77321273.62604953,
+        "volumeChange24h": 81.7112
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 9.549375005881872,
+        "change1h": 0.46090512,
+        "change24h": 62.15365006,
+        "change7d": 549.36995443,
+        "volume24h": 289254791.75489634,
+        "volumeChange24h": 95.7188
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.5508372654581669,
+        "change1h": 12.12843767,
+        "change24h": 36.89915173,
+        "change7d": 142.64324107,
+        "volume24h": 97563883.69483559,
+        "volumeChange24h": 13.0942
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.25293333653690764,
+        "change1h": 7.58063531,
+        "change24h": 52.57873213,
+        "change7d": 51.36609544,
+        "volume24h": 68342705.32613772,
+        "volumeChange24h": 68.9214
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "While BEAT shows a massive 549% 7-day surge and strong volume, the 1-hour momentum is only +0.46% and the extreme weekly gain suggests high risk of a sharp pullback, lacking a clear entry signal for a disciplined spot long.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f721ac4ee88f4584069494c09070ea9be5d495d0505f4ba830b3a3dc97d3e77b",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"While BEAT shows a massive 549% 7-day surge and strong volume, the 1-hour momentum is only +0.46% and the extreme weekly gain suggests high risk of a sharp pullback, lacking"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-11",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.56,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.25,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "5fa0fc303b1d8e6f0793049166f8cb54b62c627326769e645b71f23d9650ddf2",
+  "checksum": "94db5e16c61327eacf693db712745bb0805e993a2e65dacffa0545c32ca45fc8"
+}
