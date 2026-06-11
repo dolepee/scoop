@@ -57,7 +57,8 @@ jobs:
           git config user.name "scoop-agent"
           git config user.email "agent@scoop.local"
           git pull --rebase --autostash origin master
-          git add receipts/ state/
+          node src/buildFeed.mjs
+          git add receipts/ state/ web/public/data/feed.json
           if git diff --staged --quiet; then
             echo "no receipt changes"
           else
