@@ -3,3 +3,7 @@ node_modules/
 *.key
 .twak/
 wallet*.json
+web/dist/
+*.tsbuildinfo
+web/vite.config.d.ts
+web/vite.config.js
