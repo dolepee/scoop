@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-11T04:55:47.999Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "1f4dd1c36641a434336da16b828da52e0ca28ca6cdde475ff8235819388c488d"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,BRETT,STG,BSB&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "ae929399bf7203e78937c9d590b2b2a329886ddb5353c9def2b78ced79372262"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 4.52586862,
+        "change24h": 70.31001261,
+        "change7d": 492.37930178,
+        "volume24h": 291673299.2785731,
+        "marketCap": 2279290049.3324714,
+        "priceUsd": 7.913743607227476,
+        "heat": 157.74
+      },
+      {
+        "symbol": "BRETT",
+        "name": "Brett (Based)",
+        "change1h": 22.80024001,
+        "change24h": 3.6987318,
+        "change7d": -10.12640698,
+        "volume24h": 26186726.47325023,
+        "marketCap": 54916246.76099434,
+        "priceUsd": 0.005491626024445662,
+        "heat": 70.58
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 6.42704223,
+        "change24h": 28.13941287,
+        "change7d": 69.4193838,
+        "volume24h": 87437454.60045932,
+        "marketCap": 284542327.92029405,
+        "priceUsd": 0.43050417989116185,
+        "heat": 57.83
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 2.39962248,
+        "change24h": 14.31837632,
+        "change7d": 25.80595079,
+        "volume24h": 28607161.26986563,
+        "marketCap": 65587678.67872882,
+        "priceUsd": 0.2945774923814454,
+        "heat": 25.39
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "change1h": 3.13729821,
+        "change24h": 4.6081921,
+        "change7d": 1.12078824,
+        "volume24h": 47236136.54264379,
+        "marketCap": 950085714.4864135,
+        "priceUsd": 1.8538167988529188,
+        "heat": 14.19
+      },
+      {
+        "symbol": "PENGU",
+        "name": "Pudgy Penguins",
+        "change1h": 3.29242938,
+        "change24h": 2.78132322,
+        "change7d": -2.60207845,
+        "volume24h": 92540681.63132778,
+        "marketCap": 427932130.2782041,
+        "priceUsd": 0.006807658826477047,
+        "heat": 12.27
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 7.913743607227476,
+        "change1h": 4.52586862,
+        "change24h": 70.31001261,
+        "change7d": 492.37930178,
+        "volume24h": 291673299.2785731,
+        "volumeChange24h": 252.4502
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.2936334492091614,
+        "change1h": 1.92689004,
+        "change24h": 14.75549172,
+        "change7d": 25.42170188,
+        "volume24h": 28502512.06858755,
+        "volumeChange24h": -37.2703
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.43050417989116185,
+        "change1h": 6.42704223,
+        "change24h": 28.13941287,
+        "change7d": 69.4193838,
+        "volume24h": 87437454.60045932,
+        "volumeChange24h": 72.7791
+      },
+      {
+        "symbol": "BRETT",
+        "priceUsd": 0.005492358084874442,
+        "change1h": 14.73077631,
+        "change24h": 3.83611513,
+        "change7d": -10.26753572,
+        "volume24h": 26190009.96507433,
+        "volumeChange24h": -11.3562
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 7500,
+    "rationale": "BEAT shows exceptional momentum with a 70.31% 24h gain, 492.38% 7d surge, and massive $291.67M volume supporting the breakout.",
+    "invalidation": "If price drops below $7.00 or 1h momentum turns negative, the breakout may be failing.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "00715569d011668ba16f2be7902ca221c98177fe0dae5c6ddb9fd019b0d6770d",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"BEAT\",\n    \"direction\": \"enter\",\n    \"convictionBps\": 7500,\n    \"rationale\": \"BEAT shows exceptional momentum with a 70.31% 24h gain, 492.38% 7d surge, and massive $291.67M volume supporting the breakout.\",\n    \"invalidation\": \"If price "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-11",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.64,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.33,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "9da5df468719303c3b39561290a18ec1fa0847b15139966bff44dac888475a35",
+  "checksum": "5dd8db21aa1ea97d227a2ea05d90ef4934d4c6df175299ce64df349fb2942bc5"
+}
