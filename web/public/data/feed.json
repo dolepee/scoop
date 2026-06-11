@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-11T16:18:31.908Z",
+  "generatedAt": "2026-06-11T17:34:11.850Z",
   "summary": {
-    "cycleCount": 14,
+    "cycleCount": 15,
     "firstAt": "2026-06-10T12:27:43.877Z",
-    "lastAt": "2026-06-11T16:18:31.908Z",
-    "equityNow": 16.58,
+    "lastAt": "2026-06-11T17:34:11.850Z",
+    "equityNow": 16.56,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
     "chainOk": true,
@@ -12,6 +12,32 @@
     "chain": "bsc"
   },
   "cycles": [
+    {
+      "at": "2026-06-11T17:34:11.850Z",
+      "file": "2026-06-11-173411-94db5e16c6.json",
+      "checksum": "94db5e16c61327eacf693db712745bb0805e993a2e65dacffa0545c32ca45fc8",
+      "prevChecksum": "5fa0fc303b1d8e6f0793049166f8cb54b62c627326769e645b71f23d9650ddf2",
+      "equityUsd": 16.56,
+      "usdtUsd": 14.31,
+      "usd1Usd": 2.25,
+      "positionUsd": 0,
+      "floorUsd": 13.726799999999999,
+      "degraded": false,
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "provider": "bankr:deepseek-v3.2",
+      "rationale": "While BEAT shows a massive 549% 7-day surge and strong volume, the 1-hour momentum is only +0.46% and the extreme weekly gain suggests high risk of a sharp pullback, lacking a clear entry signal for a disciplined spot long.",
+      "invalidation": "N/A",
+      "governorVerdict": "STAND_DOWN",
+      "governorReason": "no_qualifying_thesis",
+      "paid": true,
+      "paidCallCount": 2,
+      "dataSpendUsd": 0.02,
+      "trade": false,
+      "tradeResult": null
+    },
     {
       "at": "2026-06-11T16:18:31.908Z",
       "file": "2026-06-11-161831-5fa0fc303b.json",
