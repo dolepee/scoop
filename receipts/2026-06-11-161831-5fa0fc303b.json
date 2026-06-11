@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-11T16:18:31.908Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "af4584f544062f2f55262b7d6f8f05505164ba9aea33e2b339aec774040657b1"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,KITE,ATOM&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "8db59196d8068210aadda06618b27b30af0e05efd21d31c893d108e82ad05640"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 3.82764249,
+        "change24h": 56.22857239,
+        "change7d": 568.68686301,
+        "volume24h": 290522696.4729929,
+        "marketCap": 2751055400.463342,
+        "priceUsd": 9.551722956418578,
+        "heat": 153.01
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 5.4912033,
+        "change24h": 41.06312399,
+        "change7d": 33.67957944,
+        "volume24h": 66920850.96777545,
+        "marketCap": 233113928.3645274,
+        "priceUsd": 0.2331139283645274,
+        "heat": 62.59
+      },
+      {
+        "symbol": "KITE",
+        "name": "Kite",
+        "change1h": 3.37786628,
+        "change24h": 9.39131538,
+        "change7d": 9.92444744,
+        "volume24h": 54323966.46441443,
+        "marketCap": 346825432.7073581,
+        "priceUsd": 0.1926807959485323,
+        "heat": 21.01
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "change1h": 2.65131397,
+        "change24h": 10.03915331,
+        "change7d": 7.94849269,
+        "volume24h": 73349249.7129828,
+        "marketCap": 1016087953.3947859,
+        "priceUsd": 1.9798644769204745,
+        "heat": 19.19
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 5.4950179,
+        "change24h": 5.2521898,
+        "change7d": -25.6672894,
+        "volume24h": 25427982.01783127,
+        "marketCap": 161112560.2475775,
+        "priceUsd": 0.6182317259138372,
+        "heat": 17.89
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 3.16638756,
+        "change24h": 0.39957636,
+        "change7d": 28.15433054,
+        "volume24h": 24487075.05715589,
+        "marketCap": 61374821.10948328,
+        "priceUsd": 0.2756560570827904,
+        "heat": 14.12
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ATOM",
+        "priceUsd": 1.9798644769204745,
+        "change1h": 2.65131397,
+        "change24h": 10.03915331,
+        "change7d": 7.94849269,
+        "volume24h": 73349249.7129828,
+        "volumeChange24h": 65.6213
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 9.551722956418578,
+        "change1h": 3.82764249,
+        "change24h": 56.22857239,
+        "change7d": 568.68686301,
+        "volume24h": 290522696.4729929,
+        "volumeChange24h": 106.1593
+      },
+      {
+        "symbol": "KITE",
+        "priceUsd": 0.1926807959485323,
+        "change1h": 3.37786628,
+        "change24h": 9.39131538,
+        "change7d": 9.92444744,
+        "volume24h": 54323966.46441443,
+        "volumeChange24h": 142.1461
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.2331139283645274,
+        "change1h": 5.4912033,
+        "change24h": 41.06312399,
+        "change7d": 33.67957944,
+        "volume24h": 66920850.96777545,
+        "volumeChange24h": 75.2815
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "BEAT shows explosive momentum with +56.23% in 24h, +568.69% in 7d, and massive volume of $290M, indicating strong narrative and buying pressure.",
+    "invalidation": "If price falls below $8.50 (approx 11% drop from current) or 24h volume declines by more than 50% tomorrow.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "2bc4276e9ae135102dc5ac651d2a2fed9d8055deeb7b3d5c188ef86685c91e89",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BEAT\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"BEAT shows explosive momentum with +56.23% in 24h, +568.69% in 7d, and massive volume of $290M, indicating strong narrative and buying pressure.\",\n  \"invalidation\": \"If price"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-11",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "conviction_below_floor:0<5500"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.58,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.27,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "ac686c845c2bbbf5bfb5fe9b1877d5d88f2c818ed33cd9671eb481e1e52df90a",
+  "checksum": "5fa0fc303b1d8e6f0793049166f8cb54b62c627326769e645b71f23d9650ddf2"
+}
