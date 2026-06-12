@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-12T21:58:47.331Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "fe7a498c87b6c97261ac0f5c5d81bd78a68550a617540741dffdd33a0c13ee5f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,STG,H,XPL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ddfa2cbbe1afa5dc8e7e53f413b828c464446c9fd11252c050f5ac9ea2054eda"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 3.5542649,
+        "change24h": 27.42929891,
+        "change7d": 65.71574817,
+        "volume24h": 71920444.28399576,
+        "marketCap": 313655893.310895,
+        "priceUsd": 0.31365589331089505,
+        "heat": 47.95
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 3.11163768,
+        "change24h": 2.00128272,
+        "change7d": 177.07474112,
+        "volume24h": 110774580.65001103,
+        "marketCap": 415849109.0420947,
+        "priceUsd": 0.6291674808283206,
+        "heat": 37.9
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 3.73039908,
+        "change24h": 33.20236475,
+        "change7d": -54.63404065,
+        "volume24h": 107588569.46015501,
+        "marketCap": 757150986.6205597,
+        "priceUsd": 0.2673420886058643,
+        "heat": 36.2
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 1.85467388,
+        "change24h": 12.44554206,
+        "change7d": 20.45633111,
+        "volume24h": 355139618.72115797,
+        "marketCap": 150605181.1226468,
+        "priceUsd": 0.08366954506813712,
+        "heat": 21.08
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": -2.37542448,
+        "change24h": 19.19625628,
+        "change7d": 58.52919448,
+        "volume24h": 46041230.21029975,
+        "marketCap": 68081085.88204975,
+        "priceUsd": 0.36213324677123176,
+        "heat": 20.85
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.35432842,
+        "change24h": 13.1245103,
+        "change7d": -1.14363111,
+        "volume24h": 33539532.30956658,
+        "marketCap": 3022640463.809382,
+        "priceUsd": 9.751952707725675,
+        "heat": 14.02
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.08366954506813712,
+        "change1h": 1.85467388,
+        "change24h": 12.44554206,
+        "change7d": 20.45633111,
+        "volume24h": 355139618.72115797,
+        "volumeChange24h": 288.6026
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.6291674808283206,
+        "change1h": 3.11163768,
+        "change24h": 2.00128272,
+        "change7d": 177.07474112,
+        "volume24h": 110774580.65001103,
+        "volumeChange24h": -5.0756
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.31365589331089505,
+        "change1h": 3.5542649,
+        "change24h": 27.42929891,
+        "change7d": 65.71574817,
+        "volume24h": 71920444.28399576,
+        "volumeChange24h": 1.6924
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.2673420886058643,
+        "change1h": 3.73039908,
+        "change24h": 33.20236475,
+        "change7d": -54.63404065,
+        "volume24h": 107588569.46015501,
+        "volumeChange24h": 70.7903
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "SKYAI",
+    "direction": "enter",
+    "convictionBps": 7200,
+    "rationale": "Strong momentum with +27.43% 24h change and +65.72% 7d change, supported by $71.9M volume and a 1h uptick of +3.55%.",
+    "invalidation": "Price closes below $0.30 (a 4.3% drop from current) or 1h momentum turns negative.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "65c320467cc7aa2a2fa6941405c4a4233ac97c724ac232752964cb866db14f7b",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"SKYAI\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 7200,\n  \"rationale\": \"Strong momentum with +27.43% 24h change and +65.72% 7d change, supported by $71.9M volume and a 1h uptick of +3.55%.\",\n  \"invalidation\": \"Price closes below $0.30 (a 4.3% "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-12",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "SKYAI",
+      "sizedPct": 6.97,
+      "reasons": [
+        "risk_budget_pct:15.89",
+        "conviction_bps:7200"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.32,
+    "usdtUsd": 14.32,
+    "usd1Usd": 2,
+    "positionUsd": 0,
+    "inScopeUsd": 16.32,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "d3ffcc8b28ff15cd662bf01ecd4853ef9a0de3e6369c7066a9acf1f097bfd0c9",
+  "checksum": "0cc911f8cad14b65269830bf1b5ab5342e261f4199d0a76e4d5a367204a5c6a6"
+}
