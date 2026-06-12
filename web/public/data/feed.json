@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-12T17:18:23.593Z",
+  "generatedAt": "2026-06-12T18:18:25.443Z",
   "summary": {
-    "cycleCount": 26,
+    "cycleCount": 27,
     "firstAt": "2026-06-10T12:27:43.877Z",
-    "lastAt": "2026-06-12T17:18:23.593Z",
+    "lastAt": "2026-06-12T18:18:25.443Z",
     "equityNow": 16.34,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
@@ -12,6 +12,34 @@
     "chain": "bsc"
   },
   "cycles": [
+    {
+      "at": "2026-06-12T18:18:25.443Z",
+      "file": "2026-06-12-181825-d3ffcc8b28.json",
+      "checksum": "d3ffcc8b28ff15cd662bf01ecd4853ef9a0de3e6369c7066a9acf1f097bfd0c9",
+      "prevChecksum": "79b737bb380f1d6b2e8af59bcfb444dfe30403d688dce1d2b1b892c5fce3385e",
+      "equityUsd": 16.34,
+      "usdtUsd": 14.32,
+      "usd1Usd": 2.02,
+      "positionUsd": 0,
+      "inScopeUsd": 16.34,
+      "inScopeWarning": false,
+      "floorUsd": 13.726799999999999,
+      "degraded": false,
+      "action": "TRADE",
+      "symbol": "H",
+      "direction": "enter",
+      "convictionBps": 0,
+      "provider": "bankr:deepseek-v3.2",
+      "rationale": "H shows explosive momentum with +26.5% in 1h and +47.8% in 24h on massive 71% volume surge, indicating strong breakout despite 7d drawdown.",
+      "invalidation": "Price falls below 0.22 USDT (10% from current) or 1h momentum reverses negative.",
+      "governorVerdict": "VETO",
+      "governorReason": "conviction_below_floor:0<5500",
+      "paid": true,
+      "paidCallCount": 2,
+      "dataSpendUsd": 0.02,
+      "trade": false,
+      "tradeResult": null
+    },
     {
       "at": "2026-06-12T17:18:23.593Z",
       "file": "2026-06-12-171823-79b737bb38.json",
