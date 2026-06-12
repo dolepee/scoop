@@ -1,0 +1,1274 @@
+{
+  "source": {
+    "symbols": "DoraHacks BNB Hack: AI Trading Agent Edition eligible BEP-20 list (149 entries; indexed public page, official sequence preserved)",
+    "addresses": [
+      "Trust Wallet smartchain tokenlist",
+      "PancakeSwap BSC tokenlists",
+      "Trust Wallet Agent Kit twak search",
+      "manual explorer overrides for core bridged assets and World Liberty Financial USD1",
+      "CoinMarketCap cryptocurrency/map platform metadata for unresolved symbols",
+      "BSC JSON-RPC ERC-20 metadata for final explorer-verified TON/IP contracts"
+    ],
+    "symbolsUrl": "https://dorahacks.io/hackathon/bnbhack-twt-cmc/detail",
+    "competitionStatusCommand": "npx twak compete status --json",
+    "addressUrls": [
+      "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/smartchain/tokenlist.json",
+      "https://tokens.pancakeswap.finance/pancakeswap-extended.json",
+      "https://tokens.pancakeswap.finance/pancakeswap-top-100.json"
+    ]
+  },
+  "fetchedAt": "2026-06-12T05:49:42.194Z",
+  "chain": "bsc",
+  "listEntryCount": 149,
+  "tradableAddressCount": 149,
+  "tokens": [
+    {
+      "symbol": "ETH",
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "decimals": 18,
+      "name": "Binance-Peg Ethereum Token",
+      "tradable": true,
+      "source": "manual:bscscan/binance-peg"
+    },
+    {
+      "symbol": "USDT",
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "decimals": 18,
+      "name": "Tether USD",
+      "tradable": true,
+      "source": "manual:existing-executor"
+    },
+    {
+      "symbol": "USDC",
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "decimals": 18,
+      "name": "Binance-Peg USD Coin",
+      "tradable": true,
+      "source": "manual:trustwallet"
+    },
+    {
+      "symbol": "XRP",
+      "address": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
+      "decimals": 18,
+      "name": "XRP Token",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "TRX",
+      "address": "0xCE7de646e7208a4Ef112cb6ed5038FA6cC6b12e3",
+      "decimals": 18,
+      "name": "Tron V2",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "DOGE",
+      "address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+      "decimals": 8,
+      "name": "Dogecoin",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "ZEC",
+      "address": "0x1Ba42e5193dfA8B03D15dd1B86a3113bbBEF8Eeb",
+      "decimals": 18,
+      "name": "Zcash Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ADA",
+      "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+      "decimals": 18,
+      "name": "Cardano Token",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "LINK",
+      "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "decimals": 18,
+      "name": "ChainLink Token",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "BCH",
+      "address": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf",
+      "decimals": 18,
+      "name": "Bitcoin Cash Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DAI",
+      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+      "decimals": 18,
+      "name": "Binance Pegged DAI",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "TON",
+      "address": "0x76A797A59Ba2C17726896976B7B3747BfD1d220f",
+      "decimals": 9,
+      "name": "Wrapped TON Coin",
+      "tradable": true,
+      "source": "bsc-rpc:erc20-metadata",
+      "sourceSymbol": "TONCOIN"
+    },
+    {
+      "symbol": "USD1",
+      "address": "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d",
+      "decimals": 18,
+      "name": "World Liberty Financial USD",
+      "tradable": true,
+      "source": "manual:bscscan-cmc"
+    },
+    {
+      "symbol": "USDe",
+      "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+      "decimals": 18,
+      "name": "USDe",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "M",
+      "address": "0x22b1458e780F8fA71E2F84502cEe8B5A3cc731Fa",
+      "decimals": 18,
+      "name": "MemeCore",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "LTC",
+      "address": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
+      "decimals": 18,
+      "name": "Litecoin Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "AVAX",
+      "address": "0x1CE0c2827e2eF14D5C4f29a091d735A204794041",
+      "decimals": 18,
+      "name": "Avalanche",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SHIB",
+      "address": "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D",
+      "decimals": 18,
+      "name": "SHIBA INU",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "XAUt",
+      "address": "0x21cAef8A43163Eea865baeE23b9C2E327696A3bf",
+      "decimals": 6,
+      "name": "Tether Gold",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "WLFI",
+      "address": "0x47474747477b199288bF72a1D702f7Fe0Fb1DEeA",
+      "decimals": 18,
+      "name": "World Liberty Financial",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "H",
+      "address": "0x44F161aE29361E332dEA039DFA2F404E0bC5B5Cc",
+      "decimals": 18,
+      "name": "Humanity",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DOT",
+      "address": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
+      "decimals": 18,
+      "name": "Polkadot Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "UNI",
+      "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+      "decimals": 18,
+      "name": "Uniswap",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "ASTER",
+      "address": "0x000Ae314E2A2172a039B26378814C252734f556A",
+      "decimals": 18,
+      "name": "Aster",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DEXE",
+      "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+      "decimals": 18,
+      "name": "DeXe Token",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "USDD",
+      "address": "0x45E51bc23D592EB2DBA86da3985299f7895d66Ba",
+      "decimals": 18,
+      "name": "Decentralized USD",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "ETC",
+      "address": "0x3d6545b08693daE087E957cb1180ee38B9e3c25E",
+      "decimals": 18,
+      "name": "Ethereum Classic",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "AAVE",
+      "address": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+      "decimals": 18,
+      "name": "Aave Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ATOM",
+      "address": "0x0Eb3a705fc54725037CC9e008bDede697f62F335",
+      "decimals": 18,
+      "name": "Cosmos Token",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "U",
+      "address": "0xcE24439F2D9C6a2289F741120FE202248B666666",
+      "decimals": 18,
+      "name": "United Stables",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "STABLE",
+      "address": "0x011EBe7d75E2C9D1E0bD0be0bEf5C36f0A90075F",
+      "decimals": 18,
+      "name": "STABLE",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "FIL",
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
+      "decimals": 18,
+      "name": "Filecoin",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "INJ",
+      "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+      "decimals": 18,
+      "name": "Injective Protocol",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "币安人生",
+      "address": "0x924fa68a0FC644485b8df8AbfA0A41C2e7744444",
+      "decimals": 18,
+      "name": "币安人生",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "NIGHT",
+      "address": "0xFe930c2d63AeD9b82fC4DBC801920dD2c1a3224F",
+      "decimals": 18,
+      "name": "NIGHT",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "FET",
+      "address": "0x031b41e504677879370e9DBcF937283A8691Fa7f",
+      "decimals": 18,
+      "name": "FetchToken",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "TUSD",
+      "address": "0x40af3827F39D0EAcBF4A168f8D4ee67c121D11c9",
+      "decimals": 18,
+      "name": "TrueUSD",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "BONK",
+      "address": "0xA697e272a73744b343528C3Bc4702F2565b2F422",
+      "decimals": 5,
+      "name": "Bonk",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "PENGU",
+      "address": "0x6418c0dd099a9FDA397C766304CDd918233E8847",
+      "decimals": 18,
+      "name": "Pudgy Penguins",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "CAKE",
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "decimals": 18,
+      "name": "PancakeSwap Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SIREN",
+      "address": "0x997A58129890bBdA032231A52eD1ddC845fc18e1",
+      "decimals": 18,
+      "name": "SIREN",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "LUNC",
+      "address": "0x45b695F2594713c96B52468ED168A691986b858A",
+      "decimals": 18,
+      "name": "Terra Classic AI",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 39117,
+      "cmcRank": 7739,
+      "cmcSlug": "terra-classic-ai"
+    },
+    {
+      "symbol": "ZRO",
+      "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "decimals": 18,
+      "name": "LayerZero",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "KITE",
+      "address": "0x904567252D8F48555b7447c67dCA23F0372E16be",
+      "decimals": 18,
+      "name": "Kite",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "FDUSD",
+      "address": "0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409",
+      "decimals": 18,
+      "name": "First Digital USD",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BEAT",
+      "address": "0xcf3232B85b43BCa90E51D38cc06Cc8bB8C8A3E36",
+      "decimals": 18,
+      "name": "Beat Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "PIEVERSE",
+      "address": "0x0E63B9C287E32A05E6b9AB8ee8dF88A2760225A9",
+      "decimals": 18,
+      "name": "Pieverse Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BTT",
+      "address": "0x352Cb5E19b12FC216548a2677bD0fce83BaE434B",
+      "decimals": 18,
+      "name": "Bittorrent",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "NFT",
+      "address": "0x20eE7B720f4E4c4FFcB00C4065cdae55271aECCa",
+      "decimals": 6,
+      "name": "APENFT",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "EDGE",
+      "address": "0x70f2EADf1CA1969FF42b0c78e9DA519e8937cbaF",
+      "decimals": 18,
+      "name": "Edge",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "FLOKI",
+      "address": "0xfb5B838b6cfEEdC2873aB27866079AC55363D37E",
+      "decimals": 9,
+      "name": "FLOKI",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "LDO",
+      "address": "0x986854779804799C1d68867F5E03e601E781e41b",
+      "decimals": 18,
+      "name": "Lido DAO Token",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "B",
+      "address": "0x6bdcCe4A559076e37755a78Ce0c06214E59e4444",
+      "decimals": 18,
+      "name": "B",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "FF",
+      "address": "0xAC23B90A79504865D52B49B327328411a23d4dB2",
+      "decimals": 18,
+      "name": "Falcon Finance",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "PENDLE",
+      "address": "0xb3Ed0A426155B79B898849803E3B36552f7ED507",
+      "decimals": 18,
+      "name": "Pendle",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "NEX",
+      "address": "0x365DE036A1F7dcCb621530d517133521debB2013",
+      "decimals": 18,
+      "name": "Nexus",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "STG",
+      "address": "0xB0D502E938ed5f4df2E681fE6E419ff29631d62b",
+      "decimals": 18,
+      "name": "StargateToken",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "AXS",
+      "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+      "decimals": 18,
+      "name": "Axie Infinity Shard",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "TWT",
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "decimals": 18,
+      "name": "Trust Wallet",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "HOME",
+      "address": "0x4BfAa776991E85e5f8b1255461cbbd216cFc714f",
+      "decimals": 18,
+      "name": "Home",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "RAY",
+      "address": "0x13b6A55662f6591f8B8408Af1C73B017E32eEdB8",
+      "decimals": 6,
+      "name": "Raydium (Portal)",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "COMP",
+      "address": "0x52CE071Bd9b1C4B00A0b92D298c512478CaD67e8",
+      "decimals": 18,
+      "name": "Compound Finance",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "GWEI",
+      "address": "0x30117E4bC17d7B044194b76A38365C53b72F7D49",
+      "decimals": 18,
+      "name": "ETHGas",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "XCN",
+      "address": "0x7324c7C0d95CEBC73eEa7E85CbAac0dBdf88a05b",
+      "decimals": 18,
+      "name": "Chain",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "GENIUS",
+      "address": "0x1F12B85aAC097E43Aa1555b2881E98a51090e9A6",
+      "decimals": 18,
+      "name": "Genius",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "XPL",
+      "address": "0x405FBc9004D857903bFD6b3357792D71a50726b0",
+      "decimals": 18,
+      "name": "Plasma",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BAT",
+      "address": "0x101d82428437127bF1608F699CD651e6Abf9766E",
+      "decimals": 18,
+      "name": "Basic Attention Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SKYAI",
+      "address": "0x92aa03137385F18539301349dcfC9EbC923fFb10",
+      "decimals": 18,
+      "name": "SKYAI",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "APE",
+      "address": "0x8f86a15EC17cb3369d8b3E666dAdBC11daA82b79",
+      "decimals": 18,
+      "name": "ApeCoin",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "IP",
+      "address": "0x5949Bbb8DF3cc428a689422D5d8c26442AB3B1e8",
+      "decimals": 18,
+      "name": "Story Protocol",
+      "tradable": true,
+      "source": "bsc-rpc:erc20-metadata"
+    },
+    {
+      "symbol": "SFP",
+      "address": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
+      "decimals": 18,
+      "name": "SafePal Token",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "TAG",
+      "address": "0x208bF3E7dA9639f1Eaefa2DE78c23396B0682025",
+      "decimals": 18,
+      "name": "Tagger",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "NXPC",
+      "address": "0xf2b51CC1850fEd939658317a22d73d3482767591",
+      "decimals": 18,
+      "name": "NXPC",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "AB",
+      "address": "0x95034f653D5D161890836Ad2B6b8cc49D14e029a",
+      "decimals": 18,
+      "name": "AB",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SAHARA",
+      "address": "0xFDFfB411C4A70AA7C95D5C981a6Fb4Da867e1111",
+      "decimals": 18,
+      "name": "Sahara AI",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "1INCH",
+      "address": "0x111111111117dC0aa78b770fA6A738034120C302",
+      "decimals": 18,
+      "name": "1INCH Token",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "CHEEMS",
+      "address": "0x0DF0587216a4a1bB7d5082fdc491d93d2dD4B413",
+      "decimals": 18,
+      "name": "Cheems",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BANANAS31",
+      "address": "0x3d4f0513e8a29669b960f9dbca61861548a9a760",
+      "decimals": 18,
+      "name": "Banana For Scale",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 34118,
+      "cmcRank": 194,
+      "cmcSlug": "banana-for-scale"
+    },
+    {
+      "symbol": "RIVER",
+      "address": "0xdA7AD9dea9397cffdDAE2F8a052B82f1484252B3",
+      "decimals": 18,
+      "name": "River",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "MYX",
+      "address": "0xD82544bf0dfe8385eF8FA34D67e6e4940CC63e16",
+      "decimals": 18,
+      "name": "MYX",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "RAVE",
+      "address": "0x97693439EA2f0ecdeb9135881E49f354656a911c",
+      "decimals": 18,
+      "name": "RaveDAO",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SNX",
+      "address": "0x45d51Acc587574536CB292500d35dD3060796C63",
+      "decimals": 18,
+      "name": "SincroniX",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 24157,
+      "cmcRank": null,
+      "cmcSlug": "sincronix"
+    },
+    {
+      "symbol": "FORM",
+      "address": "0x5b73A93b4E5e4f1FD27D8b3F8C97D69908b5E284",
+      "decimals": 18,
+      "name": "Four",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 23635,
+      "cmcRank": 185,
+      "cmcSlug": "binaryx-new"
+    },
+    {
+      "symbol": "LAB",
+      "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+      "decimals": 18,
+      "name": "LAB",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 33223,
+      "cmcRank": 202,
+      "cmcSlug": "lab"
+    },
+    {
+      "symbol": "HTX",
+      "address": "0x61EC85aB89377db65762E234C946b5c25A56E99e",
+      "decimals": 18,
+      "name": "HTX",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "USDf",
+      "address": "0xb3b02E4A9Fb2bD28CC2ff97B0aB3F6B3Ec1eE9D2",
+      "decimals": 18,
+      "name": "Falcon USD",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "CTM",
+      "address": "0xc8Fb80fCc03f699C70ff0CC08C09106288888888",
+      "decimals": 18,
+      "name": "c8ntinuum",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "BDX",
+      "address": "0x6ad12E761b438beA3EA09F6C6266556Bb24C2181",
+      "decimals": 9,
+      "name": "BELDEX",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "SLX",
+      "address": "0x8A063A9ff4dE28dcB87117cc759BE6cE70e09F81",
+      "decimals": 18,
+      "name": "SLIMEX",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 38542,
+      "cmcRank": 1147,
+      "cmcSlug": "slimex"
+    },
+    {
+      "symbol": "UB",
+      "address": "0x40b8129B786D766267A7a118cF8C07E31CDB6Fde",
+      "decimals": 18,
+      "name": "Unibase",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DUCKY",
+      "address": "0xaDB50D6a3f931E5b4A14D06A4A77fe71171A462f",
+      "decimals": 18,
+      "name": "Ducky",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 33852,
+      "cmcRank": 217,
+      "cmcSlug": "ducky"
+    },
+    {
+      "symbol": "FRAX",
+      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "decimals": 18,
+      "name": "Frax",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "BILL",
+      "address": "0xDf24f8c21Cb404B3031a450D8e049D6E39FC1fA5",
+      "decimals": 18,
+      "name": "Billions Network Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "WFI",
+      "address": "0x90c48855bb69f9d2c261efd0d8c7f35990f2dd6f",
+      "decimals": 18,
+      "name": "WeFi",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 34261,
+      "cmcRank": 223,
+      "cmcSlug": "wfi"
+    },
+    {
+      "symbol": "KOGE",
+      "address": "0xe6DF05CE8C8301223373CF5B969AFCb1498c5528",
+      "decimals": 18,
+      "name": "BNB48 Club Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ALE",
+      "address": "0x9dCE13E71B11eb5Df66ca269bD657696587Fd4E2",
+      "decimals": 18,
+      "name": "Ailey",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 30605,
+      "cmcRank": 242,
+      "cmcSlug": "project-ailey"
+    },
+    {
+      "symbol": "FRXUSD",
+      "address": "0x723fabe3f9dB9E791D6E581435272E23AE5cFFff",
+      "decimals": 18,
+      "name": "Frax USD",
+      "tradable": true,
+      "source": "twak:search-verified",
+      "sourceSymbol": "frxUSD"
+    },
+    {
+      "symbol": "USDF",
+      "address": "0x5A110fC00474038f6c02E89C707D638602EA44B5",
+      "decimals": 18,
+      "name": "Astherus USDF",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "GOMINING",
+      "address": "0x7Ddc52c4De30e94Be3A6A0A2b259b2850f421989",
+      "decimals": 18,
+      "name": "GoMining",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "VCNT",
+      "address": "0x3Fc233567a9C8E7dEda1D94F39819B4F248b7777",
+      "decimals": 18,
+      "name": "ViciCoin",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "GUA",
+      "address": "0xA5C8e1513B6A08334b479fe4D71F1253259469BE",
+      "decimals": 18,
+      "name": "GUA",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DUSD",
+      "address": "0xaf44A1E76F56eE12ADBB7ba8acD3CbD474888122",
+      "decimals": 6,
+      "name": "StandX DUSD",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SMILEK",
+      "address": "0x4f9d3AdbfAF4579518b1Ca7E06468A363897B997",
+      "decimals": 18,
+      "name": "Smilek to the Bank",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 10186,
+      "cmcRank": 257,
+      "cmcSlug": "bscbet-online"
+    },
+    {
+      "symbol": "0G",
+      "address": "0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE",
+      "decimals": 18,
+      "name": "0G",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BEAM",
+      "address": "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE",
+      "decimals": 18,
+      "name": "Beam",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "MY",
+      "address": "0xf0ebb572643336834d516c485ad31d3299999999",
+      "decimals": 18,
+      "name": "MetYa",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 35269,
+      "cmcRank": 315,
+      "cmcSlug": "metya"
+    },
+    {
+      "symbol": "SLX",
+      "address": "0x8A063A9ff4dE28dcB87117cc759BE6cE70e09F81",
+      "decimals": 18,
+      "name": "SLIMEX",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 38542,
+      "cmcRank": 1147,
+      "cmcSlug": "slimex"
+    },
+    {
+      "symbol": "SOON",
+      "address": "0xb9E1Fd5A02D3A33b25a14d661414E6ED6954a721",
+      "decimals": 18,
+      "name": "SOON Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "REAL",
+      "address": "0x65e7a112dB1142EAE919201b1232f7aA488Ed83c",
+      "decimals": 18,
+      "name": "RealLink",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 14721,
+      "cmcRank": 270,
+      "cmcSlug": "reallink"
+    },
+    {
+      "symbol": "Q",
+      "address": "0xc07e1300dc138601FA6B0b59f8D0FA477e690589",
+      "decimals": 18,
+      "name": "Quack AI Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "AIOZ",
+      "address": "0x33d08D8C7a168333a85285a68C0042b39fC3741D",
+      "decimals": 18,
+      "name": "AIOZ Network",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ZIG",
+      "address": "0x8C907e0a72C3d55627E853f4ec6a96b0C8771145",
+      "decimals": 18,
+      "name": "ZigCoin",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "YFI",
+      "address": "0x88f1A5ae2A3BF98AEAF342D26B30a79438c9142e",
+      "decimals": 18,
+      "name": "yearn.finance",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "TAC",
+      "address": "0x1219c409faBe2C27Bd0D1A565daeed9Bd9f271dE",
+      "decimals": 18,
+      "name": "TAC Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "lisUSD",
+      "address": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "decimals": 18,
+      "name": "Lista USD",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "CYS",
+      "address": "0x0C69199C1562233640e0Db5Ce2c399A88eB507C7",
+      "decimals": 18,
+      "name": "Cysic Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ZAMA",
+      "address": "0x6907A5986C4950Bdaf2F81828Ec0737ce787519f",
+      "decimals": 18,
+      "name": "Zama",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "TRIA",
+      "address": "0xb0b92de23bAa85fB06208277E925ceD53edab482",
+      "decimals": 18,
+      "name": "TRIA",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "HUMA",
+      "address": "0x92516e0DDf1dDBF7FAB1b79CaC26689fDC5ba8e6",
+      "decimals": 18,
+      "name": "Huma Finance",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 36576,
+      "cmcRank": 299,
+      "cmcSlug": "huma-finance"
+    },
+    {
+      "symbol": "PLUME",
+      "address": "0x5aFadCd1E8E3CA78Ee2D37100102f2aec8Bc0Aa8",
+      "decimals": 18,
+      "name": "Plume",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ZIL",
+      "address": "0xb86AbCb37C3A4B64f74f59301AFF131a1BEcC787",
+      "decimals": 12,
+      "name": "Zilliqa",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "XPR",
+      "address": "0x5de3939b2F811A61d830E6F52d13B066881412ab",
+      "decimals": 4,
+      "name": "XPR Network",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "ZETA",
+      "address": "0x0000028a2eB8346cd5c0267856aB7594B7a55308",
+      "decimals": 18,
+      "name": "Zeta",
+      "tradable": true,
+      "source": "twak:search-verified"
+    },
+    {
+      "symbol": "BabyDoge",
+      "address": "0xc748673057861a797275CD8A068AbB95A902e8de",
+      "decimals": 9,
+      "name": "Baby Doge Coin",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "NILA",
+      "address": "0x00f8Da33734FeB9b946fEC2228C25072D2e2E41f",
+      "decimals": 18,
+      "name": "MindWaveDAO",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 36302,
+      "cmcRank": 321,
+      "cmcSlug": "mindwavedao"
+    },
+    {
+      "symbol": "ROSE",
+      "address": "0xF00600eBC7633462BC4F9C61eA2cE99F5AAEBd4a",
+      "decimals": 18,
+      "name": "Oasis",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 7653,
+      "cmcRank": 411,
+      "cmcSlug": "oasis-network"
+    },
+    {
+      "symbol": "VELO",
+      "address": "0xf486ad071f3bEE968384D2E39e2D8aF0fCf6fd46",
+      "decimals": 18,
+      "name": "VELO",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "UAI",
+      "address": "0x3E5d4f8aee0D9B3082d5f6DA5D6e225D17ba9ea0",
+      "decimals": 18,
+      "name": "UnifAI",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BRETT",
+      "address": "0xa7440029eca41deabd8775ef1d6086b37d4df8d6",
+      "decimals": 18,
+      "name": "Brett (Based)",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 29743,
+      "cmcRank": 356,
+      "cmcSlug": "based-brett"
+    },
+    {
+      "symbol": "OPEN",
+      "address": "0xA227Cc36938f0c9E09CE0e64dfab226cad739447",
+      "decimals": 18,
+      "name": "OPEN",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BSB",
+      "address": "0x595dEaad1eB5476Ff1E649fDb7EFC36F1E4679cc",
+      "decimals": 18,
+      "name": "Block Street",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "TOSHI",
+      "address": "0x6a2608Dabe09bc1128EEC7275B92DFB939D5Db3f",
+      "decimals": 18,
+      "name": "Toshi",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BAS",
+      "address": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
+      "decimals": 18,
+      "name": "BNB Attestation",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "ACH",
+      "address": "0xBc7d6B50616989655AfD682fb42743507003056D",
+      "decimals": 8,
+      "name": "Alchemy Token",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "AXL",
+      "address": "0x8b1f4432F943c465A973FeDC6d7aa50Fc96f1f65",
+      "decimals": 6,
+      "name": "Axelar",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "LUR",
+      "address": "0xc66B6f38aE5053A109cfd8639E0Ee17EC69cf788",
+      "decimals": 18,
+      "name": "Lumera Health",
+      "tradable": true,
+      "source": "coinmarketcap:map",
+      "cmcId": 36804,
+      "cmcRank": 302,
+      "cmcSlug": "lumera-health"
+    },
+    {
+      "symbol": "ELF",
+      "address": "0xa3f020a5C92e15be13CAF0Ee5C95cF79585EeCC9",
+      "decimals": 18,
+      "name": "aelf",
+      "tradable": true,
+      "source": "twak:search"
+    },
+    {
+      "symbol": "KAVA",
+      "address": "0x9BAFC8d4b487cEBff201721702507a3E2C67ad79",
+      "decimals": 18,
+      "name": "Kava",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "APR",
+      "address": "0x299AD4299Da5b2b93Fba4c96967B040C7F611099",
+      "decimals": 18,
+      "name": "aPriori",
+      "tradable": true,
+      "source": "twak:search"
+    },
+    {
+      "symbol": "IRYS",
+      "address": "0x91152B4Ef635403efBAe860edD0F8c321d7c035d",
+      "decimals": 18,
+      "name": "Irys",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "EURI",
+      "address": "0x6F1754915945b47f7c9b49ac9e51e64112827777",
+      "decimals": 18,
+      "name": "Eurite Hestia",
+      "tradable": true,
+      "source": "twak:search"
+    },
+    {
+      "symbol": "XUSD",
+      "address": "0xF81aC2E1A0373ddE1BcE01E2Fe694a9b7E3bfcB9",
+      "decimals": 6,
+      "name": "XUSD",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BARD",
+      "address": "0xd23A186A78c0B3B805505E5f8ea4083295ef9f3a",
+      "decimals": 18,
+      "name": "Lombard",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "DUSK",
+      "address": "0xB2BD0749DBE21f623d9BABa856D3B0f0e1BFEc9C",
+      "decimals": 18,
+      "name": "Dusk",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "SUSHI",
+      "address": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
+      "decimals": 18,
+      "name": "SushiToken",
+      "tradable": true,
+      "source": "pancakeswap:top100-tokenlist"
+    },
+    {
+      "symbol": "PEAQ",
+      "address": "0x8b9Ee39195eA99d6ddD68030F44131116bc218F6",
+      "decimals": 18,
+      "name": "PeaqOFT",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "COAI",
+      "address": "0x0A8D6C86e1bcE73fE4D0bD531e1a567306836EA5",
+      "decimals": 18,
+      "name": "ChainOpera AI",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    },
+    {
+      "symbol": "BDCA",
+      "address": "0x0c8382719ef242CaE2247E4DeCb2891fBF699818",
+      "decimals": 18,
+      "name": "BDCA",
+      "tradable": true,
+      "source": "twak:search"
+    },
+    {
+      "symbol": "XAUM",
+      "address": "0x23AE4fd8E7844cdBc97775496eBd0E8248656028",
+      "decimals": 18,
+      "name": "Matrixdock Gold",
+      "tradable": true,
+      "source": "pancakeswap:extended-tokenlist"
+    }
+  ]
+}

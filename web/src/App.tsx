@@ -18,6 +18,8 @@ type Cycle = {
   usdtUsd: number | null;
   usd1Usd: number | null;
   positionUsd: number | null;
+  inScopeUsd: number | null;
+  inScopeWarning: boolean;
   floorUsd: number | null;
   degraded: boolean;
   action: string | null;
@@ -313,6 +315,11 @@ function LiveState({
         <span>Open position</span>
         <strong>{formatUsd(latest.positionUsd)}</strong>
         <small>{latest.positionUsd && latest.positionUsd > 0 ? "position is live" : "flat at latest receipt"}</small>
+      </div>
+      <div className="metric">
+        <span>In-scope value</span>
+        <strong className={latest.inScopeWarning ? "text-bad" : ""}>{formatUsd(latest.inScopeUsd)}</strong>
+        <small>{latest.inScopeWarning ? "below $2 monitor threshold" : "eligible-token hourly monitor"}</small>
       </div>
       <EquityChart cycles={feed.cycles} />
     </section>

@@ -12,13 +12,13 @@
 //      capped per token and per day.
 //   4. The eligible-token allowlist as a hard gate.
 //   5. A compliance valve: if no thesis cleared by the configured UTC hour,
-//      authorize a minimal stable rotation so the trade-per-day rule can
-//      never disqualify us on a quiet day.
+//      authorize a minimal eligible-token buy/sell so the trade-per-day rule
+//      can never disqualify us on a quiet day.
 //
 // Pure functions only. No I/O, no clock reads (time is an input), no
 // randomness. Every decision returns machine-checkable reasons.
 
-import { isEligible, PARKING_STABLES } from "./allowlist.mjs";
+import { isEligible } from "./allowlist.mjs";
 
 export const DEFAULT_CONFIG = {
   // DQ line is 30%; we never let equity get within the buffer of it.
@@ -33,9 +33,9 @@ export const DEFAULT_CONFIG = {
   // Minimum model conviction (basis points) to consider a trade at all.
   minConvictionBps: 5500,
   // From this UTC hour, with zero trades today, the compliance valve opens.
-  complianceHourUtc: 21,
-  // Size of the compliance rotation in USD (tiny, fee-bounded, in-scope).
-  complianceUsd: 1.25,
+  complianceHourUtc: 19,
+  // Size of the compliance trade in USD (tiny, fee-bounded, in-scope).
+  complianceUsd: 1.5,
 };
 
 export function initialState(startEquityUsd, nowMs) {
@@ -46,6 +46,7 @@ export function initialState(startEquityUsd, nowMs) {
     dayKey: dayKeyOf(nowMs),
     tradesToday: 0,
     newRiskTodayPct: 0,
+    lastTradeAt: null,
   };
 }
 
@@ -60,8 +61,10 @@ export function syncState(state, equityUsd, nowMs, config = DEFAULT_CONFIG) {
   const dayKey = dayKeyOf(nowMs);
   if (dayKey !== next.dayKey) {
     next.dayKey = dayKey;
-    next.tradesToday = 0;
+    next.tradesToday = lastTradeAtIsToday(next, nowMs) ? 1 : 0;
     next.newRiskTodayPct = 0;
+  } else if (next.tradesToday === 0 && lastTradeAtIsToday(next, nowMs)) {
+    next.tradesToday = 1;
   }
   if (equityUsd > next.peakEquityUsd) {
     next.peakEquityUsd = equityUsd;
@@ -73,11 +76,10 @@ export function syncState(state, equityUsd, nowMs, config = DEFAULT_CONFIG) {
 
 // proposal: { kind: "TRADE", symbol, direction: "enter"|"exit", convictionBps, thesis }
 //           or { kind: "NONE" } when the scout/model produced nothing.
-// context:  { equityUsd, nowMs, openPositionPct }
+// context:  { equityUsd, nowMs, openPositionPct, tradeArmed, degraded, complianceAction }
 export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
   const reasons = [];
   const { equityUsd, nowMs } = context;
-  const hourUtc = new Date(nowMs).getUTCHours();
 
   // Exits are always allowed: reducing risk can never be vetoed.
   if (proposal.kind === "TRADE" && proposal.direction === "exit") {
@@ -102,7 +104,7 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
       reasons.push(`daily_new_risk_cap:${state.newRiskTodayPct}>=${config.maxDailyNewRiskPct}`);
     }
     if (reasons.length > 0) {
-      return maybeCompliance("VETO", reasons, state, hourUtc, config);
+      return maybeCompliance("VETO", reasons, state, context, config);
     }
 
     // Size: conviction scales into the risk budget, hard-capped.
@@ -119,17 +121,56 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
   }
 
   // No proposal cleared the scout/model.
-  return maybeCompliance("STAND_DOWN", ["no_qualifying_thesis"], state, hourUtc, config);
+  return maybeCompliance("STAND_DOWN", ["no_qualifying_thesis"], state, context, config);
 }
 
-function maybeCompliance(baseDecision, reasons, state, hourUtc, config) {
-  if (state.tradesToday === 0 && hourUtc >= config.complianceHourUtc) {
+function maybeCompliance(baseDecision, reasons, state, context, config) {
+  const { complianceAction, equityUsd, nowMs } = context;
+  const hourUtc = new Date(nowMs).getUTCHours();
+  if (
+    context.tradeArmed &&
+    !context.degraded &&
+    complianceAction &&
+    !hasTradeToday(state, nowMs) &&
+    hourUtc >= config.complianceHourUtc
+  ) {
+    if (complianceAction.action === "sell") {
+      return {
+        decision: "COMPLIANCE_SELL",
+        symbol: complianceAction.symbol,
+        sizedPct: round2(context.openPositionPct ?? 0),
+        reasons: [...reasons, "compliance_sell:mature_position"],
+        complianceTrade: true,
+        complianceReason: complianceAction.reason,
+      };
+    }
+
+    if (!isEligible(complianceAction.symbol)) {
+      return {
+        decision: baseDecision,
+        symbol: null,
+        sizedPct: 0,
+        reasons: [...reasons, `compliance_token_not_eligible:${complianceAction.symbol}`],
+      };
+    }
+    const riskBudgetPct = Math.max(0, ((equityUsd - state.floorUsd) / equityUsd) * 100);
+    const sizedPct = round2((config.complianceUsd / equityUsd) * 100);
+    if (riskBudgetPct < sizedPct) {
+      return {
+        decision: baseDecision,
+        symbol: null,
+        sizedPct: 0,
+        reasons: [...reasons, `compliance_risk_budget_exhausted:${riskBudgetPct.toFixed(2)}<${sizedPct}`],
+      };
+    }
     return {
-      decision: "COMPLIANCE_TRADE",
-      symbol: `${PARKING_STABLES[0]}->${PARKING_STABLES[2]}`,
-      sizedPct: 0,
+      decision: "COMPLIANCE_BUY",
+      symbol: complianceAction.symbol,
+      sizedPct,
       complianceUsd: config.complianceUsd,
-      reasons: [...reasons, "compliance_valve:zero_trades_late_day"],
+      complianceTrade: true,
+      complianceReason: complianceAction.reason,
+      reasons: [...reasons, "compliance_buy:zero_trades_late_day"],
     };
   }
   return { decision: baseDecision, symbol: null, sizedPct: 0, reasons };
@@ -140,16 +181,29 @@ function verdict(decision, symbol, sizedPct, reasons) {
 }
 
 // Call after an executed entry to account the day's opened risk.
-export function noteEntry(state, sizedPct) {
+export function noteEntry(state, sizedPct, nowMs = null) {
   return {
-    ...state,
-    tradesToday: state.tradesToday + 1,
+    ...noteTrade(state, nowMs),
     newRiskTodayPct: round2(state.newRiskTodayPct + sizedPct),
   };
 }
 
-export function noteTrade(state) {
-  return { ...state, tradesToday: state.tradesToday + 1 };
+export function noteTrade(state, nowMs = null) {
+  return {
+    ...state,
+    tradesToday: state.tradesToday + 1,
+    lastTradeAt: nowMs ? new Date(nowMs).toISOString() : state.lastTradeAt ?? null,
+  };
+}
+
+export function hasTradeToday(state, nowMs) {
+  const stateDayMatches = state.dayKey === dayKeyOf(nowMs);
+  return (stateDayMatches && state.tradesToday > 0) || lastTradeAtIsToday(state, nowMs);
+}
+
+function lastTradeAtIsToday(state, nowMs) {
+  const lastTradeMs = Date.parse(state.lastTradeAt ?? "");
+  return Number.isFinite(lastTradeMs) && dayKeyOf(lastTradeMs) === dayKeyOf(nowMs);
 }
 
 function round2(x) {

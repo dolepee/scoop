@@ -34,23 +34,46 @@ function paidGet(url, budget) {
   if (budget.spentUsd + COST_PER_CALL_USD > budget.capUsd) {
     return { skipped: true, reason: "data_budget_exhausted", url };
   }
+  try {
+    const out = execFileSync(
+      "npx",
+      [
+        "twak", "x402", "request", url,
+        "--prefer-network", "bsc",
+        "--prefer-method", "eip3009",
+        "--prefer-asset", USD1,
+        "--max-payment", MAX_PAYMENT_ATOMIC,
+        "--yes", "--json",
+      ],
+      { encoding: "utf8", timeout: 90_000, env: process.env },
+    );
+    budget.spentUsd = Math.round((budget.spentUsd + COST_PER_CALL_USD) * 100) / 100;
+    budget.calls += 1;
+    const start = out.indexOf("{");
+    const payload = JSON.parse(out.slice(start));
+    return { url, costUsd: COST_PER_CALL_USD, dataSource: "x402-paid", responseHash: sha256(canonical(payload)), payload };
+  } catch (error) {
+    return freeFallbackGet(url, error);
+  }
+}
+
+function freeFallbackGet(url, error) {
+  if (!process.env.CMC_API_KEY) throw error;
+  const fallbackUrl = url.replace("/x402", "");
   const out = execFileSync(
-    "npx",
-    [
-      "twak", "x402", "request", url,
-      "--prefer-network", "bsc",
-      "--prefer-method", "eip3009",
-      "--prefer-asset", USD1,
-      "--max-payment", MAX_PAYMENT_ATOMIC,
-      "--yes", "--json",
-    ],
-    { encoding: "utf8", timeout: 90_000, env: process.env },
+    "curl",
+    ["--fail", "--silent", "--show-error", "--header", `X-CMC_PRO_API_KEY: ${process.env.CMC_API_KEY}`, fallbackUrl],
+    { encoding: "utf8", timeout: 90_000 },
   );
-  budget.spentUsd = Math.round((budget.spentUsd + COST_PER_CALL_USD) * 100) / 100;
-  budget.calls += 1;
-  const start = out.indexOf("{");
-  const payload = JSON.parse(out.slice(start));
-  return { url, costUsd: COST_PER_CALL_USD, responseHash: sha256(canonical(payload)), payload };
+  const payload = JSON.parse(out);
+  return {
+    url: fallbackUrl,
+    costUsd: 0,
+    dataSource: "free-fallback",
+    fallbackFrom: "x402-paid",
+    responseHash: sha256(canonical(payload)),
+    payload,
+  };
 }
 
 // Movers board. Raw "top gainers" are micro-caps that never pass the
@@ -123,5 +146,13 @@ export function buyQuotes(symbols, budget) {
 export function describeCalls(calls) {
   return calls
     .filter(Boolean)
-    .map((c) => (c.skipped ? { skipped: c.reason, url: c.url } : { url: c.url, costUsd: c.costUsd, responseHash: c.responseHash }));
+    .map((c) => (c.skipped
+      ? { skipped: c.reason, url: c.url }
+      : {
+        url: c.url,
+        costUsd: c.costUsd,
+        dataSource: c.dataSource,
+        fallbackFrom: c.fallbackFrom,
+        responseHash: c.responseHash,
+      }));
 }

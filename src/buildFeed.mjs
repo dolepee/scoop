@@ -75,6 +75,8 @@ function cycle(row) {
     usdtUsd: num(counters.usdtUsd),
     usd1Usd: num(counters.usd1Usd),
     positionUsd: num(counters.positionUsd),
+    inScopeUsd: num(counters.inScopeUsd),
+    inScopeWarning: bool(counters.inScopeWarning),
     floorUsd: num(counters.floorUsd ?? governor.state?.floorUsd),
     degraded: bool(counters.degraded),
     action,

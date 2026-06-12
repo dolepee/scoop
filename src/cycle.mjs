@@ -7,11 +7,13 @@
 // enabled; every stage of that ramp leaves the same chained receipts.
 
 import { execFileSync } from "node:child_process";
-import { decide, DEFAULT_CONFIG, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
+import { decide, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
 import { writeReceipt, latestReceipt, sha256, canonical } from "./receipts.mjs";
 import { buyMovers, buyQuotes, newDataBudget, describeCalls } from "./scout-rest.mjs";
 import { formThesis } from "./thesis.mjs";
 import { loadPosition, savePosition, resolveToken, swap, USDT, USD1 } from "./executor.mjs";
+import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
+import { isEligibleAddress } from "./allowlist.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -96,6 +98,12 @@ async function main() {
     }
   }
   const equityUsd = Math.round((usdtUsd + usd1Usd + positionUsd) * 100) / 100;
+  const inScopeUsd = round2(
+    (isEligibleAddress(USDT.address) ? usdtUsd : 0) +
+      (isEligibleAddress(USD1.address) ? usd1Usd : 0) +
+      (position && isEligibleAddress(position.address) ? positionUsd : 0),
+  );
+  const inScopeWarning = inScopeUsd < 2;
 
   // ---- Think -------------------------------------------------------------
   const { thesis, provider, raw } = PAID
@@ -111,9 +119,17 @@ async function main() {
     ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
     : initialState(equityUsd, nowMs);
   if (!degraded) state = syncState(state, equityUsd, nowMs);
+  const complianceAction = chooseComplianceAction({ position, thesis, movers, nowMs });
   const ruling = degraded
     ? { decision: "STAND_DOWN", symbol: null, sizedPct: 0, reasons: ["equity_degraded", ...equityNotes] }
-    : decide(proposal, state, { equityUsd, nowMs, openPositionPct: position ? (positionUsd / equityUsd) * 100 : 0 });
+    : decide(proposal, state, {
+      equityUsd,
+      nowMs,
+      openPositionPct: position && equityUsd > 0 ? (positionUsd / equityUsd) * 100 : 0,
+      tradeArmed: TRADE,
+      degraded,
+      complianceAction,
+    });
 
   // ---- Execute -----------------------------------------------------------
   let execution = { executed: false, mode: TRADE ? "armed" : "observe" };
@@ -127,23 +143,64 @@ async function main() {
         const entryPrice = priceUsd(proposal.symbol);
         const units = Number(String(res.output ?? "0").split(" ")[0]) || (entryPrice > 0 ? spendUsd / entryPrice : 0);
         savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: thesis.invalidation });
-        state = noteEntry(state, ruling.sizedPct);
+        state = noteEntry(state, ruling.sizedPct, nowMs);
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
       } else {
         if (!position) throw new Error("no_position_to_exit");
         const res = swap({ amount: String(position.units), from: position.address, to: USDT.address });
         savePosition(null);
-        state = noteTrade(state);
+        state = noteTrade(state, nowMs);
         execution = { executed: true, kind: "exit", txHash: res.txHash, closedUnits: position.units };
       }
     } catch (error) {
       execution = { executed: false, error: String(error.message).slice(0, 200) };
     }
-  } else if (TRADE && ruling.decision === "COMPLIANCE_TRADE") {
+  } else if (TRADE && ruling.decision === "COMPLIANCE_BUY") {
     try {
-      const res = swap({ amount: String(DEFAULT_CONFIG.complianceUsd), from: USDT.address, to: USD1.address });
-      state = noteTrade(state);
-      execution = { executed: true, kind: "compliance_rotation", txHash: res.txHash, usd: DEFAULT_CONFIG.complianceUsd };
+      if (position) throw new Error("position_already_open");
+      const token = resolveToken(ruling.symbol);
+      const spendUsd = Math.min(ruling.complianceUsd, usdtUsd * 0.98);
+      if (spendUsd < 1) throw new Error("insufficient_usdt_for_compliance");
+      const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
+      const entryPrice = priceUsd(ruling.symbol);
+      const units = Number(String(res.output ?? "0").split(" ")[0]) || (entryPrice > 0 ? spendUsd / entryPrice : 0);
+      savePosition({
+        symbol: ruling.symbol,
+        address: token.address,
+        units,
+        entryPrice,
+        costUsd: spendUsd,
+        openedAt: generatedAt,
+        complianceTrade: true,
+        complianceReason: COMPLIANCE_REASON,
+      });
+      state = noteEntry(state, ruling.sizedPct, nowMs);
+      execution = {
+        executed: true,
+        kind: "compliance_buy",
+        complianceTrade: true,
+        reason: COMPLIANCE_REASON,
+        txHash: res.txHash,
+        spentUsd: spendUsd,
+        units,
+      };
+    } catch (error) {
+      execution = { executed: false, error: String(error.message).slice(0, 200) };
+    }
+  } else if (TRADE && ruling.decision === "COMPLIANCE_SELL") {
+    try {
+      if (!position?.complianceTrade) throw new Error("no_compliance_position_to_sell");
+      const res = swap({ amount: String(position.units), from: position.address, to: USDT.address });
+      savePosition(null);
+      state = noteTrade(state, nowMs);
+      execution = {
+        executed: true,
+        kind: "compliance_sell",
+        complianceTrade: true,
+        reason: COMPLIANCE_REASON,
+        txHash: res.txHash,
+        closedUnits: position.units,
+      };
     } catch (error) {
       execution = { executed: false, error: String(error.message).slice(0, 200) };
     }
@@ -151,6 +208,12 @@ async function main() {
   writeFileSync(STATE_FILE, `${JSON.stringify(state, null, 2)}\n`);
 
   // ---- Receipt ------------------------------------------------------------
+  const describedCalls = describeCalls(paidCalls);
+  const dataSource = describedCalls.some((call) => call.dataSource === "free-fallback")
+    ? "free-fallback"
+    : describedCalls.some((call) => call.dataSource === "x402-paid")
+      ? "x402-paid"
+      : "free/local";
   const { receipt, file } = writeReceipt({
     generatedAt,
     agent: "Scoop",
@@ -158,7 +221,8 @@ async function main() {
     chain: "bsc",
     modes: { paid: PAID, trade: TRADE },
     perception: {
-      paidCalls: describeCalls(paidCalls),
+      dataSource,
+      paidCalls: describedCalls,
       dataSpendUsd: budget.spentUsd,
       moversTop: movers.slice(0, 6),
       quotes,
@@ -167,7 +231,17 @@ async function main() {
     governor: { state: { ...state }, ruling },
     position: loadPosition(),
     execution,
-    counters: { equityUsd, usdtUsd, usd1Usd, positionUsd, floorUsd: state.floorUsd, degraded, equityNotes },
+    counters: {
+      equityUsd,
+      usdtUsd,
+      usd1Usd,
+      positionUsd,
+      inScopeUsd,
+      inScopeWarning,
+      floorUsd: state.floorUsd,
+      degraded,
+      equityNotes,
+    },
   });
 
   console.log("SCOOP_CYCLE_COMPLETE");
@@ -180,3 +254,7 @@ async function main() {
 }
 
 await main();
+
+function round2(value) {
+  return Math.round(value * 100) / 100;
+}

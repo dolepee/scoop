@@ -11,6 +11,7 @@ import {
 
 const NOON = Date.parse("2026-06-22T12:00:00Z");
 const LATE = Date.parse("2026-06-22T21:30:00Z");
+const COMPLIANCE_BUY = { action: "buy", symbol: "CAKE", reason: "daily minimum, no conviction signal today" };
 
 function freshState(equity = 20) {
   return initialState(equity, NOON);
@@ -88,7 +89,7 @@ test("floor protects banked gains within giveBackPct of the peak", () => {
 
 test("daily new-risk cap accumulates and blocks", () => {
   let state = freshState(20);
-  state = noteEntry(state, DEFAULT_CONFIG.maxDailyNewRiskPct);
+  state = noteEntry(state, DEFAULT_CONFIG.maxDailyNewRiskPct, NOON);
   const r = decide(
     { kind: "TRADE", symbol: "CAKE", direction: "enter", convictionBps: 9000 },
     state,
@@ -100,7 +101,7 @@ test("daily new-risk cap accumulates and blocks", () => {
 
 test("day rollover resets daily counters", () => {
   let state = freshState(20);
-  state = noteEntry(state, 30);
+  state = noteEntry(state, 30, NOON);
   const nextDay = NOON + 24 * 3600 * 1000;
   state = syncState(state, 20, nextDay);
   assert.equal(state.tradesToday, 0);
@@ -108,20 +109,76 @@ test("day rollover resets daily counters", () => {
   assert.equal(state.dayKey, dayKeyOf(nextDay));
 });
 
-test("compliance valve opens late in the day with zero trades", () => {
-  const r = decide({ kind: "NONE" }, freshState(), { equityUsd: 20, nowMs: LATE });
-  assert.equal(r.decision, "COMPLIANCE_TRADE");
+test("compliance valve opens late only when armed with zero trades", () => {
+  const r = decide(
+    { kind: "NONE" },
+    freshState(),
+    { equityUsd: 20, nowMs: LATE, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+  );
+  assert.equal(r.decision, "COMPLIANCE_BUY");
   assert.ok(r.complianceUsd > 0);
+  assert.equal(r.symbol, "CAKE");
 });
 
 test("compliance valve stays closed once a trade exists today", () => {
   let state = freshState();
-  state = noteEntry(state, 10);
-  const r = decide({ kind: "NONE" }, state, { equityUsd: 20, nowMs: LATE });
+  state = noteEntry(state, 10, NOON);
+  const r = decide(
+    { kind: "NONE" },
+    state,
+    { equityUsd: 20, nowMs: LATE, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+  );
   assert.equal(r.decision, "STAND_DOWN");
 });
 
 test("compliance valve stays closed before the late-day hour", () => {
-  const r = decide({ kind: "NONE" }, freshState(), { equityUsd: 20, nowMs: NOON });
+  const r = decide(
+    { kind: "NONE" },
+    freshState(),
+    { equityUsd: 20, nowMs: NOON, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+  );
   assert.equal(r.decision, "STAND_DOWN");
+});
+
+test("compliance valve stays closed when not armed", () => {
+  const r = decide(
+    { kind: "NONE" },
+    freshState(),
+    { equityUsd: 20, nowMs: LATE, tradeArmed: false, complianceAction: COMPLIANCE_BUY },
+  );
+  assert.equal(r.decision, "STAND_DOWN");
+});
+
+test("compliance valve stays closed in degraded mode", () => {
+  const r = decide(
+    { kind: "NONE" },
+    freshState(),
+    { equityUsd: 20, nowMs: LATE, tradeArmed: true, degraded: true, complianceAction: COMPLIANCE_BUY },
+  );
+  assert.equal(r.decision, "STAND_DOWN");
+});
+
+test("compliance never overrides a conviction trade approval", () => {
+  const r = decide(
+    { kind: "TRADE", symbol: "CAKE", direction: "enter", convictionBps: 9000 },
+    freshState(),
+    { equityUsd: 20, nowMs: LATE, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+  );
+  assert.equal(r.decision, "APPROVE");
+});
+
+test("compliance buy is still gated by the governor floor", () => {
+  const state = freshState(20);
+  const r = decide(
+    { kind: "NONE" },
+    state,
+    {
+      equityUsd: state.floorUsd * 1.001,
+      nowMs: LATE,
+      tradeArmed: true,
+      complianceAction: COMPLIANCE_BUY,
+    },
+  );
+  assert.equal(r.decision, "STAND_DOWN");
+  assert.ok(r.reasons.some((reason) => reason.startsWith("compliance_risk_budget_exhausted")));
 });
