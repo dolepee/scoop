@@ -1,16 +1,16 @@
-// TWAK-only execution. Resolves eligible symbols to BSC contract addresses
-// via twak search (cached), then quotes and executes swaps with the locally
-// stored key. Position bookkeeping lives in state/position.json: Scoop holds
-// at most ONE momentum position at a time, parked in USDT otherwise.
+// TWAK-only execution. Tradeable symbols resolve only from the committed
+// eligible-token data file; no runtime token search is allowed. Position
+// bookkeeping lives in state/position.json: Scoop holds at most ONE momentum
+// position at a time, parked in USDT otherwise.
 
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { getEligibleToken } from "./allowlist.mjs";
 
-const CACHE_FILE = join(process.cwd(), "state", "token-cache.json");
 const POSITION_FILE = join(process.cwd(), "state", "position.json");
-export const USDT = { symbol: "USDT", address: "0x55d398326f99059fF775485246999027B3197955", decimals: 18 };
-export const USD1 = { symbol: "USD1", address: "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d", decimals: 18 };
+export const USDT = requireEligibleToken("USDT");
+export const USD1 = requireEligibleToken("USD1");
 
 function twak(args, timeout = 120_000) {
   const out = execFileSync("npx", ["twak", ...args, "--json"], { encoding: "utf8", timeout, env: process.env });
@@ -22,17 +22,7 @@ function twak(args, timeout = 120_000) {
 }
 
 export function resolveToken(symbol) {
-  const cache = existsSync(CACHE_FILE) ? JSON.parse(readFileSync(CACHE_FILE, "utf8")) : {};
-  const key = symbol.toUpperCase();
-  if (cache[key]) return cache[key];
-  const results = twak(["search", symbol]);
-  const list = Array.isArray(results) ? results : results.results ?? [];
-  const hit = list.find((t) => t.chain === "bsc" && String(t.symbol).toUpperCase() === key);
-  if (!hit) throw new Error(`no BSC contract for ${symbol}`);
-  const token = { symbol: key, address: hit.address, decimals: hit.decimals ?? 18, name: hit.name };
-  cache[key] = token;
-  writeFileSync(CACHE_FILE, `${JSON.stringify(cache, null, 2)}\n`);
-  return token;
+  return requireEligibleToken(symbol);
 }
 
 export function loadPosition() {
@@ -67,4 +57,15 @@ export function quote({ amount, from, to }) {
   const res = twak(["swap", String(amount), from, to, "--chain", "bsc", "--quote-only"]);
   if (res.error) throw new Error(`quote failed: ${res.error}`);
   return res;
+}
+
+function requireEligibleToken(symbol) {
+  const token = getEligibleToken(symbol);
+  if (!token?.address) throw new Error(`token_not_eligible:${symbol}`);
+  return {
+    symbol: token.symbol,
+    address: token.address,
+    decimals: token.decimals ?? 18,
+    name: token.name ?? token.symbol,
+  };
 }
