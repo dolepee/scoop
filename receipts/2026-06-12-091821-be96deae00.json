@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-12T09:18:21.686Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "083b8e1a4b041269793acfc842860dd5158ca0031576cc68cda8ca5992072e8f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BEAT,SKYAI,COAI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "44e2181d0c22fbf58b7792d59c5440f98fa30311bdb458bef21152a9037ff528"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 14.94184648,
+        "change24h": 61.28079852,
+        "change7d": -57.99549465,
+        "volume24h": 106087196.69960593,
+        "marketCap": 684231068.538806,
+        "priceUsd": 0.24159482875224395,
+        "heat": 97.41
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 9.37168176,
+        "change24h": -1.60477506,
+        "change7d": 436.84858317,
+        "volume24h": 183444228.35701287,
+        "marketCap": 2451215691.0319695,
+        "priceUsd": 8.510673097757369,
+        "heat": 92.04
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 7.97235718,
+        "change24h": 39.0862566,
+        "change7d": 64.0716991,
+        "volume24h": 79876080.46567023,
+        "marketCap": 292098830.60612637,
+        "priceUsd": 0.29209883060612635,
+        "heat": 72.61
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 4.91512497,
+        "change24h": 24.37687826,
+        "change7d": 35.30683078,
+        "volume24h": 25435114.23031832,
+        "marketCap": 59048827.00944512,
+        "priceUsd": 0.3140893416419662,
+        "heat": 44.42
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 0.23677375,
+        "change24h": 40.7751449,
+        "change7d": 17.19309897,
+        "volume24h": 252027457.6520301,
+        "marketCap": 161590862.16579294,
+        "priceUsd": 0.0897727012032183,
+        "heat": 44.06
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.3445779,
+        "change24h": 31.72879634,
+        "change7d": -12.7118052,
+        "volume24h": 49359362.57898653,
+        "marketCap": 3120763151.8114934,
+        "priceUsd": 10.068526188564201,
+        "heat": 33.86
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 8.510673097757369,
+        "change1h": 9.37168176,
+        "change24h": -1.60477506,
+        "change7d": 436.84858317,
+        "volume24h": 183444228.35701287,
+        "volumeChange24h": -38.2966
+      },
+      {
+        "symbol": "COAI",
+        "priceUsd": 0.3140893416419662,
+        "change1h": 4.91512497,
+        "change24h": 24.37687826,
+        "change7d": 35.30683078,
+        "volume24h": 25435114.23031832,
+        "volumeChange24h": 418.9779
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.29209883060612635,
+        "change1h": 7.97235718,
+        "change24h": 39.0862566,
+        "change7d": 64.0716991,
+        "volume24h": 79876080.46567023,
+        "volumeChange24h": 37.8734
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.24159482875224395,
+        "change1h": 14.94184648,
+        "change24h": 61.28079852,
+        "change7d": -57.99549465,
+        "volume24h": 106087196.69960593,
+        "volumeChange24h": 91.2706
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "H",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "H shows explosive momentum with +14.94% 1h and +61.28% 24h, backed by high volume of $106M and a 91.27% volume surge, indicating strong breakout potential.",
+    "invalidation": "If price falls below $0.22 (a ~9% drop from current $0.2416) or 1h momentum reverses to negative, the breakout thesis fails.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f820ace6f2d990c35827fddc46cad32a6ebd3c117621bbbca6f5555c7b9caa8b",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"H\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"H shows explosive momentum with +14.94% 1h and +61.28% 24h, backed by high volume of $106M and a 91.27% volume surge, indicating strong breakout potential.\",\n  \"invalidation\": \""
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-12",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "conviction_below_floor:0<5500"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.46,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.15,
+    "positionUsd": 0,
+    "inScopeUsd": 16.46,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3785b45c678f069bf914586bbce620ac8fdb7c57b0a429562f60bf101c5fb4b0",
+  "checksum": "be96deae009128199149023c94453873e74bc83463da8349bc921184551d886b"
+}
