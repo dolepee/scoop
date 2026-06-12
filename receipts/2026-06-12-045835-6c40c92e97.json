@@ -1,0 +1,177 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-12T04:58:35.846Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "4cb2f3b5ebb9c86e1c4739aacd8c45e3c19fa708b2c7bd67a966a7247dd37c21"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=STG,SKYAI,H,XPL&convert=USD",
+        "costUsd": 0.01,
+        "responseHash": "37e25a436c84b62c8fa5a815ff3dfdf414400f82e3a956b7d4e18ddc55aa819c"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 1.77141269,
+        "change24h": 45.16758794,
+        "change7d": 177.71429809,
+        "volume24h": 140642747.00151357,
+        "marketCap": 410688373.61715114,
+        "priceUsd": 0.621359439796292,
+        "heat": 77.14
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 2.00122441,
+        "change24h": 53.26845736,
+        "change7d": 54.91456503,
+        "volume24h": 76293186.24287598,
+        "marketCap": 276920984.4150918,
+        "priceUsd": 0.27692098441509183,
+        "heat": 67.51
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 3.90775678,
+        "change24h": 53.44163681,
+        "change7d": -58.63734425,
+        "volume24h": 94409061.99000801,
+        "marketCap": 666069705.2526122,
+        "priceUsd": 0.23518224146297442,
+        "heat": 56.37
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 3.65616452,
+        "change24h": 33.66688803,
+        "change7d": 7.06115431,
+        "volume24h": 177744831.73816854,
+        "marketCap": 154236728.81970036,
+        "priceUsd": 0.0856870715665002,
+        "heat": 45.69
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 1.53059345,
+        "change24h": 18.69956847,
+        "change7d": 13.90413872,
+        "volume24h": 22240772.28146719,
+        "marketCap": 53498335.97782291,
+        "priceUsd": 0.2845654685659946,
+        "heat": 25.38
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.24166937,
+        "change24h": 21.97507907,
+        "change7d": -10.22438707,
+        "volume24h": 53775727.68793793,
+        "marketCap": 3048100301.5452123,
+        "priceUsd": 9.834093847738497,
+        "heat": 21.17
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.0856870715665002,
+        "change1h": 3.65616452,
+        "change24h": 33.66688803,
+        "change7d": 7.06115431,
+        "volume24h": 177744831.73816854,
+        "volumeChange24h": 166.5688
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.621359439796292,
+        "change1h": 1.77141269,
+        "change24h": 45.16758794,
+        "change7d": 177.71429809,
+        "volume24h": 140642747.00151357,
+        "volumeChange24h": 61.2205
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.27692098441509183,
+        "change1h": 2.00122441,
+        "change24h": 53.26845736,
+        "change7d": 54.91456503,
+        "volume24h": 76293186.24287598,
+        "volumeChange24h": 48.1193
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.23518224146297442,
+        "change1h": 3.90775678,
+        "change24h": 53.44163681,
+        "change7d": -58.63734425,
+        "volume24h": 94409061.99000801,
+        "volumeChange24h": 64.5053
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "STG",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "STG shows exceptional momentum with a 177.7% 7-day gain, a strong 45.2% 24-hour increase, and high volume of $140.6M, indicating sustained bullish interest.",
+    "invalidation": "If price breaks below the 24-hour low, estimated around $0.55, signaling a failed continuation.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "b4ccd570cd0ee3ea3fe78a6bf86e8c455eeeae83c6e221053988bbbaa591640a",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"STG\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"STG shows exceptional momentum with a 177.7% 7-day gain, a strong 45.2% 24-hour increase, and high volume of $140.6M, indicating sustained bullish interest.\",\n  \"invalidation\""
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-12",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "conviction_below_floor:0<5500"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.5,
+    "usdtUsd": 14.31,
+    "usd1Usd": 2.19,
+    "positionUsd": 0,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "1e0b682db888d909b49210ec04c3ebb585a29525e2cbff7a034f7f941f7601ec",
+  "checksum": "6c40c92e97b31297cc2bb3d5fe0893dc9d171a9940279a681e954c3dd565b1c8"
+}

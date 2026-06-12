@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-11T23:49:00.195Z",
+  "generatedAt": "2026-06-12T04:58:35.846Z",
   "summary": {
-    "cycleCount": 17,
+    "cycleCount": 18,
     "firstAt": "2026-06-10T12:27:43.877Z",
-    "lastAt": "2026-06-11T23:49:00.195Z",
-    "equityNow": 16.52,
+    "lastAt": "2026-06-12T04:58:35.846Z",
+    "equityNow": 16.5,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
     "chainOk": true,
@@ -12,6 +12,32 @@
     "chain": "bsc"
   },
   "cycles": [
+    {
+      "at": "2026-06-12T04:58:35.846Z",
+      "file": "2026-06-12-045835-6c40c92e97.json",
+      "checksum": "6c40c92e97b31297cc2bb3d5fe0893dc9d171a9940279a681e954c3dd565b1c8",
+      "prevChecksum": "1e0b682db888d909b49210ec04c3ebb585a29525e2cbff7a034f7f941f7601ec",
+      "equityUsd": 16.5,
+      "usdtUsd": 14.31,
+      "usd1Usd": 2.19,
+      "positionUsd": 0,
+      "floorUsd": 13.726799999999999,
+      "degraded": false,
+      "action": "TRADE",
+      "symbol": "STG",
+      "direction": "enter",
+      "convictionBps": 0,
+      "provider": "bankr:deepseek-v3.2",
+      "rationale": "STG shows exceptional momentum with a 177.7% 7-day gain, a strong 45.2% 24-hour increase, and high volume of $140.6M, indicating sustained bullish interest.",
+      "invalidation": "If price breaks below the 24-hour low, estimated around $0.55, signaling a failed continuation.",
+      "governorVerdict": "VETO",
+      "governorReason": "conviction_below_floor:0<5500",
+      "paid": true,
+      "paidCallCount": 2,
+      "dataSpendUsd": 0.02,
+      "trade": false,
+      "tradeResult": null
+    },
     {
       "at": "2026-06-11T23:49:00.195Z",
       "file": "2026-06-11-234900-1e0b682db8.json",
