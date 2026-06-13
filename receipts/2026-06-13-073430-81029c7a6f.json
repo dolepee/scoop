@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-13T07:34:30.274Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "1c4f728abcff362917fc1b0d16d1f55ff3279a956be96b9192856ac39d436f74"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,COAI,SKYAI,AXL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "5228da779a3c378945c7a559f38bc573da871834d202deb793f038b4e3316b52"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 2.97364379,
+        "change24h": 9.91803544,
+        "change7d": 377.61149095,
+        "volume24h": 253958229.23375362,
+        "marketCap": 2550494674.34795,
+        "priceUsd": 8.855371842780619,
+        "heat": 75.48
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 5.30802284,
+        "change24h": 19.24226856,
+        "change7d": 61.35094282,
+        "volume24h": 49411323.62343173,
+        "marketCap": 66002865.81075896,
+        "priceUsd": 0.351078890452275,
+        "heat": 44.37
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -2.00612729,
+        "change24h": 33.25449416,
+        "change7d": 75.66163246,
+        "volume24h": 68330873.80447394,
+        "marketCap": 351052903.38066965,
+        "priceUsd": 0.35105290338066963,
+        "heat": 38.59
+      },
+      {
+        "symbol": "AXL",
+        "name": "Axelar",
+        "change1h": -1.81114062,
+        "change24h": 20.1980781,
+        "change7d": 22.50217398,
+        "volume24h": 43786464.40250571,
+        "marketCap": 60021322.84146134,
+        "priceUsd": 0.050617000858893826,
+        "heat": 18.14
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 1.71091528,
+        "change24h": 10.34802768,
+        "change7d": 8.67777075,
+        "volume24h": 34637463.36505478,
+        "marketCap": 174290645.96117675,
+        "priceUsd": 0.6687995442294266,
+        "heat": 16.78
+      },
+      {
+        "symbol": "INJ",
+        "name": "Injective",
+        "change1h": 4.88195682,
+        "change24h": -0.87181671,
+        "change7d": 3.99144334,
+        "volume24h": 116631180.55743338,
+        "marketCap": 535271581.2158263,
+        "priceUsd": 5.354270986937774,
+        "heat": 14.37
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 8.855371842780619,
+        "change1h": 2.97364379,
+        "change24h": 9.91803544,
+        "change7d": 377.61149095,
+        "volume24h": 253958229.23375362,
+        "volumeChange24h": 35.0534
+      },
+      {
+        "symbol": "AXL",
+        "priceUsd": 0.050617000858893826,
+        "change1h": -1.81114062,
+        "change24h": 20.1980781,
+        "change7d": 22.50217398,
+        "volume24h": 43786464.40250571,
+        "volumeChange24h": 870.9627
+      },
+      {
+        "symbol": "COAI",
+        "priceUsd": 0.351078890452275,
+        "change1h": 5.30802284,
+        "change24h": 19.24226856,
+        "change7d": 61.35094282,
+        "volume24h": 49411323.62343173,
+        "volumeChange24h": 105.9715
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.35105290338066963,
+        "change1h": -2.00612729,
+        "change24h": 33.25449416,
+        "change7d": 75.66163246,
+        "volume24h": 68330873.80447394,
+        "volumeChange24h": -16.254
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7b942c24b99ab4bb8d9f0091dc05cafc0ef2bce6e17d3b4440f2d32ca2531ff2",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"\",\"invalidation\":\"\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-13",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.26,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.94,
+    "positionUsd": 0,
+    "inScopeUsd": 16.26,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "2e2ce920ed337147fb22e5ce842e1f97a2fa570097c71407d5ba41362ec49955",
+  "checksum": "81029c7a6ff1c10ae1161b5e92b5537ef1a322d252e98912689055c61bd53dd3"
+}
