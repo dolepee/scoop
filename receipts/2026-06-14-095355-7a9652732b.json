@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T09:53:55.071Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ce7b2fdec91af1c7734fb1302f793dddff9384385540d1f1085e0267d3fed7af"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BANANAS31,SLX,BILL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "13ab5f6740852200101d044553b3de0acfb5a5e6fc585ea9b110af65dfdba787"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -3.57373667,
+        "change24h": 59.41587802,
+        "change7d": -56.44519314,
+        "volume24h": 133029195.14289442,
+        "marketCap": 888538590.7479525,
+        "priceUsd": 0.31373367644637584,
+        "heat": 40.23
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 3.31879418,
+        "change24h": 21.8890777,
+        "change7d": -14.64830121,
+        "volume24h": 26042421.93998329,
+        "marketCap": 91384895.0766611,
+        "priceUsd": 0.00913848950766611,
+        "heat": 29.65
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.78079569,
+        "change24h": 14.69841055,
+        "change7d": 12.53621961,
+        "volume24h": 150958799.29782516,
+        "marketCap": 48814339.81750913,
+        "priceUsd": 0.20100263942088883,
+        "heat": 21.92
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": 2.23133028,
+        "change24h": 7.64023521,
+        "change7d": -3.01934674,
+        "volume24h": 119245484.14767167,
+        "marketCap": 181766956.18721655,
+        "priceUsd": 0.07485683720113831,
+        "heat": 13.88
+      },
+      {
+        "symbol": "NEX",
+        "name": "Nexus",
+        "change1h": 3.23498529,
+        "change24h": 3.64786318,
+        "change7d": 2.74217556,
+        "volume24h": 78525942.61274521,
+        "marketCap": 184722770.25764573,
+        "priceUsd": 0.000003078712837627429,
+        "heat": 13.76
+      },
+      {
+        "symbol": "FET",
+        "name": "Artificial Superintelligence Alliance",
+        "change1h": 0.19170049,
+        "change24h": 11.66498074,
+        "change7d": 2.80233198,
+        "volume24h": 187536510.12790495,
+        "marketCap": 480775931.33900535,
+        "priceUsd": 0.21283808724185505,
+        "heat": 12.66
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BILL",
+        "priceUsd": 0.07485683720113831,
+        "change1h": 2.23133028,
+        "change24h": 7.64023521,
+        "change7d": -3.01934674,
+        "volume24h": 119245484.14767167,
+        "volumeChange24h": -44.6422
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.2010144518590753,
+        "change1h": 1.69274503,
+        "change24h": 14.73697198,
+        "change7d": 12.48853368,
+        "volume24h": 150948507.2348639,
+        "volumeChange24h": 29.1266
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.00915322746853302,
+        "change1h": 3.52511909,
+        "change24h": 21.65039907,
+        "change7d": -14.51561908,
+        "volume24h": 26139802.95500828,
+        "volumeChange24h": -33.9669
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.31373367644637584,
+        "change1h": -3.57373667,
+        "change24h": 59.41587802,
+        "change7d": -56.44519314,
+        "volume24h": 133029195.14289442,
+        "volumeChange24h": 112.4725
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with strong momentum and volume support; top movers show either recent pullbacks (H -3.57% 1h), weak volume trends (BANANAS31 -33.97% volume change), or insufficient breakout confluence.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "74ed4cb6cf81e57e427c687c256fd8d0f9244a400679be668274559c0953693a",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry with strong momentum and volume support; top movers show either recent pullbacks (H -3.57% 1h), weak volume trends (BA"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 16.01,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.7,
+    "positionUsd": 0,
+    "inScopeUsd": 16.01,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "15d88bd70c8b7684e48267b729b45607a848d986eefcba9bdb0d113a266dab65",
+  "checksum": "7a9652732b12225a040e0b49fdb5abd4fc9282e08cf3590998d8898c0d4c1be6"
+}
