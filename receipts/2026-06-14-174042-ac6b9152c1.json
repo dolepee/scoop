@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T17:40:42.556Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c214ec8a66761ea03bb5ac4fb6154a0ceef6c4569087a28765bf1f6121105132"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,BSB,SKYAI,GENIUS&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "242b8d01f9499fbf07aad8b5d6c0304b5cddfded008a2b1a2f0027d7714353d4"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 8.36721244,
+        "change24h": 37.34605249,
+        "change7d": -1.51148482,
+        "volume24h": 50334540.45892875,
+        "marketCap": 105851991.69624735,
+        "priceUsd": 0.010585199169624736,
+        "heat": 62.22
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 2.05987302,
+        "change24h": 16.96203982,
+        "change7d": -18.70688624,
+        "volume24h": 56676818.41372211,
+        "marketCap": 62749970.06945885,
+        "priceUsd": 0.28183233806179586,
+        "heat": 20.34
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -0.1485619,
+        "change24h": -0.02995371,
+        "change7d": 57.14087814,
+        "volume24h": 37979554.39108998,
+        "marketCap": 367051773.43639493,
+        "priceUsd": 0.36705177343639495,
+        "heat": 8.1
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.1261163,
+        "change24h": 3.03436469,
+        "change7d": 8.58426271,
+        "volume24h": 17799936.31589373,
+        "marketCap": 154687802.00210014,
+        "priceUsd": 0.4612354895809977,
+        "heat": 7.7
+      },
+      {
+        "symbol": "OPEN",
+        "name": "OpenLedger",
+        "change1h": 0.95994848,
+        "change24h": 0.66630429,
+        "change7d": 16.93804451,
+        "volume24h": 24380550.45005702,
+        "marketCap": 73253099.2189797,
+        "priceUsd": 0.24403640964791026,
+        "heat": 6.09
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": -0.21504659,
+        "change24h": 6.55344063,
+        "change7d": -4.1060513,
+        "volume24h": 99874119.5848694,
+        "marketCap": 178055165.11390185,
+        "priceUsd": 0.07332821535518753,
+        "heat": 5.29
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "GENIUS",
+        "priceUsd": 0.4612354895809977,
+        "change1h": 1.1261163,
+        "change24h": 3.03436469,
+        "change7d": 8.58426271,
+        "volume24h": 17799936.31589373,
+        "volumeChange24h": -2.8148
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.28183233806179586,
+        "change1h": 2.05987302,
+        "change24h": 16.96203982,
+        "change7d": -18.70688624,
+        "volume24h": 56676818.41372211,
+        "volumeChange24h": 298.3696
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.01059083536183313,
+        "change1h": 8.40393294,
+        "change24h": 37.41319653,
+        "change7d": -1.63274564,
+        "volume24h": 50407066.09722798,
+        "volumeChange24h": 96.1835
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.36705177343639495,
+        "change1h": -0.1485619,
+        "change24h": -0.02995371,
+        "change7d": 57.14087814,
+        "volume24h": 37979554.39108998,
+        "volumeChange24h": -32.3403
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "While BANANAS31 shows strong momentum (+8.4% 1h, +37.4% 24h) with high volume (50407066), its 7d performance is negative (-1.63%) and the heat score (62.22) suggests potential overextension, lacking a clear sustainable story for a one-week contest entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "a979cd8e2d6570df45831195a12db3f65fe740d7126c063b0b78e2e7f88697ac",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"While BANANAS31 shows strong momentum (+8.4% 1h, +37.4% 24h) with high volume (50407066), its 7d performance is negative (-1.63%) and the heat score (62.22) suggests potenti"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.94,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.62,
+    "positionUsd": 0,
+    "inScopeUsd": 15.94,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "555b726fbe29f9e461339b0a7960345f8cfde372cde44aa36ac62293a6ff7c7a",
+  "checksum": "ac6b9152c114ef1c144f13ebe533d0589af2b38a603fdfe52cd8460e6972f404"
+}
