@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T12:09:48.572Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "829571bf86b289aef7c4c8e23e6eb702a38498314185b967cc2112c2e7b1f37f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,H,BRETT,BANANAS31&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "bfb5c178e176454814ebfa74c088d812a051456c616e45f46ac227de302f17c7"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.99168395,
+        "change24h": 14.52475181,
+        "change7d": 14.51755506,
+        "volume24h": 137468117.57089925,
+        "marketCap": 48900706.466065764,
+        "priceUsd": 0.20135827107303694,
+        "heat": 22.68
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -4.23880701,
+        "change24h": 42.1038649,
+        "change7d": -60.17506757,
+        "volume24h": 143159531.2236428,
+        "marketCap": 843616543.5658482,
+        "priceUsd": 0.29787217176589204,
+        "heat": 20.36
+      },
+      {
+        "symbol": "BRETT",
+        "name": "Brett (Based)",
+        "change1h": 0.07534158,
+        "change24h": 9.1613208,
+        "change7d": 21.51474258,
+        "volume24h": 17855121.12582409,
+        "marketCap": 65612412.36786618,
+        "priceUsd": 0.006561242847753389,
+        "heat": 12.61
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": -2.20884964,
+        "change24h": 19.91381363,
+        "change7d": -14.39548312,
+        "volume24h": 31768916.93051456,
+        "marketCap": 92391737.58176018,
+        "priceUsd": 0.009239173758176018,
+        "heat": 11.13
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 0.4036652,
+        "change24h": 1.73666617,
+        "change7d": 30.54909748,
+        "volume24h": 120634602.73408736,
+        "marketCap": 162159684.45896703,
+        "priceUsd": 0.09008871358831501,
+        "heat": 7.53
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.1766619,
+        "change24h": 1.60330825,
+        "change7d": 8.56174459,
+        "volume24h": 17313599.50297015,
+        "marketCap": 150889598.69946674,
+        "priceUsd": 0.44991031631494727,
+        "heat": 6.42
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.20135827107303694,
+        "change1h": 1.99168395,
+        "change24h": 14.52475181,
+        "change7d": 14.51755506,
+        "volume24h": 137468117.57089925,
+        "volumeChange24h": 1.0701
+      },
+      {
+        "symbol": "BRETT",
+        "priceUsd": 0.006561242847753389,
+        "change1h": 0.07534158,
+        "change24h": 9.1613208,
+        "change7d": 21.51474258,
+        "volume24h": 17855121.12582409,
+        "volumeChange24h": 44.6103
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.009239173758176018,
+        "change1h": -2.20884964,
+        "change24h": 19.91381363,
+        "change7d": -14.39548312,
+        "volume24h": 31768916.93051456,
+        "volumeChange24h": 3.0528
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.29787217176589204,
+        "change1h": -4.23880701,
+        "change24h": 42.1038649,
+        "change7d": -60.17506757,
+        "volume24h": 143159531.2236428,
+        "volumeChange24h": 144.2072
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support meets the 5500 conviction threshold for a long entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f57cfb088320ba7eec0d537831858b34c60a6ebaf6e8c3a0f7b949a79497bbf5",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"No clear momentum or story strength with volume support meets the 5500 conviction threshold for a long entry.\",\n    \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.99,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.68,
+    "positionUsd": 0,
+    "inScopeUsd": 15.99,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "7a9652732b12225a040e0b49fdb5abd4fc9282e08cf3590998d8898c0d4c1be6",
+  "checksum": "fe89b2615c828d8c0343088c0e9d32b20464200b3351ad07544c4ddf9f8d22a6"
+}
