@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T15:55:20.759Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "b9b47c9bbdfc82db846ddff20798e519ae2bd84f5415da334aeaab1af6b87807"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,BILL,XPL,BRETT&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "92b8e051d2e3cab0f3c7ac0614cddd6a7b20dc32bed2375e7e0d052a2659a33d"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 2.99081828,
+        "change24h": 24.86860105,
+        "change7d": -9.46752501,
+        "volume24h": 44497445.08604105,
+        "marketCap": 96729233.68812788,
+        "priceUsd": 0.009672923368812788,
+        "heat": 32.42
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": 1.64230918,
+        "change24h": 8.76941547,
+        "change7d": -4.66880982,
+        "volume24h": 102736277.13090634,
+        "marketCap": 180863876.065637,
+        "priceUsd": 0.07448492294863228,
+        "heat": 13
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 2.90458876,
+        "change24h": -4.5911889,
+        "change7d": 26.59859016,
+        "volume24h": 108948181.97328942,
+        "marketCap": 157844664.1841952,
+        "priceUsd": 0.08769148010233066,
+        "heat": 8.11
+      },
+      {
+        "symbol": "BRETT",
+        "name": "Brett (Based)",
+        "change1h": 0.69518771,
+        "change24h": 2.95572814,
+        "change7d": 18.45962655,
+        "volume24h": 17688966.49319241,
+        "marketCap": 64260156.420160264,
+        "priceUsd": 0.006426017219781162,
+        "heat": 7.81
+      },
+      {
+        "symbol": "ATOM",
+        "name": "Cosmos",
+        "change1h": 1.59435553,
+        "change24h": -0.24450208,
+        "change7d": 16.37850773,
+        "volume24h": 30172237.00237351,
+        "marketCap": 1012403588.0722929,
+        "priceUsd": 1.970650817506222,
+        "heat": 7
+      },
+      {
+        "symbol": "OPEN",
+        "name": "OpenLedger",
+        "change1h": 0.95961433,
+        "change24h": -0.37236397,
+        "change7d": 14.50536463,
+        "volume24h": 24185651.84318686,
+        "marketCap": 71694145.44202739,
+        "priceUsd": 0.23884288901068484,
+        "heat": 4.68
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.08769148010233066,
+        "change1h": 2.90458876,
+        "change24h": -4.5911889,
+        "change7d": 26.59859016,
+        "volume24h": 108948181.97328942,
+        "volumeChange24h": -33.6485
+      },
+      {
+        "symbol": "BILL",
+        "priceUsd": 0.07448492294863228,
+        "change1h": 1.64230918,
+        "change24h": 8.76941547,
+        "change7d": -4.66880982,
+        "volume24h": 102736277.13090634,
+        "volumeChange24h": -34.9511
+      },
+      {
+        "symbol": "BRETT",
+        "priceUsd": 0.006426017219781162,
+        "change1h": 0.69518771,
+        "change24h": 2.95572814,
+        "change7d": 18.45962655,
+        "volume24h": 17688966.49319241,
+        "volumeChange24h": 49.8249
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.009672923368812788,
+        "change1h": 2.99081828,
+        "change24h": 24.86860105,
+        "change7d": -9.46752501,
+        "volume24h": 44497445.08604105,
+        "volumeChange24h": 68.9077
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "While BANANAS31 shows strong 24h momentum (+24.87%) and high volume surge (+68.91%), its 7d trend remains negative (-9.47%) and the 1h move (+2.99%) lacks exceptional breakout volume to justify a high-conviction entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "5b733a77508d133035bd1645c1795d5254a410b4c7ecc53adf8a6bd70ec5d0b4",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"While BANANAS31 shows strong 24h momentum (+24.87%) and high volume surge (+68.91%), its 7d trend remains negative (-9.47%) and the 1h move (+2.99%) lacks exceptional breako"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.95,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.64,
+    "positionUsd": 0,
+    "inScopeUsd": 15.95,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "360e5b79a5cc5b15d5fe7a1b6d704506e0811555a6289743069a10e76a76d69e",
+  "checksum": "555b726fbe29f9e461339b0a7960345f8cfde372cde44aa36ac62293a6ff7c7a"
+}
