@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T19:53:36.472Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "67dbca208308c1bd0986db967eb5f1cb22e9987b3ae63b94f97e6fa6ff031734"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,H,BSB,SKYAI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c9717e210a98fa8965e86a415e9a24cf5c87b394f3b9b8e57a25ab805fb50327"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": -1.17962749,
+        "change24h": 37.36060075,
+        "change7d": -2.03640172,
+        "volume24h": 56858860.66832072,
+        "marketCap": 103954587.88153452,
+        "priceUsd": 0.010395458788153452,
+        "heat": 33.52
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 3.3011819,
+        "change24h": 15.09546571,
+        "change7d": -62.60911105,
+        "volume24h": 226582342.06691098,
+        "marketCap": 765978258.2535843,
+        "priceUsd": 0.27045890582827486,
+        "heat": 15.61
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 0.30475063,
+        "change24h": 15.52356748,
+        "change7d": -20.47696327,
+        "volume24h": 56824864.64163484,
+        "marketCap": 63042605.83608026,
+        "priceUsd": 0.28314666892468116,
+        "heat": 13.37
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 0.85873642,
+        "change24h": 1.52505585,
+        "change7d": 56.07182779,
+        "volume24h": 38863897.5018355,
+        "marketCap": 375962043.9552996,
+        "priceUsd": 0.3759620439552996,
+        "heat": 12.51
+      },
+      {
+        "symbol": "BRETT",
+        "name": "Brett (Based)",
+        "change1h": 0.54688981,
+        "change24h": 1.43909689,
+        "change7d": 20.10806273,
+        "volume24h": 16527687.48841186,
+        "marketCap": 64201754.175304614,
+        "priceUsd": 0.00642017699386166,
+        "heat": 6.1
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": 0.9817505,
+        "change24h": 3.19903241,
+        "change7d": -1.18917338,
+        "volume24h": 99283655.38563454,
+        "marketCap": 174835625.54887298,
+        "priceUsd": 0.07200231677528415,
+        "heat": 5.97
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.28314666892468116,
+        "change1h": 0.30475063,
+        "change24h": 15.52356748,
+        "change7d": -20.47696327,
+        "volume24h": 56824864.64163484,
+        "volumeChange24h": 281.0302
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.010395458788153452,
+        "change1h": -1.17962749,
+        "change24h": 37.36060075,
+        "change7d": -2.03640172,
+        "volume24h": 56858860.66832072,
+        "volumeChange24h": 146.2421
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.3759620439552996,
+        "change1h": 0.85873642,
+        "change24h": 1.52505585,
+        "change7d": 56.07182779,
+        "volume24h": 38863897.5018355,
+        "volumeChange24h": -28.8296
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.27045890582827486,
+        "change1h": 3.3011819,
+        "change24h": 15.09546571,
+        "change7d": -62.60911105,
+        "volume24h": 226582342.06691098,
+        "volumeChange24h": 338.5928
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with sustained momentum and volume support; top movers like BANANAS31 show strong 24h gains but are cooling off with negative 1h change, while others lack the confluence needed for a disciplined spot trade.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "82f93c43145bee7d9160559741c2d4c36c943ff14d13043572e8a458da0656de",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry with sustained momentum and volume support; top movers like BANANAS31 show strong 24h gains but are cooling off with n"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.91,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.6,
+    "positionUsd": 0,
+    "inScopeUsd": 15.91,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "ac6b9152c114ef1c144f13ebe533d0589af2b38a603fdfe52cd8460e6972f404",
+  "checksum": "08abb1fc9b3978156e825a8d7f9e97ca489f3da4568c3b788805f4dc8b69a342"
+}
