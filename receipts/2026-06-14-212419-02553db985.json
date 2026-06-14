@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T21:24:19.863Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "943e012e174616f7f7a6210967e2eb7eed8e287cff26eb5b8e5f533be8d57351"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,OPEN,XPL,SLX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "a920a7b1656246e5f5c4e1c411e1871d079d6dd37b575d6962cd9527a3def003"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": -0.87532025,
+        "change24h": 34.06357556,
+        "change7d": -4.98534312,
+        "volume24h": 60124995.91384746,
+        "marketCap": 100676456.7801527,
+        "priceUsd": 0.01006764567801527,
+        "heat": 30.69
+      },
+      {
+        "symbol": "OPEN",
+        "name": "OpenLedger",
+        "change1h": 4.27335396,
+        "change24h": 2.92822995,
+        "change7d": 22.71492109,
+        "volume24h": 25248508.43717423,
+        "marketCap": 75444810.09140147,
+        "priceUsd": 0.2513379062124886,
+        "heat": 19.16
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 3.19685713,
+        "change24h": 2.45596463,
+        "change7d": 33.31824414,
+        "volume24h": 109378734.6376129,
+        "marketCap": 163229780.60480723,
+        "priceUsd": 0.09068321144711512,
+        "heat": 17.04
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.9994213,
+        "change24h": 5.01918373,
+        "change7d": 9.09022051,
+        "volume24h": 126127978.98285596,
+        "marketCap": 47432675.99633639,
+        "priceUsd": 0.195313367049567,
+        "heat": 12.38
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.93612457,
+        "change24h": 5.71600706,
+        "change7d": 4.98092532,
+        "volume24h": 19426193.72642628,
+        "marketCap": 157892630.79350182,
+        "priceUsd": 0.47079138705638723,
+        "heat": 12.27
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": 2.69039707,
+        "change24h": 2.19316915,
+        "change7d": 9.6088577,
+        "volume24h": 31765268.5001318,
+        "marketCap": 230471610.76361114,
+        "priceUsd": 1.348790144006229,
+        "heat": 11.71
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.09068321144711512,
+        "change1h": 3.19685713,
+        "change24h": 2.45596463,
+        "change7d": 33.31824414,
+        "volume24h": 109378734.6376129,
+        "volumeChange24h": -18.5272
+      },
+      {
+        "symbol": "OPEN",
+        "priceUsd": 0.2513379062124886,
+        "change1h": 4.27335396,
+        "change24h": 2.92822995,
+        "change7d": 22.71492109,
+        "volume24h": 25248508.43717423,
+        "volumeChange24h": -10.8216
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.195313367049567,
+        "change1h": 1.9994213,
+        "change24h": 5.01918373,
+        "change7d": 9.09022051,
+        "volume24h": 126127978.98285596,
+        "volumeChange24h": -22.9293
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.01006764567801527,
+        "change1h": -0.87532025,
+        "change24h": 34.06357556,
+        "change7d": -4.98534312,
+        "volume24h": 60124995.91384746,
+        "volumeChange24h": 172.0741
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with sustained momentum and volume support; BANANAS31 has a strong 24h gain but is down 1h and 7d with recent volume spike potentially signaling a top, while others show mixed or weakening momentum.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "03fcb59c860ba0c259d412febc1ad5d3899fffadfef2389a4b5b1fa7e8293b0c",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol presents a clear, high-conviction long entry with sustained momentum and volume support; BANANAS31 has a strong 24h gain but is down 1h and 7d with recent volume spike potentially signali"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.9,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.58,
+    "positionUsd": 0,
+    "inScopeUsd": 15.9,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "08abb1fc9b3978156e825a8d7f9e97ca489f3da4568c3b788805f4dc8b69a342",
+  "checksum": "02553db9852e3bf6c613c3cb134e38d17767d464a7af7cb5f3c74bae4d187158"
+}
