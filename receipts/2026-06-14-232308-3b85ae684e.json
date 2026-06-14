@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-14T23:23:08.868Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d5b56dd83cd116a3fef3ec6df3eb089d6c54f39cbae60f19a46b9e4210801934"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,LAB,GENIUS,BANANAS31&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "0c2bd39d364b2c94918dfbc3cf0088f92be5872b85a1fb73396bc7b783103a18"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 16.71357206,
+        "change24h": 6.78843308,
+        "change7d": -62.85666458,
+        "volume24h": 235144637.80201426,
+        "marketCap": 767012445.0102322,
+        "priceUsd": 0.27082406634766454,
+        "heat": 47.5
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 9.91777904,
+        "change24h": 18.69386848,
+        "change7d": -14.55549458,
+        "volume24h": 23123613.15774799,
+        "marketCap": 3456526226.3451533,
+        "priceUsd": 11.151799460081985,
+        "heat": 46.26
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 6.47601242,
+        "change24h": 12.68338757,
+        "change7d": 7.69264129,
+        "volume24h": 23245789.51289853,
+        "marketCap": 166847834.5150052,
+        "priceUsd": 0.49749328416349786,
+        "heat": 33.27
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": -1.91569751,
+        "change24h": 33.16989976,
+        "change7d": -4.02304156,
+        "volume24h": 64238080.17565052,
+        "marketCap": 101983404.62617098,
+        "priceUsd": 0.010198340462617098,
+        "heat": 26.82
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": 1.82821181,
+        "change24h": 10.68445468,
+        "change7d": 6.31505651,
+        "volume24h": 531665424.920005,
+        "marketCap": 7786484833.869969,
+        "priceUsd": 466.03680241866783,
+        "heat": 17.12
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -0.37128763,
+        "change24h": 7.40623391,
+        "change7d": 70.69959361,
+        "volume24h": 40048371.11989627,
+        "marketCap": 379450402.791585,
+        "priceUsd": 0.379450402791585,
+        "heat": 16.9
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 11.151799460081985,
+        "change1h": 9.91777904,
+        "change24h": 18.69386848,
+        "change7d": -14.55549458,
+        "volume24h": 23123613.15774799,
+        "volumeChange24h": 10.8133
+      },
+      {
+        "symbol": "GENIUS",
+        "priceUsd": 0.49749328416349786,
+        "change1h": 6.47601242,
+        "change24h": 12.68338757,
+        "change7d": 7.69264129,
+        "volume24h": 23245789.51289853,
+        "volumeChange24h": 24.7058
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.010198340462617098,
+        "change1h": -1.91569751,
+        "change24h": 33.16989976,
+        "change7d": -4.02304156,
+        "volume24h": 64238080.17565052,
+        "volumeChange24h": 201.123
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.27082406634766454,
+        "change1h": 16.71357206,
+        "change24h": 6.78843308,
+        "change7d": -62.85666458,
+        "volume24h": 235144637.80201426,
+        "volumeChange24h": 322.0024
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, sustainable momentum with volume support; top movers have either extreme volatility, recent sharp declines, or insufficient conviction for entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "eafaefcc8316031fb1d6323faa82113092a8264e26e185b62e6bd4bb3b55673c",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol shows a clear, sustainable momentum with volume support; top movers have either extreme volatility, recent sharp declines, or insufficient conviction for entry.\",\"invalidation\":\"N/A\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-14",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.87,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.56,
+    "positionUsd": 0,
+    "inScopeUsd": 15.87,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "02553db9852e3bf6c613c3cb134e38d17767d464a7af7cb5f3c74bae4d187158",
+  "checksum": "3b85ae684e4bf88102dd6fef46b10e88c99841a25db186dc119aed29586c5d8e"
+}
