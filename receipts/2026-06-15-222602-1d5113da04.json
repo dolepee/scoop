@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-15T22:26:02.177Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "b20f4bb9963b21db9673492b12afbd552a399f30db5dcf0d60758d5aaae1ed5e"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,ZRO,UNI,H&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "10bbf2b4f6d2e651c16fad5e9bd28b6f5e6210c7f0f5431abdecb9632c250ce0"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": -1.18960216,
+        "change24h": 28.91306839,
+        "change7d": 18.70143766,
+        "volume24h": 70766679.22049637,
+        "marketCap": 80029603.84353378,
+        "priceUsd": 0.3594412928072481,
+        "heat": 28.15
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": 0.46752676,
+        "change24h": 18.26236229,
+        "change7d": 32.08147178,
+        "volume24h": 123233560.0491299,
+        "marketCap": 388298737.22109675,
+        "priceUsd": 1.1298722450176302,
+        "heat": 24.48
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 2.82855931,
+        "change24h": 8.54131369,
+        "change7d": 9.34320633,
+        "volume24h": 145992862.8022199,
+        "marketCap": 1735772905.3478146,
+        "priceUsd": 2.790606728678685,
+        "heat": 18.43
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 0.19483925,
+        "change24h": 4.75712882,
+        "change7d": 82.1940866,
+        "volume24h": 161733278.47664762,
+        "marketCap": 691215838.9231942,
+        "priceUsd": 0.2440610780684197,
+        "heat": 17.67
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": 0.11698058,
+        "change24h": 13.43752749,
+        "change7d": 11.16817679,
+        "volume24h": 1170118139.661506,
+        "marketCap": 8712982199.720871,
+        "priceUsd": 521.4895361031014,
+        "heat": 15.46
+      },
+      {
+        "symbol": "BCH",
+        "name": "Bitcoin Cash",
+        "change1h": 0.65801812,
+        "change24h": 9.11263063,
+        "change7d": 7.79758086,
+        "volume24h": 235059679.8581311,
+        "marketCap": 4551295489.264405,
+        "priceUsd": 227.01592798607518,
+        "heat": 12.26
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "UNI",
+        "priceUsd": 2.790606728678685,
+        "change1h": 2.82855931,
+        "change24h": 8.54131369,
+        "change7d": 9.34320633,
+        "volume24h": 145992862.8022199,
+        "volumeChange24h": 92.0802
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.3594412928072481,
+        "change1h": -1.18960216,
+        "change24h": 28.91306839,
+        "change7d": 18.70143766,
+        "volume24h": 70766679.22049637,
+        "volumeChange24h": 27.2499
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 1.1298722450176302,
+        "change1h": 0.46752676,
+        "change24h": 18.26236229,
+        "change7d": 32.08147178,
+        "volume24h": 123233560.0491299,
+        "volumeChange24h": 661.093
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.2440610780684197,
+        "change1h": 0.19483925,
+        "change24h": 4.75712882,
+        "change7d": 82.1940866,
+        "volume24h": 161733278.47664762,
+        "volumeChange24h": -28.0284
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with strong momentum and volume support; BSB shows a 28.9% 24h gain but is down 1.2% in the last hour, ZRO has high volume but only 0.47% 1h change, H has an 82% 7d surge but weak recent momentum (0.19% 1h, 4.76% 24h), and UNI's 2.83% 1h rise la",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "0ded3812c190cb8d625f9d28d9186c4a72d38d6ee6542bd30092c712f3a99b01",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry with strong momentum and volume support; BSB shows a 28.9% 24h gain but is down 1.2% in the last hour, ZRO has high vo"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-15",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.74,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.42,
+    "positionUsd": 0,
+    "inScopeUsd": 15.74,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3221bfc8cad1ac61b416d06477326f5b50e19b14a8d9f5c1be4c605d8b69594c",
+  "checksum": "1d5113da048d3d9035490e380848182c8451a700c423f7f4514bc57847b8da6b"
+}
