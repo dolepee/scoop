@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-15T12:39:45.345Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c66437b6a5f15145b8fe77dd29787ceb69da4f5efbbd30a3c852546176147e80"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,PIEVERSE,ZEC,ZRO&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f82827aa6b5c93a6f55bc86121d924afb8cb9c6ae5a396ef5dac8ea0584be393"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 12.79784831,
+        "change24h": 29.37393839,
+        "change7d": -0.20936271,
+        "volume24h": 36021049.79089749,
+        "marketCap": 72159347.82299283,
+        "priceUsd": 0.3240931858207628,
+        "heat": 67.74
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 3.64691025,
+        "change24h": 16.53273701,
+        "change7d": 20.06986173,
+        "volume24h": 31850568.80453549,
+        "marketCap": 195107161.2427251,
+        "priceUsd": 0.7345840755499901,
+        "heat": 30.48
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": -0.94286091,
+        "change24h": 25.86955517,
+        "change7d": 25.36679652,
+        "volume24h": 1036008745.2837008,
+        "marketCap": 8849025048.019428,
+        "priceUsd": 529.631974618772,
+        "heat": 26.85
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": -0.96722032,
+        "change24h": 21.70525584,
+        "change7d": 26.72819853,
+        "volume24h": 64302730.58353959,
+        "marketCap": 387491450.3710798,
+        "priceUsd": 1.1288922169150866,
+        "heat": 22.81
+      },
+      {
+        "symbol": "BCH",
+        "name": "Bitcoin Cash",
+        "change1h": 2.6089123,
+        "change24h": 12.41203233,
+        "change7d": 11.0731192,
+        "volume24h": 207445657.0931464,
+        "marketCap": 4590406853.996448,
+        "priceUsd": 228.96881406893385,
+        "heat": 21.9
+      },
+      {
+        "symbol": "BONK",
+        "name": "Bonk",
+        "change1h": 2.1789916,
+        "change24h": 10.59877643,
+        "change7d": 10.31139616,
+        "volume24h": 50450519.76867349,
+        "marketCap": 431669992.7445944,
+        "priceUsd": 0.000004905635128704796,
+        "heat": 18.68
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ZEC",
+        "priceUsd": 529.631974618772,
+        "change1h": -0.94286091,
+        "change24h": 25.86955517,
+        "change7d": 25.36679652,
+        "volume24h": 1036008745.2837008,
+        "volumeChange24h": 120.0235
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.324159699837994,
+        "change1h": 12.90651091,
+        "change24h": 29.39271604,
+        "change7d": -0.13655769,
+        "volume24h": 36023531.91594002,
+        "volumeChange24h": -19.5543
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 1.1288922169150866,
+        "change1h": -0.96722032,
+        "change24h": 21.70525584,
+        "change7d": 26.72819853,
+        "volume24h": 64302730.58353959,
+        "volumeChange24h": 218.9792
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7345840755499901,
+        "change1h": 3.64691025,
+        "change24h": 16.53273701,
+        "change7d": 20.06986173,
+        "volume24h": 31850568.80453549,
+        "volumeChange24h": 38.2425
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "BSB shows strong momentum (+12.9% 1h, +29.4% 24h) but volume is declining (-19.6% 24h change), violating the rule requiring volume support for entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "89e744392cb7f59bb6f3b68daa1d3f47e6aa0acc56ccfb95c1c77f006abfc8c5",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"BSB shows strong momentum (+12.9% 1h, +29.4% 24h) but volume is declining (-19.6% 24h change), violating the rule requiring volume support for entry.\",\n  \"invalidation\": \"N/"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-15",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.8,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.48,
+    "positionUsd": 0,
+    "inScopeUsd": 15.8,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "57baaefd8123de12a1d92cbddab7ee726f3859de88f779fa6d71c387c5708d82",
+  "checksum": "625896464ffff746e058d6bf65a978de2f0a742ce78d9aacf5433dc27e7599d0"
+}
