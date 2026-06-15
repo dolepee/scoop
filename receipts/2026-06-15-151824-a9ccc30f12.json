@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-15T15:18:24.457Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d671105ea4c518b9b04b29f06e26913a757903e8082c4379acf9f83f436e7e56"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,ZRO,ZEC,XPL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7baa872a8531d06a450e42fa0c63754680d230a292a6ab60b39585320fa09bfd"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 9.00993172,
+        "change24h": 40.28454571,
+        "change7d": 18.36448821,
+        "volume24h": 52150238.19247174,
+        "marketCap": 86053803.37705548,
+        "priceUsd": 0.38649810634204124,
+        "heat": 70.07
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": -0.01842747,
+        "change24h": 28.57462077,
+        "change7d": 34.52879888,
+        "volume24h": 99191025.93728906,
+        "marketCap": 407133584.01028043,
+        "priceUsd": 1.1846782567531675,
+        "heat": 33.7
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": 1.07400383,
+        "change24h": 25.10997511,
+        "change7d": 19.85566192,
+        "volume24h": 1075402962.2144103,
+        "marketCap": 8859153177.264402,
+        "priceUsd": 530.2381635562087,
+        "heat": 31.31
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 3.27250258,
+        "change24h": 10.94149344,
+        "change7d": 33.14438685,
+        "volume24h": 136143261.32804427,
+        "marketCap": 173948291.62852824,
+        "priceUsd": 0.0966379397936268,
+        "heat": 25.73
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 1.84840334,
+        "change24h": 16.4454205,
+        "change7d": 17.43883929,
+        "volume24h": 200277094.91263947,
+        "marketCap": 1176274357.9694846,
+        "priceUsd": 76.33641636686411,
+        "heat": 24.61
+      },
+      {
+        "symbol": "INJ",
+        "name": "Injective",
+        "change1h": 2.91293878,
+        "change24h": 13.02845425,
+        "change7d": -0.45732145,
+        "volume24h": 156605665.01178253,
+        "marketCap": 568203824.842918,
+        "priceUsd": 5.683689104347984,
+        "heat": 21.7
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.0966379397936268,
+        "change1h": 3.27250258,
+        "change24h": 10.94149344,
+        "change7d": 33.14438685,
+        "volume24h": 136143261.32804427,
+        "volumeChange24h": 21.541
+      },
+      {
+        "symbol": "ZEC",
+        "priceUsd": 530.2381635562087,
+        "change1h": 1.07400383,
+        "change24h": 25.10997511,
+        "change7d": 19.85566192,
+        "volume24h": 1075402962.2144103,
+        "volumeChange24h": 113.6137
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.38649810634204124,
+        "change1h": 9.00993172,
+        "change24h": 40.28454571,
+        "change7d": 18.36448821,
+        "volume24h": 52150238.19247174,
+        "volumeChange24h": -2.4616
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 1.1846782567531675,
+        "change1h": -0.01842747,
+        "change24h": 28.57462077,
+        "change7d": 34.52879888,
+        "volume24h": 99191025.93728906,
+        "volumeChange24h": 441.7696
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction entry with strong momentum and volume support above the 5500 conviction floor.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "e191aed8471597f82b096842699c05d59a1fa0a54ccc507ad331c9961ba41bf1",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction entry with strong momentum and volume support above the 5500 conviction floor.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-15",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.77,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.46,
+    "positionUsd": 0,
+    "inScopeUsd": 15.77,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "625896464ffff746e058d6bf65a978de2f0a742ce78d9aacf5433dc27e7599d0",
+  "checksum": "a9ccc30f129f9fd39c6dea0f0918b10e89dc621d13bac8c6a8c098f0eb963d21"
+}
