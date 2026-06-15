@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-15T09:18:29.352Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "05caa543054d9e6e86b1ce645384fa9fde55eef1b7ecd0aeb6e1bb78a28533fb"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=PIEVERSE,AAVE,BANANAS31,BSB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c242eb5250dfc0bf1d9c79bbfd610131e5822afd3e28735463389e531f7d5453"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 1.54504579,
+        "change24h": 13.43386971,
+        "change7d": 15.29395487,
+        "volume24h": 30444918.8721904,
+        "marketCap": 190349248.4038139,
+        "priceUsd": 0.7166703968205307,
+        "heat": 20.36
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 2.28981516,
+        "change24h": 10.24603336,
+        "change7d": 15.99977371,
+        "volume24h": 137284270.5379444,
+        "marketCap": 1123389255.0362744,
+        "priceUsd": 72.90499850031861,
+        "heat": 19.52
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 0.51183119,
+        "change24h": 17.60795257,
+        "change7d": 2.02570213,
+        "volume24h": 66803623.53045585,
+        "marketCap": 107703841.1703967,
+        "priceUsd": 0.01077038411703967,
+        "heat": 19.45
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 1.12352397,
+        "change24h": 14.52827554,
+        "change7d": -12.06791737,
+        "volume24h": 37056423.57096906,
+        "marketCap": 63232877.78598554,
+        "priceUsd": 0.2840012476352371,
+        "heat": 16.09
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 5.40568616,
+        "change24h": 6.66507663,
+        "change7d": -53.28435954,
+        "volume24h": 203945213.06675383,
+        "marketCap": 944205310.0914052,
+        "priceUsd": 0.33338901240722446,
+        "heat": 14.89
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": -1.14264371,
+        "change24h": 14.88612401,
+        "change7d": 13.80270923,
+        "volume24h": 773252585.5748702,
+        "marketCap": 8172815891.288754,
+        "priceUsd": 489.15949443128284,
+        "heat": 13.53
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "AAVE",
+        "priceUsd": 72.90499850031861,
+        "change1h": 2.28981516,
+        "change24h": 10.24603336,
+        "change7d": 15.99977371,
+        "volume24h": 137284270.5379444,
+        "volumeChange24h": 30.6875
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.2840012476352371,
+        "change1h": 1.12352397,
+        "change24h": 14.52827554,
+        "change7d": -12.06791737,
+        "volume24h": 37056423.57096906,
+        "volumeChange24h": -2.808
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.01077038411703967,
+        "change1h": 0.51183119,
+        "change24h": 17.60795257,
+        "change7d": 2.02570213,
+        "volume24h": 66803623.53045585,
+        "volumeChange24h": 176.7714
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7166703968205307,
+        "change1h": 1.54504579,
+        "change24h": 13.43386971,
+        "change7d": 15.29395487,
+        "volume24h": 30444918.8721904,
+        "volumeChange24h": 32.6355
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BANANAS31",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "BANANAS31 shows the strongest 24h momentum at +17.61% with massive volume surge of +176.77%, indicating strong buying pressure and breakout potential.",
+    "invalidation": "Price falls below $0.0105, breaking the recent uptrend support.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "5f55775c0be5bf0adb901a442b2e8ba426e936ec3088ed4ddc16e969309ba157",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BANANAS31\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"BANANAS31 shows the strongest 24h momentum at +17.61% with massive volume surge of +176.77%, indicating strong buying pressure and breakout potential.\",\n  \"invalidation\""
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-15",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "conviction_below_floor:0<5500"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.81,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.5,
+    "positionUsd": 0,
+    "inScopeUsd": 15.81,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "42d3d4ea752fc7a43db8f0c4eebe2f0f29902c3fe987ac1b56c06054cc914300",
+  "checksum": "57baaefd8123de12a1d92cbddab7ee726f3859de88f779fa6d71c387c5708d82"
+}
