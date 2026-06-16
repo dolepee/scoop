@@ -59,7 +59,26 @@ type LoadState =
   | { status: "ready"; feed: Feed }
   | { status: "error"; message: string };
 
+type FeedStats = {
+  latest: Cycle;
+  chain: ReturnType<typeof verifyFeedChain>;
+  wallet: string;
+  freshness: { label: string; stale: boolean };
+  paidCycles: number;
+  noTradeCycles: number;
+  tradeTheses: number;
+  armedCycles: number;
+  executedTrades: number;
+  degradedCycles: number;
+  dataSpendUsd: number;
+  equityChangeUsd: number | null;
+  equityChangePct: number | null;
+  floorDistanceUsd: number | null;
+};
+
 const FALLBACK_WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
+const REPO_URL = "https://github.com/dolepee/scoop";
+const REGISTRATION_TX = "0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb";
 
 function isNumber(value: number | null | undefined): value is number {
   return typeof value === "number" && Number.isFinite(value);
@@ -73,6 +92,11 @@ function formatUsd(value: number | null | undefined, maximumFractionDigits = 2) 
     minimumFractionDigits: 2,
     maximumFractionDigits,
   }).format(value);
+}
+
+function formatPct(value: number | null | undefined) {
+  if (!isNumber(value)) return "n/a";
+  return `${value >= 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
 function formatBps(value: number | null | undefined) {
@@ -106,7 +130,7 @@ function timeAgo(value: string | null | undefined) {
 
 function shortHash(value: string | null | undefined) {
   if (!value) return "null";
-  return `${value.slice(0, 8)}...${value.slice(-6)}`;
+  return `${value.slice(0, 7)}...${value.slice(-5)}`;
 }
 
 function shortFile(value: string) {
@@ -117,11 +141,14 @@ function bscTxUrl(hash: string) {
   return `https://bscscan.com/tx/${hash}`;
 }
 
+function bscAddressUrl(address: string) {
+  return `https://bscscan.com/address/${address}`;
+}
+
 function verifyFeedChain(cycles: Cycle[]) {
   const chronological = [...cycles].reverse();
   let previous: string | null = null;
-  for (let index = 0; index < chronological.length; index += 1) {
-    const cycle = chronological[index];
+  for (const cycle of chronological) {
     const prevChecksum = cycle.prevChecksum ?? null;
     if (prevChecksum !== previous) {
       return {
@@ -152,6 +179,39 @@ function signalLabel(cycle: Cycle) {
   return parts.length > 0 ? parts.join(" / ") : "no thesis";
 }
 
+function computeStats(feed: Feed): FeedStats {
+  const latest = feed.cycles[0];
+  const chain = verifyFeedChain(feed.cycles);
+  const wallet = feed.summary.wallet ?? FALLBACK_WALLET;
+  const equityChangeUsd =
+    isNumber(feed.summary.equityNow) && isNumber(feed.summary.equityStart)
+      ? feed.summary.equityNow - feed.summary.equityStart
+      : null;
+  const equityChangePct =
+    isNumber(equityChangeUsd) && isNumber(feed.summary.equityStart) && feed.summary.equityStart !== 0
+      ? (equityChangeUsd / feed.summary.equityStart) * 100
+      : null;
+  const floorDistanceUsd =
+    isNumber(latest.equityUsd) && isNumber(latest.floorUsd) ? Math.max(0, latest.equityUsd - latest.floorUsd) : null;
+
+  return {
+    latest,
+    chain,
+    wallet,
+    freshness: timeAgo(latest.at),
+    paidCycles: feed.cycles.filter((cycle) => cycle.paid).length,
+    noTradeCycles: feed.cycles.filter((cycle) => decisionLabel(cycle) === "NO_TRADE").length,
+    tradeTheses: feed.cycles.filter((cycle) => cycle.action === "TRADE").length,
+    armedCycles: feed.cycles.filter((cycle) => cycle.trade).length,
+    executedTrades: feed.cycles.filter((cycle) => cycle.tradeResult?.executed).length,
+    degradedCycles: feed.cycles.filter((cycle) => cycle.degraded).length,
+    dataSpendUsd: feed.cycles.reduce((sum, cycle) => sum + (cycle.dataSpendUsd ?? 0), 0),
+    equityChangeUsd,
+    equityChangePct,
+    floorDistanceUsd,
+  };
+}
+
 function App() {
   const [state, setState] = useState<LoadState>({ status: "loading" });
 
@@ -178,39 +238,29 @@ function App() {
     };
   }, []);
 
-  if (state.status === "loading") return <Shell variant="loading" />;
-  if (state.status === "error") return <Shell variant="error" message={state.message} />;
-  if (state.feed.cycles.length === 0) return <Shell variant="empty" />;
+  if (state.status === "loading") return <Shell title="Loading Scoop" body="Opening the live receipt feed." />;
+  if (state.status === "error") return <Shell title="Feed unavailable" body={state.message} tone="bad" />;
+  if (state.feed.cycles.length === 0) return <Shell title="No cycles yet" body="The dashboard is ready, but no receipts have been committed." />;
 
-  const { feed } = state;
-  const latest = feed.cycles[0];
-  const chain = verifyFeedChain(feed.cycles);
-  const wallet = feed.summary.wallet ?? FALLBACK_WALLET;
-  const freshness = timeAgo(latest.at);
+  const stats = computeStats(state.feed);
 
   return (
-    <main className="page-shell">
-      <Hero feed={feed} latest={latest} freshness={freshness} chainOk={chain.ok} />
-      <LiveState feed={feed} latest={latest} freshness={freshness} />
-      <DecisionLog cycles={feed.cycles} />
-      <Aggregates feed={feed} chain={chain} />
-      <Footer wallet={wallet} chain={feed.summary.chain} />
+    <main className="app-shell">
+      <Topbar stats={stats} />
+      <Hero feed={state.feed} stats={stats} />
+      <SignalRail stats={stats} />
+      <ControlRoom feed={state.feed} stats={stats} />
+      <AgentLoop stats={stats} />
+      <DecisionLog cycles={state.feed.cycles} />
+      <ProofFooter stats={stats} />
     </main>
   );
 }
 
-function Shell({ variant, message }: { variant: "loading" | "error" | "empty"; message?: string }) {
-  const title = variant === "loading" ? "Loading Scoop receipts" : variant === "error" ? "Feed unavailable" : "No receipts yet";
-  const body =
-    variant === "loading"
-      ? "Reading the static receipt feed committed by the agent cron."
-      : variant === "error"
-        ? message ?? "The dashboard could not load /data/feed.json."
-        : "The dashboard is ready, but the committed feed has no cycles.";
-
+function Shell({ title, body, tone }: { title: string; body: string; tone?: "bad" }) {
   return (
-    <main className="page-shell page-shell--center">
-      <section className="empty-state" aria-live="polite">
+    <main className="app-shell app-shell--center">
+      <section className={`empty-state ${tone === "bad" ? "empty-state--bad" : ""}`} aria-live="polite">
         <span className="eyebrow">Scoop dashboard</span>
         <h1>{title}</h1>
         <p>{body}</p>
@@ -219,124 +269,161 @@ function Shell({ variant, message }: { variant: "loading" | "error" | "empty"; m
   );
 }
 
-function Hero({
-  feed,
-  latest,
-  freshness,
-  chainOk,
-}: {
-  feed: Feed;
-  latest: Cycle;
-  freshness: { label: string; stale: boolean };
-  chainOk: boolean;
-}) {
-  const armed = latest.trade;
-  const executedCycles = feed.cycles.filter((cycle) => cycle.tradeResult?.executed).length;
-  const armedCycles = feed.cycles.filter((cycle) => cycle.trade).length;
+function Topbar({ stats }: { stats: FeedStats }) {
   return (
-    <header className="hero">
-      <div className="hero__copy">
-        <span className="eyebrow">BNB Hack autonomous trading agent</span>
-        <h1>Self-custody trading agent with its own market bill.</h1>
-        <p>
-          Scoop pays CoinMarketCap x402 endpoints from its BSC wallet, turns the data into one governed decision, and can
-          execute only through Trust Wallet Agent Kit.
-        </p>
+    <nav className="topbar" aria-label="Primary">
+      <a className="brand" href="#top" aria-label="Scoop home">
+        <span className="brand__mark">S</span>
+        <span>
+          <strong>Scoop</strong>
+          <small>BNB AI Trading Agent</small>
+        </span>
+      </a>
+      <div className="nav-links" aria-label="Page sections">
+        <a href="#control-room">Control</a>
+        <a href="#loop">Loop</a>
+        <a href="#receipts">Receipts</a>
       </div>
-      <aside className="hero-card" aria-label="Current agent mode">
-        <div className="mode-row">
-          <span className={`mode-pill ${armed ? "mode-pill--armed" : "mode-pill--observe"}`}>
-            {armed ? "ARMED" : "OBSERVATION MODE"}
-          </span>
-          <span className={`freshness ${freshness.stale ? "freshness--stale" : ""}`}>{freshness.label}</span>
+      <div className="topbar__proof">
+        <span className={stats.chain.ok ? "status-dot" : "status-dot status-dot--bad"} />
+        <span>{stats.chain.ok ? "receipt chain valid" : "chain break"}</span>
+      </div>
+    </nav>
+  );
+}
+
+function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
+  const latest = stats.latest;
+  const mode = latest.trade ? "armed" : "observe";
+
+  return (
+    <header className="hero" id="top">
+      <section className="hero__copy">
+        <div className="hero__pills">
+          <span className="pill pill--gold">Track 1 ready stack</span>
+          <span className="pill">CMC x402</span>
+          <span className="pill">TWAK signing</span>
+          <span className="pill">BSC spot</span>
         </div>
-        <div className="receipt-stack" aria-label="Latest receipt summary">
-          <span>{latest.paidCallCount} paid calls</span>
-          <span>{latest.governorVerdict ?? "governor pending"}</span>
-          <span>{shortHash(latest.checksum)}</span>
+        <h1>AI trading, with receipts for every decision.</h1>
+        <p>
+          Scoop is a self-custody BSC agent that pays for CoinMarketCap intelligence, forms one thesis, lets a deterministic
+          governor decide, and executes only through Trust Wallet Agent Kit.
+        </p>
+        <div className="hero__actions">
+          <a className="button button--primary" href="#control-room">Open live control room</a>
+          <a className="button" href={REPO_URL} target="_blank" rel="noreferrer">View GitHub</a>
         </div>
-        <dl className="hero-card__facts">
-          <div>
-            <dt>Latest cycle</dt>
-            <dd>{formatDate(latest.at)}</dd>
+      </section>
+
+      <aside className="terminal-card" aria-label="Live agent command card">
+        <div className="terminal-card__top">
+          <span className={`mode-badge mode-badge--${mode}`}>{mode === "armed" ? "Armed" : "Observe mode"}</span>
+          <span className={stats.freshness.stale ? "freshness freshness--stale" : "freshness"}>{stats.freshness.label}</span>
+        </div>
+        <div className="terminal-screen">
+          <span className="terminal-screen__label">latest command</span>
+          <strong>{decisionLabel(latest)}</strong>
+          <p>{latest.governorReason ?? "governor state recorded in receipt"}</p>
+          <div className="command-line">
+            <span>paid_calls</span>
+            <strong>{latest.paidCallCount}</strong>
           </div>
-          <div>
-            <dt>Receipt head</dt>
-            <dd>{shortHash(latest.checksum)}</dd>
+          <div className="command-line">
+            <span>receipt_head</span>
+            <strong>{shortHash(latest.checksum)}</strong>
           </div>
-          <div>
-            <dt>Browser chain check</dt>
-            <dd className={chainOk ? "text-good" : "text-bad"}>{chainOk ? "linked" : "broken"}</dd>
+          <div className="command-line">
+            <span>cycles</span>
+            <strong>{feed.summary.cycleCount}</strong>
           </div>
-          <div>
-            <dt>Armed / executed</dt>
-            <dd>
-              {armedCycles} / {executedCycles}
-            </dd>
-          </div>
-        </dl>
+        </div>
+        <div className="terminal-card__footer">
+          <a href={bscAddressUrl(stats.wallet)} target="_blank" rel="noreferrer">Agent wallet</a>
+          <a href={bscTxUrl(REGISTRATION_TX)} target="_blank" rel="noreferrer">Registration tx</a>
+        </div>
       </aside>
     </header>
   );
 }
 
-function LiveState({
-  feed,
-  latest,
-  freshness,
-}: {
-  feed: Feed;
-  latest: Cycle;
-  freshness: { label: string; stale: boolean };
-}) {
-  const equityChange =
-    isNumber(feed.summary.equityNow) && isNumber(feed.summary.equityStart)
-      ? feed.summary.equityNow - feed.summary.equityStart
-      : null;
-  const floorDistance =
-    isNumber(latest.equityUsd) && isNumber(latest.floorUsd) ? Math.max(0, latest.equityUsd - latest.floorUsd) : null;
-  const modeText = latest.trade
-    ? "Trade execution is armed for cycles that pass the governor."
-    : "Trade execution is not armed. The agent is observing, paying for CMC data, and publishing receipts until rehearsal or the scored window is enabled.";
-
+function SignalRail({ stats }: { stats: FeedStats }) {
   return (
-    <section className="panel live-grid" aria-labelledby="live-state-title">
-      <div className="live-copy">
-        <span className="eyebrow">Live state</span>
-        <h2 id="live-state-title">Current capital, floor, and mode.</h2>
-        <p>{modeText}</p>
-        {latest.degraded ? (
-          <p className="alert">Latest receipt is degraded. Treat this cycle as a limited-data observation.</p>
-        ) : null}
-        {freshness.stale ? <p className="alert">Latest feed is stale by dashboard policy: last cycle was {freshness.label}.</p> : null}
-      </div>
-      <div className="metric metric--primary">
-        <span>Equity now</span>
-        <strong>{formatUsd(feed.summary.equityNow)}</strong>
-        <small>{isNumber(equityChange) ? `${equityChange >= 0 ? "+" : ""}${formatUsd(equityChange)} since first receipt` : "baseline unavailable"}</small>
-      </div>
-      <div className="metric">
-        <span>Risk floor</span>
-        <strong>{formatUsd(latest.floorUsd)}</strong>
-        <small>{isNumber(floorDistance) ? `${formatUsd(floorDistance)} above floor` : "distance unavailable"}</small>
-      </div>
-      <div className="metric">
-        <span>Cash split</span>
-        <strong>{formatUsd(latest.usdtUsd)} USDT</strong>
-        <small>{formatUsd(latest.usd1Usd)} USD1</small>
-      </div>
-      <div className="metric">
-        <span>Open position</span>
-        <strong>{formatUsd(latest.positionUsd)}</strong>
-        <small>{latest.positionUsd && latest.positionUsd > 0 ? "position is live" : "flat at latest receipt"}</small>
-      </div>
-      <div className="metric">
-        <span>In-scope value</span>
-        <strong className={latest.inScopeWarning ? "text-bad" : ""}>{formatUsd(latest.inScopeUsd)}</strong>
-        <small>{latest.inScopeWarning ? "below $2 monitor threshold" : "eligible-token hourly monitor"}</small>
-      </div>
-      <EquityChart cycles={feed.cycles} />
+    <section className="signal-rail" aria-label="Contest readiness">
+      <MetricCard label="Equity" value={formatUsd(stats.latest.equityUsd)} detail={`${formatPct(stats.equityChangePct)} from first receipt`} tone={isNumber(stats.equityChangeUsd) && stats.equityChangeUsd >= 0 ? "good" : "warn"} />
+      <MetricCard label="Risk floor" value={formatUsd(stats.latest.floorUsd)} detail={`${formatUsd(stats.floorDistanceUsd)} room above floor`} />
+      <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.paidCycles} paid data cycles`} tone="good" />
+      <MetricCard label="Execution" value={`${stats.armedCycles} / ${stats.executedTrades}`} detail="armed cycles / executed trades" tone={stats.executedTrades > 0 ? "good" : "warn"} />
     </section>
+  );
+}
+
+function MetricCard({ label, value, detail, tone }: { label: string; value: string; detail: string; tone?: "good" | "warn" }) {
+  return (
+    <article className={`metric-card ${tone ? `metric-card--${tone}` : ""}`}>
+      <span>{label}</span>
+      <strong>{value}</strong>
+      <small>{detail}</small>
+    </article>
+  );
+}
+
+function ControlRoom({ feed, stats }: { feed: Feed; stats: FeedStats }) {
+  return (
+    <section className="section-grid" id="control-room">
+      <div className="section-heading">
+        <span className="eyebrow">Live control room</span>
+        <h2>The product judges should click first.</h2>
+        <p>
+          This is the contest operating surface: capital, risk floor, receipt integrity, and whether the agent is observing,
+          rehearsing, or trading.
+        </p>
+      </div>
+
+      <div className="control-layout">
+        <article className="panel panel--chart">
+          <div className="panel__heading">
+            <div>
+              <span className="panel-kicker">portfolio path</span>
+              <h3>Equity versus governor floor</h3>
+            </div>
+            <span className={stats.chain.ok ? "badge badge--good" : "badge badge--bad"}>
+              {stats.chain.ok ? "browser verified" : `break at ${stats.chain.brokenAt}`}
+            </span>
+          </div>
+          <EquityChart cycles={feed.cycles} />
+        </article>
+
+        <aside className="ops-stack">
+          <StatusTile label="Mode" value={stats.latest.trade ? "Armed" : "Observe"} detail={stats.latest.trade ? "Trades can execute after governor approval." : "Real swaps are disabled until rehearsal or scored week."} tone={stats.latest.trade ? "good" : "warn"} />
+          <StatusTile label="In-scope value" value={formatUsd(stats.latest.inScopeUsd)} detail={stats.latest.inScopeWarning ? "Below monitor threshold." : "Eligible asset monitor is healthy."} tone={stats.latest.inScopeWarning ? "bad" : "good"} />
+          <StatusTile label="Latest signal" value={signalLabel(stats.latest)} detail={`${formatBps(stats.latest.convictionBps)} via ${stats.latest.provider ?? "local"}`} />
+          <StatusTile label="Receipt head" value={shortHash(stats.latest.checksum)} detail={formatDate(stats.latest.at)} mono />
+        </aside>
+      </div>
+    </section>
+  );
+}
+
+function StatusTile({
+  label,
+  value,
+  detail,
+  tone,
+  mono,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+  tone?: "good" | "warn" | "bad";
+  mono?: boolean;
+}) {
+  return (
+    <article className={`status-tile ${tone ? `status-tile--${tone}` : ""}`}>
+      <span>{label}</span>
+      <strong className={mono ? "mono" : ""}>{value}</strong>
+      <small>{detail}</small>
+    </article>
   );
 }
 
@@ -344,7 +431,7 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
   const plotted = [...cycles]
     .reverse()
     .filter((cycle) => isNumber(cycle.equityUsd))
-    .slice(-64);
+    .slice(-72);
 
   if (plotted.length < 2) {
     return (
@@ -354,9 +441,9 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
     );
   }
 
-  const width = 820;
-  const height = 260;
-  const pad = 28;
+  const width = 920;
+  const height = 330;
+  const pad = 34;
   const values = plotted.flatMap((cycle) => [cycle.equityUsd, cycle.floorUsd]).filter(isNumber);
   const minValue = Math.min(...values);
   const maxValue = Math.max(...values);
@@ -373,11 +460,13 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
 
   return (
     <div className="chart">
-      <div className="chart__header">
-        <span>Equity path</span>
-        <small>Receipt-derived values only</small>
-      </div>
       <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Equity and risk floor over recent receipts">
+        <defs>
+          <linearGradient id="equityGradient" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#37d5ff" />
+            <stop offset="100%" stopColor="#73f2a8" />
+          </linearGradient>
+        </defs>
         <line x1={pad} y1={height - pad} x2={width - pad} y2={height - pad} className="axis" />
         <line x1={pad} y1={pad} x2={pad} y2={height - pad} className="axis" />
         <polyline points={floorPoints} className="floor-line" fill="none" />
@@ -401,17 +490,62 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
   );
 }
 
+function AgentLoop({ stats }: { stats: FeedStats }) {
+  const steps = [
+    {
+      title: "Pays CMC",
+      body: `${stats.paidCycles} cycles bought market data through x402 before making a decision.`,
+    },
+    {
+      title: "Forms one thesis",
+      body: `${stats.tradeTheses} trade theses reached the governor; weak output is downgraded before execution.`,
+    },
+    {
+      title: "Governs risk",
+      body: `${stats.noTradeCycles} stand-down outcomes are preserved instead of hidden as inactivity.`,
+    },
+    {
+      title: "Signs with TWAK",
+      body: stats.executedTrades > 0 ? `${stats.executedTrades} executed trades have BSC tx proof.` : "Execution is wired through TWAK and intentionally unarmed until rehearsal.",
+    },
+  ];
+
+  return (
+    <section className="section-grid" id="loop">
+      <div className="section-heading">
+        <span className="eyebrow">Agent loop</span>
+        <h2>Sponsor tech is load-bearing.</h2>
+        <p>
+          Scoop is not a generic chatbot dashboard. Remove CMC x402, Trust Wallet signing, or BNB Chain and the product
+          stops working.
+        </p>
+      </div>
+      <div className="loop-grid">
+        {steps.map((step, index) => (
+          <article className="loop-card" key={step.title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function DecisionLog({ cycles }: { cycles: Cycle[] }) {
   return (
-    <section className="panel" aria-labelledby="decision-log-title">
+    <section className="section-grid" id="receipts">
       <div className="section-heading">
-        <div>
-          <span className="eyebrow">Decisions</span>
-          <h2 id="decision-log-title">Latest receipt log.</h2>
-        </div>
-        <p>Most cycles should stand aside, that is the discipline.</p>
+        <span className="eyebrow">Receipt ledger</span>
+        <h2>Every cycle is committed before the market grades it.</h2>
+        <p>
+          The table is the public audit trail: what Scoop paid to know, what it proposed, what the governor allowed, and
+          whether a BSC transaction exists.
+        </p>
       </div>
-      <div className="table-wrap">
+
+      <div className="table-card">
         <table>
           <thead>
             <tr>
@@ -419,14 +553,13 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
               <th scope="col">Outcome</th>
               <th scope="col">Signal</th>
               <th scope="col">Governor</th>
-              <th scope="col">Paid perception</th>
-              <th scope="col">Receipt</th>
+              <th scope="col">Spend</th>
+              <th scope="col">Proof</th>
             </tr>
           </thead>
           <tbody>
             {cycles.slice(0, 10).map((cycle) => {
               const label = decisionLabel(cycle);
-              const active = label !== "NO_TRADE";
               return (
                 <tr key={cycle.file}>
                   <td>
@@ -434,15 +567,12 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
                     <small>{shortFile(cycle.file)}</small>
                   </td>
                   <td>
-                    <span className={`decision-pill ${active ? "decision-pill--active" : ""}`}>{label}</span>
+                    <span className={`decision-pill ${label !== "NO_TRADE" ? "decision-pill--active" : ""}`}>{label}</span>
                     {cycle.degraded ? <small className="text-bad">degraded data</small> : null}
                   </td>
                   <td>
                     <strong>{signalLabel(cycle)}</strong>
-                    <small>
-                      {formatBps(cycle.convictionBps)}
-                      {cycle.provider ? ` via ${cycle.provider}` : ""}
-                    </small>
+                    <small>{formatBps(cycle.convictionBps)} via {cycle.provider ?? "local"}</small>
                     {cycle.rationale ? <em>{cycle.rationale}</em> : null}
                   </td>
                   <td>
@@ -451,13 +581,10 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
                   </td>
                   <td>
                     <strong>{cycle.paid ? "x402 paid" : "free/local"}</strong>
-                    <small>
-                      {cycle.paidCallCount} calls
-                      {isNumber(cycle.dataSpendUsd) ? `, ${formatUsd(cycle.dataSpendUsd, 4)}` : ""}
-                    </small>
+                    <small>{cycle.paidCallCount} calls, {formatUsd(cycle.dataSpendUsd, 4)}</small>
                   </td>
                   <td>
-                    <strong>{shortHash(cycle.checksum)}</strong>
+                    <strong className="mono">{shortHash(cycle.checksum)}</strong>
                     <small>
                       {cycle.tradeResult?.txHash ? (
                         <a href={bscTxUrl(cycle.tradeResult.txHash)} target="_blank" rel="noreferrer">
@@ -478,83 +605,17 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
   );
 }
 
-function Aggregates({
-  feed,
-  chain,
-}: {
-  feed: Feed;
-  chain: ReturnType<typeof verifyFeedChain>;
-}) {
-  const cycles = feed.cycles;
-  const noTradeCount = cycles.filter((cycle) => decisionLabel(cycle) === "NO_TRADE").length;
-  const paidCycles = cycles.filter((cycle) => cycle.paid).length;
-  const degradedCycles = cycles.filter((cycle) => cycle.degraded).length;
-  const armedCycles = cycles.filter((cycle) => cycle.trade).length;
-  const executedCycles = cycles.filter((cycle) => cycle.tradeResult?.executed).length;
-  const dataSpend = cycles.reduce((sum, cycle) => sum + (cycle.dataSpendUsd ?? 0), 0);
-
-  return (
-    <section className="panel aggregates" aria-labelledby="aggregates-title">
-      <div className="section-heading">
-        <div>
-          <span className="eyebrow">Aggregates</span>
-          <h2 id="aggregates-title">Receipt-derived operating picture.</h2>
-        </div>
-        <p>No synthetic PnL, no inferred trades, no off-chain dashboard state.</p>
-      </div>
-      <div className="aggregate-grid">
-        <Stat label="Cycles committed" value={feed.summary.cycleCount.toLocaleString("en-US")} />
-        <Stat label="NO_TRADE outcomes" value={noTradeCount.toLocaleString("en-US")} />
-        <Stat label="x402 paid cycles" value={`${paidCycles.toLocaleString("en-US")} / ${cycles.length}`} />
-        <Stat label="Observed data spend" value={formatUsd(dataSpend, 4)} />
-        <Stat label="Armed cycles" value={armedCycles.toLocaleString("en-US")} />
-        <Stat label="Executed trades" value={executedCycles.toLocaleString("en-US")} tone={executedCycles > 0 ? "good" : undefined} />
-        <Stat label="Degraded cycles" value={degradedCycles.toLocaleString("en-US")} tone={degradedCycles > 0 ? "warn" : "good"} />
-      </div>
-      <div className={`chain-strip ${chain.ok ? "chain-strip--ok" : "chain-strip--bad"}`}>
-        <div>
-          <span className="eyebrow">Receipt-chain check</span>
-          <strong>{chain.ok ? "Client verified linkage" : `Chain break at ${chain.brokenAt}`}</strong>
-          <p>
-            Your browser walks the receipts in chronological order and checks each <code>prevChecksum</code> against the
-            prior receipt head, so history cannot be rewritten silently without breaking the strip.
-          </p>
-        </div>
-        <div className="chain-strip__head">
-          <span>{chain.count} receipts</span>
-          <strong>{shortHash(chain.head)}</strong>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Stat({ label, value, tone }: { label: string; value: string; tone?: "good" | "warn" }) {
-  return (
-    <div className={`stat ${tone ? `stat--${tone}` : ""}`}>
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
-
-function Footer({ wallet, chain }: { wallet: string; chain: string | null }) {
-  const scanUrl = `https://bscscan.com/address/${wallet}`;
+function ProofFooter({ stats }: { stats: FeedStats }) {
   return (
     <footer className="footer">
       <div>
-        <span className="eyebrow">Proof footer</span>
-        <p>
-          Agent wallet:{" "}
-          <a href={scanUrl} target="_blank" rel="noreferrer">
-            {wallet}
-          </a>
-        </p>
-        <p>Receipts are public in GitHub and mirrored into the live dashboard feed for judging.</p>
+        <span className="eyebrow">Submission proof</span>
+        <p>Scoop is public, registered, and currently running observe-mode cycles while waiting for armed rehearsal.</p>
       </div>
-      <div>
-        <p>Built with Trust Wallet Agent Kit, CMC x402 data, and BNB Chain.</p>
-        <p>Network: {(chain ?? "bsc").toUpperCase()}</p>
+      <div className="footer__links">
+        <a href={REPO_URL} target="_blank" rel="noreferrer">GitHub repo</a>
+        <a href={bscAddressUrl(stats.wallet)} target="_blank" rel="noreferrer">Agent wallet</a>
+        <a href={bscTxUrl(REGISTRATION_TX)} target="_blank" rel="noreferrer">Registration tx</a>
       </div>
     </footer>
   );
