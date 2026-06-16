@@ -104,7 +104,7 @@ code,
   top: 14px;
   z-index: 10;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto auto;
   gap: 18px;
   align-items: center;
   padding: 12px;
@@ -173,7 +173,7 @@ td em {
 }
 
 .nav-links {
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .nav-links a,
