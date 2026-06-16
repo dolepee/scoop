@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-16T21:00:24.577Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c66195a99d3f4793ddcb73fc8b98c9a0a2205c5ddeeba2a6fa61b75a69caf956"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,UNI,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "cf0ab6ae163e6bb60e3bc43137e3bae22f97737de1d296beb51f67e43d311ebd"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 4.90960762,
+        "change24h": 54.65595862,
+        "change7d": 94.81203406,
+        "volume24h": 116606486.31255585,
+        "marketCap": 123837377.49456911,
+        "priceUsd": 0.5561975185024438,
+        "heat": 83.61
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.38112665,
+        "change24h": 25.71206224,
+        "change7d": 145.47031841,
+        "volume24h": 53134611.70214723,
+        "marketCap": 445791167.5677215,
+        "priceUsd": 0.4457911675677215,
+        "heat": 51.68
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 2.9433968,
+        "change24h": 21.58593551,
+        "change7d": 31.1573918,
+        "volume24h": 516207315.13539916,
+        "marketCap": 2039198364.5077152,
+        "priceUsd": 3.2796584639727295,
+        "heat": 35.09
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.53508448,
+        "change24h": 28.54408233,
+        "change7d": 29.61145341,
+        "volume24h": 54154780.05641249,
+        "marketCap": 3902689834.111705,
+        "priceUsd": 12.504806255203516,
+        "heat": 31.38
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 1.97467148,
+        "change24h": 6.45356733,
+        "change7d": 44.85473105,
+        "volume24h": 20530268.06885179,
+        "marketCap": 64346653.87737787,
+        "priceUsd": 0.3422692571010142,
+        "heat": 19.11
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 2.61116894,
+        "change24h": 2.03900934,
+        "change7d": 38.85394158,
+        "volume24h": 159613755.9020065,
+        "marketCap": 170104959.4671157,
+        "priceUsd": 0.09450275525950873,
+        "heat": 15.7
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "UNI",
+        "priceUsd": 3.2796584639727295,
+        "change1h": 2.9433968,
+        "change24h": 21.58593551,
+        "change7d": 31.1573918,
+        "volume24h": 516207315.13539916,
+        "volumeChange24h": 281.879
+      },
+      {
+        "symbol": "LAB",
+        "priceUsd": 12.504806255203516,
+        "change1h": -0.53508448,
+        "change24h": 28.54408233,
+        "change7d": 29.61145341,
+        "volume24h": 54154780.05641249,
+        "volumeChange24h": 103.4403
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5561975185024438,
+        "change1h": 4.90960762,
+        "change24h": 54.65595862,
+        "change7d": 94.81203406,
+        "volume24h": 116606486.31255585,
+        "volumeChange24h": 65.4238
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.4457911675677215,
+        "change1h": 1.38112665,
+        "change24h": 25.71206224,
+        "change7d": 145.47031841,
+        "volume24h": 53134611.70214723,
+        "volumeChange24h": -27.3101
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "BSB shows exceptional momentum with +54.66% in 24h, +94.81% in 7d, and strong volume of $116.6M, indicating sustained buying pressure.",
+    "invalidation": "If price drops below $0.50, breaking the recent uptrend support.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "4f111c43660b797929c396908098eba6bb53fa568fbff420f6a1baf8f4451459",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BSB\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"BSB shows exceptional momentum with +54.66% in 24h, +94.81% in 7d, and strong volume of $116.6M, indicating sustained buying pressure.\",\n  \"invalidation\": \"If price drops belo"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-16",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.53,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.22,
+    "positionUsd": 0,
+    "inScopeUsd": 15.53,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "058a798e949c6665022b94c45eb72f04f6b5384a67894ee804e8fcc8a590f7cf",
+  "checksum": "837b2cb62ef817a2133598a983570014d2ff04171eb11b376e0b6371e49bcb37"
+}
