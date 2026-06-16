@@ -59,18 +59,20 @@ export async function formThesis({ movers, quotes, position, equityUsd }) {
   return { thesis, promptHash: hashOf(user), raw: text.slice(0, 1200), provider: `bankr:${MODEL}` };
 }
 
-function sanitize(p) {
-  const action = p.action === "TRADE" ? "TRADE" : "NO_TRADE";
+export function sanitize(p) {
+  let action = p.action === "TRADE" ? "TRADE" : "NO_TRADE";
   // Models drift on the key name; accept the common variants, and treat a
   // 0-100 scale as percent when bps were clearly not intended.
   let conviction = p.convictionBps ?? p.conviction_bps ?? p.conviction ?? p.confidence ?? 0;
   conviction = Number(conviction) || 0;
   if (conviction > 0 && conviction <= 100) conviction *= 100;
+  const convictionBps = clampInt(conviction, 0, 10_000);
+  if (action === "TRADE" && convictionBps < 5_500) action = "NO_TRADE";
   return {
     action,
     symbol: action === "TRADE" ? String(p.symbol ?? "").toUpperCase() : null,
     direction: action === "TRADE" ? (p.direction === "exit" ? "exit" : "enter") : null,
-    convictionBps: clampInt(conviction, 0, 10_000),
+    convictionBps,
     rationale: String(p.rationale ?? "").slice(0, 300),
     invalidation: String(p.invalidation ?? "").slice(0, 200),
   };

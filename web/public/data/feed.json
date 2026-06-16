@@ -7,16 +7,16 @@
     "equityNow": 15.57,
     "floorUsd": 13.726799999999999,
     "equityStart": 20,
-    "chainOk": false,
+    "chainOk": true,
     "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
     "chain": "bsc"
   },
   "cycles": [
     {
       "at": "2026-06-16T17:19:08.522Z",
-      "file": "2026-06-16-171908-4f781128f6.json",
-      "checksum": "4f781128f6d4e55ae395b216ceb05453ffee8e355e7cb9f094839499c682f904",
-      "prevChecksum": "82b8e806ad256a839f7a8d4ab798b5da4da918d10cbce203cd01a6bf9e55eb31",
+      "file": "2026-06-16-171908-058a798e94.json",
+      "checksum": "058a798e949c6665022b94c45eb72f04f6b5384a67894ee804e8fcc8a590f7cf",
+      "prevChecksum": "5c490f69bee06e460824c052f250eb059034092c1b7cff5cf94b3aec472e0da8",
       "equityUsd": 15.57,
       "usdtUsd": 14.31,
       "usd1Usd": 1.26,

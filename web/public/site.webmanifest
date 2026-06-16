@@ -1,0 +1,17 @@
+{
+  "name": "Scoop",
+  "short_name": "Scoop",
+  "description": "Self-custody BSC trading agent using CMC x402 data and Trust Wallet Agent Kit.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07100c",
+  "theme_color": "#09110e",
+  "icons": [
+    {
+      "src": "/scoop.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

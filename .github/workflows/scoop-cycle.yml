@@ -1,13 +1,13 @@
 name: Scoop Cycle
 
-# The agent's heartbeat. Observe mode (SCOOP_PAID only) until the dress
-# rehearsal arms SCOOP_TRADE; the live trading week runs hourly. Every run
+# The agent's heartbeat. Observe mode (SCOOP_PAID only) until a manual
+# dispatch or repository variable arms SCOOP_TRADE; live mode runs hourly. Every run
 # pays for its own data from the agent wallet and commits a chained receipt,
 # so the git history timestamps each decision before the market grades it.
 
 on:
   schedule:
-    - cron: "7 */2 * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
     inputs:
       trade:
@@ -30,15 +30,24 @@ jobs:
       TWAK_WALLET_PASSWORD: ${{ secrets.TWAK_WALLET_PASSWORD }}
       BANKR_LLM_KEY: ${{ secrets.BANKR_LLM_KEY }}
       SCOOP_PAID: "1"
-      SCOOP_TRADE: ${{ inputs.trade || '0' }}
+      SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+
+      - name: sync and verify receipt head
+        run: |
+          git config user.name "scoop-agent"
+          git config user.email "agent@scoop.local"
+          git pull --ff-only origin master
+          npm run receipts:verify
 
       - name: restore agent wallet keystore
         run: |
@@ -52,12 +61,19 @@ jobs:
       - name: verify receipt chain
         run: npm run receipts:verify
 
+      - name: guard against stale head
+        run: |
+          git fetch origin master
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
+            echo "origin/master moved during this cycle; refusing to commit a receipt with a stale prevChecksum"
+            exit 1
+          fi
+
+      - name: build dashboard feed
+        run: node src/buildFeed.mjs
+
       - name: commit receipt
         run: |
-          git config user.name "scoop-agent"
-          git config user.email "agent@scoop.local"
-          git pull --rebase --autostash origin master
-          node src/buildFeed.mjs
           git add receipts/ state/ web/public/data/feed.json
           if git diff --staged --quiet; then
             echo "no receipt changes"

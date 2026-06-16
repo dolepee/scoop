@@ -113,6 +113,10 @@ function shortFile(value: string) {
   return value.replace(".json", "");
 }
 
+function bscTxUrl(hash: string) {
+  return `https://bscscan.com/tx/${hash}`;
+}
+
 function verifyFeedChain(cycles: Cycle[]) {
   const chronological = [...cycles].reverse();
   let previous: string | null = null;
@@ -186,7 +190,7 @@ function App() {
 
   return (
     <main className="page-shell">
-      <Hero latest={latest} freshness={freshness} chainOk={chain.ok} />
+      <Hero feed={feed} latest={latest} freshness={freshness} chainOk={chain.ok} />
       <LiveState feed={feed} latest={latest} freshness={freshness} />
       <DecisionLog cycles={feed.cycles} />
       <Aggregates feed={feed} chain={chain} />
@@ -216,23 +220,27 @@ function Shell({ variant, message }: { variant: "loading" | "error" | "empty"; m
 }
 
 function Hero({
+  feed,
   latest,
   freshness,
   chainOk,
 }: {
+  feed: Feed;
   latest: Cycle;
   freshness: { label: string; stale: boolean };
   chainOk: boolean;
 }) {
   const armed = latest.trade;
+  const executedCycles = feed.cycles.filter((cycle) => cycle.tradeResult?.executed).length;
+  const armedCycles = feed.cycles.filter((cycle) => cycle.trade).length;
   return (
     <header className="hero">
       <div className="hero__copy">
         <span className="eyebrow">BNB Hack autonomous trading agent</span>
-        <h1>Scoop buys its own market intelligence, then leaves a receipt.</h1>
+        <h1>Self-custody trading agent with its own market bill.</h1>
         <p>
-          A self-custody BSC agent that pays for CMC data through x402, runs a ratcheted risk governor, and records every
-          decision as a checksum-linked cycle.
+          Scoop pays CoinMarketCap x402 endpoints from its BSC wallet, turns the data into one governed decision, and can
+          execute only through Trust Wallet Agent Kit.
         </p>
       </div>
       <aside className="hero-card" aria-label="Current agent mode">
@@ -260,6 +268,12 @@ function Hero({
             <dt>Browser chain check</dt>
             <dd className={chainOk ? "text-good" : "text-bad"}>{chainOk ? "linked" : "broken"}</dd>
           </div>
+          <div>
+            <dt>Armed / executed</dt>
+            <dd>
+              {armedCycles} / {executedCycles}
+            </dd>
+          </div>
         </dl>
       </aside>
     </header>
@@ -283,7 +297,7 @@ function LiveState({
     isNumber(latest.equityUsd) && isNumber(latest.floorUsd) ? Math.max(0, latest.equityUsd - latest.floorUsd) : null;
   const modeText = latest.trade
     ? "Trade execution is armed for cycles that pass the governor."
-    : "Trade execution is not armed. The agent is observing, paying for data, and publishing receipts.";
+    : "Trade execution is not armed. The agent is observing, paying for CMC data, and publishing receipts until rehearsal or the scored window is enabled.";
 
   return (
     <section className="panel live-grid" aria-labelledby="live-state-title">
@@ -444,7 +458,15 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
                   </td>
                   <td>
                     <strong>{shortHash(cycle.checksum)}</strong>
-                    <small>{cycle.tradeResult?.txHash ? shortHash(cycle.tradeResult.txHash) : "no tx hash"}</small>
+                    <small>
+                      {cycle.tradeResult?.txHash ? (
+                        <a href={bscTxUrl(cycle.tradeResult.txHash)} target="_blank" rel="noreferrer">
+                          {shortHash(cycle.tradeResult.txHash)}
+                        </a>
+                      ) : (
+                        "no tx hash"
+                      )}
+                    </small>
                   </td>
                 </tr>
               );
@@ -468,6 +490,7 @@ function Aggregates({
   const paidCycles = cycles.filter((cycle) => cycle.paid).length;
   const degradedCycles = cycles.filter((cycle) => cycle.degraded).length;
   const armedCycles = cycles.filter((cycle) => cycle.trade).length;
+  const executedCycles = cycles.filter((cycle) => cycle.tradeResult?.executed).length;
   const dataSpend = cycles.reduce((sum, cycle) => sum + (cycle.dataSpendUsd ?? 0), 0);
 
   return (
@@ -485,6 +508,7 @@ function Aggregates({
         <Stat label="x402 paid cycles" value={`${paidCycles.toLocaleString("en-US")} / ${cycles.length}`} />
         <Stat label="Observed data spend" value={formatUsd(dataSpend, 4)} />
         <Stat label="Armed cycles" value={armedCycles.toLocaleString("en-US")} />
+        <Stat label="Executed trades" value={executedCycles.toLocaleString("en-US")} tone={executedCycles > 0 ? "good" : undefined} />
         <Stat label="Degraded cycles" value={degradedCycles.toLocaleString("en-US")} tone={degradedCycles > 0 ? "warn" : "good"} />
       </div>
       <div className={`chain-strip ${chain.ok ? "chain-strip--ok" : "chain-strip--bad"}`}>
@@ -526,7 +550,7 @@ function Footer({ wallet, chain }: { wallet: string; chain: string | null }) {
             {wallet}
           </a>
         </p>
-        <p>Receipts stay in the private repo during build and can be opened for judging at submission.</p>
+        <p>Receipts are public in GitHub and mirrored into the live dashboard feed for judging.</p>
       </div>
       <div>
         <p>Built with Trust Wallet Agent Kit, CMC x402 data, and BNB Chain.</p>
