@@ -16,4 +16,4 @@ Every architecture-critical assumption tested before full build. Verdict: GREEN,
 - 2.518 USD1: x402 data purse (~250 paid requests)
 - 14.328 USDT: trading capital (in-scope asset for the holding rule)
 - ~0.0034 BNB: gas reserve
-- Data spent through the public feed as of 2026-06-16T17:19:08.522Z: about $1.22 across 62 paid cycles.
+- Data spent through the public feed as of 2026-06-16T21:00:24.577Z: about $1.24 across 63 paid cycles.

@@ -32,6 +32,7 @@ jobs:
       SCOOP_PAID: "1"
       SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - uses: actions/checkout@v4
         with:

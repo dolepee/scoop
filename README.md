@@ -10,7 +10,7 @@ Most cycles should refuse to trade; the receipt chain proves those refusals happ
 - Agent wallet: [`0x5927a9662588f5609154488111E8ee7f4075513C`](https://bscscan.com/address/0x5927a9662588f5609154488111E8ee7f4075513C).
 - Validation spike: [`docs/SPIKE.md`](docs/SPIKE.md) records a real paid CMC x402 call and two TWAK-signed BSC swaps, including [`0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a`](https://bscscan.com/tx/0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a) and [`0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545`](https://bscscan.com/tx/0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545).
 - Local proof: run `npm run receipts:verify`; it recomputes every SHA-256 checksum and every `prevChecksum` link.
-- Live feed snapshot, as of `2026-06-16T17:19:08.522Z`: 65 cycles, 62 paid cycles, 65 `NO_TRADE` outcomes, 22 proposed `TRADE` theses vetoed by the governor, 0 executed trades, equity `15.57`, floor `13.73`, chain verification `true`. Armed execution is still off until rehearsal or the scored window.
+- Live feed snapshot, as of `2026-06-16T21:00:24.577Z`: 66 cycles, 63 paid cycles, 66 `NO_TRADE` outcomes, 22 proposed `TRADE` theses vetoed by the governor, 0 executed trades, equity `15.53`, floor `13.73`, chain verification `true`. Armed execution is still off until rehearsal or the scored window.
 
 ## One Cycle
 
@@ -30,8 +30,8 @@ CMC x402 perception -> structured thesis -> deterministic governor -> TWAK execu
 | --- | --- |
 | At least 1 trade per day | Armed-only compliance trades alternate minimal buy/sell behavior, are tagged `complianceTrade`, and still pass through the governor. |
 | Fixed 149-token eligible list | `data/eligible_tokens.json` stores all 149 symbols and BSC addresses with provenance; `src/allowlist.mjs` fails closed. |
-| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the current floor is `13.73` as of `2026-06-16T17:19:08.522Z`. |
-| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `15.57`, warning flag `false`, as of `2026-06-16T17:19:08.522Z`. |
+| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the current floor is `13.73` as of `2026-06-16T21:00:24.577Z`. |
+| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `15.53`, warning flag `false`, as of `2026-06-16T21:00:24.577Z`. |
 | TWAK execution | The executor has no non-TWAK swap path; live swaps in [`docs/SPIKE.md`](docs/SPIKE.md) were signed locally through TWAK. |
 
 ## Best TWAK Use
@@ -91,7 +91,7 @@ Live trading switch: observe mode is the default. Manual dispatch with `trade=1`
 
 | Date | Phase | Status |
 | --- | --- | --- |
-| Jun 10-16, 2026 | Observation build | Paid CMC x402 data, receipt chain, dashboard, and governor exercising in observe mode. Current public chain has 65 valid receipts. |
+| Jun 10-16, 2026 | Observation build | Paid CMC x402 data, receipt chain, dashboard, and governor exercising in observe mode. Current public chain has 66 valid receipts. |
 | Jun 16-19, 2026 | Armed rehearsal | Next gate: one small real-money rehearsal at `$5` scale, then leave observe mode until the scored window unless intentionally testing. |
 | Jun 22-28, 2026 | Scored trading week | Planned hands-off BSC trading window. |
 
