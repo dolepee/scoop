@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-16T05:32:40.494Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "541e2484ae4b62c68384b85c09525c1e2e4aacedb72589378cadd74b4d2e9042"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SIREN,SKYAI,ZRO&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "0888e2ad8548b271e2602eb41507d547c237d770ef5344a780468303002c8c2d"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 12.29086075,
+        "change24h": 56.25336352,
+        "change7d": 41.06805241,
+        "volume24h": 85425400.48805322,
+        "marketCap": 99812729.11094663,
+        "priceUsd": 0.4482943144439552,
+        "heat": 99.29
+      },
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": -0.0175222,
+        "change24h": 50.50256542,
+        "change7d": -92.64632958,
+        "volume24h": 73717679.25136383,
+        "marketCap": 65391974.59332447,
+        "priceUsd": 0.09024314506340572,
+        "heat": 36.55
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 2.76858499,
+        "change24h": 0.34789966,
+        "change7d": 82.52714489,
+        "volume24h": 66435685.21753903,
+        "marketCap": 387880156.09581935,
+        "priceUsd": 0.38788015609581933,
+        "heat": 21.03
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": 1.8458458,
+        "change24h": 6.79304311,
+        "change7d": 32.83166113,
+        "volume24h": 129733625.13366078,
+        "marketCap": 398544606.83284926,
+        "priceUsd": 1.1440149191594524,
+        "heat": 17.26
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 0.12308746,
+        "change24h": 10.87166198,
+        "change7d": 14.64383995,
+        "volume24h": 285336901.1727897,
+        "marketCap": 1789838625.7874467,
+        "priceUsd": 2.8775468365643513,
+        "heat": 13.44
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 0.60954106,
+        "change24h": 7.29934778,
+        "change7d": 18.11594,
+        "volume24h": 237012840.04290345,
+        "marketCap": 1142618457.6237042,
+        "priceUsd": 74.15192618109933,
+        "heat": 11.85
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.4482943144439552,
+        "change1h": 12.29086075,
+        "change24h": 56.25336352,
+        "change7d": 41.06805241,
+        "volume24h": 85425400.48805322,
+        "volumeChange24h": 106.348
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 1.1440149191594524,
+        "change1h": 1.8458458,
+        "change24h": 6.79304311,
+        "change7d": 32.83166113,
+        "volume24h": 129733625.13366078,
+        "volumeChange24h": 327.5975
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.09024314506340572,
+        "change1h": -0.0175222,
+        "change24h": 50.50256542,
+        "change7d": -92.64632958,
+        "volume24h": 73717679.25136383,
+        "volumeChange24h": -67.3729
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.38788015609581933,
+        "change1h": 2.76858499,
+        "change24h": 0.34789966,
+        "change7d": 82.52714489,
+        "volume24h": 66435685.21753903,
+        "volumeChange24h": 44.5832
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 7500,
+    "rationale": "BSB shows exceptional momentum with a 12.29% 1-hour surge, a 56.25% 24-hour gain, and strong volume of $85.4M, indicating a powerful breakout with high heat (99.29).",
+    "invalidation": "If price falls below the 1-hour breakout level of $0.44 or volume dries up sharply.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "67cf9fac6f68488d867f2effd918a0d4e2fd7d9fae47212ddeeef5696b8705be",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"BSB\",\n    \"direction\": \"enter\",\n    \"convictionBps\": 7500,\n    \"rationale\": \"BSB shows exceptional momentum with a 12.29% 1-hour surge, a 56.25% 24-hour gain, and strong volume of $85.4M, indicating a powerful breakout with high heat (99"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-16",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.7,
+    "usdtUsd": 14.32,
+    "usd1Usd": 1.38,
+    "positionUsd": 0,
+    "inScopeUsd": 15.7,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "59de6029d53a870b369cc4ea99df33bc42db5d5f20fc8bbe33266b240024252a",
+  "checksum": "945ecc91eb50d4675f048cbd861c7bc39d7389589bf1429c40b745e8a28c5994"
+}
