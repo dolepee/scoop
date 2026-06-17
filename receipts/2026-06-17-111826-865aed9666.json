@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T11:18:26.030Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "19f136afb9db5011aca82f632e333f05f6b5ad62d83b08117052db933f883f0d"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SIREN,TRIA,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "cf32469c6e77527a41026f88431cdb3b8776c7d9a6740ebabc2ffea2b1d62eb6"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 1.38691633,
+        "change24h": 14.36130965,
+        "change7d": 113.57556286,
+        "volume24h": 87647958.52692519,
+        "marketCap": 125016527.18024012,
+        "priceUsd": 0.5614934973287228,
+        "heat": 35.56
+      },
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 6.08320419,
+        "change24h": 21.63008478,
+        "change7d": -93.13755636,
+        "volume24h": 31814532.38523069,
+        "marketCap": 37246578.42295806,
+        "priceUsd": 0.05140910400692872,
+        "heat": 25.91
+      },
+      {
+        "symbol": "TRIA",
+        "name": "Tria",
+        "change1h": -1.97060108,
+        "change24h": 27.56445356,
+        "change7d": 20.5608801,
+        "volume24h": 21977705.40861455,
+        "marketCap": 66212055.88926677,
+        "priceUsd": 0.030686831577241547,
+        "heat": 24.74
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.57226002,
+        "change24h": 14.65782541,
+        "change7d": 43.98189752,
+        "volume24h": 59636964.2515046,
+        "marketCap": 4049561582.7636933,
+        "priceUsd": 12.975405467368194,
+        "heat": 19.54
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 0.88574637,
+        "change24h": 8.74597127,
+        "change7d": 20.50277166,
+        "volume24h": 41378062.1002992,
+        "marketCap": 78861299.14674765,
+        "priceUsd": 0.03584604506670348,
+        "heat": 14.48
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 1.75984311,
+        "change24h": -1.28028199,
+        "change7d": 50.50487498,
+        "volume24h": 146181864.9066382,
+        "marketCap": 171634102.85906652,
+        "priceUsd": 0.09535227936614807,
+        "heat": 11.57
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 12.975405467368194,
+        "change1h": -0.57226002,
+        "change24h": 14.65782541,
+        "change7d": 43.98189752,
+        "volume24h": 59636964.2515046,
+        "volumeChange24h": 96.725
+      },
+      {
+        "symbol": "TRIA",
+        "priceUsd": 0.030686831577241547,
+        "change1h": -1.97060108,
+        "change24h": 27.56445356,
+        "change7d": 20.5608801,
+        "volume24h": 21977705.40861455,
+        "volumeChange24h": 332.1607
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5614934973287228,
+        "change1h": 1.38691633,
+        "change24h": 14.36130965,
+        "change7d": 113.57556286,
+        "volume24h": 87647958.52692519,
+        "volumeChange24h": -28.1446
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.05140910400692872,
+        "change1h": 6.08320419,
+        "change24h": 21.63008478,
+        "change7d": -93.13755636,
+        "volume24h": 31814532.38523069,
+        "volumeChange24h": -47.8325
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "None of the top movers present a clear, high-conviction entry setup with sustained momentum and volume support.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "db424d3c81d4a0f653dced4437621f8c437f343588c76f6f1a20d7c7a753fc72",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"None of the top movers present a clear, high-conviction entry setup with sustained momentum and volume support.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.43,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.12,
+    "positionUsd": 0,
+    "inScopeUsd": 15.43,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c58fed45a42b36c08d3c3d08a76f26abc68e0750a32912fbf39e95cabd262cde",
+  "checksum": "865aed96661ace77ed963f7e25a5fe84f56b2d1bb14be3c7e39959cad35596df"
+}
