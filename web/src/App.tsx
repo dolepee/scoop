@@ -305,15 +305,29 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
           <span className="pill">TWAK signing</span>
           <span className="pill">BSC spot</span>
         </div>
-        <h1>AI trading, with receipts for every decision.</h1>
+        <h1>Pays for signal. Signs only when risk clears.</h1>
         <p>
-          Scoop is a self-custody BSC agent that pays for CoinMarketCap intelligence, forms one thesis, lets a deterministic
-          governor decide, and executes only through Trust Wallet Agent Kit.
+          Scoop is a self-custody BSC trading agent for the BNB AI Trading Agent track. It buys CMC intelligence through
+          x402, forms one thesis, and lets a hard governor decide whether Trust Wallet Agent Kit can sign.
         </p>
         <div className="hero__actions">
           <a className="button button--primary" href="#control-room">Open live control room</a>
           <a className="button" href={REPO_URL} target="_blank" rel="noreferrer">View GitHub</a>
         </div>
+        <dl className="hero__proofline" aria-label="Live proof summary">
+          <div>
+            <dt>Registration</dt>
+            <dd>on-chain</dd>
+          </div>
+          <div>
+            <dt>Receipts</dt>
+            <dd>{feed.summary.cycleCount}</dd>
+          </div>
+          <div>
+            <dt>x402 cycles</dt>
+            <dd>{stats.paidCycles}</dd>
+          </div>
+        </dl>
       </section>
 
       <aside className="terminal-card" aria-label="Live agent command card">
@@ -322,7 +336,7 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
           <span className={stats.freshness.stale ? "freshness freshness--stale" : "freshness"}>{stats.freshness.label}</span>
         </div>
         <div className="terminal-screen">
-          <span className="terminal-screen__label">latest command</span>
+          <span className="terminal-screen__label">governor receipt</span>
           <strong>{decisionLabel(latest)}</strong>
           <p>{latest.governorReason ?? "governor state recorded in receipt"}</p>
           <div className="command-line">
@@ -337,6 +351,17 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
             <span>cycles</span>
             <strong>{feed.summary.cycleCount}</strong>
           </div>
+        </div>
+        <div className="rail-map" aria-label="Execution rails">
+          <span>CMC x402</span>
+          <i />
+          <strong>{stats.paidCycles} paid cycles</strong>
+          <span>Governor</span>
+          <i />
+          <strong>{stats.noTradeCycles} stand-downs</strong>
+          <span>TWAK</span>
+          <i />
+          <strong>{stats.executedTrades} signed tx</strong>
         </div>
         <div className="terminal-card__footer">
           <a href={bscAddressUrl(stats.wallet)} target="_blank" rel="noreferrer">Agent wallet</a>
@@ -373,7 +398,7 @@ function ControlRoom({ feed, stats }: { feed: Feed; stats: FeedStats }) {
     <section className="section-grid" id="control-room">
       <div className="section-heading">
         <span className="eyebrow">Live control room</span>
-        <h2>The product judges should click first.</h2>
+        <h2>Contest state in one operating room.</h2>
         <p>
           This is the contest operating surface: capital, risk floor, receipt integrity, and whether the agent is observing,
           rehearsing, or trading.
@@ -514,7 +539,7 @@ function AgentLoop({ stats }: { stats: FeedStats }) {
     <section className="section-grid" id="loop">
       <div className="section-heading">
         <span className="eyebrow">Agent loop</span>
-        <h2>Sponsor tech is load-bearing.</h2>
+        <h2>The sponsor stack is in the trade loop.</h2>
         <p>
           Scoop is not a generic chatbot dashboard. Remove CMC x402, Trust Wallet signing, or BNB Chain and the product
           stops working.
