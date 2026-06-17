@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T12:23:59.040Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "169763fb4da32f4c8115951bcd36ea182fdee8ceb763e71afbd731e99f41ddd9"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,ASTER,TRIA,BSB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "397fd5fae63db91d2aa8d583566ee957cece952a1a85c0eb0ff5644871d2d678"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 67.36405028,
+        "change24h": 82.48327124,
+        "change7d": -88.74217889,
+        "volume24h": 28349240.83250167,
+        "marketCap": 62995816.38676122,
+        "priceUsd": 0.0869491538216624,
+        "heat": 271.26
+      },
+      {
+        "symbol": "ASTER",
+        "name": "Aster",
+        "change1h": 12.80150372,
+        "change24h": 11.37556289,
+        "change7d": 20.08780436,
+        "volume24h": 167875611.74399295,
+        "marketCap": 1999869250.1697197,
+        "priceUsd": 0.7413020770840953,
+        "heat": 52.79
+      },
+      {
+        "symbol": "TRIA",
+        "name": "Tria",
+        "change1h": 1.6148281,
+        "change24h": 30.44388539,
+        "change7d": 22.81844235,
+        "volume24h": 22682990.00425408,
+        "marketCap": 67336566.51837039,
+        "priceUsd": 0.0312080005368617,
+        "heat": 38.71
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": -0.57988036,
+        "change24h": 16.90939833,
+        "change7d": 115.03704993,
+        "volume24h": 85321956.75371079,
+        "marketCap": 127051733.04008006,
+        "priceUsd": 0.5706343275997308,
+        "heat": 32.43
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 5.81367338,
+        "change24h": -9.12139835,
+        "change7d": 132.7000215,
+        "volume24h": 62225382.60740471,
+        "marketCap": 378459442.058444,
+        "priceUsd": 0.378459442058444,
+        "heat": 28.22
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 2.26102152,
+        "change24h": 10.49882147,
+        "change7d": 22.67604277,
+        "volume24h": 43871564.07812966,
+        "marketCap": 80196400.97123723,
+        "priceUsd": 0.03645290953238056,
+        "heat": 20.68
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "TRIA",
+        "priceUsd": 0.0312080005368617,
+        "change1h": 1.6148281,
+        "change24h": 30.44388539,
+        "change7d": 22.81844235,
+        "volume24h": 22682990.00425408,
+        "volumeChange24h": 344.6029
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.570981741908656,
+        "change1h": -0.57523454,
+        "change24h": 17.00551233,
+        "change7d": 115.11585508,
+        "volume24h": 85285871.73376255,
+        "volumeChange24h": -31.6463
+      },
+      {
+        "symbol": "ASTER",
+        "priceUsd": 0.7413020770840953,
+        "change1h": 12.80150372,
+        "change24h": 11.37556289,
+        "change7d": 20.08780436,
+        "volume24h": 167875611.74399295,
+        "volumeChange24h": 46.1797
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.0869491538216624,
+        "change1h": 67.36405028,
+        "change24h": 82.48327124,
+        "change7d": -88.74217889,
+        "volume24h": 28349240.83250167,
+        "volumeChange24h": -54.8184
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support meets the 5500 conviction threshold for a disciplined entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "d475fc3758146062dbdd14170e34654827ca74ac200db792d7ce453ff4729e22",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support meets the 5500 conviction threshold for a disciplined entry.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.41,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.1,
+    "positionUsd": 0,
+    "inScopeUsd": 15.41,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "865aed96661ace77ed963f7e25a5fe84f56b2d1bb14be3c7e39959cad35596df",
+  "checksum": "931202a18c7ee38634fbaf6bfd3af4e0c22bb04def5f4ee53d0f2cd8614b3d19"
+}
