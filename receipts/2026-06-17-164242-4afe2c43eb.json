@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T16:42:42.541Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "4de46b3ee9aebf0fcb12b7b2c2b50e453a638a84e0479684b48df0d3647392ae"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,PENDLE,UNI,AAVE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d6ae8b018ad6d92cc64551157c4ae1c1438521db05faa95dde665c4378bf89ca"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 1.06588717,
+        "change24h": 30.83462718,
+        "change7d": 87.21997558,
+        "volume24h": 308259460.7321517,
+        "marketCap": 213154474.24943322,
+        "priceUsd": 0.11841915236079623,
+        "heat": 47.12
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": 2.16592849,
+        "change24h": 10.55053423,
+        "change7d": 23.68725024,
+        "volume24h": 58557957.38881181,
+        "marketCap": 257898322.19206592,
+        "priceUsd": 1.5082815940588274,
+        "heat": 20.6
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 0.84739101,
+        "change24h": 8.66621027,
+        "change7d": 34.01554479,
+        "volume24h": 816718083.5292639,
+        "marketCap": 2066730912.2272437,
+        "priceUsd": 3.324217283853539,
+        "heat": 16.31
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 2.5222483,
+        "change24h": 4.66004218,
+        "change7d": 22.98310972,
+        "volume24h": 185590953.24225652,
+        "marketCap": 1195177048.297041,
+        "priceUsd": 77.56130500823043,
+        "heat": 15.67
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.45243531,
+        "change24h": 4.14462894,
+        "change7d": 66.72278219,
+        "volume24h": 43082250.98032891,
+        "marketCap": 4119168365.0515995,
+        "priceUsd": 13.198436085622927,
+        "heat": 15.51
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 1.10839977,
+        "change24h": -3.80732451,
+        "change7d": 101.52759734,
+        "volume24h": 95775597.75706981,
+        "marketCap": 121951045.29571784,
+        "priceUsd": 0.5477253325655416,
+        "heat": 14.75
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "UNI",
+        "priceUsd": 3.324217283853539,
+        "change1h": 0.84739101,
+        "change24h": 8.66621027,
+        "change7d": 34.01554479,
+        "volume24h": 816718083.5292639,
+        "volumeChange24h": 93.613
+      },
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.11841915236079623,
+        "change1h": 1.06588717,
+        "change24h": 30.83462718,
+        "change7d": 87.21997558,
+        "volume24h": 308259460.7321517,
+        "volumeChange24h": 104.1299
+      },
+      {
+        "symbol": "AAVE",
+        "priceUsd": 77.56130500823043,
+        "change1h": 2.5222483,
+        "change24h": 4.66004218,
+        "change7d": 22.98310972,
+        "volume24h": 185590953.24225652,
+        "volumeChange24h": 4.0838
+      },
+      {
+        "symbol": "PENDLE",
+        "priceUsd": 1.5082815940588274,
+        "change1h": 2.16592849,
+        "change24h": 10.55053423,
+        "change7d": 23.68725024,
+        "volume24h": 58557957.38881181,
+        "volumeChange24h": 56.7897
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "XPL shows exceptional momentum with a 30.83% 24h gain, 87.22% 7d surge, and strong volume support (volume up 104.13% over 24h).",
+    "invalidation": "If price breaks below the 1-hour support level at $0.115, indicating a failed breakout.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "ad2e46f52f0f5b20bb0ea5311a3db53712f0d548df7deae546549facd325cd7d",
+    "rawPreview": "{\n    \"action\": \"TRADE\",\n    \"symbol\": \"XPL\",\n    \"direction\": \"enter\",\n    \"convictionBps\": -1,\n    \"rationale\": \"XPL shows exceptional momentum with a 30.83% 24h gain, 87.22% 7d surge, and strong volume support (volume up 104.13% over 24h).\",\n    \"invalidation\": \"If price break"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.35,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.04,
+    "positionUsd": 0,
+    "inScopeUsd": 15.35,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "f6e46affc85074be1f161d0e0b8ac83831da9f3d8bf9efb3c76b89e558e11c34",
+  "checksum": "4afe2c43eb77b39f360c3786cc468eda6688d56864f1eafb480cbcf2ff52221f"
+}
