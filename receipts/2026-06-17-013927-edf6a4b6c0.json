@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T01:39:27.321Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e4bdee46e45769622961233a82cfe887f10d34fa922203cb794e0ccc3898587a"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,LAB,BSB,LUNC&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "a65c92f06458432ade178070a38954e942621c119a937acf29994dde46d2aa92"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.08362369,
+        "change24h": 27.66335937,
+        "change7d": 162.82023336,
+        "volume24h": 56449145.23347829,
+        "marketCap": 463838574.0207569,
+        "priceUsd": 0.4638385740207569,
+        "heat": 55.34
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.44031243,
+        "change24h": 34.98491455,
+        "change7d": 46.50255786,
+        "volume24h": 57550029.57794109,
+        "marketCap": 4106203547.9059606,
+        "priceUsd": 13.156894858051288,
+        "heat": 40.64
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": -7.23278482,
+        "change24h": 33.39998833,
+        "change7d": 94.65768769,
+        "volume24h": 117658460.57487123,
+        "marketCap": 112119488.69929627,
+        "priceUsd": 0.5035683301113688,
+        "heat": 25.9
+      },
+      {
+        "symbol": "LUNC",
+        "name": "Terra Classic",
+        "change1h": 3.49741677,
+        "change24h": 8.55649181,
+        "change7d": 7.63220004,
+        "volume24h": 32268691.22344811,
+        "marketCap": 426199527.3254106,
+        "priceUsd": 0.0000772391365883761,
+        "heat": 20.19
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": -0.34964483,
+        "change24h": 15.63363101,
+        "change7d": 36.30371479,
+        "volume24h": 519768245.2611154,
+        "marketCap": 2102872647.8356764,
+        "priceUsd": 3.382088062909435,
+        "heat": 20.03
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 1.02463293,
+        "change24h": 4.05672786,
+        "change7d": 57.81345311,
+        "volume24h": 96859154.20096932,
+        "marketCap": 710110549.1287317,
+        "priceUsd": 0.2507326024792865,
+        "heat": 15.8
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 13.156894858051288,
+        "change1h": -0.44031243,
+        "change24h": 34.98491455,
+        "change7d": 46.50255786,
+        "volume24h": 57550029.57794109,
+        "volumeChange24h": 149.049
+      },
+      {
+        "symbol": "LUNC",
+        "priceUsd": 0.000077239136588376,
+        "change1h": 3.49741677,
+        "change24h": 8.55649181,
+        "change7d": 7.63220004,
+        "volume24h": 32268691.22344811,
+        "volumeChange24h": 54.7098
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5035683301113688,
+        "change1h": -7.23278482,
+        "change24h": 33.39998833,
+        "change7d": 94.65768769,
+        "volume24h": 117658460.57487123,
+        "volumeChange24h": 60.3433
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.4638385740207569,
+        "change1h": 1.08362369,
+        "change24h": 27.66335937,
+        "change7d": 162.82023336,
+        "volume24h": 56449145.23347829,
+        "volumeChange24h": -19.0221
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 6500,
+    "rationale": "SKYAI shows the strongest weekly momentum (+162.82%) with solid 24h volume of $56.4M and a positive 1h move (+1.08%), indicating sustained bullish pressure.",
+    "invalidation": "Price breaks below $0.43, the recent consolidation low, or 1h momentum turns negative with volume drying up.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "506b505c657867e862e1f58c3d17f645f8473f65526552455e6c3e9c7429aef9",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"SKYAI\",\n    \"direction\": \"enter\",\n    \"convictionBps\": 6500,\n    \"rationale\": \"SKYAI shows the strongest weekly momentum (+162.82%) with solid 24h volume of $56.4M and a positive 1h move (+1.08%), indicating sustained bullish pressure.\","
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.47,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.16,
+    "positionUsd": 0,
+    "inScopeUsd": 15.47,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c32c66f9d1f21ec7c4424e4aa0edf717884e31af9a4b473773d4304120ca307a",
+  "checksum": "edf6a4b6c0cbea0c94cbdf09bd335817a54c0da8261f18f4b5d9094446987cf0"
+}
