@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T13:59:05.631Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "cb9be246375aa1518548017f2a474e0258a1d536c10a8d3876f529bb43ac6830"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,XPL,COAI,ASTER&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "68f31f644817cb03859947511b3459092f7bfc5182718c5ff79c8df33f1a96e1"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 20.40337212,
+        "change24h": 16.77957487,
+        "change7d": 128.60624175,
+        "volume24h": 95900133.04272075,
+        "marketCap": 137155237.9392,
+        "priceUsd": 0.6160127461899844,
+        "heat": 97.28
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 4.30475453,
+        "change24h": 13.84765142,
+        "change7d": 71.47668885,
+        "volume24h": 247114696.62683332,
+        "marketCap": 201803629.20314202,
+        "priceUsd": 0.1121131273350789,
+        "heat": 37.48
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 3.34046833,
+        "change24h": 5.16164354,
+        "change7d": 49.78678595,
+        "volume24h": 25625327.615299,
+        "marketCap": 65809901.22444547,
+        "priceUsd": 0.35005248361330893,
+        "heat": 22.65
+      },
+      {
+        "symbol": "ASTER",
+        "name": "Aster",
+        "change1h": 1.17146764,
+        "change24h": 13.90692948,
+        "change7d": 20.51780935,
+        "volume24h": 283584095.9477587,
+        "marketCap": 2040458018.9387171,
+        "priceUsd": 0.7563473299635974,
+        "heat": 20.5
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 2.54230203,
+        "change24h": 2.39435593,
+        "change7d": 59.26459196,
+        "volume24h": 48849184.67561544,
+        "marketCap": 4150113906.087748,
+        "priceUsd": 13.297590261734278,
+        "heat": 18.91
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 2.67533888,
+        "change24h": 2.56168583,
+        "change7d": 21.73043862,
+        "volume24h": 23927887.56724475,
+        "marketCap": 190975509.35526854,
+        "priceUsd": 0.7190282873210493,
+        "heat": 13.85
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.1121131273350789,
+        "change1h": 4.30475453,
+        "change24h": 13.84765142,
+        "change7d": 71.47668885,
+        "volume24h": 247114696.62683332,
+        "volumeChange24h": 73.9145
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.6160127461899844,
+        "change1h": 20.40337212,
+        "change24h": 16.77957487,
+        "change7d": 128.60624175,
+        "volume24h": 95900133.04272075,
+        "volumeChange24h": -19.4756
+      },
+      {
+        "symbol": "COAI",
+        "priceUsd": 0.35005248361330893,
+        "change1h": 3.34046833,
+        "change24h": 5.16164354,
+        "change7d": 49.78678595,
+        "volume24h": 25625327.615299,
+        "volumeChange24h": 33.319
+      },
+      {
+        "symbol": "ASTER",
+        "priceUsd": 0.7563473299635974,
+        "change1h": 1.17146764,
+        "change24h": 13.90692948,
+        "change7d": 20.51780935,
+        "volume24h": 283584095.9477587,
+        "volumeChange24h": 138.686
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BSB",
+    "direction": "enter",
+    "convictionBps": 8200,
+    "rationale": "BSB shows exceptional momentum with +20.4% 1h, +16.8% 24h, +128.6% 7d, backed by $95.9M volume and a high heat score of 97.28.",
+    "invalidation": "Price closes below $0.58 (5% below current) or 1h momentum turns negative.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f1bff48dbf39daff44a43eede5130b7a08d693dbc98830fb3823a9314ae8b323",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BSB\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 8200,\n  \"rationale\": \"BSB shows exceptional momentum with +20.4% 1h, +16.8% 24h, +128.6% 7d, backed by $95.9M volume and a high heat score of 97.28.\",\n  \"invalidation\": \"Price closes below $0.58 "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "BSB",
+      "sizedPct": 5.94,
+      "reasons": [
+        "risk_budget_pct:10.81",
+        "conviction_bps:8200"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.39,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.08,
+    "positionUsd": 0,
+    "inScopeUsd": 15.39,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "931202a18c7ee38634fbaf6bfd3af4e0c22bb04def5f4ee53d0f2cd8614b3d19",
+  "checksum": "1b10981cf701952b7d09c28b283dd7ed9c9ac05214728d4abed962b84d569db0"
+}
