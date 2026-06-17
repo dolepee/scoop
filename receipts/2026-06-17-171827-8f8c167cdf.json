@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-17T17:18:27.405Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e9b7a28d027922047bd5a60dab017579b7208a9c5491b4e4a8ae0c3b441afc9b"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,COAI,LAB,PIEVERSE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "56517c68dc5626457b1f54c912a7dcc8c3e71bbb78ea0422572231616e8145f1"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -4.60435537,
+        "change24h": 28.23109813,
+        "change7d": 83.35573074,
+        "volume24h": 314366059.0811127,
+        "marketCap": 206766045.67572165,
+        "priceUsd": 0.11487002537540092,
+        "heat": 26.92
+      },
+      {
+        "symbol": "COAI",
+        "name": "ChainOpera AI",
+        "change1h": 2.06086288,
+        "change24h": 3.51072399,
+        "change7d": 49.12660262,
+        "volume24h": 26263677.35559761,
+        "marketCap": 65031733.49680707,
+        "priceUsd": 0.3459132957303409,
+        "heat": 17.06
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.6096654,
+        "change24h": 6.38496532,
+        "change7d": 63.98664286,
+        "volume24h": 41161771.29605715,
+        "marketCap": 4079805604.579538,
+        "priceUsd": 13.072311870198273,
+        "heat": 14.15
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 0.26621276,
+        "change24h": 7.3618267,
+        "change7d": 26.88600473,
+        "volume24h": 25172865.74319731,
+        "marketCap": 195149785.3238804,
+        "priceUsd": 0.7347445564418867,
+        "heat": 12.19
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": -0.64229842,
+        "change24h": 9.60338246,
+        "change7d": 23.90631025,
+        "volume24h": 58745861.24249493,
+        "marketCap": 256062793.3340408,
+        "priceUsd": 1.4975462914288393,
+        "heat": 11.26
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 0.84194007,
+        "change24h": 7.55688712,
+        "change7d": 6.72877721,
+        "volume24h": 20509266.47988928,
+        "marketCap": 109410794.27822506,
+        "priceUsd": 0.010941079427822506,
+        "heat": 11.09
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 13.072311870198273,
+        "change1h": -0.6096654,
+        "change24h": 6.38496532,
+        "change7d": 63.98664286,
+        "volume24h": 41161771.29605715,
+        "volumeChange24h": -20.2083
+      },
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.11487002537540092,
+        "change1h": -4.60435537,
+        "change24h": 28.23109813,
+        "change7d": 83.35573074,
+        "volume24h": 314366059.0811127,
+        "volumeChange24h": 104.3352
+      },
+      {
+        "symbol": "COAI",
+        "priceUsd": 0.3459132957303409,
+        "change1h": 2.06086288,
+        "change24h": 3.51072399,
+        "change7d": 49.12660262,
+        "volume24h": 26263677.35559761,
+        "volumeChange24h": 30.1451
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7347445564418867,
+        "change1h": 0.26621276,
+        "change24h": 7.3618267,
+        "change7d": 26.88600473,
+        "volume24h": 25172865.74319731,
+        "volumeChange24h": 1.636
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction entry setup with strong momentum and volume support; XPL shows a sharp 1h drop (-4.60%) despite strong 7d gains, and LAB's volume is declining (-20.21%).",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "71a1c10fcdb614b04c908ca6a908aa3c06771d41dff5459ecf9460ddea392741",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": null,\n    \"direction\": null,\n    \"convictionBps\": 0,\n    \"rationale\": \"No symbol presents a clear, high-conviction entry setup with strong momentum and volume support; XPL shows a sharp 1h drop (-4.60%) despite strong 7d gains, and LAB's "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-17",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.33,
+    "usdtUsd": 14.31,
+    "usd1Usd": 1.02,
+    "positionUsd": 0,
+    "inScopeUsd": 15.33,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "4afe2c43eb77b39f360c3786cc468eda6688d56864f1eafb480cbcf2ff52221f",
+  "checksum": "8f8c167cdfa2193e0eef0d1e351f5a2fde831b37dbb02cba015d68a43587aee4"
+}
