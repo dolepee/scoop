@@ -61,6 +61,20 @@ function tradeSummary(receipt) {
   };
 }
 
+function positionSummary(position) {
+  if (!position || typeof position !== "object") return null;
+  return {
+    symbol: str(position.symbol),
+    address: str(position.address),
+    units: num(position.units),
+    entryPrice: num(position.entryPrice),
+    costUsd: num(position.costUsd),
+    openedAt: str(position.openedAt),
+    complianceTrade: bool(position.complianceTrade),
+    complianceReason: str(position.complianceReason),
+  };
+}
+
 function paidCallSummary(call) {
   if (!call || typeof call !== "object") return null;
   return {
@@ -112,6 +126,7 @@ function cycle(row) {
     dataSpendUsd: num(r.perception?.dataSpendUsd),
     trade: bool(modes.trade),
     tradeResult: tradeSummary(r),
+    position: positionSummary(position),
   };
 }
 

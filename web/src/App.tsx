@@ -18,6 +18,17 @@ type PaidCall = {
   skipped: string | null;
 };
 
+type PositionSummary = {
+  symbol: string | null;
+  address: string | null;
+  units: number | null;
+  entryPrice: number | null;
+  costUsd: number | null;
+  openedAt: string | null;
+  complianceTrade: boolean;
+  complianceReason: string | null;
+};
+
 type Cycle = {
   at: string | null;
   file: string;
@@ -46,6 +57,7 @@ type Cycle = {
   dataSpendUsd: number | null;
   trade: boolean;
   tradeResult: TradeResult | null;
+  position: PositionSummary | null;
 };
 
 type Feed = {
@@ -92,11 +104,15 @@ type FeedStats = {
   equityChangeUsd: number | null;
   equityChangePct: number | null;
   floorDistanceUsd: number | null;
+  latestExecutedTrade: Cycle | null;
+  currentPosition: PositionSummary | null;
+  positionMaturesAt: string | null;
 };
 
 const FALLBACK_WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
 const REPO_URL = "https://github.com/dolepee/scoop";
 const REGISTRATION_TX = "0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb";
+const COMPLIANCE_HOLD_MS = 20 * 60 * 60 * 1000;
 
 function isNumber(value: number | null | undefined): value is number {
   return typeof value === "number" && Number.isFinite(value);
@@ -135,6 +151,20 @@ function formatDate(value: string | null | undefined) {
   }).format(date);
 }
 
+function formatUtc(value: string | null | undefined) {
+  if (!value) return "unknown";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "unknown";
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC",
+    timeZoneName: "short",
+  }).format(date);
+}
+
 function timeAgo(value: string | null | undefined) {
   if (!value) return { label: "unknown", stale: true };
   const date = new Date(value);
@@ -161,6 +191,10 @@ function bscTxUrl(hash: string) {
 
 function bscAddressUrl(address: string) {
   return `https://bscscan.com/address/${address}`;
+}
+
+function bscTokenUrl(address: string) {
+  return `https://bscscan.com/token/${address}`;
 }
 
 function receiptUrl(file: string) {
@@ -207,14 +241,34 @@ function decisionLabel(cycle: Cycle) {
 }
 
 function signalLabel(cycle: Cycle) {
-  const parts = [cycle.action, cycle.symbol, cycle.direction].filter(Boolean);
+  const parts = [cycle.action, cycle.action === "TRADE" ? cycle.symbol : null, cycle.direction].filter(Boolean);
   return parts.length > 0 ? parts.join(" / ") : "no thesis";
+}
+
+function positionLabel(stats: FeedStats) {
+  const position = stats.currentPosition;
+  if (!position?.symbol) return "Flat";
+  return `${position.symbol} ${formatUsd(stats.latest.positionUsd)}`;
+}
+
+function positionDetail(stats: FeedStats) {
+  const position = stats.currentPosition;
+  if (!position?.symbol) return "No open token position in the latest receipt.";
+  if (stats.positionMaturesAt) return `Compliance sell gate ${formatUtc(stats.positionMaturesAt)}.`;
+  return `Opened ${formatDate(position.openedAt)}.`;
 }
 
 function computeStats(feed: Feed): FeedStats {
   const latest = feed.cycles[0];
   const chain = verifyFeedChain(feed.cycles);
   const wallet = feed.summary.wallet ?? FALLBACK_WALLET;
+  const latestExecutedTrade = feed.cycles.find((cycle) => cycle.tradeResult?.executed) ?? null;
+  const currentPosition = latest.position ?? null;
+  const positionOpenedAt = Date.parse(currentPosition?.openedAt ?? "");
+  const positionMaturesAt =
+    currentPosition?.complianceTrade && Number.isFinite(positionOpenedAt)
+      ? new Date(positionOpenedAt + COMPLIANCE_HOLD_MS).toISOString()
+      : null;
   const equityChangeUsd =
     isNumber(feed.summary.equityNow) && isNumber(feed.summary.equityStart)
       ? feed.summary.equityNow - feed.summary.equityStart
@@ -244,6 +298,9 @@ function computeStats(feed: Feed): FeedStats {
     equityChangeUsd,
     equityChangePct,
     floorDistanceUsd,
+    latestExecutedTrade,
+    currentPosition,
+    positionMaturesAt,
   };
 }
 
@@ -332,6 +389,7 @@ function Topbar({ stats }: { stats: FeedStats }) {
 function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
   const latest = stats.latest;
   const mode = latest.trade ? "armed" : "observe";
+  const latestTx = stats.latestExecutedTrade?.tradeResult?.txHash ?? null;
 
   return (
     <header className="hero" id="top">
@@ -342,19 +400,23 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
           <span className="pill">TWAK signing</span>
           <span className="pill">BSC spot</span>
         </div>
-        <h1>Pays for signal. Signs only when risk clears.</h1>
+        <h1>
+          Pays for signal.{" "}
+          <span>Signs only when risk clears.</span>
+        </h1>
         <p>
           Scoop is a self-custody BSC trading agent for the BNB AI Trading Agent track. It buys CMC intelligence through
           x402, forms one thesis, and lets a hard governor decide whether Trust Wallet Agent Kit can sign.
         </p>
         <div className="hero__actions">
           <a className="button button--primary" href="#control-room">Open live control room</a>
+          {latestTx ? <a className="button" href={bscTxUrl(latestTx)} target="_blank" rel="noreferrer">Latest tx</a> : null}
           <a className="button" href={REPO_URL} target="_blank" rel="noreferrer">View GitHub</a>
         </div>
         <dl className="hero__proofline" aria-label="Live proof summary">
           <div>
-            <dt>Registration</dt>
-            <dd>on-chain</dd>
+            <dt>Signed tx</dt>
+            <dd>{stats.executedTrades}</dd>
           </div>
           <div>
             <dt>Receipts</dt>
@@ -383,6 +445,10 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
           <div className="command-line">
             <span>receipt_head</span>
             <strong>{shortHash(latest.checksum)}</strong>
+          </div>
+          <div className="command-line">
+            <span>open_position</span>
+            <strong>{stats.currentPosition?.symbol ?? "flat"}</strong>
           </div>
           <div className="command-line">
             <span>cycles</span>
@@ -414,6 +480,7 @@ function SignalRail({ stats }: { stats: FeedStats }) {
     <section className="signal-rail" aria-label="Contest readiness">
       <MetricCard label="Equity" value={formatUsd(stats.latest.equityUsd)} detail={`${formatPct(stats.equityChangePct)} from first receipt`} tone={isNumber(stats.equityChangeUsd) && stats.equityChangeUsd >= 0 ? "good" : "warn"} />
       <MetricCard label="Risk floor" value={formatUsd(stats.latest.floorUsd)} detail={`${formatUsd(stats.floorDistanceUsd)} room above floor`} />
+      <MetricCard label="Position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
       <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.paidCycles} paid data cycles`} tone="good" />
       <MetricCard label="Execution" value={`${stats.armedCycles} / ${stats.executedTrades}`} detail="armed cycles / executed trades" tone={stats.executedTrades > 0 ? "good" : "warn"} />
     </section>
@@ -458,6 +525,7 @@ function ControlRoom({ feed, stats }: { feed: Feed; stats: FeedStats }) {
 
         <aside className="ops-stack">
           <StatusTile label="Mode" value={stats.latest.trade ? "Armed" : "Observe"} detail={stats.latest.trade ? "Trades can execute after governor approval." : "Real swaps are disabled until rehearsal or scored week."} tone={stats.latest.trade ? "good" : "warn"} />
+          <StatusTile label="Open position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
           <StatusTile label="In-scope value" value={formatUsd(stats.latest.inScopeUsd)} detail={stats.latest.inScopeWarning ? "Below monitor threshold." : "Eligible asset monitor is healthy."} tone={stats.latest.inScopeWarning ? "bad" : "good"} />
           <StatusTile label="Latest signal" value={signalLabel(stats.latest)} detail={`${formatBps(stats.latest.convictionBps)} via ${stats.latest.provider ?? "local"}`} />
           <StatusTile label="Receipt head" value={shortHash(stats.latest.checksum)} detail={formatDate(stats.latest.at)} mono />
@@ -555,7 +623,9 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
 function ProofPanel({ feed, stats }: { feed: Feed; stats: FeedStats }) {
   const latest = stats.latest;
   const latestCalls = latest.paidCalls ?? [];
-  const latestTx = latest.tradeResult?.txHash ?? null;
+  const latestExecution = stats.latestExecutedTrade;
+  const latestTx = latestExecution?.tradeResult?.txHash ?? null;
+  const currentPosition = stats.currentPosition;
 
   return (
     <section className="section-grid" id="proof">
@@ -629,12 +699,36 @@ function ProofPanel({ feed, stats }: { feed: Feed; stats: FeedStats }) {
               <dd><a href={bscTxUrl(REGISTRATION_TX)} target="_blank" rel="noreferrer">{shortHash(REGISTRATION_TX)}</a></dd>
             </div>
             <div>
-              <dt>Latest trade tx</dt>
+              <dt>Latest executed tx</dt>
               <dd>
                 {latestTx ? (
                   <a href={bscTxUrl(latestTx)} target="_blank" rel="noreferrer">{shortHash(latestTx)}</a>
                 ) : (
                   "no executed tx in receipt chain yet"
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>Execution receipt</dt>
+              <dd>
+                {latestExecution ? (
+                  <a href={receiptUrl(latestExecution.file)} target="_blank" rel="noreferrer">
+                    {shortFile(latestExecution.file)}
+                  </a>
+                ) : (
+                  "no executed receipt yet"
+                )}
+              </dd>
+            </div>
+            <div>
+              <dt>Open token</dt>
+              <dd>
+                {currentPosition?.address ? (
+                  <a href={bscTokenUrl(currentPosition.address)} target="_blank" rel="noreferrer">
+                    {currentPosition.symbol ?? "token"} at {formatUsd(latest.positionUsd)}
+                  </a>
+                ) : (
+                  "flat in latest receipt"
                 )}
               </dd>
             </div>

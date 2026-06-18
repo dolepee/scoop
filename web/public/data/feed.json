@@ -63,7 +63,17 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": {
+        "symbol": "LAB",
+        "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+        "units": 0.060259033553382524,
+        "entryPrice": 16.59502220715365,
+        "costUsd": 1,
+        "openedAt": "2026-06-18T16:23:21.596Z",
+        "complianceTrade": true,
+        "complianceReason": "daily minimum, no conviction signal today"
+      }
     },
     {
       "at": "2026-06-18T16:23:21.596Z",
@@ -116,6 +126,16 @@
         "spentUsd": 1,
         "units": 0.06015998487885608,
         "error": null
+      },
+      "position": {
+        "symbol": "LAB",
+        "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+        "units": 0.06015998487885608,
+        "entryPrice": 0,
+        "costUsd": 1,
+        "openedAt": "2026-06-18T16:23:21.596Z",
+        "complianceTrade": true,
+        "complianceReason": "daily minimum, no conviction signal today"
       }
     },
     {
@@ -162,7 +182,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T15:31:04.781Z",
@@ -208,7 +229,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T13:18:24.525Z",
@@ -254,7 +276,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T11:18:17.815Z",
@@ -300,7 +323,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T11:16:56.263Z",
@@ -346,7 +370,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T09:18:26.679Z",
@@ -392,7 +417,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T07:18:26.883Z",
@@ -438,7 +464,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T07:03:36.448Z",
@@ -484,7 +511,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-18T01:37:09.543Z",
@@ -530,7 +558,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T22:09:35.039Z",
@@ -576,7 +605,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T19:29:33.382Z",
@@ -622,7 +652,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T17:18:27.405Z",
@@ -668,7 +699,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T16:42:42.541Z",
@@ -714,7 +746,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T15:18:24.913Z",
@@ -760,7 +793,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T13:59:05.631Z",
@@ -806,7 +840,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T12:23:59.040Z",
@@ -852,7 +887,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T11:18:26.030Z",
@@ -898,7 +934,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T07:25:36.652Z",
@@ -944,7 +981,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-17T01:39:27.321Z",
@@ -990,7 +1028,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T23:18:28.255Z",
@@ -1036,7 +1075,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T22:57:01.894Z",
@@ -1082,7 +1122,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T21:00:24.577Z",
@@ -1128,7 +1169,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T17:19:08.522Z",
@@ -1174,7 +1216,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T17:18:30.351Z",
@@ -1220,7 +1263,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T11:43:39.561Z",
@@ -1266,7 +1310,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T11:31:43.429Z",
@@ -1312,7 +1357,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T09:19:41.763Z",
@@ -1358,7 +1404,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T07:18:21.262Z",
@@ -1404,7 +1451,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T05:32:40.494Z",
@@ -1450,7 +1498,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-16T05:26:55.323Z",
@@ -1496,7 +1545,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T22:26:02.177Z",
@@ -1542,7 +1592,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T18:45:11.720Z",
@@ -1588,7 +1639,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T15:18:24.457Z",
@@ -1634,7 +1686,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T12:39:45.345Z",
@@ -1680,7 +1733,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T09:18:29.352Z",
@@ -1726,7 +1780,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T09:00:54.417Z",
@@ -1772,7 +1827,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-15T05:23:20.645Z",
@@ -1818,7 +1874,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T23:23:08.868Z",
@@ -1864,7 +1921,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T21:24:19.863Z",
@@ -1910,7 +1968,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T19:53:36.472Z",
@@ -1956,7 +2015,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T17:40:42.556Z",
@@ -2002,7 +2062,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T15:55:20.759Z",
@@ -2048,7 +2109,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T13:34:14.649Z",
@@ -2094,7 +2156,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T12:09:48.572Z",
@@ -2140,7 +2203,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T09:53:55.071Z",
@@ -2186,7 +2250,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-14T05:02:46.564Z",
@@ -2232,7 +2297,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T23:18:27.139Z",
@@ -2278,7 +2344,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T23:01:01.413Z",
@@ -2324,7 +2391,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T21:24:15.181Z",
@@ -2370,7 +2438,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T19:49:58.316Z",
@@ -2416,7 +2485,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T17:41:39.135Z",
@@ -2462,7 +2532,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T15:18:18.357Z",
@@ -2508,7 +2579,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T14:21:24.378Z",
@@ -2554,7 +2626,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T13:56:41.162Z",
@@ -2600,7 +2673,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T12:01:16.668Z",
@@ -2646,7 +2720,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T09:31:37.862Z",
@@ -2692,7 +2767,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T07:34:30.274Z",
@@ -2738,7 +2814,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-13T04:44:55.485Z",
@@ -2784,7 +2861,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T23:42:59.118Z",
@@ -2830,7 +2908,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T21:58:47.331Z",
@@ -2876,7 +2955,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T18:18:25.443Z",
@@ -2922,7 +3002,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T17:18:23.593Z",
@@ -2968,7 +3049,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T15:35:15.592Z",
@@ -3014,7 +3096,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T15:18:24.713Z",
@@ -3060,7 +3143,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T13:18:34.922Z",
@@ -3106,7 +3190,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T11:18:27.413Z",
@@ -3152,7 +3237,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T10:38:49.620Z",
@@ -3198,7 +3284,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T09:18:21.686Z",
@@ -3244,7 +3331,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T07:18:18.308Z",
@@ -3290,7 +3378,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-12T04:58:35.846Z",
@@ -3336,7 +3425,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T23:49:00.195Z",
@@ -3382,7 +3472,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T20:32:43.882Z",
@@ -3428,7 +3519,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T17:34:11.850Z",
@@ -3474,7 +3566,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T16:18:31.908Z",
@@ -3520,7 +3613,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T15:18:45.730Z",
@@ -3566,7 +3660,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T10:56:43.501Z",
@@ -3612,7 +3707,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-11T04:55:47.999Z",
@@ -3658,7 +3754,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T22:18:18.871Z",
@@ -3704,7 +3801,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:20:47.162Z",
@@ -3750,7 +3848,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:14:25.182Z",
@@ -3796,7 +3895,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:12:10.224Z",
@@ -3842,7 +3942,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:09:07.057Z",
@@ -3888,7 +3989,8 @@
       ],
       "dataSpendUsd": 0.02,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:06:05.144Z",
@@ -3934,7 +4036,8 @@
       ],
       "dataSpendUsd": 0.01,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:04:03.441Z",
@@ -3980,7 +4083,8 @@
       ],
       "dataSpendUsd": 0.01,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T18:03:25.218Z",
@@ -4009,7 +4113,8 @@
       "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T12:28:08.113Z",
@@ -4038,7 +4143,8 @@
       "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     },
     {
       "at": "2026-06-10T12:27:43.877Z",
@@ -4067,7 +4173,8 @@
       "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
-      "tradeResult": null
+      "tradeResult": null,
+      "position": null
     }
   ]
 }
