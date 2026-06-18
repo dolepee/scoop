@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T07:03:36.448Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "fce7827bcd005f946fd281705ab38768b5ddaa28412c9b576551f3abbbcb4038"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BSB,SIREN,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "eb86983c3a5db75655579553377a5ee41f429ba1047cea20b81f37326817ea87"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 16.38421847,
+        "change24h": 10.59285888,
+        "change7d": 63.22321477,
+        "volume24h": 66074293.50099364,
+        "marketCap": 731846596.9544322,
+        "priceUsd": 0.25840737346478854,
+        "heat": 69.23
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 1.15244659,
+        "change24h": 20.3079839,
+        "change7d": 108.20351424,
+        "volume24h": 75031463.51898715,
+        "marketCap": 132219893.72760291,
+        "priceUsd": 0.5938463675167434,
+        "heat": 40
+      },
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": -1.91746586,
+        "change24h": 56.3806485,
+        "change7d": -87.17743378,
+        "volume24h": 26698881.24249494,
+        "marketCap": 54106944.95725481,
+        "priceUsd": 0.07468527222168403,
+        "heat": 37.55
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 3.52297475,
+        "change24h": 6.73485677,
+        "change7d": 96.83743312,
+        "volume24h": 40534887.47287219,
+        "marketCap": 4540272715.272578,
+        "priceUsd": 14.547717872433246,
+        "heat": 31.83
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 1.55902238,
+        "change24h": 15.63917832,
+        "change7d": 70.86712861,
+        "volume24h": 433345440.5366679,
+        "marketCap": 196461493.1931948,
+        "priceUsd": 0.10914527399621934,
+        "heat": 30.95
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": -0.00836067,
+        "change24h": 23.61404346,
+        "change7d": -11.21303699,
+        "volume24h": 57898997.5137598,
+        "marketCap": 133632390.1328839,
+        "priceUsd": 0.03286113262819601,
+        "heat": 21.91
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 14.547717872433246,
+        "change1h": 3.52297475,
+        "change24h": 6.73485677,
+        "change7d": 96.83743312,
+        "volume24h": 40534887.47287219,
+        "volumeChange24h": -33.1656
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5938463675167434,
+        "change1h": 1.15244659,
+        "change24h": 20.3079839,
+        "change7d": 108.20351424,
+        "volume24h": 75031463.51898715,
+        "volumeChange24h": -27.4675
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.07468527222168403,
+        "change1h": -1.91746586,
+        "change24h": 56.3806485,
+        "change7d": -87.17743378,
+        "volume24h": 26698881.24249494,
+        "volumeChange24h": -42.2444
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.25840737346478854,
+        "change1h": 16.38421847,
+        "change24h": 10.59285888,
+        "change7d": 63.22321477,
+        "volume24h": 66074293.50099364,
+        "volumeChange24h": -34.8924
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7b942c24b99ab4bb8d9f0091dc05cafc0ef2bce6e17d3b4440f2d32ca2531ff2",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"\",\"invalidation\":\"\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-18",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.25,
+    "usdtUsd": 14.31,
+    "usd1Usd": 0.94,
+    "positionUsd": 0,
+    "inScopeUsd": 15.25,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "d94a4d002dccca0714e0579597949f80cb05c831a0360575b31ff09f00d3a188",
+  "checksum": "c72380803a8c0bb526d7b9047bc40112ea87d5b69da37469cd2e019f9f76c1ca"
+}
