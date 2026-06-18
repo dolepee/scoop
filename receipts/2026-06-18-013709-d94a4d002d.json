@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T01:37:09.543Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d83afde2364296db50a59904c0ed8753200b5a348574cd51cbc856f8ec92548a"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,HOME,XPL,BANANAS31&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "4a7d87af2787e504c58094fc34b01348b781db9a2450b8bfcebea0d9c9c5f7e4"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 0.5589176,
+        "change24h": 18.55974898,
+        "change7d": 107.31274824,
+        "volume24h": 77622780.69233797,
+        "marketCap": 133449486.31487082,
+        "priceUsd": 0.5993689032781083,
+        "heat": 36.33
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": 6.60482914,
+        "change24h": 15.46176445,
+        "change7d": -10.24141643,
+        "volume24h": 29822215.06450064,
+        "marketCap": 127317774.54681507,
+        "priceUsd": 0.0313083248091969,
+        "heat": 33.74
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -2.7138299,
+        "change24h": 19.22725185,
+        "change7d": 74.54551711,
+        "volume24h": 427810231.8207093,
+        "marketCap": 196360363.07247815,
+        "priceUsd": 0.1090890905958212,
+        "heat": 22.27
+      },
+      {
+        "symbol": "BANANAS31",
+        "name": "Banana For Scale",
+        "change1h": 0.00573075,
+        "change24h": 12.15954884,
+        "change7d": 9.59333982,
+        "volume24h": 23452920.27516026,
+        "marketCap": 113439864.26001675,
+        "priceUsd": 0.011343986426001675,
+        "heat": 13.62
+      },
+      {
+        "symbol": "BRETT",
+        "name": "Brett (Based)",
+        "change1h": 0.75988814,
+        "change24h": 6.76179508,
+        "change7d": 30.26333052,
+        "volume24h": 20942200.07539408,
+        "marketCap": 69428830.62035234,
+        "priceUsd": 0.006942884766705663,
+        "heat": 13.58
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 0.93506291,
+        "change24h": 8.12185839,
+        "change7d": 12.06492616,
+        "volume24h": 45816322.93812659,
+        "marketCap": 76249023.33005027,
+        "priceUsd": 0.03465864696820467,
+        "heat": 12.74
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.1090890905958212,
+        "change1h": -2.7138299,
+        "change24h": 19.22725185,
+        "change7d": 74.54551711,
+        "volume24h": 427810231.8207093,
+        "volumeChange24h": 169.3548
+      },
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.0313083248091969,
+        "change1h": 6.60482914,
+        "change24h": 15.46176445,
+        "change7d": -10.24141643,
+        "volume24h": 29822215.06450064,
+        "volumeChange24h": -7.5403
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5993689032781083,
+        "change1h": 0.5589176,
+        "change24h": 18.55974898,
+        "change7d": 107.31274824,
+        "volume24h": 77622780.69233797,
+        "volumeChange24h": -34.0022
+      },
+      {
+        "symbol": "BANANAS31",
+        "priceUsd": 0.011343986426001675,
+        "change1h": 0.00573075,
+        "change24h": 12.15954884,
+        "change7d": 9.59333982,
+        "volume24h": 23452920.27516026,
+        "volumeChange24h": 49.7635
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "XPL",
+    "direction": "enter",
+    "convictionBps": 7200,
+    "rationale": "XPL shows strong momentum with +19.23% 24h change, +74.55% 7d change, and massive volume of $427.8M supporting the uptrend.",
+    "invalidation": "Price breaks below $0.100, indicating a failed breakout and momentum reversal.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7a92efb05640086be398f9ee4e91ccbd7d4277c92aeddc2459afdd7bfd6a1b91",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"XPL\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 7200,\n  \"rationale\": \"XPL shows strong momentum with +19.23% 24h change, +74.55% 7d change, and massive volume of $427.8M supporting the uptrend.\",\n  \"invalidation\": \"Price breaks below $0.100, i"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-18",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "XPL",
+      "sizedPct": 5,
+      "reasons": [
+        "risk_budget_pct:10.11",
+        "conviction_bps:7200"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.27,
+    "usdtUsd": 14.31,
+    "usd1Usd": 0.96,
+    "positionUsd": 0,
+    "inScopeUsd": 15.27,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "1fdf73ec0b0beec961568d4046a0f250f54abc5310b7fb5ff9604e0ea9ae8b02",
+  "checksum": "d94a4d002dccca0714e0579597949f80cb05c831a0360575b31ff09f00d3a188"
+}
