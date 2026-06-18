@@ -1,0 +1,201 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T21:18:23.059Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "1e767fe04c4bd8a155e0656a64037586c73b92a10678b692f45fd8ec8f3376da"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,SKYAI,HOME,FLOKI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c22aa0e8fd8985410231db1d1a63f7fbdcd4614385783de717d269d829d592f1"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.77543004,
+        "change24h": 32.48987385,
+        "change7d": 107.59486154,
+        "volume24h": 54270026.28240384,
+        "marketCap": 5372236722.867738,
+        "priceUsd": 17.213455906582737,
+        "heat": 53.96
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -0.37166039,
+        "change24h": 7.00505781,
+        "change7d": 42.72622926,
+        "volume24h": 36957782.75207428,
+        "marketCap": 353610691.66334915,
+        "priceUsd": 0.35361069166334913,
+        "heat": 12.3
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": 0.64527677,
+        "change24h": 7.07816999,
+        "change7d": -9.65069203,
+        "volume24h": 106140986.77829453,
+        "marketCap": 111809238.73579283,
+        "priceUsd": 0.027494668167656958,
+        "heat": 7.57
+      },
+      {
+        "symbol": "FLOKI",
+        "name": "FLOKI",
+        "change1h": 0.61630953,
+        "change24h": 3.63913036,
+        "change7d": 8.16217203,
+        "volume24h": 41070902.23728013,
+        "marketCap": 256162225.81586474,
+        "priceUsd": 0.00002683143653345749,
+        "heat": 6.71
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -0.00805066,
+        "change24h": 3.63575552,
+        "change7d": 16.06859024,
+        "volume24h": 65673228.3173312,
+        "marketCap": 646678498.1165307,
+        "priceUsd": 0.2283354091825498,
+        "heat": 6.02
+      },
+      {
+        "symbol": "币安人生",
+        "name": "币安人生",
+        "change1h": -0.17860277,
+        "change24h": 5.60101107,
+        "change7d": 3.64923612,
+        "volume24h": 23497361.17747675,
+        "marketCap": 715413871.146026,
+        "priceUsd": 0.715413871146026,
+        "heat": 5.61
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 17.213455906582737,
+        "change1h": 1.77543004,
+        "change24h": 32.48987385,
+        "change7d": 107.59486154,
+        "volume24h": 54270026.28240384,
+        "volumeChange24h": 39.662
+      },
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.027494668167656958,
+        "change1h": 0.64527677,
+        "change24h": 7.07816999,
+        "change7d": -9.65069203,
+        "volume24h": 106140986.77829453,
+        "volumeChange24h": 489.4835
+      },
+      {
+        "symbol": "FLOKI",
+        "priceUsd": 0.000026831436533457,
+        "change1h": 0.61630953,
+        "change24h": 3.63913036,
+        "change7d": 8.16217203,
+        "volume24h": 41070902.23728013,
+        "volumeChange24h": 68.5182
+      },
+      {
+        "symbol": "floki",
+        "priceUsd": null,
+        "change1h": -3e-8,
+        "change24h": -3e-8,
+        "change7d": -5.41697171,
+        "volume24h": 0,
+        "volumeChange24h": 0
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.35361069166334913,
+        "change1h": -0.37166039,
+        "change24h": 7.00505781,
+        "change7d": 42.72622926,
+        "volume24h": 36957782.75207428,
+        "volumeChange24h": -29.5515
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "LAB is up 32.5% in 24h and 107.6% in 7d, but the current 1h momentum of +1.78% is insufficient to justify a new entry, and the existing position has no clear exit signal.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f31b5f2bc9a1c1aa1d3a625b2a94a6c2e80768d7de961c5254d510222f61ed7f",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"LAB is up 32.5% in 24h and 107.6% in 7d, but the current 1h momentum of +1.78% is insufficient to justify a new entry, and the existing position has no clear exit signal.\",\n  \"i"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-18",
+      "tradesToday": 1,
+      "newRiskTodayPct": 6.63,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.04,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.7,
+    "positionUsd": 1.03,
+    "inScopeUsd": 15.04,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "cea04342f2008e208bd88ad205d9c716eeb2b021f89cbbf6059a8859f612abc4",
+  "checksum": "1cb9eba3f92205ea2bc5b9b6b4626fa1cbcfef1b9a6b877a8d73008f15648a3a"
+}
