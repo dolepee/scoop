@@ -1,0 +1,201 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T23:58:46.741Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "3c3624625cfc6c508d6fca0d2952fdbc0b0297d3a1f99b154045a6a55330aa9f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,UNI,SKYAI,FLOKI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "dfd6f1b0d4d23a0a90d7bb199bbbda3a0354741f6310bb656401f209277a4d48"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.45197935,
+        "change24h": 34.50359706,
+        "change7d": 106.56308786,
+        "volume24h": 59101127.26657125,
+        "marketCap": 5539864216.863241,
+        "priceUsd": 17.750559654141032,
+        "heat": 51.84
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 3.95782525,
+        "change24h": -0.4652748,
+        "change7d": 28.45565174,
+        "volume24h": 364601716.88135487,
+        "marketCap": 1993972168.1143565,
+        "priceUsd": 3.20737476656209,
+        "heat": 15.68
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.32163729,
+        "change24h": 1.91517245,
+        "change7d": 33.40380961,
+        "volume24h": 36772955.84405807,
+        "marketCap": 344957521.08042246,
+        "priceUsd": 0.34495752108042244,
+        "heat": 10.89
+      },
+      {
+        "symbol": "FLOKI",
+        "name": "FLOKI",
+        "change1h": -0.54171127,
+        "change24h": 4.91739542,
+        "change7d": 10.36363872,
+        "volume24h": 46305607.42749114,
+        "marketCap": 260284366.6254313,
+        "priceUsd": 0.000027263205734250443,
+        "heat": 4.85
+      },
+      {
+        "symbol": "NIGHT",
+        "name": "Midnight",
+        "change1h": 0.87067493,
+        "change24h": 2.4908463,
+        "change7d": -5.42251745,
+        "volume24h": 65810596.49543995,
+        "marketCap": 515084981.33093864,
+        "priceUsd": 0.031015390723963875,
+        "heat": 4.29
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 0.291554,
+        "change24h": 0.97900958,
+        "change7d": 15.9856331,
+        "volume24h": 144093253.75354668,
+        "marketCap": 1147454749.9951863,
+        "priceUsd": 74.46424539740012,
+        "heat": 4.25
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "UNI",
+        "priceUsd": 3.20737476656209,
+        "change1h": 3.95782525,
+        "change24h": -0.4652748,
+        "change7d": 28.45565174,
+        "volume24h": 364601716.88135487,
+        "volumeChange24h": -51.8016
+      },
+      {
+        "symbol": "LAB",
+        "priceUsd": 17.842434651004538,
+        "change1h": 1.13394762,
+        "change24h": 36.11863853,
+        "change7d": 107.22223112,
+        "volume24h": 59148277.89063186,
+        "volumeChange24h": 56.774
+      },
+      {
+        "symbol": "FLOKI",
+        "priceUsd": 0.000027282778949416,
+        "change1h": -0.33673232,
+        "change24h": 5.11476268,
+        "change7d": 10.4385483,
+        "volume24h": 46353130.79014951,
+        "volumeChange24h": 89.8097
+      },
+      {
+        "symbol": "floki",
+        "priceUsd": null,
+        "change1h": -3e-8,
+        "change24h": -3e-8,
+        "change7d": -5.41697171,
+        "volume24h": 0,
+        "volumeChange24h": 0
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.34495752108042244,
+        "change1h": 1.32163729,
+        "change24h": 1.91517245,
+        "change7d": 33.40380961,
+        "volume24h": 36772955.84405807,
+        "volumeChange24h": -29.8089
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "LAB is up 36% in 24h and 107% in 7d, but the 1h momentum is only +1.13% and the position is already profitable, while no other symbol shows a clear, high-conviction entry setup with volume support.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "53f2e03f7669b3b501ab69f1e4980080088a54f95af0832c14a6188d3cf81f34",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"LAB is up 36% in 24h and 107% in 7d, but the 1h momentum is only +1.13% and the position is already profitable, while no other symbol shows a clear, high-conviction entry se"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-18",
+      "tradesToday": 1,
+      "newRiskTodayPct": 6.63,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.03,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.66,
+    "positionUsd": 1.06,
+    "inScopeUsd": 15.03,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "e35a241a789ecc2d9bd5dd906e31009face328a1b1960c9e43c5593fc18efd66",
+  "checksum": "1374b36116b6a27fe13fc01e5d6bf37a67b24c9086286bca61ad0fef96a6aa66"
+}
