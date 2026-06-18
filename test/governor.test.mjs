@@ -184,3 +184,20 @@ test("compliance buy is still gated by the governor floor", () => {
   assert.equal(r.decision, "STAND_DOWN");
   assert.ok(r.reasons.some((reason) => reason.startsWith("compliance_risk_budget_exhausted")));
 });
+
+test("compliance buy fits current live floor room without loosening the floor", () => {
+  const state = initialState(16.74, NOON);
+  const r = decide(
+    { kind: "NONE" },
+    state,
+    {
+      equityUsd: 15.11,
+      nowMs: NOON,
+      tradeArmed: true,
+      complianceAction: COMPLIANCE_BUY,
+    },
+  );
+  assert.equal(r.decision, "COMPLIANCE_BUY");
+  assert.equal(r.complianceUsd, 1);
+  assert.ok(r.sizedPct > 0);
+});
