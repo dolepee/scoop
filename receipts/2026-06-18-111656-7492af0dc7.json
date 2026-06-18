@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T11:16:56.263Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7cd3294b718fbb3ce8cee49c303c8a2a7f3176ee944876121b3acfd5e26961ff"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,H,HOME&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "0476dde1a02957c410da5dd492718c0db92aa25e11ae9c3059cde0acb2411b97"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 1.76283962,
+        "change24h": 44.05321711,
+        "change7d": -87.59915038,
+        "volume24h": 24886664.80584385,
+        "marketCap": 52751933.85522213,
+        "priceUsd": 0.07281491393221372,
+        "heat": 36.2
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.59611417,
+        "change24h": 21.12744403,
+        "change7d": 104.35741892,
+        "volume24h": 45136086.51916662,
+        "marketCap": 4909293197.576249,
+        "priceUsd": 15.730115098847596,
+        "heat": 34.99
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -0.86935722,
+        "change24h": 17.27938163,
+        "change7d": 55.91688482,
+        "volume24h": 72568619.27931553,
+        "marketCap": 697327251.4130245,
+        "priceUsd": 0.24621895385308404,
+        "heat": 23.06
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": -5.18109727,
+        "change24h": 28.18252494,
+        "change7d": -2.72258418,
+        "volume24h": 77678073.08282574,
+        "marketCap": 137231942.31252927,
+        "priceUsd": 0.03374628750314673,
+        "heat": 12.23
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -2.94732434,
+        "change24h": 11.00547427,
+        "change7d": 63.02501877,
+        "volume24h": 439950740.89370793,
+        "marketCap": 190118006.02382803,
+        "priceUsd": 0.10562111445768224,
+        "heat": 11.62
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -1.45520881,
+        "change24h": 4.38649231,
+        "change7d": 67.89904882,
+        "volume24h": 40276469.96959348,
+        "marketCap": 369014008.597048,
+        "priceUsd": 0.36901400859704797,
+        "heat": 10.21
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.730115098847596,
+        "change1h": -0.59611417,
+        "change24h": 21.12744403,
+        "change7d": 104.35741892,
+        "volume24h": 45136086.51916662,
+        "volumeChange24h": -24.3669
+      },
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.03374628750314673,
+        "change1h": -5.18109727,
+        "change24h": 28.18252494,
+        "change7d": -2.72258418,
+        "volume24h": 77678073.08282574,
+        "volumeChange24h": 211.5315
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.07281491393221372,
+        "change1h": 1.76283962,
+        "change24h": 44.05321711,
+        "change7d": -87.59915038,
+        "volume24h": 24886664.80584385,
+        "volumeChange24h": -21.7539
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.24621895385308404,
+        "change1h": -0.86935722,
+        "change24h": 17.27938163,
+        "change7d": 55.91688482,
+        "volume24h": 72568619.27931553,
+        "volumeChange24h": -19.5546
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, high-conviction entry setup with strong momentum, volume support, and favorable risk-reward at this moment.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "47635ef6b4cebb2f06d9292e7430f5542cf2d00e83356e98045603001f5f5934",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": null,\n    \"direction\": null,\n    \"convictionBps\": 0,\n    \"rationale\": \"No symbol shows a clear, high-conviction entry setup with strong momentum, volume support, and favorable risk-reward at this moment.\",\n    \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-18",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.19,
+    "usdtUsd": 14.31,
+    "usd1Usd": 0.88,
+    "positionUsd": 0,
+    "inScopeUsd": 15.19,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "d1cd4503cb0959f1a140ac4656363563c7dd432e165f03906860a52553d548e1",
+  "checksum": "7492af0dc724187d7d11b4c3416e044accea11c1ef2c30cf7d015e17753726e1"
+}
