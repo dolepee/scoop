@@ -481,7 +481,7 @@ function SignalRail({ stats }: { stats: FeedStats }) {
       <MetricCard label="Equity" value={formatUsd(stats.latest.equityUsd)} detail={`${formatPct(stats.equityChangePct)} from first receipt`} tone={isNumber(stats.equityChangeUsd) && stats.equityChangeUsd >= 0 ? "good" : "warn"} />
       <MetricCard label="Risk floor" value={formatUsd(stats.latest.floorUsd)} detail={`${formatUsd(stats.floorDistanceUsd)} room above floor`} />
       <MetricCard label="Position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
-      <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.paidCycles} paid data cycles`} tone="good" />
+      <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.x402PaidCycles} x402-paid cycles`} tone="good" />
       <MetricCard label="Execution" value={`${stats.armedCycles} / ${stats.executedTrades}`} detail="armed cycles / executed trades" tone={stats.executedTrades > 0 ? "good" : "warn"} />
     </section>
   );
@@ -743,7 +743,7 @@ function AgentLoop({ stats }: { stats: FeedStats }) {
   const steps = [
     {
       title: "Pays CMC",
-      body: `${stats.paidCycles} cycles bought market data through x402 before making a decision.`,
+      body: `${stats.x402PaidCycles} cycles recorded CMC x402-paid market data before making a decision.`,
     },
     {
       title: "Forms one thesis",
