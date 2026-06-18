@@ -50,6 +50,28 @@ function priceUsd(symbol) {
   }
 }
 
+function tokenUnits(address) {
+  try {
+    const b = twakJson(["balance", "--chain", "bsc", "--address", WALLET, "--token", address]);
+    return Number(b.total ?? b.available ?? 0) || 0;
+  } catch {
+    return 0;
+  }
+}
+
+function carriedPositionUsd(prevValue, costUsd) {
+  const prev = Number(prevValue);
+  if (Number.isFinite(prev) && prev > 0) return prev;
+  const cost = Number(costUsd);
+  return Number.isFinite(cost) && cost > 0 ? cost : 0;
+}
+
+function entryPriceFrom({ symbol, spendUsd, units }) {
+  const quoted = priceUsd(symbol);
+  if (quoted > 0) return quoted;
+  return units > 0 ? spendUsd / units : 0;
+}
+
 async function main() {
   const nowMs = Date.now();
   const generatedAt = new Date(nowMs).toISOString();
@@ -90,11 +112,16 @@ async function main() {
   const usd1Usd = carry(tokenBalance(USD1.address), prev?.counters?.usd1Usd, "USD1", equityNotes);
   let positionUsd = 0;
   if (position) {
-    const p = priceUsd(position.symbol);
-    positionUsd = p > 0 ? p * position.units : prev?.counters?.positionUsd ?? position.costUsd ?? 0;
-    if (p <= 0) {
-      degraded = true;
-      equityNotes.push(`price_read_failed:${position.symbol}`);
+    const walletPositionUsd = tokenBalance(position.address);
+    if (walletPositionUsd !== null) {
+      positionUsd = walletPositionUsd;
+    } else {
+      const p = priceUsd(position.symbol);
+      positionUsd = p > 0 ? p * position.units : carriedPositionUsd(prev?.counters?.positionUsd, position.costUsd);
+      if (p <= 0) {
+        degraded = true;
+        equityNotes.push(`position_value_read_failed:${position.symbol}`);
+      }
     }
   }
   const equityUsd = Math.round((usdtUsd + usd1Usd + positionUsd) * 100) / 100;
@@ -140,8 +167,8 @@ async function main() {
         const token = resolveToken(proposal.symbol);
         const spendUsd = Math.min((ruling.sizedPct / 100) * equityUsd, usdtUsd * 0.98);
         const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
-        const entryPrice = priceUsd(proposal.symbol);
-        const units = Number(String(res.output ?? "0").split(" ")[0]) || (entryPrice > 0 ? spendUsd / entryPrice : 0);
+        const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
+        const entryPrice = entryPriceFrom({ symbol: proposal.symbol, spendUsd, units });
         savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: thesis.invalidation });
         state = noteEntry(state, ruling.sizedPct, nowMs);
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
@@ -162,8 +189,8 @@ async function main() {
       const spendUsd = Math.min(ruling.complianceUsd, usdtUsd * 0.98);
       if (spendUsd < 1) throw new Error("insufficient_usdt_for_compliance");
       const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
-      const entryPrice = priceUsd(ruling.symbol);
-      const units = Number(String(res.output ?? "0").split(" ")[0]) || (entryPrice > 0 ? spendUsd / entryPrice : 0);
+      const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
+      const entryPrice = entryPriceFrom({ symbol: ruling.symbol, spendUsd, units });
       savePosition({
         symbol: ruling.symbol,
         address: token.address,

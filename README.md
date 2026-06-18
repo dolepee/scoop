@@ -9,8 +9,9 @@ Most cycles should refuse to trade; the receipt chain proves those refusals happ
 - On-chain agent registration: [`0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb`](https://bscscan.com/tx/0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb).
 - Agent wallet: [`0x5927a9662588f5609154488111E8ee7f4075513C`](https://bscscan.com/address/0x5927a9662588f5609154488111E8ee7f4075513C).
 - Validation spike: [`docs/SPIKE.md`](docs/SPIKE.md) records a real paid CMC x402 call and two TWAK-signed BSC swaps, including [`0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a`](https://bscscan.com/tx/0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a) and [`0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545`](https://bscscan.com/tx/0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545).
+- Armed rehearsal: receipt [`2026-06-18-162321-0518af27ef.json`](receipts/2026-06-18-162321-0518af27ef.json) records a real TWAK-signed BSC compliance buy, tx [`0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e`](https://bscscan.com/tx/0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e).
 - Local proof: run `npm run receipts:verify`; it recomputes every SHA-256 checksum and every `prevChecksum` link.
-- Public receipt snapshot, as of `2026-06-18T15:50:33.033Z`: 87 cycles, 84 paid-mode cycles, 69 x402-paid cycles, 25 proposed `TRADE` theses, 6 governor approvals in observe mode, 18 vetoes, 0 executed trades, equity `15.11`, floor `13.73`, chain verification `true`. Armed execution remains gated on one real rehearsal receipt with a BSC tx hash.
+- Public receipt snapshot, as of `2026-06-18T16:23:21.596Z`: 88 cycles, 85 paid-mode cycles, 70 x402-paid cycles, 25 proposed `TRADE` theses, 6 governor approvals in observe mode, 18 vetoes, 1 armed cycle, 1 executed trade, equity `15.09`, floor `13.73`, chain verification `true`.
 
 ## One Cycle
 
@@ -28,10 +29,10 @@ CMC x402 perception -> structured thesis -> deterministic governor -> TWAK execu
 
 | Official rule | Scoop mechanism |
 | --- | --- |
-| At least 1 trade per day | Armed-only compliance trades open from 12:00 UTC if no trade has executed that day, use minimal buy/sell behavior, are tagged `complianceTrade`, and still pass through the governor. |
+| At least 1 trade per day | Armed-only compliance trades open from 12:00 UTC if no trade has executed that day, use minimal buy/sell behavior, are tagged `complianceTrade`, and still pass through the governor. The first armed rehearsal executed on Jun 18. |
 | Fixed 149-token eligible list | `data/eligible_tokens.json` stores all 149 symbols and BSC addresses with provenance; `src/allowlist.mjs` fails closed. |
-| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the current floor is `13.73` as of `2026-06-18T15:50:33.033Z`. |
-| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `15.11`, warning flag `false`, as of `2026-06-18T15:50:33.033Z`. |
+| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the current floor is `13.73` as of `2026-06-18T16:23:21.596Z`. |
+| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `15.09`, warning flag `false`, as of `2026-06-18T16:23:21.596Z`. |
 | TWAK execution | The executor has no non-TWAK swap path; live swaps in [`docs/SPIKE.md`](docs/SPIKE.md) were signed locally through TWAK. |
 
 ## Best TWAK Use
@@ -85,14 +86,14 @@ Observe mode: `npm run cycle:paid` buys data and writes receipts without real sw
 Armed mode: `npm run cycle:live` enables TWAK swaps and should be used only for rehearsal/scored windows.
 GitHub Actions runs `.github/workflows/scoop-cycle.yml` hourly, verifies the public receipt head before and after each cycle, rebuilds the feed, and commits new receipts only if `origin/master` did not move during the run. A local dispatcher, if used, must call the same cycle path and must not bypass `npm run receipts:verify`.
 
-Live trading switch: observe mode is the default. Manual dispatch with `trade=1` arms one run. For the scored week, set the repository variable `SCOOP_TRADE_LIVE=1` only after confirming wallet funding, gas reserve, current dashboard deployment, and one real rehearsal receipt with a BSC tx hash.
+Live trading switch: observe mode is the default. Manual dispatch with `trade=1` arms one run. For the scored week, set the repository variable `SCOOP_TRADE_LIVE=1` only after confirming wallet funding, gas reserve, current dashboard deployment, and the latest receipt head.
 
 ## Phases
 
 | Date | Phase | Status |
 | --- | --- | --- |
-| Jun 10-18, 2026 | Observation build | Paid CMC x402 data, receipt chain, dashboard, and governor exercising in observe mode. Current public chain has 87 valid receipts and 0 executed trades. |
-| Jun 18-20, 2026 | Armed rehearsal | Next gate: one minimal real-money rehearsal through the normal cycle path, then leave observe mode until the scored window unless intentionally testing. |
+| Jun 10-18, 2026 | Observation build | Paid CMC x402 data, receipt chain, dashboard, and governor exercising in observe mode. |
+| Jun 18-20, 2026 | Armed rehearsal | First normal-path armed rehearsal executed one minimal LAB compliance buy on BSC. Current public chain has 88 valid receipts and 1 executed trade. |
 | Jun 22-28, 2026 | Scored trading week | Planned hands-off BSC trading window. |
 
 ## Receipt Integrity

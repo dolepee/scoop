@@ -1,8 +1,8 @@
 {
   "symbol": "LAB",
   "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
-  "units": 0.06015998487885608,
-  "entryPrice": 0,
+  "units": 0.060259033553382527,
+  "entryPrice": 16.59502220715365,
   "costUsd": 1,
   "openedAt": "2026-06-18T16:23:21.596Z",
   "complianceTrade": true,
