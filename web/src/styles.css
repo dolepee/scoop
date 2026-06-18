@@ -164,6 +164,7 @@ code,
 .mode-badge,
 .panel-kicker,
 .metric-card span,
+.readiness-item span,
 .status-tile span,
 td small,
 td em {
@@ -501,6 +502,71 @@ td em {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
   margin: 18px 0;
+}
+
+.readiness-ledger {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  margin: 0 0 22px;
+}
+
+.readiness-ledger__intro {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+  min-height: 156px;
+  padding: 18px 2px;
+}
+
+.readiness-ledger__intro h2 {
+  max-width: 360px;
+  margin: 0;
+  font-size: clamp(2rem, 3.4vw, 3.2rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.readiness-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.readiness-item {
+  display: grid;
+  min-height: 156px;
+  gap: 10px;
+  align-content: space-between;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(15, 30, 58, 0.72), rgba(6, 12, 26, 0.88));
+  box-shadow: var(--shadow);
+}
+
+.readiness-item strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 0.98;
+}
+
+.readiness-item small {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.readiness-item--good strong {
+  color: var(--green);
+}
+
+.readiness-item--warn strong {
+  color: var(--gold);
+}
+
+.readiness-item--bad strong {
+  color: var(--red);
 }
 
 .metric-card {
@@ -864,6 +930,7 @@ td em {
   .topbar,
   .hero,
   .control-layout,
+  .readiness-ledger,
   .signal-rail,
   .loop-grid,
   .proof-grid {
@@ -874,6 +941,10 @@ td em {
   .nav-links {
     justify-self: start;
     justify-content: flex-start;
+  }
+
+  .readiness-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero__copy {
@@ -931,6 +1002,7 @@ td em {
   }
 
   .hero__proofline,
+  .readiness-list,
   .rail-map {
     grid-template-columns: 1fr;
   }
@@ -944,6 +1016,7 @@ td em {
   }
 
   .metric-card,
+  .readiness-item,
   .loop-card,
   .proof-card {
     min-height: 180px;

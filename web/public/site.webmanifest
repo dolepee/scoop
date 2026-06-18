@@ -1,7 +1,7 @@
 {
   "name": "Scoop",
   "short_name": "Scoop",
-  "description": "Self-custody BSC trading agent using CMC x402 data and Trust Wallet Agent Kit.",
+  "description": "Receipt-first BNB trading agent using CMC x402 data, TWAK signing, and public receipt-chain proof.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#07100c",

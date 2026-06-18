@@ -1,10 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#09110e"/>
-  <circle cx="1050" cy="80" r="260" fill="#183b2b" opacity=".8"/>
-  <circle cx="120" cy="560" r="220" fill="#4a2f12" opacity=".65"/>
-  <path d="M160 410c175 95 430 80 610-82" fill="none" stroke="#f4c95d" stroke-width="28" stroke-linecap="round"/>
-  <path d="M150 240c180-145 430-160 690-35" fill="none" stroke="#5ce0a6" stroke-width="28" stroke-linecap="round"/>
-  <text x="130" y="150" fill="#f6efe1" font-family="Georgia, serif" font-size="86" font-weight="700">Scoop</text>
-  <text x="132" y="225" fill="#a8b8ad" font-family="Verdana, sans-serif" font-size="34">Self-custody AI trading receipts on BNB Chain</text>
-  <text x="132" y="520" fill="#f6efe1" font-family="Verdana, sans-serif" font-size="30">Pays for data. Signs locally. Publishes the receipt chain.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".58" stop-color="#030712"/>
+      <stop offset="1" stop-color="#041914"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f3ba2f"/>
+      <stop offset=".46" stop-color="#73f2a8"/>
+      <stop offset="1" stop-color="#37d5ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="26" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.215 0 0 0 0 0.835 0 0 0 0 1 0 0 0 .55 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 95h1200M0 190h1200M0 285h1200M0 380h1200M0 475h1200M0 570h1200M95 0v675M190 0v675M285 0v675M380 0v675M475 0v675M570 0v675M665 0v675M760 0v675M855 0v675M950 0v675M1045 0v675" stroke="#9fb8ff" stroke-opacity=".07"/>
+  <circle cx="1005" cy="142" r="255" fill="#37d5ff" opacity=".12" filter="url(#glow)"/>
+  <circle cx="111" cy="588" r="230" fill="#f3ba2f" opacity=".1"/>
+  <rect x="70" y="64" width="1060" height="548" rx="36" fill="#07111f" fill-opacity=".72" stroke="#c2d6ff" stroke-opacity=".18"/>
+  <rect x="104" y="100" width="70" height="70" rx="22" fill="url(#mark)"/>
+  <text x="139" y="146" text-anchor="middle" fill="#031016" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900">S</text>
+  <text x="198" y="128" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">Scoop</text>
+  <text x="198" y="160" fill="#9ba8ba" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="4">BNB AI TRADING AGENT</text>
+  <text x="104" y="278" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">Receipt-first</text>
+  <text x="104" y="356" fill="#f8fbff" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">self-custody trading.</text>
+  <text x="106" y="414" fill="#bac5d7" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="600">CMC x402 signal -> governor receipt -> TWAK signature -> BSC proof.</text>
+  <g transform="translate(104 480)">
+    <rect width="220" height="72" rx="18" fill="#101c33" stroke="#c2d6ff" stroke-opacity=".18"/>
+    <text x="22" y="30" fill="#6c7890" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2">REGISTERED</text>
+    <text x="22" y="54" fill="#73f2a8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">Track 1 agent</text>
+  </g>
+  <g transform="translate(346 480)">
+    <rect width="220" height="72" rx="18" fill="#101c33" stroke="#c2d6ff" stroke-opacity=".18"/>
+    <text x="22" y="30" fill="#6c7890" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2">EXECUTION</text>
+    <text x="22" y="54" fill="#73f2a8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">Signed BSC tx</text>
+  </g>
+  <g transform="translate(588 480)">
+    <rect width="220" height="72" rx="18" fill="#101c33" stroke="#c2d6ff" stroke-opacity=".18"/>
+    <text x="22" y="30" fill="#6c7890" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2">DATA</text>
+    <text x="22" y="54" fill="#37d5ff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">CMC x402</text>
+  </g>
+  <g transform="translate(830 480)">
+    <rect width="220" height="72" rx="18" fill="#101c33" stroke="#c2d6ff" stroke-opacity=".18"/>
+    <text x="22" y="30" fill="#6c7890" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2">PROOF</text>
+    <text x="22" y="54" fill="#f3ba2f" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="900">Linked receipts</text>
+  </g>
 </svg>

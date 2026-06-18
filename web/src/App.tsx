@@ -341,6 +341,7 @@ function App() {
       <Topbar stats={stats} />
       <Hero feed={state.feed} stats={stats} />
       <SignalRail stats={stats} />
+      <ReadinessLedger stats={stats} />
       <ControlRoom feed={state.feed} stats={stats} />
       <ProofPanel feed={state.feed} stats={stats} />
       <AgentLoop stats={stats} />
@@ -487,6 +488,82 @@ function SignalRail({ stats }: { stats: FeedStats }) {
   );
 }
 
+function ReadinessLedger({ stats }: { stats: FeedStats }) {
+  const latestExecution = stats.latestExecutedTrade;
+  const latestTx = latestExecution?.tradeResult?.txHash ?? null;
+
+  return (
+    <section className="readiness-ledger" aria-label="Track 1 readiness ledger">
+      <div className="readiness-ledger__intro">
+        <span className="eyebrow">Track 1 readiness</span>
+        <h2>What is proven right now.</h2>
+      </div>
+      <div className="readiness-list">
+        <ReadinessItem
+          label="Registered wallet"
+          value="Registered"
+          detail={`${shortHash(stats.wallet)} submission wallet`}
+          href={bscAddressUrl(stats.wallet)}
+          tone="good"
+        />
+        <ReadinessItem
+          label="Execution path"
+          value={latestTx ? `${stats.executedTrades} signed tx` : "No tx yet"}
+          detail={latestExecution ? shortFile(latestExecution.file) : "Armed execution still unproven."}
+          href={latestTx ? bscTxUrl(latestTx) : undefined}
+          tone={latestTx ? "good" : "warn"}
+        />
+        <ReadinessItem
+          label="Current position"
+          value={positionLabel(stats)}
+          detail={positionDetail(stats)}
+          href={stats.currentPosition?.address ? bscTokenUrl(stats.currentPosition.address) : undefined}
+          tone={stats.currentPosition ? "good" : undefined}
+        />
+        <ReadinessItem
+          label="Receipt integrity"
+          value={stats.chain.ok ? "Chain valid" : "Chain break"}
+          detail={`${stats.chain.count} linked receipts, head ${shortHash(stats.chain.head)}`}
+          href={receiptUrl(stats.latest.file)}
+          tone={stats.chain.ok ? "good" : "bad"}
+        />
+      </div>
+    </section>
+  );
+}
+
+function ReadinessItem({
+  label,
+  value,
+  detail,
+  href,
+  tone,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+  href?: string;
+  tone?: "good" | "warn" | "bad";
+}) {
+  const body = (
+    <>
+      <span>{label}</span>
+      <strong>{value}</strong>
+      <small>{detail}</small>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a className={`readiness-item ${tone ? `readiness-item--${tone}` : ""}`} href={href} target="_blank" rel="noreferrer">
+        {body}
+      </a>
+    );
+  }
+
+  return <div className={`readiness-item ${tone ? `readiness-item--${tone}` : ""}`}>{body}</div>;
+}
+
 function MetricCard({ label, value, detail, tone }: { label: string; value: string; detail: string; tone?: "good" | "warn" }) {
   return (
     <article className={`metric-card ${tone ? `metric-card--${tone}` : ""}`}>
@@ -502,7 +579,7 @@ function ControlRoom({ feed, stats }: { feed: Feed; stats: FeedStats }) {
     <section className="section-grid" id="control-room">
       <div className="section-heading">
         <span className="eyebrow">Live control room</span>
-        <h2>Contest state in one operating room.</h2>
+        <h2>Track 1 state without guesswork.</h2>
         <p>
           This is the contest operating surface: capital, risk floor, receipt integrity, and whether the agent is observing,
           rehearsing, or trading.
@@ -524,7 +601,7 @@ function ControlRoom({ feed, stats }: { feed: Feed; stats: FeedStats }) {
         </article>
 
         <aside className="ops-stack">
-          <StatusTile label="Mode" value={stats.latest.trade ? "Armed" : "Observe"} detail={stats.latest.trade ? "Trades can execute after governor approval." : "Real swaps are disabled until rehearsal or scored week."} tone={stats.latest.trade ? "good" : "warn"} />
+          <StatusTile label="Mode" value={stats.latest.trade ? "Armed" : "Observe"} detail={stats.latest.trade ? "Trades can execute after governor approval." : "Swaps stay disabled unless a run is explicitly armed."} tone={stats.latest.trade ? "good" : "warn"} />
           <StatusTile label="Open position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
           <StatusTile label="In-scope value" value={formatUsd(stats.latest.inScopeUsd)} detail={stats.latest.inScopeWarning ? "Below monitor threshold." : "Eligible asset monitor is healthy."} tone={stats.latest.inScopeWarning ? "bad" : "good"} />
           <StatusTile label="Latest signal" value={signalLabel(stats.latest)} detail={`${formatBps(stats.latest.convictionBps)} via ${stats.latest.provider ?? "local"}`} />
