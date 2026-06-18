@@ -185,13 +185,13 @@ test("compliance buy is still gated by the governor floor", () => {
   assert.ok(r.reasons.some((reason) => reason.startsWith("compliance_risk_budget_exhausted")));
 });
 
-test("compliance buy fits current live floor room without loosening the floor", () => {
-  const state = initialState(16.74, NOON);
+test("compliance buy fits rebaselined funded-equity room without loosening the floor", () => {
+  const state = initialState(15.01, NOON);
   const r = decide(
     { kind: "NONE" },
     state,
     {
-      equityUsd: 15.11,
+      equityUsd: 15.01,
       nowMs: NOON,
       tradeArmed: true,
       complianceAction: COMPLIANCE_BUY,
@@ -200,4 +200,5 @@ test("compliance buy fits current live floor room without loosening the floor", 
   assert.equal(r.decision, "COMPLIANCE_BUY");
   assert.equal(r.complianceUsd, 1);
   assert.ok(r.sizedPct > 0);
+  assert.equal(state.floorUsd, 12.308200000000001);
 });

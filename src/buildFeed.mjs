@@ -1,9 +1,10 @@
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = process.cwd();
 const RECEIPTS_DIR = join(ROOT, "receipts");
 const OUT_FILE = join(ROOT, "web", "public", "data", "feed.json");
+const STATE_FILE = join(ROOT, "state", "governor-state.json");
 
 function num(value) {
   const n = Number(value);
@@ -37,6 +38,15 @@ function readReceipts() {
     file,
     receipt: JSON.parse(readFileSync(join(RECEIPTS_DIR, file), "utf8")),
   }));
+}
+
+function readGovernorState() {
+  if (!existsSync(STATE_FILE)) return null;
+  try {
+    return JSON.parse(readFileSync(STATE_FILE, "utf8"));
+  } catch {
+    return null;
+  }
 }
 
 function chainOk(rows) {
@@ -98,6 +108,7 @@ function cycle(row) {
   const paidCalls = r.perception?.paidCalls ?? [];
   const action = thesis.action ?? (r.execution?.executed ? "TRADE" : "NO_TRADE");
   const reasons = Array.isArray(ruling.reasons) ? ruling.reasons : [];
+  const governorState = governor.state ?? {};
   return {
     at: r.generatedAt ?? null,
     file: row.file,
@@ -109,7 +120,9 @@ function cycle(row) {
     positionUsd: num(counters.positionUsd),
     inScopeUsd: num(counters.inScopeUsd),
     inScopeWarning: bool(counters.inScopeWarning),
-    floorUsd: num(counters.floorUsd ?? governor.state?.floorUsd),
+    floorUsd: num(counters.floorUsd ?? governorState.floorUsd),
+    startEquityUsd: num(governorState.startEquityUsd),
+    peakEquityUsd: num(governorState.peakEquityUsd),
     degraded: bool(counters.degraded),
     action,
     symbol: thesis.symbol ?? ruling.symbol ?? position?.symbol ?? null,
@@ -135,6 +148,7 @@ const cyclesChronological = rows.map(cycle);
 const cycles = [...cyclesChronological].reverse();
 const first = cyclesChronological[0] ?? null;
 const latest = cyclesChronological[cyclesChronological.length - 1] ?? null;
+const governorState = readGovernorState();
 const totalDataSpendUsd = cyclesChronological.reduce((sum, item) => sum + (item.dataSpendUsd ?? 0), 0);
 
 const feed = {
@@ -144,8 +158,10 @@ const feed = {
     firstAt: first?.at ?? null,
     lastAt: latest?.at ?? null,
     equityNow: latest?.equityUsd ?? null,
-    floorUsd: latest?.floorUsd ?? null,
-    equityStart: first?.equityUsd ?? null,
+    floorUsd: num(governorState?.floorUsd) ?? latest?.floorUsd ?? null,
+    equityStart: num(governorState?.startEquityUsd) ?? latest?.startEquityUsd ?? first?.equityUsd ?? null,
+    peakEquityUsd: num(governorState?.peakEquityUsd) ?? latest?.peakEquityUsd ?? null,
+    firstReceiptEquityUsd: first?.equityUsd ?? null,
     chainOk: chainOk(rows),
     wallet: rows[rows.length - 1]?.receipt?.wallet ?? null,
     chain: rows[rows.length - 1]?.receipt?.chain ?? null,

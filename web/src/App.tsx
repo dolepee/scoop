@@ -69,6 +69,8 @@ type Feed = {
     equityNow: number | null;
     floorUsd: number | null;
     equityStart: number | null;
+    peakEquityUsd?: number | null;
+    firstReceiptEquityUsd?: number | null;
     chainOk: boolean;
     wallet: string | null;
     chain: string | null;
@@ -104,6 +106,7 @@ type FeedStats = {
   equityChangeUsd: number | null;
   equityChangePct: number | null;
   floorDistanceUsd: number | null;
+  riskFloorUsd: number | null;
   latestExecutedTrade: Cycle | null;
   currentPosition: PositionSummary | null;
   positionMaturesAt: string | null;
@@ -277,8 +280,9 @@ function computeStats(feed: Feed): FeedStats {
     isNumber(equityChangeUsd) && isNumber(feed.summary.equityStart) && feed.summary.equityStart !== 0
       ? (equityChangeUsd / feed.summary.equityStart) * 100
       : null;
+  const riskFloorUsd = feed.summary.floorUsd ?? latest.floorUsd ?? null;
   const floorDistanceUsd =
-    isNumber(latest.equityUsd) && isNumber(latest.floorUsd) ? Math.max(0, latest.equityUsd - latest.floorUsd) : null;
+    isNumber(latest.equityUsd) && isNumber(riskFloorUsd) ? Math.max(0, latest.equityUsd - riskFloorUsd) : null;
 
   return {
     latest,
@@ -298,6 +302,7 @@ function computeStats(feed: Feed): FeedStats {
     equityChangeUsd,
     equityChangePct,
     floorDistanceUsd,
+    riskFloorUsd,
     latestExecutedTrade,
     currentPosition,
     positionMaturesAt,
@@ -479,8 +484,8 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
 function SignalRail({ stats }: { stats: FeedStats }) {
   return (
     <section className="signal-rail" aria-label="Contest readiness">
-      <MetricCard label="Equity" value={formatUsd(stats.latest.equityUsd)} detail={`${formatPct(stats.equityChangePct)} from first receipt`} tone={isNumber(stats.equityChangeUsd) && stats.equityChangeUsd >= 0 ? "good" : "warn"} />
-      <MetricCard label="Risk floor" value={formatUsd(stats.latest.floorUsd)} detail={`${formatUsd(stats.floorDistanceUsd)} room above floor`} />
+      <MetricCard label="Equity" value={formatUsd(stats.latest.equityUsd)} detail={`${formatPct(stats.equityChangePct)} from risk baseline`} tone={isNumber(stats.equityChangeUsd) && stats.equityChangeUsd >= 0 ? "good" : "warn"} />
+      <MetricCard label="Risk floor" value={formatUsd(stats.riskFloorUsd)} detail={`${formatUsd(stats.floorDistanceUsd)} room above floor`} />
       <MetricCard label="Position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
       <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.x402PaidCycles} x402-paid cycles`} tone="good" />
       <MetricCard label="Execution" value={`${stats.armedCycles} / ${stats.executedTrades}`} detail="armed cycles / executed trades" tone={stats.executedTrades > 0 ? "good" : "warn"} />
