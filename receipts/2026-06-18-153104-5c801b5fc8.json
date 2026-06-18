@@ -1,0 +1,182 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T15:31:04.781Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "2751b35aa1242fc9fa7a9a8bfd1e6b0e43b101920293a974e8d38332e2fb0936"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,BSB,H,币安人生&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ee08995cf03278d7b421f70e5ce540a2f4b2fdfb84e64c1e09ffbf8d52a1eebc"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.13122378,
+        "change24h": 21.12081117,
+        "change7d": 65.55148981,
+        "volume24h": 44990424.81741817,
+        "marketCap": 4968626653.879142,
+        "priceUsd": 15.920228432742125,
+        "heat": 30.56
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 1.88189816,
+        "change24h": -2.64631803,
+        "change7d": 113.36745884,
+        "volume24h": 47051946.44434652,
+        "marketCap": 128644990.45037313,
+        "priceUsd": 0.5777902108707529,
+        "heat": 20
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -4.06810094,
+        "change24h": 18.51812866,
+        "change7d": 28.00317846,
+        "volume24h": 68574977.84014669,
+        "marketCap": 690256132.2059207,
+        "priceUsd": 0.24372221567138297,
+        "heat": 10.51
+      },
+      {
+        "symbol": "币安人生",
+        "name": "币安人生",
+        "change1h": 0.23020392,
+        "change24h": 6.16289144,
+        "change7d": 4.36614154,
+        "volume24h": 21184015.11339681,
+        "marketCap": 722374448.045765,
+        "priceUsd": 0.7223744480457651,
+        "heat": 7.51
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -0.04829436,
+        "change24h": -4.31827537,
+        "change7d": 58.70005629,
+        "volume24h": 39806424.85741562,
+        "marketCap": 343767924.1210552,
+        "priceUsd": 0.3437679241210552,
+        "heat": 4.34
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 0.79054423,
+        "change24h": -2.56573167,
+        "change7d": 6.18600705,
+        "volume24h": 28699484.10769631,
+        "marketCap": 74767796.7973476,
+        "priceUsd": 0.03398536218061255,
+        "heat": 0.73
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.920228432742125,
+        "change1h": -0.13122378,
+        "change24h": 21.12081117,
+        "change7d": 65.55148981,
+        "volume24h": 44990424.81741817,
+        "volumeChange24h": -5.9029
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.5777902108707529,
+        "change1h": 1.88189816,
+        "change24h": -2.64631803,
+        "change7d": 113.36745884,
+        "volume24h": 47051946.44434652,
+        "volumeChange24h": -51.1641
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.24372221567138297,
+        "change1h": -4.06810094,
+        "change24h": 18.51812866,
+        "change7d": 28.00317846,
+        "volume24h": 68574977.84014669,
+        "volumeChange24h": -8.5333
+      },
+      {
+        "symbol": "币安人生",
+        "priceUsd": 0.7223744480457651,
+        "change1h": 0.23020392,
+        "change24h": 6.16289144,
+        "change7d": 4.36614154,
+        "volume24h": 21184015.11339681,
+        "volumeChange24h": 109.4545
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support; LAB shows strong 7d gains but is down 1h with negative volume change, BSB has high 7d but negative 24h and sharply declining volume, H is down 1h despite high 24h, and 币安人生 lacks strong momentum.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "2109d399c83e83635ea0e6c702b7a50b085b37874c28aafd0f4bed2c1752fae8",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support; LAB shows strong 7d gains but is down 1h with negative volume change, BSB has high 7d but negative 24h and sharply decli"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-18",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.13,
+    "usdtUsd": 14.31,
+    "usd1Usd": 0.82,
+    "positionUsd": 0,
+    "inScopeUsd": 15.13,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c6d73ec8620000d06d19ce7dc99f19715c55d734d8db248fe228d4dab58bbbe6",
+  "checksum": "5c801b5fc829c2599f141735079cdfa51d93f10195b717ae835f7272c5fedcb4"
+}
