@@ -9,7 +9,14 @@
     "equityStart": 20,
     "chainOk": true,
     "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
-    "chain": "bsc"
+    "chain": "bsc",
+    "paidCycles": 84,
+    "x402PaidCycles": 69,
+    "totalDataSpendUsd": 1.66,
+    "tradeTheses": 25,
+    "armedCycles": 0,
+    "executedTrades": 0,
+    "degradedCycles": 1
   },
   "cycles": [
     {
@@ -36,6 +43,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "14cb6ad1a98e6214277bdcd2ceb1bb8949146ce89c61e24e035b073031354f88",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,BSB,H,HOME&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "067d37d134f0cec08f6ae382afb5e900a31a47b7d269f4471ceb5387bc9d759e",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -64,6 +89,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2751b35aa1242fc9fa7a9a8bfd1e6b0e43b101920293a974e8d38332e2fb0936",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,BSB,H,币安人生&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ee08995cf03278d7b421f70e5ce540a2f4b2fdfb84e64c1e09ffbf8d52a1eebc",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -92,6 +135,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "bffcb08ebd20c075b8db7c5ba817ca045d26b4564c600bb5afd30dc3691942cd",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,BSB,H&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2fac596d5b15a0e60378f96c50eca19af1cb97b4127cb98af45d15f6ff70f871",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -120,6 +181,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "f939e824e37fca66b07548309658783dd1e53513cfe06e7540fde6e991d37af6",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,SIREN,H,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "27d7c7cfc0c7d84961e68bb0a6ec3ecc3f197c041c6421b6e77e9eea8961edbf",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -148,6 +227,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "7cd3294b718fbb3ce8cee49c303c8a2a7f3176ee944876121b3acfd5e26961ff",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,H,HOME&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "0476dde1a02957c410da5dd492718c0db92aa25e11ae9c3059cde0acb2411b97",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -176,6 +273,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b8dae289697f431c7890db867944dcc805c5a85fe3bbad0abee67e97f00c7c1d",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,H,HOME&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "73d3527601eb90b2a632306b5750bc4a5faa053ec8e90b715272431a459fcda1",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -204,6 +319,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6c8f3bbe051b17985bc0a8240a2a9d30f306852454426b20173242d866079556",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,H,XPL,BSB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "9634113940923a6633e71a861fbb107733a7f2ba67ebf3dcb018434efd2ba96f",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -232,6 +365,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "fce7827bcd005f946fd281705ab38768b5ddaa28412c9b576551f3abbbcb4038",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BSB,SIREN,LAB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "eb86983c3a5db75655579553377a5ee41f429ba1047cea20b81f37326817ea87",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -260,6 +411,24 @@
       "governorReason": "risk_budget_pct:10.11, conviction_bps:7200",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d83afde2364296db50a59904c0ed8753200b5a348574cd51cbc856f8ec92548a",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,HOME,XPL,BANANAS31&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "4a7d87af2787e504c58094fc34b01348b781db9a2450b8bfcebea0d9c9c5f7e4",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -288,6 +457,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "27aab0649fd5fe84e6377341fc7eb806ba5920d31963d988ba6008faa944b9ce",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,BSB,XPL,BANANAS31&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "494fd29b05035459d7a22f78143cebe662fff0211b26cef6445989b8cbee6912",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -316,6 +503,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "332e0da0e6b28cb492be9c7f87ee8306203ea570bc30a52afdb99d1a66bafdac",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,BSB,ASTER,LAB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c24edb7ab372992e44106dcebe3b1e2f31ba9157caf8d502ed29476d508a1f80",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -344,6 +549,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e9b7a28d027922047bd5a60dab017579b7208a9c5491b4e4a8ae0c3b441afc9b",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,COAI,LAB,PIEVERSE&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "56517c68dc5626457b1f54c912a7dcc8c3e71bbb78ea0422572231616e8145f1",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -372,6 +595,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "4de46b3ee9aebf0fcb12b7b2c2b50e453a638a84e0479684b48df0d3647392ae",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,PENDLE,UNI,AAVE&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d6ae8b018ad6d92cc64551157c4ae1c1438521db05faa95dde665c4378bf89ca",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -400,6 +641,24 @@
       "governorReason": "risk_budget_pct:10.69, conviction_bps:7200",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ff48c310ff5adc0108656c20ead61160834cb4cb7dc96d31e520377a93557525",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,XPL,ASTER,COAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "227720089b5630855c5c2995c4817a2209e191ba235e35f90fd822da0bd3d513",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -428,6 +687,24 @@
       "governorReason": "risk_budget_pct:10.81, conviction_bps:8200",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "cb9be246375aa1518548017f2a474e0258a1d536c10a8d3876f529bb43ac6830",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,XPL,COAI,ASTER&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "68f31f644817cb03859947511b3459092f7bfc5182718c5ff79c8df33f1a96e1",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -456,6 +733,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "169763fb4da32f4c8115951bcd36ea182fdee8ceb763e71afbd731e99f41ddd9",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,ASTER,TRIA,BSB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "397fd5fae63db91d2aa8d583566ee957cece952a1a85c0eb0ff5644871d2d678",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -484,6 +779,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "19f136afb9db5011aca82f632e333f05f6b5ad62d83b08117052db933f883f0d",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SIREN,TRIA,LAB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "cf32469c6e77527a41026f88431cdb3b8776c7d9a6740ebabc2ffea2b1d62eb6",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -512,6 +825,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "94864b3972b23a54dfc96daaf692344e5148ae9e9815e7efd80e5fdeee039d02",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=TRIA,LAB,UNI,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "648b4c61565ad926b9f263c903ac156445380300b1cad4f2eadf75595482cf15",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -540,6 +871,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e4bdee46e45769622961233a82cfe887f10d34fa922203cb794e0ccc3898587a",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,LAB,BSB,LUNC&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a65c92f06458432ade178070a38954e942621c119a937acf29994dde46d2aa92",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -568,6 +917,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "5a1677932fc3dc7dde013fe737fdf26afcde3b59a8063d4d929fc1725171799b",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,LAB,UNI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "f9b6e97ff63302e27a2dd92f8b219e23074dbe78914a1ce66e9e5fa3a75e18f9",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -596,6 +963,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2f896aeb0c0f4ed87bc007b78b88e2b4a8964ce40f735c555ef30327483abc9d",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,LAB,UNI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "3de02ee5d943467e6eadd6a802f09f7851ef17050a4488f4bd677ee6b28abe8f",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -624,6 +1009,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c66195a99d3f4793ddcb73fc8b98c9a0a2205c5ddeeba2a6fa61b75a69caf956",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,UNI,LAB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "cf0ab6ae163e6bb60e3bc43137e3bae22f97737de1d296beb51f67e43d311ebd",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -652,6 +1055,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "8968bfd2b43457b77ec13c86c6e2bc163b153e25d0c66d8de95962a73201bc85",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,STG,UNI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d202b6eef696a2480b1a6bf022d629afb13c31bd65c8bae763f41d5d5f67a1ae",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -680,6 +1101,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a30ae2791e32d9691fb2f02ce560df75619f33d15d9618b1ee0991fc3d9bbc86",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,STG,UNI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "1970504f013e47a8d2c502805909e9c10c313fd3f719d36ead53528e5a979afd",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -708,6 +1147,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "fd27bca4e2a9e934df713385d118e6c7c98f138029ec86118ff5ee0625aaabe0",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,BSB,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a02345f60ac34c553b3cdfae616a0a7660e162b9f306001bb431c814358d6e0a",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -736,6 +1193,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "21323146fa328f3785d8f2e5b37669e7ecaf0a9758c568b68351a3857ecf6048",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,LAB,SKYAI,ZRO&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b11dd6332a29d1a8a8d516b9edfb1de8fd5505bbe59a241be844d4d3a70375e4",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -764,6 +1239,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a1be39892a7515a26c61db6ef85211aa41cf408deeafec77fb61f26b564ea77f",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SKYAI,LAB,INJ&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "622c26483c6ddc733c37c16c289c87b91dc9284f834b4c256df7b2b503a8eb87",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -792,6 +1285,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "4a34b1d88aa76decac1e302c3bbc022db27aed44aeed941265571a442a5b5e57",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,STG,INJ,ZRO&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "7d0de3a2ef0d26d86bcd4fbf50fed8647c6cd3242b6d1e35874b42aaff583d34",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -820,6 +1331,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "541e2484ae4b62c68384b85c09525c1e2e4aacedb72589378cadd74b4d2e9042",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,SIREN,SKYAI,ZRO&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "0888e2ad8548b271e2602eb41507d547c237d770ef5344a780468303002c8c2d",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -848,6 +1377,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "deeec0c95edce6a6374b3a66b1246e42a15cb763e0b57df995ab36d72bbe88a7",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,H,SIREN,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "da6f27bea7fc616e796a232a035c232ae4064c6823f3e555beb0451734bf1896",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -876,6 +1423,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b20f4bb9963b21db9673492b12afbd552a399f30db5dcf0d60758d5aaae1ed5e",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,ZRO,UNI,H&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "10bbf2b4f6d2e651c16fad5e9bd28b6f5e6210c7f0f5431abdecb9632c250ce0",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -904,6 +1469,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2a1fa084816be9c4e9def425d295f45e7a2aa9caa34d64029f14a20316a0b0b0",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,ZEC,ZRO,BONK&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "7355b79a5f80e6ddef63f13bc7279114b3347f73e19fcd68b2a6adc91c99ff82",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -932,6 +1515,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d671105ea4c518b9b04b29f06e26913a757903e8082c4379acf9f83f436e7e56",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,ZRO,ZEC,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "7baa872a8531d06a450e42fa0c63754680d230a292a6ab60b39585320fa09bfd",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -960,6 +1561,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c66437b6a5f15145b8fe77dd29787ceb69da4f5efbbd30a3c852546176147e80",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BSB,PIEVERSE,ZEC,ZRO&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "f82827aa6b5c93a6f55bc86121d924afb8cb9c6ae5a396ef5dac8ea0584be393",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -988,6 +1607,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "05caa543054d9e6e86b1ce645384fa9fde55eef1b7ecd0aeb6e1bb78a28533fb",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=PIEVERSE,AAVE,BANANAS31,BSB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c242eb5250dfc0bf1d9c79bbfd610131e5822afd3e28735463389e531f7d5453",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1016,6 +1653,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2965e4ee6fa1776b0b7412191e991faa1cfefcfd5d7dbd6ad1080216fbb17c4d",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,AAVE,ZEC,ZRO&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "baf776412b11a2260a233b6cce384fed019ae1caf7e1bfc7cb53c4154c5ff817",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1044,6 +1699,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6584a9d6f6a8212ced620fe2ee9e7aa42043eb3eb7225121cf93c72a3b72197b",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,BSB,ZRO,ZEC&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "9e0c58a23fd148ea8f576eb05570b695ed813f795a24f9077e08d7eb345f5391",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1072,6 +1745,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d5b56dd83cd116a3fef3ec6df3eb089d6c54f39cbae60f19a46b9e4210801934",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,LAB,GENIUS,BANANAS31&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "0c2bd39d364b2c94918dfbc3cf0088f92be5872b85a1fb73396bc7b783103a18",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1100,6 +1791,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "943e012e174616f7f7a6210967e2eb7eed8e287cff26eb5b8e5f533be8d57351",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,OPEN,XPL,SLX&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a920a7b1656246e5f5c4e1c411e1871d079d6dd37b575d6962cd9527a3def003",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1128,6 +1837,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "67dbca208308c1bd0986db967eb5f1cb22e9987b3ae63b94f97e6fa6ff031734",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,H,BSB,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c9717e210a98fa8965e86a415e9a24cf5c87b394f3b9b8e57a25ab805fb50327",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1156,6 +1883,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c214ec8a66761ea03bb5ac4fb6154a0ceef6c4569087a28765bf1f6121105132",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,BSB,SKYAI,GENIUS&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "242b8d01f9499fbf07aad8b5d6c0304b5cddfded008a2b1a2f0027d7714353d4",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1184,6 +1929,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b9b47c9bbdfc82db846ddff20798e519ae2bd84f5415da334aeaab1af6b87807",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,BILL,XPL,BRETT&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "92b8e051d2e3cab0f3c7ac0614cddd6a7b20dc32bed2375e7e0d052a2659a33d",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1212,6 +1975,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "1ae6c8039bceb6b48b5656bbcc0412b2338d514354793e9a4cf5bc596937166e",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BANANAS31,SLX,BSB,OPEN&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "cd49e35e314fc4e5102961d2797332eb706d06e26396164206af88fe6d0aee59",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1240,6 +2021,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "829571bf86b289aef7c4c8e23e6eb702a38498314185b967cc2112c2e7b1f37f",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,H,BRETT,BANANAS31&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "bfb5c178e176454814ebfa74c088d812a051456c616e45f46ac227de302f17c7",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1268,6 +2067,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ce7b2fdec91af1c7734fb1302f793dddff9384385540d1f1085e0267d3fed7af",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BANANAS31,SLX,BILL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "13ab5f6740852200101d044553b3de0acfb5a5e6fc585ea9b110af65dfdba787",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1296,6 +2113,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a731e3741f38b479e2f534e44370f82b8ac018701ce66fade7e79e0d8525fd1e",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,H,SKYAI,SLX&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "302dd6fc820f72c1b91dbccc839c7312422a9bd6a91a0f912c1169bde3448690",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1324,6 +2159,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "368a6b0dcc546734fddd76aeb07f71828694fb6ecc333b2555454db24144588b",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,OPEN,BANANAS31,AXL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a4f375fd140cb843ee375b516681c6e0c0ca98191c161cbb002743b7fad7a233",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1352,6 +2205,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "f476c994ebcabc97149c68f38e253ef8d01687320b262f65d0bd8a96c55a22df",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,OPEN,AXL,BANANAS31&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "7db389b6c46f251b90dc267d21a377ceb9fde7424a90626310d91151b0a66e0b",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1380,6 +2251,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "36dad85c7c7d03e95c37d9d770f0fe95ceb9b668ff9024f99e8a2290bc517772",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,BEAT,H,OPEN&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6c83cbe6b81c6566a15ec4b801f9c64e3b786920b278c4dc832fe4cbb4652aa6",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1408,6 +2297,24 @@
       "governorReason": "risk_budget_pct:14.85, conviction_bps:7200",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "5d7be7e9f6735a8c66a030088832dc453c843135121cdc34365767cd172203a5",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,SKYAI,XPL,BEAT&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ba5c246ce481380ad9a8d36e2184d3779f3d6190ff3a7d602e2dccc12d1a7485",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1436,6 +2343,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "52547f47e05c853f21860440204062324bc939396bde2aee463e9f1ffa1475ea",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,H,AXL,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6f19be106a9ce9c6138761fbf46d5a2ea35059acb14916eb8093c7cbd0d524da",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1464,6 +2389,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d75583a849c72dfec0c6908c68cdfb0d0b02f203cd26eb31b8ebdc4ad5f37115",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,SKYAI,XPL,IP&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "69434d0178c0cdfcddacd63af143378e072e1a4918043c215a636b52ec4859ea",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1492,6 +2435,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6890154f6fd68199a2d0f69b929ac12e302c913a7a23a819f2a91ae233a19e34",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,BEAT,SKYAI,OPEN&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "9dd5aa917e93e2dc6154b29a71d94175fc647f2c1cb4aea3eaf16e50c6aafd61",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1520,6 +2481,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "5c2ade381825e09afed03a3821c480aad455bb8eead4ac9bd13d47d525836792",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,BEAT,SKYAI,EDGE&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "c5792fc8b9ee0c825fd3ca89c199ea9990997eb4cf33a64ec483b9c0c318c8b8",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1548,6 +2527,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ec22c0b46b6104a7bc049a0f5d4c0a94c6bb7c3169a3f2f1518f23607e51fd0e",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=EDGE,AXL,COAI,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a02ae78067ca11cff88175a0fd01f604eec46b29d671af94f4f03b1a3de1c40b",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1576,6 +2573,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ef6afe3f20618e934f82e74bfa86b47919858a3b107e4a4f7ee294b5e74c126b",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,BEAT,SKYAI,AXL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "eeb74a9bc6c0ebf326c2d022b258994d90f4eacf3669033aae81333d17051de3",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1604,6 +2619,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "1c4f728abcff362917fc1b0d16d1f55ff3279a956be96b9192856ac39d436f74",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,COAI,SKYAI,AXL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "5228da779a3c378945c7a559f38bc573da871834d202deb793f038b4e3316b52",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1632,6 +2665,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "3fa416c1d3b8127d25c88d2fae8d562ca836d12f7c7dc2acb01e639b6da5a3a5",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,AXL,COAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "d4e923fffd37aeb6e4a02949a2d88271b2b88f10b7015e6ae681b866946a5d21",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1660,6 +2711,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e338ba0472dee6b88182dbd3febec2167c9e7e9165bfd5cfd0d49f6e65040607",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,COAI,STG,BEAT&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "281ad12dcc77f7e922f33453a160d45e623394f2da750ade5d32aaca413092c4",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1688,6 +2757,24 @@
       "governorReason": "risk_budget_pct:15.89, conviction_bps:7200",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "fe7a498c87b6c97261ac0f5c5d81bd78a68550a617540741dffdd33a0c13ee5f",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,STG,H,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "ddfa2cbbe1afa5dc8e7e53f413b828c464446c9fd11252c050f5ac9ea2054eda",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1716,6 +2803,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "22b39e244d2953ea6a96e48652fa59c372b1ce8a81bc8d8cce06360c589377c4",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BEAT,STG,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "6cabd65577bcf32d5c7335c7202ccbd904bf239259749c4b54cb0b34019bddd0",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1744,6 +2849,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "41ee46061e2aabf01856d3da0fc78d4f65286869699415b55d8e70cf74ae9490",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,COAI,XPL,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "94385c9004c507cc4202bd0aa642eee87d36c89c37eb763b7718ea7787ede0af",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1772,6 +2895,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "889106d77432a007cec5bfd6ef73492246bdd8070e5c4c49d09a260f952fc391",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,XPL,STG&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b32ac406e97fdb8f00ccb17f7af407e507366986f50c6b1bad40ed27214093ea",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1800,6 +2941,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "538e9d5a78999ff04b536c1c219acc16a56f5a2d64b05776296542f63781bbab",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,XPL,STG&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e8af0e579dd554031352533af751aba7bcb7f418efa9a3b365d7f3c009dbdb87",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1828,6 +2987,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e14d2a263d90d05fde39006b6510e781e9c73fb11b3d7285b654f72f646e143a",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=STG,BEAT,XPL,SKYAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "0708b944476c2a785957440a2778b02530bd6a9e21c2f16bf38caa0e19b2aadc",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1856,6 +3033,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "2203cb64a8ac7a81314eb0995b75422855a1a5e2a1115941f0edbd751d7b7726",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,STG,COAI,BEAT&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "a8a610040b820d357b90fdfefffe8611be821237356a58003f56e6333b0339a6",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1884,6 +3079,24 @@
       "governorReason": "risk_budget_pct:16.5, conviction_bps:7800",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "b49d4f1834897a9df31e436438c712e07f6dc46ceb49c15201ab7b2125019af6",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=COAI,STG,BEAT,UB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "e660b6cf5baf29adc30b7b4da73729d217d3ad3f827951e9d7c0aff4e97277e9",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1912,6 +3125,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "083b8e1a4b041269793acfc842860dd5158ca0031576cc68cda8ca5992072e8f",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BEAT,SKYAI,COAI&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "44e2181d0c22fbf58b7792d59c5440f98fa30311bdb458bef21152a9037ff528",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1940,6 +3171,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "f5bc41f16cecee95e196657f7211546d40f5e0a08508adad96409332b89cff48",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=H,BEAT,STG,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": "x402-paid",
+          "fallbackFrom": null,
+          "responseHash": "eb73e858d693407c110e67ca115cda75d94fc604a6a27a300129e8d015af95be",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1968,6 +3217,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "4cb2f3b5ebb9c86e1c4739aacd8c45e3c19fa708b2c7bd67a966a7247dd37c21",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=STG,SKYAI,H,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "37e25a436c84b62c8fa5a815ff3dfdf414400f82e3a956b7d4e18ddc55aa819c",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -1996,6 +3263,24 @@
       "governorReason": "no_qualifying_thesis, compliance_valve:zero_trades_late_day",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "e4df6770806bdce4eeb14aa49ee6c34ecddca8fc3028ce3cb37c343ec374b925",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,SKYAI,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "f8813ee80ba442ea0a8cc2b392b11538f8d06aa890ec756b76b2d162f5976763",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2024,6 +3309,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "75c4aad30a3bbef6b6d5eb6f50525293d7aa6110297f51d346eb479fc038d262",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,SKYAI,XPL&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "ab9cf837e7ac5de419c14360a909d01863e85162932c1e5d7ae25c6b29ac05ef",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2052,6 +3355,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "9f394f9bbf812cfa3e7d1784f401d82570c18b9a19956f33e065c7f156127c69",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,SKYAI,ATOM&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "70cf8ce3026068a4b64e5b47b16c475c685a47a15320743661fea59d095f5ff2",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2080,6 +3401,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "af4584f544062f2f55262b7d6f8f05505164ba9aea33e2b339aec774040657b1",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,KITE,ATOM&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "8db59196d8068210aadda06618b27b30af0e05efd21d31c893d108e82ad05640",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2108,6 +3447,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "4105a288bc8d2b16d30ccaffd796d31d9976d25acc1efb7982f1773d588109fb",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,LAB,DEXE&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "67e4930e2676d36937176544acdd09845bb3eed9b05b5cb7d383866cc409b999",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2136,6 +3493,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "93f122f2f3cf2a9cc7f69d276ea4d784823250892391ad73e1ab173e29e86b81",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SKYAI,H,STG&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "3f50e49dd30db2cd809433d2375a2b3a44521b2aa610dad76aa4754d8af4f601",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2164,6 +3539,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "1f4dd1c36641a434336da16b828da52e0ca28ca6cdde475ff8235819388c488d",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,BRETT,STG,BSB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "ae929399bf7203e78937c9d590b2b2a329886ddb5353c9def2b78ced79372262",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2192,6 +3585,24 @@
       "governorReason": "conviction_below_floor:0<5500, compliance_valve:zero_trades_late_day",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "1535a7adc99fef631012a1dfab8a7f0decac1d4f8c56cddfeb932309d6a7bb50",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,H,STG,GENIUS&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "94e1b90bdb8f6ebea65c40451907c0e5efa0d60d40e9cd7bbea7d5c27e412471",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2220,6 +3631,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "89c147a906e54dbaf77d37f931558a0f16a0ce873ea4041b3848eaf9f6227361",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,NEX,ZAMA&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "fdbcd0903b67f2b624ae962b701eec75f5b9cff0cbc8e5edba34da4c2516b4c0",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2248,6 +3677,24 @@
       "governorReason": "equity_degraded, balance_read_failed:USD1",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "911efea8339466c5a3ce810394d957ae63e95989c5579de0edff42c2742fc2ba",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,NEX,UB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "7f00b1d61b44d6a4ee3b9b4a22149c88fc7d6ae094a05a6ce1b52a5ee1a15263",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2276,6 +3723,24 @@
       "governorReason": "conviction_below_floor:0<5500",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "109fa243b68a59a38e096e93bff39fe001bef35890765e4eb41f9c91d51219a0",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,H,STG,NEX&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "e84512feb31e2781ac219261c30b857aa89323eabe66c9393feef942baf763ae",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2304,6 +3769,24 @@
       "governorReason": "conviction_below_floor:0<5500, risk_budget_exhausted:2.15pct_to_floor",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "6eb68c779cd17056c153a32293cd5d911d35f89ee791af4777ff4346b865bb01",
+          "skipped": null
+        },
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,STG,NEX,UB&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "43d18ca5b402e391e51ab3646cbb501c855bb6f8e761437bdfa1d90eeaf72a8a",
+          "skipped": null
+        }
+      ],
       "dataSpendUsd": 0.02,
       "trade": false,
       "tradeResult": null
@@ -2332,6 +3815,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "cf4697abd882934a13281d415c449388ecf09a5d4495f90043c9c0a303654429",
+          "skipped": null
+        },
+        {
+          "url": null,
+          "costUsd": null,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": null,
+          "skipped": "no_symbols"
+        }
+      ],
       "dataSpendUsd": 0.01,
       "trade": false,
       "tradeResult": null
@@ -2360,6 +3861,24 @@
       "governorReason": "no_qualifying_thesis",
       "paid": true,
       "paidCallCount": 2,
+      "paidCalls": [
+        {
+          "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=100&sort=percent_change_24h&sort_dir=desc&convert=USD",
+          "costUsd": 0.01,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": "a84a916e585265d9403da2d3248de418196efbf108c17cbeea814a76afc7acf5",
+          "skipped": null
+        },
+        {
+          "url": null,
+          "costUsd": null,
+          "dataSource": null,
+          "fallbackFrom": null,
+          "responseHash": null,
+          "skipped": "no_symbols"
+        }
+      ],
       "dataSpendUsd": 0.01,
       "trade": false,
       "tradeResult": null
@@ -2388,6 +3907,7 @@
       "governorReason": "no_qualifying_thesis",
       "paid": false,
       "paidCallCount": 0,
+      "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
       "tradeResult": null
@@ -2416,6 +3936,7 @@
       "governorReason": "no_qualifying_thesis",
       "paid": false,
       "paidCallCount": 0,
+      "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
       "tradeResult": null
@@ -2444,6 +3965,7 @@
       "governorReason": "no_qualifying_thesis",
       "paid": false,
       "paidCallCount": 0,
+      "paidCalls": [],
       "dataSpendUsd": 0,
       "trade": false,
       "tradeResult": null

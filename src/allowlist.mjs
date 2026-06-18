@@ -17,15 +17,17 @@ for (const token of ELIGIBLE_TOKENS) {
   if (!token?.tradable || !token.address) continue;
   const symbol = normalizeSymbol(token.symbol);
   const upper = symbol.toUpperCase();
-  EXACT_SYMBOL.set(symbol, token);
-  UPPER_SYMBOL.set(upper, [...(UPPER_SYMBOL.get(upper) ?? []), token]);
+  EXACT_SYMBOL.set(symbol, addUniqueByAddress(EXACT_SYMBOL.get(symbol) ?? [], token));
+  UPPER_SYMBOL.set(upper, addUniqueByAddress(UPPER_SYMBOL.get(upper) ?? [], token));
   ADDRESS_SET.add(normalizeAddress(token.address));
 }
 
 export function getEligibleToken(symbol) {
-  const exact = EXACT_SYMBOL.get(normalizeSymbol(symbol));
-  if (exact) return exact;
-  const matches = UPPER_SYMBOL.get(normalizeSymbol(symbol).toUpperCase()) ?? [];
+  const normalized = normalizeSymbol(symbol);
+  const matches = UPPER_SYMBOL.get(normalized.toUpperCase()) ?? [];
+  if (matches.length !== 1) return null;
+  const exact = EXACT_SYMBOL.get(normalized) ?? [];
+  if (exact.length > 1) return null;
   return matches.length === 1 ? matches[0] : null;
 }
 
@@ -50,4 +52,11 @@ function normalizeSymbol(symbol) {
 
 function normalizeAddress(address) {
   return String(address ?? "").trim().toLowerCase();
+}
+
+function addUniqueByAddress(tokens, token) {
+  const address = normalizeAddress(token.address);
+  return tokens.some((item) => normalizeAddress(item.address) === address)
+    ? tokens
+    : [...tokens, token];
 }

@@ -9,6 +9,7 @@ import {
   syncState,
 } from "../src/governor.mjs";
 
+const MORNING = Date.parse("2026-06-22T09:00:00Z");
 const NOON = Date.parse("2026-06-22T12:00:00Z");
 const LATE = Date.parse("2026-06-22T21:30:00Z");
 const COMPLIANCE_BUY = { action: "buy", symbol: "CAKE", reason: "daily minimum, no conviction signal today" };
@@ -109,15 +110,16 @@ test("day rollover resets daily counters", () => {
   assert.equal(state.dayKey, dayKeyOf(nextDay));
 });
 
-test("compliance valve opens late only when armed with zero trades", () => {
+test("compliance valve opens at the UTC cutoff when armed with zero trades", () => {
   const r = decide(
     { kind: "NONE" },
     freshState(),
-    { equityUsd: 20, nowMs: LATE, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+    { equityUsd: 20, nowMs: NOON, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
   assert.ok(r.complianceUsd > 0);
   assert.equal(r.symbol, "CAKE");
+  assert.ok(r.reasons.includes("compliance_buy:zero_trades_after_cutoff"));
 });
 
 test("compliance valve stays closed once a trade exists today", () => {
@@ -131,11 +133,11 @@ test("compliance valve stays closed once a trade exists today", () => {
   assert.equal(r.decision, "STAND_DOWN");
 });
 
-test("compliance valve stays closed before the late-day hour", () => {
+test("compliance valve stays closed before the UTC cutoff", () => {
   const r = decide(
     { kind: "NONE" },
     freshState(),
-    { equityUsd: 20, nowMs: NOON, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+    { equityUsd: 20, nowMs: MORNING, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
   );
   assert.equal(r.decision, "STAND_DOWN");
 });

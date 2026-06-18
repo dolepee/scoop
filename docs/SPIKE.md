@@ -13,7 +13,6 @@ Every architecture-critical assumption tested before full build. Verdict: GREEN,
 | CMC x402 MCP (narratives/news) | KNOWN LIMITATION | The x402-gated MCP at `mcp.coinmarketcap.com/x402/mcp` lists 12 tools (handshake and tools/list free), but TWAK's x402 client returns HTTP 400 on the PAID retry of POST-with-body requests (GET REST endpoints work). Paid perception therefore uses the four REST x402 endpoints (listings, quotes, dex search, dex pair quotes). Revisit: implement the 402 dance directly, or report upstream to TWAK. |
 
 ## Funding state (from $20 / 0.0322 BNB received)
-- 2.518 USD1: x402 data purse (~250 paid requests)
-- 14.328 USDT: trading capital (in-scope asset for the holding rule)
-- ~0.0034 BNB: gas reserve
-- Data spent through the public feed as of 2026-06-16T21:00:24.577Z: about $1.24 across 63 paid cycles.
+- Latest public receipt as of 2026-06-18T15:50:33.033Z: 15.11 in-scope USD value, with 14.31 USDT and 0.80 USD1 recorded by the cycle.
+- Current gas reserve remains thin at roughly 0.0034 BNB and must be checked before any armed run.
+- Data spent through the public receipt chain as of 2026-06-18T15:50:33.033Z: about $1.66 across 84 paid-mode cycles, including 69 x402-paid cycles.

@@ -9,6 +9,15 @@ type TradeResult = {
   error: string | null;
 };
 
+type PaidCall = {
+  url: string | null;
+  costUsd: number | null;
+  dataSource: string | null;
+  fallbackFrom: string | null;
+  responseHash: string | null;
+  skipped: string | null;
+};
+
 type Cycle = {
   at: string | null;
   file: string;
@@ -33,6 +42,7 @@ type Cycle = {
   governorReason: string | null;
   paid: boolean;
   paidCallCount: number;
+  paidCalls?: PaidCall[];
   dataSpendUsd: number | null;
   trade: boolean;
   tradeResult: TradeResult | null;
@@ -50,6 +60,13 @@ type Feed = {
     chainOk: boolean;
     wallet: string | null;
     chain: string | null;
+    paidCycles?: number;
+    x402PaidCycles?: number;
+    totalDataSpendUsd?: number;
+    tradeTheses?: number;
+    armedCycles?: number;
+    executedTrades?: number;
+    degradedCycles?: number;
   };
   cycles: Cycle[];
 };
@@ -65,6 +82,7 @@ type FeedStats = {
   wallet: string;
   freshness: { label: string; stale: boolean };
   paidCycles: number;
+  x402PaidCycles: number;
   noTradeCycles: number;
   tradeTheses: number;
   armedCycles: number;
@@ -145,6 +163,20 @@ function bscAddressUrl(address: string) {
   return `https://bscscan.com/address/${address}`;
 }
 
+function receiptUrl(file: string) {
+  return `${REPO_URL}/blob/master/receipts/${file}`;
+}
+
+function endpointLabel(url: string | null | undefined) {
+  if (!url) return "no endpoint";
+  try {
+    const parsed = new URL(url);
+    return parsed.pathname.replace(/^\/x402/, "CMC x402");
+  } catch {
+    return url.replace("https://pro-api.coinmarketcap.com/x402", "CMC x402");
+  }
+}
+
 function verifyFeedChain(cycles: Cycle[]) {
   const chronological = [...cycles].reverse();
   let previous: string | null = null;
@@ -199,13 +231,16 @@ function computeStats(feed: Feed): FeedStats {
     chain,
     wallet,
     freshness: timeAgo(latest.at),
-    paidCycles: feed.cycles.filter((cycle) => cycle.paid).length,
+    paidCycles: feed.summary.paidCycles ?? feed.cycles.filter((cycle) => cycle.paid).length,
+    x402PaidCycles:
+      feed.summary.x402PaidCycles ??
+      feed.cycles.filter((cycle) => (cycle.paidCalls ?? []).some((call) => call.dataSource === "x402-paid")).length,
     noTradeCycles: feed.cycles.filter((cycle) => decisionLabel(cycle) === "NO_TRADE").length,
-    tradeTheses: feed.cycles.filter((cycle) => cycle.action === "TRADE").length,
-    armedCycles: feed.cycles.filter((cycle) => cycle.trade).length,
-    executedTrades: feed.cycles.filter((cycle) => cycle.tradeResult?.executed).length,
-    degradedCycles: feed.cycles.filter((cycle) => cycle.degraded).length,
-    dataSpendUsd: feed.cycles.reduce((sum, cycle) => sum + (cycle.dataSpendUsd ?? 0), 0),
+    tradeTheses: feed.summary.tradeTheses ?? feed.cycles.filter((cycle) => cycle.action === "TRADE").length,
+    armedCycles: feed.summary.armedCycles ?? feed.cycles.filter((cycle) => cycle.trade).length,
+    executedTrades: feed.summary.executedTrades ?? feed.cycles.filter((cycle) => cycle.tradeResult?.executed).length,
+    degradedCycles: feed.summary.degradedCycles ?? feed.cycles.filter((cycle) => cycle.degraded).length,
+    dataSpendUsd: feed.summary.totalDataSpendUsd ?? feed.cycles.reduce((sum, cycle) => sum + (cycle.dataSpendUsd ?? 0), 0),
     equityChangeUsd,
     equityChangePct,
     floorDistanceUsd,
@@ -250,6 +285,7 @@ function App() {
       <Hero feed={state.feed} stats={stats} />
       <SignalRail stats={stats} />
       <ControlRoom feed={state.feed} stats={stats} />
+      <ProofPanel feed={state.feed} stats={stats} />
       <AgentLoop stats={stats} />
       <DecisionLog cycles={state.feed.cycles} />
       <ProofFooter stats={stats} />
@@ -281,6 +317,7 @@ function Topbar({ stats }: { stats: FeedStats }) {
       </a>
       <div className="nav-links" aria-label="Page sections">
         <a href="#control-room">Control</a>
+        <a href="#proof">Proof</a>
         <a href="#loop">Loop</a>
         <a href="#receipts">Receipts</a>
       </div>
@@ -300,7 +337,7 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
     <header className="hero" id="top">
       <section className="hero__copy">
         <div className="hero__pills">
-          <span className="pill pill--gold">Track 1 ready stack</span>
+          <span className="pill pill--gold">Registered Track 1 agent</span>
           <span className="pill">CMC x402</span>
           <span className="pill">TWAK signing</span>
           <span className="pill">BSC spot</span>
@@ -325,7 +362,7 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
           </div>
           <div>
             <dt>x402 cycles</dt>
-            <dd>{stats.paidCycles}</dd>
+            <dd>{stats.x402PaidCycles}</dd>
           </div>
         </dl>
       </section>
@@ -355,7 +392,7 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
         <div className="rail-map" aria-label="Execution rails">
           <span>CMC x402</span>
           <i />
-          <strong>{stats.paidCycles} paid cycles</strong>
+          <strong>{stats.x402PaidCycles} paid cycles</strong>
           <span>Governor</span>
           <i />
           <strong>{stats.noTradeCycles} stand-downs</strong>
@@ -515,6 +552,99 @@ function EquityChart({ cycles }: { cycles: Cycle[] }) {
   );
 }
 
+function ProofPanel({ feed, stats }: { feed: Feed; stats: FeedStats }) {
+  const latest = stats.latest;
+  const latestCalls = latest.paidCalls ?? [];
+  const latestTx = latest.tradeResult?.txHash ?? null;
+
+  return (
+    <section className="section-grid" id="proof">
+      <div className="section-heading">
+        <span className="eyebrow">Proof surface</span>
+        <h2>Verify the agent without trusting the dashboard.</h2>
+        <p>
+          Scoop exposes the receipt file, chain head, CMC x402 response hashes, registered wallet, and BSC transaction
+          proof path from the same public feed the app renders.
+        </p>
+      </div>
+
+      <div className="proof-grid">
+        <article className="proof-card proof-card--wide">
+          <span>Latest receipt</span>
+          <h3>{shortFile(latest.file)}</h3>
+          <dl className="proof-list">
+            <div>
+              <dt>Receipt file</dt>
+              <dd><a href={receiptUrl(latest.file)} target="_blank" rel="noreferrer">{latest.file}</a></dd>
+            </div>
+            <div>
+              <dt>Head checksum</dt>
+              <dd className="mono">{latest.checksum ?? "null"}</dd>
+            </div>
+            <div>
+              <dt>Previous checksum</dt>
+              <dd className="mono">{latest.prevChecksum ?? "genesis"}</dd>
+            </div>
+            <div>
+              <dt>Browser chain check</dt>
+              <dd>{stats.chain.ok ? `${stats.chain.count} linked receipts` : `broken at ${stats.chain.brokenAt}`}</dd>
+            </div>
+            <div>
+              <dt>No-secret verifier</dt>
+              <dd><code>npm run receipts:verify</code></dd>
+            </div>
+          </dl>
+        </article>
+
+        <article className="proof-card">
+          <span>CMC x402 evidence</span>
+          <h3>{latestCalls.length} latest paid calls</h3>
+          <dl className="proof-list">
+            {latestCalls.length > 0 ? latestCalls.map((call, index) => (
+              <div key={`${call.responseHash ?? call.url ?? index}`}>
+                <dt>{call.dataSource ?? call.skipped ?? "call"}</dt>
+                <dd>{endpointLabel(call.url)}</dd>
+                <dd className="mono">{shortHash(call.responseHash)}</dd>
+                <dd>{formatUsd(call.costUsd, 4)}</dd>
+              </div>
+            )) : (
+              <div>
+                <dt>No paid call</dt>
+                <dd>This cycle did not record a CMC x402 response hash.</dd>
+              </div>
+            )}
+          </dl>
+        </article>
+
+        <article className="proof-card">
+          <span>BSC and TWAK rails</span>
+          <h3>{latestTx ? "Execution proof live" : "Awaiting armed tx"}</h3>
+          <dl className="proof-list">
+            <div>
+              <dt>Agent wallet</dt>
+              <dd><a href={bscAddressUrl(stats.wallet)} target="_blank" rel="noreferrer">{shortHash(stats.wallet)}</a></dd>
+            </div>
+            <div>
+              <dt>Registration tx</dt>
+              <dd><a href={bscTxUrl(REGISTRATION_TX)} target="_blank" rel="noreferrer">{shortHash(REGISTRATION_TX)}</a></dd>
+            </div>
+            <div>
+              <dt>Latest trade tx</dt>
+              <dd>
+                {latestTx ? (
+                  <a href={bscTxUrl(latestTx)} target="_blank" rel="noreferrer">{shortHash(latestTx)}</a>
+                ) : (
+                  "no executed tx in receipt chain yet"
+                )}
+              </dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+  );
+}
+
 function AgentLoop({ stats }: { stats: FeedStats }) {
   const steps = [
     {
@@ -631,11 +761,15 @@ function DecisionLog({ cycles }: { cycles: Cycle[] }) {
 }
 
 function ProofFooter({ stats }: { stats: FeedStats }) {
+  const body = stats.executedTrades > 0
+    ? "Scoop is public, registered, and has BSC transaction proof in the receipt chain."
+    : "Scoop is public and registered. The first armed execution remains the live-readiness gate.";
+
   return (
     <footer className="footer">
       <div>
         <span className="eyebrow">Submission proof</span>
-        <p>Scoop is public, registered, and currently running observe-mode cycles while waiting for armed rehearsal.</p>
+        <p>{body}</p>
       </div>
       <div className="footer__links">
         <a href={REPO_URL} target="_blank" rel="noreferrer">GitHub repo</a>

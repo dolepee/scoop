@@ -12,8 +12,8 @@
 //      capped per token and per day.
 //   4. The eligible-token allowlist as a hard gate.
 //   5. A compliance valve: if no thesis cleared by the configured UTC hour,
-//      authorize a minimal eligible-token buy/sell so the trade-per-day rule
-//      can never disqualify us on a quiet day.
+//      authorize a minimal eligible-token buy/sell with enough UTC retry room
+//      to protect the trade-per-day rule on quiet days.
 //
 // Pure functions only. No I/O, no clock reads (time is an input), no
 // randomness. Every decision returns machine-checkable reasons.
@@ -33,7 +33,8 @@ export const DEFAULT_CONFIG = {
   // Minimum model conviction (basis points) to consider a trade at all.
   minConvictionBps: 5500,
   // From this UTC hour, with zero trades today, the compliance valve opens.
-  complianceHourUtc: 19,
+  // Midday UTC leaves retry room before the contest day closes.
+  complianceHourUtc: 12,
   // Size of the compliance trade in USD (tiny, fee-bounded, in-scope).
   complianceUsd: 1.5,
 };
@@ -170,7 +171,7 @@ function maybeCompliance(baseDecision, reasons, state, context, config) {
       complianceUsd: config.complianceUsd,
       complianceTrade: true,
       complianceReason: complianceAction.reason,
-      reasons: [...reasons, "compliance_buy:zero_trades_late_day"],
+      reasons: [...reasons, "compliance_buy:zero_trades_after_cutoff"],
     };
   }
   return { decision: baseDecision, symbol: null, sizedPct: 0, reasons };

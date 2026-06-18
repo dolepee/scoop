@@ -18,6 +18,12 @@ function bool(value) {
   return typeof value === "boolean" ? value : Boolean(value);
 }
 
+function round(value, decimals = 2) {
+  if (!Number.isFinite(value)) return null;
+  const factor = 10 ** decimals;
+  return Math.round(value * factor) / factor;
+}
+
 function readReceipts() {
   let files = [];
   try {
@@ -52,6 +58,18 @@ function tradeSummary(receipt) {
     spentUsd: num(execution.spentUsd ?? execution.usd),
     units: num(execution.units ?? execution.closedUnits),
     error: str(execution.error),
+  };
+}
+
+function paidCallSummary(call) {
+  if (!call || typeof call !== "object") return null;
+  return {
+    url: str(call.url),
+    costUsd: num(call.costUsd),
+    dataSource: str(call.dataSource),
+    fallbackFrom: str(call.fallbackFrom),
+    responseHash: str(call.responseHash),
+    skipped: str(call.skipped),
   };
 }
 
@@ -90,6 +108,7 @@ function cycle(row) {
     governorReason: reasons.join(", ") || null,
     paid: bool(modes.paid) || paidCalls.length > 0,
     paidCallCount: paidCalls.length,
+    paidCalls: paidCalls.map(paidCallSummary).filter(Boolean),
     dataSpendUsd: num(r.perception?.dataSpendUsd),
     trade: bool(modes.trade),
     tradeResult: tradeSummary(r),
@@ -101,6 +120,7 @@ const cyclesChronological = rows.map(cycle);
 const cycles = [...cyclesChronological].reverse();
 const first = cyclesChronological[0] ?? null;
 const latest = cyclesChronological[cyclesChronological.length - 1] ?? null;
+const totalDataSpendUsd = cyclesChronological.reduce((sum, item) => sum + (item.dataSpendUsd ?? 0), 0);
 
 const feed = {
   generatedAt: latest?.at ?? null,
@@ -114,6 +134,15 @@ const feed = {
     chainOk: chainOk(rows),
     wallet: rows[rows.length - 1]?.receipt?.wallet ?? null,
     chain: rows[rows.length - 1]?.receipt?.chain ?? null,
+    paidCycles: cyclesChronological.filter((item) => item.paid).length,
+    x402PaidCycles: cyclesChronological.filter((item) =>
+      item.paidCalls.some((call) => call.dataSource === "x402-paid"),
+    ).length,
+    totalDataSpendUsd: round(totalDataSpendUsd, 4),
+    tradeTheses: cyclesChronological.filter((item) => item.action === "TRADE").length,
+    armedCycles: cyclesChronological.filter((item) => item.trade).length,
+    executedTrades: cyclesChronological.filter((item) => item.tradeResult?.executed).length,
+    degradedCycles: cyclesChronological.filter((item) => item.degraded).length,
   },
   cycles,
 };
