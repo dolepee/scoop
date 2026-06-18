@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T17:18:38.583Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "138b70b751273b74768cbb22e5d0a3f507238defdb30814d42b10838205827af"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,LAB,H,SKYAI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "6b70f6781cdc431fcbc86e84e6ff4141893c54e7b910bd86784bacb0b295eacc"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 54.85940589,
+        "change24h": 42.25735358,
+        "change7d": -87.45361994,
+        "volume24h": 24539986.79951192,
+        "marketCap": 53597712.46226275,
+        "priceUsd": 0.07398236490465374,
+        "heat": 193.72
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 2.91596411,
+        "change24h": 25.23817166,
+        "change7d": 81.16845801,
+        "volume24h": 46624788.59805714,
+        "marketCap": 5109473946.284627,
+        "priceUsd": 16.371524379375167,
+        "heat": 46.16
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -1.05464891,
+        "change24h": 16.22799501,
+        "change7d": 39.55964685,
+        "volume24h": 69940548.07466704,
+        "marketCap": 656044498.6093981,
+        "priceUsd": 0.23164244592673036,
+        "heat": 19
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.5999052,
+        "change24h": 1.55973053,
+        "change7d": 41.2680296,
+        "volume24h": 40256346.94194774,
+        "marketCap": 348794214.070479,
+        "priceUsd": 0.348794214070479,
+        "heat": 12.55
+      },
+      {
+        "symbol": "币安人生",
+        "name": "币安人生",
+        "change1h": 0.45134088,
+        "change24h": 4.19566838,
+        "change7d": 5.04221252,
+        "volume24h": 22879411.40210346,
+        "marketCap": 703872659.1506803,
+        "priceUsd": 0.7038726591506803,
+        "heat": 6.31
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": -4.09022665,
+        "change24h": 0.85279182,
+        "change7d": 98.90569328,
+        "volume24h": 42992536.83199912,
+        "marketCap": 121134611.21144041,
+        "priceUsd": 0.5440584379584119,
+        "heat": 3.42
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.371524379375167,
+        "change1h": 2.91596411,
+        "change24h": 25.23817166,
+        "change7d": 81.16845801,
+        "volume24h": 46624788.59805714,
+        "volumeChange24h": 13.2721
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.07398236490465374,
+        "change1h": 54.85940589,
+        "change24h": 42.25735358,
+        "change7d": -87.45361994,
+        "volume24h": 24539986.79951192,
+        "volumeChange24h": -8.0072
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.348794214070479,
+        "change1h": 1.5999052,
+        "change24h": 1.55973053,
+        "change7d": 41.2680296,
+        "volume24h": 40256346.94194774,
+        "volumeChange24h": -20.1055
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.23164244592673036,
+        "change1h": -1.05464891,
+        "change24h": 16.22799501,
+        "change7d": 39.55964685,
+        "volume24h": 69940548.07466704,
+        "volumeChange24h": -0.2503
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "SIREN shows extreme 1h +54.86% and 24h +42.26% momentum with high volume, but its 7d -87.45% indicates a likely dead cat bounce from severe prior decline, lacking sustainable strength.",
+    "invalidation": "If SIREN breaks above $0.08 with sustained volume above $30M 24h, the bounce may extend.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "e85b69f80c63f99d341e0800cab79c6a86e917ef6b4bd8c67d74d981984b8cb2",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"SIREN shows extreme 1h +54.86% and 24h +42.26% momentum with high volume, but its 7d -87.45% indicates a likely dead cat bounce from severe prior decline, lacking sustainabl"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 16.74,
+      "peakEquityUsd": 16.74,
+      "floorUsd": 13.726799999999999,
+      "dayKey": "2026-06-18",
+      "tradesToday": 1,
+      "newRiskTodayPct": 6.63,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15.01,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.74,
+    "positionUsd": 0.96,
+    "inScopeUsd": 15.01,
+    "inScopeWarning": false,
+    "floorUsd": 13.726799999999999,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "cdeea857e273c1089b7bb2bd98b5919faf83efb22475ddf7edc97b49adf06d84",
+  "checksum": "487841339fdeca1820da90ab76b9e08492261cba49eac840cd9c7093ae263d8f"
+}
