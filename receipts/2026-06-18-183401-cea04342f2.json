@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-18T18:34:01.746Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "711aed8e7e0f4698e08135e57d114744d9d6c7813b2032bebfcb03e809ee1eb8"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,BSB,BEAT,H&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "09ea0033ad136f42850e5c98c0cee5168c674041906bbf018e7fd10b31d8929f"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 4.64279794,
+        "change24h": 30.31206376,
+        "change7d": 104.73230034,
+        "volume24h": 49791363.73394995,
+        "marketCap": 5305928665.855816,
+        "priceUsd": 17.00099490113832,
+        "heat": 59.95
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 3.72733984,
+        "change24h": -4.04376092,
+        "change7d": 91.49414261,
+        "volume24h": 50436979.49424563,
+        "marketCap": 116403395.16214888,
+        "priceUsd": 0.522808871152701,
+        "heat": 20.86
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 8.0890069,
+        "change24h": 4.54009709,
+        "change7d": -80.77584831,
+        "volume24h": 73778621.61782989,
+        "marketCap": 512080131.55908006,
+        "priceUsd": 1.7779531256676655,
+        "heat": 16.69
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": -1.95552721,
+        "change24h": 17.71034289,
+        "change7d": 17.38906504,
+        "volume24h": 68878864.62119,
+        "marketCap": 642899865.3000387,
+        "priceUsd": 0.2270012134843517,
+        "heat": 14.45
+      },
+      {
+        "symbol": "币安人生",
+        "name": "币安人生",
+        "change1h": 0.88577899,
+        "change24h": 6.10460062,
+        "change7d": 4.58967618,
+        "volume24h": 23456285.34198994,
+        "marketCap": 715661241.6373723,
+        "priceUsd": 0.7156612416373722,
+        "heat": 9.45
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 0.94263251,
+        "change24h": 0.28998026,
+        "change7d": 36.46345923,
+        "volume24h": 39017450.14324497,
+        "marketCap": 348161021.1782307,
+        "priceUsd": 0.3481610211782307,
+        "heat": 8.59
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 17.00099490113832,
+        "change1h": 4.64279794,
+        "change24h": 30.31206376,
+        "change7d": 104.73230034,
+        "volume24h": 49791363.73394995,
+        "volumeChange24h": 25.5521
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.7779531256676655,
+        "change1h": 8.0890069,
+        "change24h": 4.54009709,
+        "change7d": -80.77584831,
+        "volume24h": 73778621.61782989,
+        "volumeChange24h": -5.134
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.522808871152701,
+        "change1h": 3.72733984,
+        "change24h": -4.04376092,
+        "change7d": 91.49414261,
+        "volume24h": 50436979.49424563,
+        "volumeChange24h": -43.1799
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.2270012134843517,
+        "change1h": -1.95552721,
+        "change24h": 17.71034289,
+        "change7d": 17.38906504,
+        "volume24h": 68878864.62119,
+        "volumeChange24h": 1.197
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 5500,
+    "rationale": "LAB is up 4.64% in 1h and 30.31% in 24h with strong volume, but the position is already open and the 7-day gain of 104.73% suggests potential overextension, while no other mover shows a clear, high-conviction entry setup with volume support.",
+    "invalidation": "If LAB's 1h momentum reverses below 2% gain or volume drops sharply.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "0000123ee2853b7e2c53f9e998d35a332414973c42e3556a0ae57971491ba315",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":5500,\"rationale\":\"LAB is up 4.64% in 1h and 30.31% in 24h with strong volume, but the position is already open and the 7-day gain of 104.73% suggests potential overextension, while no other mover shows a clear, h"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.01,
+      "floorUsd": 12.308200000000001,
+      "dayKey": "2026-06-18",
+      "tradesToday": 1,
+      "newRiskTodayPct": 6.63,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 15,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.72,
+    "positionUsd": 0.97,
+    "inScopeUsd": 15,
+    "inScopeWarning": false,
+    "floorUsd": 12.308200000000001,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "487841339fdeca1820da90ab76b9e08492261cba49eac840cd9c7093ae263d8f",
+  "checksum": "cea04342f2008e208bd88ad205d9c716eeb2b021f89cbbf6059a8859f612abc4"
+}
