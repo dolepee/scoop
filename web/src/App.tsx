@@ -188,9 +188,9 @@ function timeAgo(value: string | null | undefined) {
   if (Number.isNaN(date.getTime())) return { label: "unknown", stale: true };
   const minutes = Math.max(0, Math.round((Date.now() - date.getTime()) / 60_000));
   if (minutes < 2) return { label: "just now", stale: false };
-  if (minutes < 60) return { label: `${minutes}m ago`, stale: false };
+  if (minutes < 60) return { label: `${minutes} min ago`, stale: false };
   const hours = Math.round(minutes / 60);
-  return { label: `${hours}h ago`, stale: hours >= 4 };
+  return { label: `${hours} hr ago`, stale: hours >= 4 };
 }
 
 function shortHash(value: string | null | undefined) {
@@ -273,6 +273,29 @@ function decisionLabel(cycle: Cycle) {
   if (cycle.tradeResult?.executed) return cycle.tradeResult.kind ?? "EXECUTED";
   if (cycle.trade) return "ARMED_WAIT";
   return "NO_TRADE";
+}
+
+function terminalDecisionLabel(cycle: Cycle) {
+  const label = decisionLabel(cycle);
+  if (label === "compliance_sell") return "Compliance sell";
+  if (label === "compliance_buy") return "Compliance buy";
+  if (label === "NO_TRADE") return "No trade";
+  if (label === "ARMED_WAIT") return "Armed wait";
+  if (cycle.tradeResult?.executed) return "Trade executed";
+  return toDisplayPhrase(label);
+}
+
+function terminalReason(value: string | null | undefined) {
+  if (!value) return "Governor state recorded in receipt.";
+  return value
+    .split(",")
+    .map((part) => toDisplayPhrase(part.trim()).replace(/\s*:\s*/g, ": "))
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function toDisplayPhrase(value: string) {
+  return value.replace(/_/g, " ").replace(/\s+/g, " ");
 }
 
 function signalLabel(cycle: Cycle) {
@@ -476,8 +499,8 @@ function Hero({ feed, stats }: { feed: Feed; stats: FeedStats }) {
         </div>
         <div className="terminal-screen">
           <span className="terminal-screen__label">governor receipt</span>
-          <strong>{decisionLabel(latest)}</strong>
-          <p>{latest.governorReason ?? "governor state recorded in receipt"}</p>
+          <strong className="terminal-screen__decision">{terminalDecisionLabel(latest)}</strong>
+          <p className="terminal-screen__reason">{terminalReason(latest.governorReason)}</p>
           <div className="command-line">
             <span>paid_calls</span>
             <strong>{latest.paidCallCount}</strong>

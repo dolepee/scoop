@@ -216,6 +216,7 @@ td em {
   grid-template-columns: minmax(0, 1fr) minmax(390px, 0.74fr);
   gap: 16px;
   align-items: start;
+  min-width: 0;
   padding: 18px 0 0;
 }
 
@@ -373,6 +374,7 @@ td em {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  min-width: 0;
   padding: 20px;
   border-color: var(--line-strong);
   border-radius: var(--radius-xl);
@@ -413,6 +415,7 @@ td em {
   position: relative;
   display: grid;
   gap: 13px;
+  min-width: 0;
   margin: 0;
   padding: 24px;
   overflow: hidden;
@@ -433,30 +436,45 @@ td em {
   text-transform: uppercase;
 }
 
-.terminal-screen strong {
-  font-size: clamp(2.45rem, 5vw, 4.25rem);
+.terminal-screen__decision {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(2.2rem, 4.2vw, 3.75rem);
   line-height: 0.9;
   letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.terminal-screen__reason {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .command-line {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(110px, 0.7fr) minmax(0, 1fr);
   gap: 12px;
-  justify-content: space-between;
+  align-items: start;
+  min-width: 0;
   padding-top: 12px;
   border-top: 1px solid rgba(194, 214, 255, 0.12);
   font-family: "IBM Plex Mono", "JetBrains Mono", "Courier New", monospace;
 }
 
 .command-line span {
+  min-width: 0;
   color: var(--faint);
+  overflow-wrap: anywhere;
 }
 
 .command-line strong {
+  min-width: 0;
   overflow-wrap: anywhere;
   color: var(--ink);
   font-size: 0.92rem;
   letter-spacing: 0;
+  text-align: right;
 }
 
 .terminal-card__footer {
@@ -1110,6 +1128,14 @@ td em {
   }
 
   .rail-map strong {
+    text-align: left;
+  }
+
+  .command-line {
+    grid-template-columns: 1fr;
+  }
+
+  .command-line strong {
     text-align: left;
   }
 
