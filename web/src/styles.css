@@ -19,7 +19,6 @@
   --radius-xl: 34px;
   --radius-lg: 24px;
   --radius-md: 16px;
-  --anchor-offset: 124px;
   font-family: "Space Grotesk", "IBM Plex Sans", "Trebuchet MS", sans-serif;
   background: var(--bg);
   color: var(--ink);
@@ -31,21 +30,11 @@
 
 html {
   min-width: 320px;
-  scroll-padding-top: var(--anchor-offset);
   background:
     radial-gradient(circle at 18% -8%, rgba(65, 119, 255, 0.34), transparent 34rem),
     radial-gradient(circle at 90% 12%, rgba(243, 186, 47, 0.2), transparent 30rem),
     radial-gradient(circle at 68% 86%, rgba(55, 213, 255, 0.16), transparent 36rem),
     linear-gradient(140deg, #030712 0%, #07111f 50%, #02040a 100%);
-}
-
-#top,
-#cmc-agent-hub,
-#control-room,
-#proof,
-#loop,
-#receipts {
-  scroll-margin-top: var(--anchor-offset);
 }
 
 body {
@@ -1043,10 +1032,6 @@ td em {
 }
 
 @media (max-width: 1060px) {
-  :root {
-    --anchor-offset: 220px;
-  }
-
   .topbar,
   .hero,
   .control-layout,
@@ -1079,10 +1064,6 @@ td em {
 }
 
 @media (max-width: 680px) {
-  :root {
-    --anchor-offset: 24px;
-  }
-
   .app-shell {
     width: min(calc(100% - 20px), 1380px);
     padding-top: 10px;

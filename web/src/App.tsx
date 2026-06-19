@@ -399,21 +399,34 @@ function App() {
       const target = document.getElementById(targetId);
       if (!target) return;
 
-      const anchorOffset = Number.parseFloat(
-        window.getComputedStyle(document.documentElement).getPropertyValue("--anchor-offset"),
-      ) || 0;
+      const nav = document.querySelector<HTMLElement>(".topbar");
+      const navStyle = nav ? window.getComputedStyle(nav) : null;
+      const navBottom = nav && navStyle?.position === "sticky" ? nav.getBoundingClientRect().bottom : 0;
+      const anchorOffset = navBottom + 22;
       const targetTop = target.getBoundingClientRect().top + window.scrollY - anchorOffset;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: "auto" });
+    };
+
+    const handleAnchorClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link || !link.hash) return;
+      if (link.pathname !== window.location.pathname || link.origin !== window.location.origin) return;
+
+      event.preventDefault();
+      window.history.pushState(null, "", link.hash);
+      scrollToHash();
     };
 
     const frame = window.requestAnimationFrame(scrollToHash);
     const timeout = window.setTimeout(scrollToHash, 250);
     window.addEventListener("hashchange", scrollToHash);
+    document.addEventListener("click", handleAnchorClick);
 
     return () => {
       window.cancelAnimationFrame(frame);
       window.clearTimeout(timeout);
       window.removeEventListener("hashchange", scrollToHash);
+      document.removeEventListener("click", handleAnchorClick);
     };
   }, [state.status]);
 
