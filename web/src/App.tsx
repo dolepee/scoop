@@ -390,6 +390,33 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (state.status !== "ready") return;
+
+    const scrollToHash = () => {
+      const targetId = window.location.hash.slice(1);
+      if (!targetId) return;
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      const anchorOffset = Number.parseFloat(
+        window.getComputedStyle(document.documentElement).getPropertyValue("--anchor-offset"),
+      ) || 0;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - anchorOffset;
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: "auto" });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToHash);
+    const timeout = window.setTimeout(scrollToHash, 250);
+    window.addEventListener("hashchange", scrollToHash);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [state.status]);
+
   if (state.status === "loading") return <Shell title="Loading Scoop" body="Opening the live receipt feed." />;
   if (state.status === "error") return <Shell title="Feed unavailable" body={state.message} tone="bad" />;
   if (state.feed.cycles.length === 0) return <Shell title="No cycles yet" body="The dashboard is ready, but no receipts have been committed." />;
