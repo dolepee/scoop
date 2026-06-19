@@ -1,0 +1,199 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T13:18:59.797Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "039b1271996aff9f493bc373040fc785845cbf66e19d24d0c6ad25d33f3620de"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,BEAT,DEXE,ZAMA,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "976091e08fc7206b6a5f1a44732ee842541f464b79fd8ef7737ad67b581fc09b"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 6.53807564,
+        "change24h": -0.0571099,
+        "change7d": 15.78952536,
+        "volume24h": 29051292.99088851,
+        "marketCap": 362399008.6773242,
+        "priceUsd": 0.36239900867732416,
+        "heat": 21.93
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 3.25368248,
+        "change24h": 22.53120145,
+        "change7d": -76.4139146,
+        "volume24h": 94837594.49967852,
+        "marketCap": 578912501.349508,
+        "priceUsd": 2.009996537316726,
+        "heat": 20.83
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.1635193,
+        "change24h": 15.5694918,
+        "change7d": -23.34488355,
+        "volume24h": 29771827.1942312,
+        "marketCap": 1384344332.235695,
+        "priceUsd": 16.53270590692154,
+        "heat": 12.56
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 1.17423557,
+        "change24h": 5.05440663,
+        "change7d": 8.96938541,
+        "volume24h": 25937988.20828609,
+        "marketCap": 77922860.70754571,
+        "priceUsd": 0.035419482139793505,
+        "heat": 9.92
+      },
+      {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "change1h": 1.15367128,
+        "change24h": 2.60314107,
+        "change7d": 2.00934598,
+        "volume24h": 40189654.86745153,
+        "marketCap": 1160200314.1395853,
+        "priceUsd": 7.381979295649118,
+        "heat": 6.37
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.00832598,
+        "change24h": 4.14087405,
+        "change7d": -10.49571674,
+        "volume24h": 27408728.90076572,
+        "marketCap": 140030826.6970038,
+        "priceUsd": 0.41753251434232364,
+        "heat": 5.59
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.322666802863056,
+        "change1h": -2.44187441,
+        "change24h": -2.14327974,
+        "change7d": 55.08504432,
+        "volume24h": 61470928.27723547,
+        "volumeChange24h": 36.4332
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.009996537316726,
+        "change1h": 3.25368248,
+        "change24h": 22.53120145,
+        "change7d": -76.4139146,
+        "volume24h": 94837594.49967852,
+        "volumeChange24h": 38.0345
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.53270590692154,
+        "change1h": 0.1635193,
+        "change24h": 15.5694918,
+        "change7d": -23.34488355,
+        "volume24h": 29771827.1942312,
+        "volumeChange24h": -31.1331
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.36239900867732416,
+        "change1h": 6.53807564,
+        "change24h": -0.0571099,
+        "change7d": 15.78952536,
+        "volume24h": 29051292.99088851,
+        "volumeChange24h": -19.897
+      },
+      {
+        "symbol": "ZAMA",
+        "priceUsd": 0.035419482139793505,
+        "change1h": 1.17423557,
+        "change24h": 5.05440663,
+        "change7d": 8.96938541,
+        "volume24h": 25941950.59021059,
+        "volumeChange24h": -15.349
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction momentum setup with volume support above the 5500 execution floor.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "3bccd05f0449b7f2a5e617e38e4e151f36355323fdab8522224ef8a3f2d9fb29",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction momentum setup with volume support above the 5500 execution floor.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "COMPLIANCE_SELL",
+      "symbol": "LAB",
+      "sizedPct": 6.41,
+      "reasons": [
+        "no_qualifying_thesis",
+        "compliance_sell:mature_position"
+      ],
+      "complianceTrade": true,
+      "complianceReason": "daily minimum, no conviction signal today"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "compliance_sell",
+    "complianceTrade": true,
+    "reason": "daily minimum, no conviction signal today",
+    "txHash": "0x4436f1bb412160ace53fb2f61498bb3bb9f8d5b5e066172562ba7bd5a328114e",
+    "closedUnits": 0.060259033553382524
+  },
+  "counters": {
+    "equityUsd": 14.82,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.56,
+    "positionUsd": 0.95,
+    "inScopeUsd": 14.82,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "f3f68008a443529da3271a4e02def26f179383b217c0ea160becf4840899503a",
+  "checksum": "d595aff9b5b6d3cf7a110339d47959b1c78f89d14e2950eef644720671337421"
+}
