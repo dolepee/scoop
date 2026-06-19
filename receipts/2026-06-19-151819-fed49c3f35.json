@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T15:18:19.881Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f14ab4ecf54b0e5ccf5f2fe87cda8e5c4814457490741cd47687d5c5e7c1ceae"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,SKYAI,ZAMA,DEXE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7664428baf0ff11346e2ca56a7aea8f8291549d40c9aa2eca2f6aefd8e26ac34"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 51.95829282,
+        "change24h": -5.66827466,
+        "change7d": -85.57567541,
+        "volume24h": 20003003.1283821,
+        "marketCap": 50791634.063919306,
+        "priceUsd": 0.07011210176786066,
+        "heat": 137.37
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 3.47542102,
+        "change24h": 2.64563804,
+        "change7d": 14.4924808,
+        "volume24h": 29094646.12310542,
+        "marketCap": 358436581.0076784,
+        "priceUsd": 0.3584365810076784,
+        "heat": 15.25
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 1.00249989,
+        "change24h": 5.15945068,
+        "change7d": 10.70907605,
+        "volume24h": 26783839.80022023,
+        "marketCap": 78449256.71121667,
+        "priceUsd": 0.03565875305055303,
+        "heat": 9.77
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.45816548,
+        "change24h": 12.49048651,
+        "change7d": -22.88159941,
+        "volume24h": 29724815.03411732,
+        "marketCap": 1377852365.3958974,
+        "priceUsd": 16.45517477827053,
+        "heat": 7.68
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.62311948,
+        "change24h": -5.31328456,
+        "change7d": 53.2439788,
+        "volume24h": 63153072.18910411,
+        "marketCap": 4660713197.702975,
+        "priceUsd": 14.933627325167956,
+        "heat": 7.54
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 2.98925479,
+        "change24h": 2.43589455,
+        "change7d": -36.21969792,
+        "volume24h": 72857265.45941237,
+        "marketCap": 197827644.54969573,
+        "priceUsd": 0.11304436831411185,
+        "heat": 5.97
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.45517477827053,
+        "change1h": -0.45816548,
+        "change24h": 12.49048651,
+        "change7d": -22.88159941,
+        "volume24h": 29724815.03411732,
+        "volumeChange24h": -29.1216
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.07011210176786066,
+        "change1h": 51.95829282,
+        "change24h": -5.66827466,
+        "change7d": -85.57567541,
+        "volume24h": 20003003.1283821,
+        "volumeChange24h": -16.9567
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.3584365810076784,
+        "change1h": 3.47542102,
+        "change24h": 2.64563804,
+        "change7d": 14.4924808,
+        "volume24h": 29094646.12310542,
+        "volumeChange24h": -26.3085
+      },
+      {
+        "symbol": "ZAMA",
+        "priceUsd": 0.03565875305055303,
+        "change1h": 1.00249989,
+        "change24h": 5.15945068,
+        "change7d": 10.70907605,
+        "volume24h": 26783839.80022023,
+        "volumeChange24h": -6.6429
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7b942c24b99ab4bb8d9f0091dc05cafc0ef2bce6e17d3b4440f2d32ca2531ff2",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"\",\"invalidation\":\"\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.73,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.5,
+    "positionUsd": 0,
+    "inScopeUsd": 14.73,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "58a546aa44097445772743372566111edee208786dbab0253ea29940bc97fa10",
+  "checksum": "fed49c3f35274e8041cc0e6a4040c68a27034db0f4f1e66312c2e4cb2a4deeb0"
+}
