@@ -1,0 +1,201 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T05:20:44.130Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "8f07768907fc4bde736fca90cbb2d718e669ba22f16a02eb49bfe685d94317ac"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,SIREN,BEAT,NIGHT,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "2bdc027b635fd235ae17c1cc1d74db9216ffa79ef1e8fea8f79338087ea0c282"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 1.90692546,
+        "change24h": 21.84187779,
+        "change7d": -23.50600776,
+        "volume24h": 33748422.8001212,
+        "marketCap": 1383126969.17969,
+        "priceUsd": 16.51816739586022,
+        "heat": 24.04
+      },
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": -2.36409182,
+        "change24h": 34.42286363,
+        "change7d": -85.08121229,
+        "volume24h": 21334498.90942471,
+        "marketCap": 51666198.9367314,
+        "priceUsd": 0.07131624480550311,
+        "heat": 14.57
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 3.92745205,
+        "change24h": 10.02766193,
+        "change7d": -74.48127352,
+        "volume24h": 66914018.12602445,
+        "marketCap": 562239403.5833158,
+        "priceUsd": 1.9521071866838282,
+        "heat": 10.64
+      },
+      {
+        "symbol": "NIGHT",
+        "name": "Midnight",
+        "change1h": -0.58247341,
+        "change24h": 3.95385081,
+        "change7d": -6.87137386,
+        "volume24h": 101285631.96857795,
+        "marketCap": 515141441.2059901,
+        "priceUsd": 0.031018790405857963,
+        "heat": 1.18
+      },
+      {
+        "symbol": "MYX",
+        "name": "MYX Finance",
+        "change1h": 0.98659782,
+        "change24h": 4.10180383,
+        "change7d": -39.70866893,
+        "volume24h": 30875751.75065096,
+        "marketCap": 47857371.239961915,
+        "priceUsd": 0.1449669463627523,
+        "heat": 1.11
+      },
+      {
+        "symbol": "FLOKI",
+        "name": "FLOKI",
+        "change1h": -1.48235158,
+        "change24h": 3.44464406,
+        "change7d": 6.94197871,
+        "volume24h": 46083842.02005958,
+        "marketCap": 252549561.28434935,
+        "priceUsd": 0.00002645332303386197,
+        "heat": 0.04
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.249799267072552,
+        "change1h": -8.46598928,
+        "change24h": 7.30750463,
+        "change7d": 49.53406573,
+        "volume24h": 61431240.18076284,
+        "volumeChange24h": 49.6993
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.9521071866838282,
+        "change1h": 3.92745205,
+        "change24h": 10.02766193,
+        "change7d": -74.48127352,
+        "volume24h": 66914018.12602445,
+        "volumeChange24h": -7.3032
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.51816739586022,
+        "change1h": 1.90692546,
+        "change24h": 21.84187779,
+        "change7d": -23.50600776,
+        "volume24h": 33748422.8001212,
+        "volumeChange24h": -28.8704
+      },
+      {
+        "symbol": "NIGHT",
+        "priceUsd": 0.031018790405857963,
+        "change1h": -0.58247341,
+        "change24h": 3.95385081,
+        "change7d": -6.87137386,
+        "volume24h": 101285631.96857795,
+        "volumeChange24h": 2.3032
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.07100076510546902,
+        "change1h": -2.82515686,
+        "change24h": 34.21279096,
+        "change7d": -85.12611645,
+        "volume24h": 21246745.14555429,
+        "volumeChange24h": -22.8591
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "DEXE shows strong momentum with a 21.84% 24-hour gain on high volume of $33.7M, indicating a clear breakout with sustained buying pressure.",
+    "invalidation": "If price falls below $15.80, breaking the immediate hourly support and momentum.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "92189ddc6a3b096eb6f84436fc1feec28a55cccdbba7455448d32468ee125ee5",
+    "rawPreview": "{\n    \"action\": \"TRADE\",\n    \"symbol\": \"DEXE\",\n    \"direction\": \"enter\",\n    \"convictionBps\": -1,\n    \"rationale\": \"DEXE shows strong momentum with a 21.84% 24-hour gain on high volume of $33.7M, indicating a clear breakout with sustained buying pressure.\",\n    \"invalidation\": \"I"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.92,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.64,
+    "positionUsd": 0.97,
+    "inScopeUsd": 14.92,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "1374b36116b6a27fe13fc01e5d6bf37a67b24c9086286bca61ad0fef96a6aa66",
+  "checksum": "8a8a5a171098de5190f619f8d3e4c4384a11c89196bc421d7f93f49a4fbca52d"
+}
