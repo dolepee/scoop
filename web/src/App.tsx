@@ -401,8 +401,8 @@ function App() {
 
       const nav = document.querySelector<HTMLElement>(".topbar");
       const navStyle = nav ? window.getComputedStyle(nav) : null;
-      const navBottom = nav && navStyle?.position === "sticky" ? nav.getBoundingClientRect().bottom : 0;
-      const anchorOffset = navBottom + 22;
+      const stickyTop = navStyle?.position === "sticky" ? Number.parseFloat(navStyle.top) || 0 : 0;
+      const anchorOffset = navStyle?.position === "sticky" ? stickyTop + nav!.offsetHeight + 22 : 22;
       const targetTop = target.getBoundingClientRect().top + window.scrollY - anchorOffset;
       window.scrollTo({ top: Math.max(0, targetTop), behavior: "auto" });
     };

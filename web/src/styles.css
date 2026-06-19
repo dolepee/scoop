@@ -101,7 +101,7 @@ code,
 
 .topbar {
   position: sticky;
-  top: 14px;
+  top: 0;
   z-index: 10;
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -110,7 +110,7 @@ code,
   padding: 12px 14px;
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: rgba(3, 7, 18, 0.86);
+  background: rgba(3, 7, 18, 0.97);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
 }
