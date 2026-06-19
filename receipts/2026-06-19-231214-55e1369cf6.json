@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T23:12:14.324Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "eee3be35fae06df8c41d12ef0501e7289330ad6b1b3985164c6547f24a69d60e"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,ZEC,SLX,ETC&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "605e4f307930c8e18c7bd12b6373855a9ba7a7987ea7bee98884666a8a4208a1"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 3.18337728,
+        "change24h": 5.06441369,
+        "change7d": 14.52528819,
+        "volume24h": 26509687.6693358,
+        "marketCap": 355186580.7126611,
+        "priceUsd": 0.3551865807126611,
+        "heat": 16.79
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": 3.18960026,
+        "change24h": 2.15223602,
+        "change7d": 13.86574441,
+        "volume24h": 439589712.64779085,
+        "marketCap": 7790682844.1166525,
+        "priceUsd": 466.28806178841256,
+        "heat": 13.8
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.70277033,
+        "change24h": 11.53762889,
+        "change7d": -9.35419785,
+        "volume24h": 17796686.4386798,
+        "marketCap": 40082504.257214464,
+        "priceUsd": 0.1650475901224681,
+        "heat": 12.24
+      },
+      {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "change1h": 0.70797509,
+        "change24h": 6.33992788,
+        "change7d": 7.2577194,
+        "volume24h": 57207771.56454302,
+        "marketCap": 1200201511.7526007,
+        "priceUsd": 7.636235290809597,
+        "heat": 9.55
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 1.80582375,
+        "change24h": 3.04765482,
+        "change7d": 4.29875717,
+        "volume24h": 40791443.16577899,
+        "marketCap": 106265943.06828938,
+        "priceUsd": 0.2985719418486801,
+        "heat": 9.11
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 2.64320984,
+        "change24h": -9.02584356,
+        "change7d": 64.48231645,
+        "volume24h": 113435030.03623997,
+        "marketCap": 89285360.6699004,
+        "priceUsd": 0.4010121745784882,
+        "heat": 8.58
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ETC",
+        "priceUsd": 7.636235290809597,
+        "change1h": 0.70797509,
+        "change24h": 6.33992788,
+        "change7d": 7.2577194,
+        "volume24h": 57207771.56454302,
+        "volumeChange24h": 47.5371
+      },
+      {
+        "symbol": "ZEC",
+        "priceUsd": 466.28806178841256,
+        "change1h": 3.18960026,
+        "change24h": 2.15223602,
+        "change7d": 13.86574441,
+        "volume24h": 439589712.64779085,
+        "volumeChange24h": -21.2843
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.1650475901224681,
+        "change1h": 0.70277033,
+        "change24h": 11.53762889,
+        "change7d": -9.35419785,
+        "volume24h": 17796686.4386798,
+        "volumeChange24h": 1.3651
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.3551865807126611,
+        "change1h": 3.18337728,
+        "change24h": 5.06441369,
+        "change7d": 14.52528819,
+        "volume24h": 26509687.6693358,
+        "volumeChange24h": -27.8794
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, high-conviction momentum setup with strong volume support; top movers like SKYAI and ZEC have declining volume, while SLX's 7d loss and ETC's moderate heat lack exceptional confluence.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "ecd73c56c0d6f37938f457e3ce291cfbdfced5b51b3e9ea1f582bcd802bb4535",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol shows a clear, high-conviction momentum setup with strong volume support; top movers like SKYAI and ZEC have declining volume, while SLX's 7d loss and ETC's modera"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.61,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.38,
+    "positionUsd": 0,
+    "inScopeUsd": 14.61,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "f3d531e8a1ee205d56b5542ec5bd128aac8a8d9df058685652781f825b20097e",
+  "checksum": "55e1369cf6c1f55088c80c588bf94bfb690fab05c5c4d609a1610ba26b6a4062"
+}
