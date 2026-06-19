@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T21:19:07.567Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "83fecf785b27e78a57bb233867c39ed444c7188b6d264b05fb35a772874b0bb9"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=MYX,ETC,SLX,UNI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "1ca82c579346f83f23c4b360f74c611ecc6ce9fd8b26bba6e0fbbf2249ce0d14"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "MYX",
+        "name": "MYX Finance",
+        "change1h": 0.5444417,
+        "change24h": 19.25211631,
+        "change7d": -17.71265187,
+        "volume24h": 18334338.42673524,
+        "marketCap": 52833637.76595349,
+        "priceUsd": 0.16004078230211122,
+        "heat": 18.23
+      },
+      {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "change1h": 1.78308407,
+        "change24h": 6.64696143,
+        "change7d": 6.86973274,
+        "volume24h": 54207298.4380561,
+        "marketCap": 1203387026.7940154,
+        "priceUsd": 7.65655917814626,
+        "heat": 13.03
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.12380648,
+        "change24h": 12.85180733,
+        "change7d": -8.33520338,
+        "volume24h": 17984682.54296598,
+        "marketCap": 39632614.63152338,
+        "priceUsd": 0.16319508115583964,
+        "heat": 11.97
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 1.08192211,
+        "change24h": 1.24895551,
+        "change7d": 21.47799296,
+        "volume24h": 221976302.96194485,
+        "marketCap": 1902284361.6053174,
+        "priceUsd": 3.059931062515244,
+        "heat": 7.72
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": -0.21284628,
+        "change24h": 4.63487052,
+        "change7d": 12.836537,
+        "volume24h": 23073308.42886975,
+        "marketCap": 77164480.80082652,
+        "priceUsd": 0.03507476400037569,
+        "heat": 5.92
+      },
+      {
+        "symbol": "CAKE",
+        "name": "PancakeSwap",
+        "change1h": 0.19885552,
+        "change24h": 4.15554562,
+        "change7d": 4.5818235,
+        "volume24h": 26266815.0815254,
+        "marketCap": 446027169.60947454,
+        "priceUsd": 1.3762272253481342,
+        "heat": 5.44
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "UNI",
+        "priceUsd": 3.059931062515244,
+        "change1h": 1.08192211,
+        "change24h": 1.24895551,
+        "change7d": 21.47799296,
+        "volume24h": 221976302.96194485,
+        "volumeChange24h": -37.2414
+      },
+      {
+        "symbol": "ETC",
+        "priceUsd": 7.65655917814626,
+        "change1h": 1.78308407,
+        "change24h": 6.64696143,
+        "change7d": 6.86973274,
+        "volume24h": 54207298.4380561,
+        "volumeChange24h": 39.5883
+      },
+      {
+        "symbol": "MYX",
+        "priceUsd": 0.16004078230211122,
+        "change1h": 0.5444417,
+        "change24h": 19.25211631,
+        "change7d": -17.71265187,
+        "volume24h": 18334338.42673524,
+        "volumeChange24h": -38.443
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.16319508115583964,
+        "change1h": 0.12380648,
+        "change24h": 12.85180733,
+        "change7d": -8.33520338,
+        "volume24h": 17984682.54296598,
+        "volumeChange24h": -20.2208
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, high-conviction momentum setup with strong volume support for a long entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "8ecc873bea24e16aa660b178ada349491c9e8b9895c7c382ccbed0a83e7c189b",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"No symbol shows a clear, high-conviction momentum setup with strong volume support for a long entry.\",\n    \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.63,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.4,
+    "positionUsd": 0,
+    "inScopeUsd": 14.63,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "d3bbce8d2f4cbbcceaa076ff739fca88ab685b760d37dcaccccde203173153ca",
+  "checksum": "f3d531e8a1ee205d56b5542ec5bd128aac8a8d9df058685652781f825b20097e"
+}
