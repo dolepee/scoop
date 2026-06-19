@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T17:25:20.087Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "341407aeca856028b8025f3c7efb1bdea30f0d2890f6619c5f27e47a97ecf3a1"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=MYX,DEXE,ETC,FIL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e03babbcdc511c1ce0ea4f2ca7062522a1684b65772bc4a72a545fb1ab90ed4d"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "MYX",
+        "name": "MYX Finance",
+        "change1h": 1.82126832,
+        "change24h": 20.57342709,
+        "change7d": -29.35274688,
+        "volume24h": 19452495.33453611,
+        "marketCap": 51651237.03049455,
+        "priceUsd": 0.15645911829601503,
+        "heat": 21.63
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 1.03273979,
+        "change24h": 10.14132024,
+        "change7d": -19.53827618,
+        "volume24h": 27761870.17864602,
+        "marketCap": 1407685793.2570927,
+        "priceUsd": 16.81146423425288,
+        "heat": 10.31
+      },
+      {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "change1h": 0.48046547,
+        "change24h": 6.83707931,
+        "change7d": 4.0959023,
+        "volume24h": 44160535.33535197,
+        "marketCap": 1179146047.9781306,
+        "priceUsd": 7.502434673402875,
+        "heat": 8.89
+      },
+      {
+        "symbol": "FIL",
+        "name": "Filecoin",
+        "change1h": 0.26798317,
+        "change24h": 5.17600405,
+        "change7d": 6.16524653,
+        "volume24h": 72169813.89792188,
+        "marketCap": 633757879.4782616,
+        "priceUsd": 0.8015867578798889,
+        "heat": 6.9
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": -0.76613336,
+        "change24h": 6.62942137,
+        "change7d": 12.16332596,
+        "volume24h": 24018119.81819192,
+        "marketCap": 78238132.63752545,
+        "priceUsd": 0.03556278756251157,
+        "heat": 6.16
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": -0.7531637,
+        "change24h": 9.64168268,
+        "change7d": -9.3626048,
+        "volume24h": 25421096.8833858,
+        "marketCap": 138966906.17660382,
+        "priceUsd": 0.4143602027847821,
+        "heat": 5.98
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ETC",
+        "priceUsd": 7.502434673402875,
+        "change1h": 0.48046547,
+        "change24h": 6.83707931,
+        "change7d": 4.0959023,
+        "volume24h": 44160535.33535197,
+        "volumeChange24h": 4.4954
+      },
+      {
+        "symbol": "FIL",
+        "priceUsd": 0.8015867578798889,
+        "change1h": 0.26798317,
+        "change24h": 5.17600405,
+        "change7d": 6.16524653,
+        "volume24h": 72169813.89792188,
+        "volumeChange24h": -16.33
+      },
+      {
+        "symbol": "MYX",
+        "priceUsd": 0.15645911829601503,
+        "change1h": 1.82126832,
+        "change24h": 20.57342709,
+        "change7d": -29.35274688,
+        "volume24h": 19452495.33453611,
+        "volumeChange24h": -32.2186
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.81146423425288,
+        "change1h": 1.03273979,
+        "change24h": 10.14132024,
+        "change7d": -19.53827618,
+        "volume24h": 27761870.17864602,
+        "volumeChange24h": -36.2495
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction entry with strong momentum and volume support; MYX has high 24h gain but negative 7d trend and declining volume, while others show mixed signals or insufficient breakout strength.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "44350556fdb364a7a02fd0aaf6b0a2fdf90c0e8890a69eb6ff71d226359519fb",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction entry with strong momentum and volume support; MYX has high 24h gain but negative 7d trend and declining volume, while others sho"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.69,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.46,
+    "positionUsd": 0,
+    "inScopeUsd": 14.69,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c3c2093400664e3eee8a3d6c84919d4a0610381fbcb02eb032892b7436ea23e5",
+  "checksum": "5a202e18e7e5998f68be880a5c21920bb961f246d4a6c5d1f85bb33dc07c0a4d"
+}
