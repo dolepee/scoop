@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T20:01:40.524Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "593e795cf4fd9e59610c3b636db32a287f0d4c4a601033d229455564a7092b51"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,H,MYX,XPL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7c545891dfc8e034dc76c05d10118fdb8046ad4cc98329529e5d2d4549afc7e2"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": -2.12996612,
+        "change24h": 38.09333164,
+        "change7d": -86.17321168,
+        "volume24h": 18282961.72247005,
+        "marketCap": 48268510.87640896,
+        "priceUsd": 0.06662921579744768,
+        "heat": 18.78
+      },
+      {
+        "symbol": "H",
+        "name": "Humanity",
+        "change1h": 2.99021689,
+        "change24h": 3.50452154,
+        "change7d": 18.95831138,
+        "volume24h": 49879711.02281359,
+        "marketCap": 671891016.844458,
+        "priceUsd": 0.23723768565692024,
+        "heat": 15.32
+      },
+      {
+        "symbol": "MYX",
+        "name": "MYX Finance",
+        "change1h": 0.02655253,
+        "change24h": 15.23515322,
+        "change7d": -13.68729545,
+        "volume24h": 18334466.87216207,
+        "marketCap": 51661984.27052404,
+        "priceUsd": 0.15649167325105195,
+        "heat": 13.26
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -0.1391826,
+        "change24h": 5.73822787,
+        "change7d": 21.66982007,
+        "volume24h": 176717371.84046465,
+        "marketCap": 179692744.57850796,
+        "priceUsd": 0.09982930254361554,
+        "heat": 8.57
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.1060227,
+        "change24h": 9.58689848,
+        "change7d": -19.40152064,
+        "volume24h": 27900358.81832812,
+        "marketCap": 1402447012.2022634,
+        "priceUsd": 16.74889943409917,
+        "heat": 6.99
+      },
+      {
+        "symbol": "CAKE",
+        "name": "PancakeSwap",
+        "change1h": -0.5460606,
+        "change24h": 4.11932889,
+        "change7d": 4.48629286,
+        "volume24h": 26241719.80094108,
+        "marketCap": 445290083.26513445,
+        "priceUsd": 1.373952928256768,
+        "heat": 3.15
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.09982930254361554,
+        "change1h": -0.1391826,
+        "change24h": 5.73822787,
+        "change7d": 21.66982007,
+        "volume24h": 176717371.84046465,
+        "volumeChange24h": -29.2012
+      },
+      {
+        "symbol": "MYX",
+        "priceUsd": 0.15649167325105195,
+        "change1h": 0.02655253,
+        "change24h": 15.23515322,
+        "change7d": -13.68729545,
+        "volume24h": 18334466.87216207,
+        "volumeChange24h": -39.1037
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.06662921579744768,
+        "change1h": -2.12996612,
+        "change24h": 38.09333164,
+        "change7d": -86.17321168,
+        "volume24h": 18282961.72247005,
+        "volumeChange24h": -23.0093
+      },
+      {
+        "symbol": "H",
+        "priceUsd": 0.23723768565692024,
+        "change1h": 2.99021689,
+        "change24h": 3.50452154,
+        "change7d": 18.95831138,
+        "volume24h": 49879711.02281359,
+        "volumeChange24h": -26.1716
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, sustainable momentum with volume support; top movers either have extreme 7d declines (SIREN -86%), weak recent hourly action, or volume contraction exceeding -23%.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "c1fae8ee0646bc14255138a873f2b652bd569445b9ac59b43316c947c68d95e9",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol shows a clear, sustainable momentum with volume support; top movers either have extreme 7d declines (SIREN -86%), weak recent hourly action, or volume contraction exceeding -23%.\",\"invali"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.65,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.42,
+    "positionUsd": 0,
+    "inScopeUsd": 14.65,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "810b0226509454c5c5ab9a32ce4fefab9c37d21c83eb282e5e1ef98d51572dff",
+  "checksum": "d3bbce8d2f4cbbcceaa076ff739fca88ab685b760d37dcaccccde203173153ca"
+}
