@@ -112,6 +112,15 @@ type FeedStats = {
   positionMaturesAt: string | null;
 };
 
+type CmcShowcaseStats = {
+  totalCalls: number;
+  paidCalls: number;
+  fallbackCalls: number;
+  uniqueEndpointCount: number;
+  latestEndpoint: string;
+  latestResponseHash: string | null;
+};
+
 const FALLBACK_WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
 const REPO_URL = "https://github.com/dolepee/scoop";
 const REGISTRATION_TX = "0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb";
@@ -129,6 +138,11 @@ function formatUsd(value: number | null | undefined, maximumFractionDigits = 2) 
     minimumFractionDigits: 2,
     maximumFractionDigits,
   }).format(value);
+}
+
+function formatInteger(value: number | null | undefined) {
+  if (!isNumber(value)) return "n/a";
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(value);
 }
 
 function formatPct(value: number | null | undefined) {
@@ -212,6 +226,24 @@ function endpointLabel(url: string | null | undefined) {
   } catch {
     return url.replace("https://pro-api.coinmarketcap.com/x402", "CMC x402");
   }
+}
+
+function computeCmcShowcase(feed: Feed): CmcShowcaseStats {
+  const calls = feed.cycles.flatMap((cycle) => cycle.paidCalls ?? []);
+  const paidCalls = calls.filter((call) => call.dataSource === "x402-paid");
+  const endpointKeys = new Set(calls.map((call) => endpointLabel(call.url)).filter((value) => value !== "no endpoint"));
+  const latestPaidCall = feed.cycles
+    .flatMap((cycle) => cycle.paidCalls ?? [])
+    .find((call) => call.dataSource === "x402-paid" && call.url);
+
+  return {
+    totalCalls: calls.length,
+    paidCalls: paidCalls.length,
+    fallbackCalls: calls.filter((call) => call.fallbackFrom || call.dataSource !== "x402-paid").length,
+    uniqueEndpointCount: endpointKeys.size,
+    latestEndpoint: endpointLabel(latestPaidCall?.url),
+    latestResponseHash: latestPaidCall?.responseHash ?? null,
+  };
 }
 
 function verifyFeedChain(cycles: Cycle[]) {
@@ -346,6 +378,7 @@ function App() {
       <Topbar stats={stats} />
       <Hero feed={state.feed} stats={stats} />
       <SignalRail stats={stats} />
+      <CmcAgentHubShowcase feed={state.feed} stats={stats} />
       <ReadinessLedger stats={stats} />
       <ControlRoom feed={state.feed} stats={stats} />
       <ProofPanel feed={state.feed} stats={stats} />
@@ -379,6 +412,7 @@ function Topbar({ stats }: { stats: FeedStats }) {
         </span>
       </a>
       <div className="nav-links" aria-label="Page sections">
+        <a href="#cmc-agent-hub">CMC</a>
         <a href="#control-room">Control</a>
         <a href="#proof">Proof</a>
         <a href="#loop">Loop</a>
@@ -489,6 +523,49 @@ function SignalRail({ stats }: { stats: FeedStats }) {
       <MetricCard label="Position" value={positionLabel(stats)} detail={positionDetail(stats)} tone={stats.currentPosition ? "good" : undefined} />
       <MetricCard label="x402 spend" value={formatUsd(stats.dataSpendUsd, 4)} detail={`${stats.x402PaidCycles} x402-paid cycles`} tone="good" />
       <MetricCard label="Execution" value={`${stats.armedCycles} / ${stats.executedTrades}`} detail="armed cycles / executed trades" tone={stats.executedTrades > 0 ? "good" : "warn"} />
+    </section>
+  );
+}
+
+function CmcAgentHubShowcase({ feed, stats }: { feed: Feed; stats: FeedStats }) {
+  const cmc = computeCmcShowcase(feed);
+
+  return (
+    <section className="cmc-showcase" id="cmc-agent-hub" aria-label="CoinMarketCap Agent Hub showcase">
+      <div className="cmc-showcase__copy">
+        <span className="eyebrow">CoinMarketCap Agent Hub</span>
+        <h2>Paid CMC signal is load-bearing, not decoration.</h2>
+        <p>
+          Scoop buys CMC market perception through x402 before every decision path, hashes the response payloads into
+          receipts, and lets the governor stand down unless the paid signal clears risk.
+        </p>
+        <div className="cmc-showcase__links">
+          <a className="button button--primary" href="#proof">Open proof surface</a>
+          <a className="button" href="/data/feed.json" target="_blank" rel="noreferrer">Public feed JSON</a>
+        </div>
+      </div>
+
+      <div className="cmc-showcase__proof">
+        <MetricCard label="CMC paid calls" value={formatInteger(cmc.paidCalls)} detail={`${stats.x402PaidCycles} x402-paid cycles`} tone="good" />
+        <MetricCard label="Data spend" value={formatUsd(stats.dataSpendUsd, 4)} detail="settled through CMC x402 receipts" tone="good" />
+        <MetricCard label="Endpoints" value={formatInteger(cmc.uniqueEndpointCount)} detail={`${formatInteger(cmc.totalCalls)} total CMC call records`} />
+        <MetricCard label="Fallbacks" value={formatInteger(cmc.fallbackCalls)} detail="labeled, never hidden" tone={cmc.fallbackCalls > 0 ? "warn" : "good"} />
+      </div>
+
+      <article className="cmc-receipt-strip">
+        <div>
+          <span>Latest paid endpoint</span>
+          <strong>{cmc.latestEndpoint}</strong>
+        </div>
+        <div>
+          <span>Latest response hash</span>
+          <strong className="mono">{shortHash(cmc.latestResponseHash)}</strong>
+        </div>
+        <div>
+          <span>Agent output</span>
+          <strong>{decisionLabel(stats.latest)} after governor checks</strong>
+        </div>
+      </article>
     </section>
   );
 }

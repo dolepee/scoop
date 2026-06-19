@@ -13,6 +13,7 @@ Most cycles should refuse to trade; the receipt chain proves those refusals happ
 - Local proof: run `npm run receipts:verify`; it recomputes every SHA-256 checksum and every `prevChecksum` link.
 - Public receipt snapshot, as of `2026-06-18T17:18:38.583Z`: 90 cycles, 87 paid-mode cycles, 72 x402-paid cycles, 25 proposed `TRADE` theses, 1 armed cycle, 1 executed trade, equity `15.01`, chain verification `true`.
 - Committed governor state is rebaselined to the actual funded equity: baseline `15.01`, peak `15.01`, internal floor `12.31`. The early `20.00` bootstrap receipt remains in history as `firstReceiptEquityUsd`, not the live risk baseline.
+- CoinMarketCap special-prize proof is surfaced at `https://scoop-livid.vercel.app/#cmc-agent-hub`: CMC x402 paid cycles, response hashes, endpoints, spend, and fallback labeling are computed from the same public receipt feed.
 
 ## One Cycle
 

@@ -504,6 +504,93 @@ td em {
   margin: 18px 0;
 }
 
+.cmc-showcase {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.78fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+  margin: 22px 0;
+}
+
+.cmc-showcase__copy,
+.cmc-receipt-strip {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(15, 30, 58, 0.84), rgba(6, 12, 26, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.cmc-showcase__copy {
+  display: grid;
+  gap: 16px;
+  align-content: center;
+  min-height: 304px;
+  padding: clamp(22px, 3vw, 34px);
+  border-radius: var(--radius-xl);
+}
+
+.cmc-showcase__copy h2 {
+  max-width: 620px;
+  margin: 0;
+  font-size: clamp(2.25rem, 4.2vw, 4.35rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.cmc-showcase__copy p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.cmc-showcase__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.cmc-showcase__proof {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cmc-receipt-strip {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.7fr) minmax(240px, 0.8fr);
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+}
+
+.cmc-receipt-strip div {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cmc-receipt-strip span {
+  color: var(--faint);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cmc-receipt-strip strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
 .readiness-ledger {
   display: grid;
   grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
@@ -931,10 +1018,16 @@ td em {
   .hero,
   .control-layout,
   .readiness-ledger,
+  .cmc-showcase,
   .signal-rail,
   .loop-grid,
-  .proof-grid {
+  .proof-grid,
+  .cmc-receipt-strip {
     grid-template-columns: 1fr;
+  }
+
+  .cmc-showcase__proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .topbar__proof,
@@ -967,8 +1060,13 @@ td em {
     display: none;
   }
 
+  .cmc-showcase__proof {
+    grid-template-columns: 1fr;
+  }
+
   .hero__copy,
   .terminal-card,
+  .cmc-showcase__copy,
   .panel,
   .table-card,
   .footer,
