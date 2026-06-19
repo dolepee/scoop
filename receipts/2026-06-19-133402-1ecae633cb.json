@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T13:34:02.271Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "6e4526a793970415f60ba74eea7dd1434de75c90a0b66450198529253207ccf4"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=ZAMA,BEAT,XPL,ETC&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e3140cb499b34c721896ad7a8e93632b0af35c7e76451a3342f4f61f34abc6b0"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 1.4135072,
+        "change24h": 5.18708272,
+        "change7d": 9.15762119,
+        "volume24h": 26115261.9224898,
+        "marketCap": 77865012.06756794,
+        "priceUsd": 0.035393187303439974,
+        "heat": 10.8
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 0.42786974,
+        "change24h": 20.28431735,
+        "change7d": -77.31765109,
+        "volume24h": 95182947.78627129,
+        "marketCap": 560683801.5403265,
+        "priceUsd": 1.9467061032514226,
+        "heat": 9.97
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 4.23423021,
+        "change24h": -4.55619789,
+        "change7d": 10.82473248,
+        "volume24h": 193333929.836261,
+        "marketCap": 174561200.9025711,
+        "priceUsd": 0.09697844494587284,
+        "heat": 9.77
+      },
+      {
+        "symbol": "ETC",
+        "name": "Ethereum Classic",
+        "change1h": 1.57145563,
+        "change24h": 2.54542212,
+        "change7d": 2.34397017,
+        "volume24h": 40489227.38189032,
+        "marketCap": 1161421502.1521719,
+        "priceUsd": 7.389749319941599,
+        "heat": 7.61
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -1.14259745,
+        "change24h": 14.38109978,
+        "change7d": -23.74191813,
+        "volume24h": 29885390.0235262,
+        "marketCap": 1371628204.4078696,
+        "priceUsd": 16.38084195461082,
+        "heat": 7.39
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 3.20386629,
+        "change24h": -5.69876707,
+        "change7d": 6.83768507,
+        "volume24h": 24832870.98201988,
+        "marketCap": 179020226.41711453,
+        "priceUsd": 0.6740163030908195,
+        "heat": 4.94
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "ETC",
+        "priceUsd": 7.389749319941599,
+        "change1h": 1.57145563,
+        "change24h": 2.54542212,
+        "change7d": 2.34397017,
+        "volume24h": 40489227.38189032,
+        "volumeChange24h": 8.2521
+      },
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.09697844494587284,
+        "change1h": 4.23423021,
+        "change24h": -4.55619789,
+        "change7d": 10.82473248,
+        "volume24h": 193333929.836261,
+        "volumeChange24h": -46.8073
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.9467061032514226,
+        "change1h": 0.42786974,
+        "change24h": 20.28431735,
+        "change7d": -77.31765109,
+        "volume24h": 95182947.78627129,
+        "volumeChange24h": 38.5009
+      },
+      {
+        "symbol": "ZAMA",
+        "priceUsd": 0.035393187303439974,
+        "change1h": 1.4135072,
+        "change24h": 5.18708272,
+        "change7d": 9.15762119,
+        "volume24h": 26115261.9224898,
+        "volumeChange24h": -13.3798
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with strong momentum, volume support, and favorable risk-reward within the contest's disciplined parameters.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "6fd9d8c7b7de44f9fb0477d07a3976d92de8f04e66d7ac85385ff575d05d864e",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry with strong momentum, volume support, and favorable risk-reward within the contest's disciplined parameters.\",\n  \"inva"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.77,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.54,
+    "positionUsd": 0,
+    "inScopeUsd": 14.77,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "d595aff9b5b6d3cf7a110339d47959b1c78f89d14e2950eef644720671337421",
+  "checksum": "1ecae633cbb405bf52cbdd20a2b7c44af3ac7169745ef78853825bb742f4cc1b"
+}
