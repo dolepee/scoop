@@ -9,10 +9,10 @@ Most cycles should refuse to trade; the receipt chain proves those refusals happ
 - On-chain agent registration: [`0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb`](https://bscscan.com/tx/0x5877f701e471da2ed41b6e0fabcac1c820a8daf8bf4fd5f59538e48709dd73cb).
 - Agent wallet: [`0x5927a9662588f5609154488111E8ee7f4075513C`](https://bscscan.com/address/0x5927a9662588f5609154488111E8ee7f4075513C).
 - Validation spike: [`docs/SPIKE.md`](docs/SPIKE.md) records a real paid CMC x402 call and two TWAK-signed BSC swaps, including [`0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a`](https://bscscan.com/tx/0xbc2456d1142e55678b766242a217e157f57eee025313e4c918d7c4c0a2bfa03a) and [`0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545`](https://bscscan.com/tx/0x26d77787a2480dc9105facec9e861beeb284c0c900a716ab172493c968260545).
-- Armed rehearsal: receipt [`2026-06-18-162321-0518af27ef.json`](receipts/2026-06-18-162321-0518af27ef.json) records a real TWAK-signed BSC compliance buy, tx [`0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e`](https://bscscan.com/tx/0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e).
+- Armed rehearsal: receipt [`2026-06-18-162321-0518af27ef.json`](receipts/2026-06-18-162321-0518af27ef.json) records a real TWAK-signed BSC compliance buy, tx [`0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e`](https://bscscan.com/tx/0x626b1f7d22cd2f751ec7f82fcc10853fffe84d27cc9966bc18978f9a1f01c81e); receipt [`2026-06-19-131859-d595aff9b5.json`](receipts/2026-06-19-131859-d595aff9b5.json) records the matching compliance sell, tx [`0x4436f1bb412160ace53fb2f61498bb3bb9f8d5b5e066172562ba7bd5a328114e`](https://bscscan.com/tx/0x4436f1bb412160ace53fb2f61498bb3bb9f8d5b5e066172562ba7bd5a328114e).
 - Local proof: run `npm run receipts:verify`; it recomputes every SHA-256 checksum and every `prevChecksum` link.
-- Public receipt snapshot, as of `2026-06-18T17:18:38.583Z`: 90 cycles, 87 paid-mode cycles, 72 x402-paid cycles, 25 proposed `TRADE` theses, 1 armed cycle, 1 executed trade, equity `15.01`, chain verification `true`.
-- Committed governor state is rebaselined to the actual funded equity: baseline `15.01`, peak `15.01`, internal floor `12.31`. The early `20.00` bootstrap receipt remains in history as `firstReceiptEquityUsd`, not the live risk baseline.
+- Public receipt snapshot, as of `2026-06-19T13:34:02.271Z`: 100 cycles, 97 paid-mode cycles, 82 x402-paid cycles, 25 proposed `TRADE` theses, 2 armed cycles, 2 executed trades, equity `14.77`, chain verification `true`.
+- Committed governor state is rebaselined to the actual funded equity: baseline `15.01`, peak `15.04`, internal floor `13.536`. The early `20.00` bootstrap receipt remains in history as `firstReceiptEquityUsd`, not the live risk baseline.
 - CoinMarketCap special-prize proof is surfaced at `https://scoop-livid.vercel.app/#cmc-agent-hub`: CMC x402 paid cycles, response hashes, endpoints, spend, and fallback labeling are computed from the same public receipt feed.
 
 ## One Cycle
@@ -31,10 +31,10 @@ CMC x402 perception -> structured thesis -> deterministic governor -> TWAK execu
 
 | Official rule | Scoop mechanism |
 | --- | --- |
-| At least 1 trade per day | Armed-only compliance trades open from 12:00 UTC if no trade has executed that day, use minimal buy/sell behavior, are tagged `complianceTrade`, and still pass through the governor. The first armed rehearsal executed on Jun 18. |
+| At least 1 trade per day | Armed-only compliance trades open from 12:00 UTC if no trade has executed that day, use minimal buy/sell behavior, are tagged `complianceTrade`, and still pass through the governor. Rehearsal has executed a Jun 18 compliance buy and a Jun 19 compliance sell. |
 | Fixed 149-token eligible list | `data/eligible_tokens.json` stores all 149 symbols and BSC addresses with provenance; `src/allowlist.mjs` fails closed. |
-| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the committed live floor is `12.31` against funded equity `15.01`. |
-| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `15.01`, warning flag `false`, as of `2026-06-18T17:18:38.583Z`. |
+| Max drawdown risk gate | The ratchet governor stands down well before the competition DQ line; the committed live floor is `13.536` against funded baseline `15.01`. |
+| Non-zero in-scope balance | Each feed cycle carries `inScopeUsd`; latest value is `14.77`, warning flag `false`, as of `2026-06-19T13:34:02.271Z`. |
 | TWAK execution | The executor has no non-TWAK swap path; live swaps in [`docs/SPIKE.md`](docs/SPIKE.md) were signed locally through TWAK. |
 
 ## Best TWAK Use
@@ -95,7 +95,7 @@ Live trading switch: observe mode is the default. Manual dispatch with `trade=1`
 | Date | Phase | Status |
 | --- | --- | --- |
 | Jun 10-18, 2026 | Observation build | Paid CMC x402 data, receipt chain, dashboard, and governor exercising in observe mode. |
-| Jun 18-20, 2026 | Armed rehearsal | First normal-path armed rehearsal executed one minimal LAB compliance buy on BSC. Current public chain has 90 valid receipts and 1 executed trade; the governor state is rebaselined to actual funded equity. |
+| Jun 18-20, 2026 | Armed rehearsal | Rehearsal executed one minimal LAB compliance buy and the matching compliance sell on BSC. Current public chain has 100 valid receipts and 2 executed trades; the governor state is rebaselined to actual funded equity. |
 | Jun 22-28, 2026 | Scored trading week | Planned hands-off BSC trading window. |
 
 ## Receipt Integrity
