@@ -1,0 +1,201 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T09:18:16.520Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "9fed0e8f23c51bbef950f1ee670b8124e19cb05094de7660517cb71501e709f3"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,DEXE,LAB,FLOKI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c8a41581abc6e9e86ba5a8eb2f03a3510c4da4feb1e39468c54f21dd851cf675"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 6.8084657,
+        "change24h": 17.32397691,
+        "change7d": -79.00744018,
+        "volume24h": 80181805.51179788,
+        "marketCap": 520898758.5780874,
+        "priceUsd": 1.8085715865417573,
+        "heat": 25.9
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 1.2126771,
+        "change24h": 12.95761166,
+        "change7d": -19.89804867,
+        "volume24h": 27287326.68106925,
+        "marketCap": 1405472393.809037,
+        "priceUsd": 16.78503043358845,
+        "heat": 13.61
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.11198044,
+        "change24h": -1.06980552,
+        "change7d": 55.04658457,
+        "volume24h": 63428900.88215835,
+        "marketCap": 4851695282.726837,
+        "priceUsd": 15.545562701267803,
+        "heat": 7.52
+      },
+      {
+        "symbol": "FLOKI",
+        "name": "FLOKI",
+        "change1h": -0.06257459,
+        "change24h": 0.29806445,
+        "change7d": 5.13308355,
+        "volume24h": 46579061.89381929,
+        "marketCap": 248067603.55321732,
+        "priceUsd": 0.000025983868194962904,
+        "heat": 0.88
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": -0.03652932,
+        "change24h": -2.56830618,
+        "change7d": 20.8545187,
+        "volume24h": 298666932.76033324,
+        "marketCap": 1893757521.1873577,
+        "priceUsd": 3.0461955616715835,
+        "heat": 0.45
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": 0.03987374,
+        "change24h": -0.21212575,
+        "change7d": 2.46301663,
+        "volume24h": 469088099.2401095,
+        "marketCap": 30394326891.71073,
+        "priceUsd": 0.3204989306279567,
+        "heat": 0.28
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.545562701267803,
+        "change1h": 0.11198044,
+        "change24h": -1.06980552,
+        "change7d": 55.04658457,
+        "volume24h": 63428900.88215835,
+        "volumeChange24h": 52.3124
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.8085715865417573,
+        "change1h": 6.8084657,
+        "change24h": 17.32397691,
+        "change7d": -79.00744018,
+        "volume24h": 80181805.51179788,
+        "volumeChange24h": 15.6661
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.78503043358845,
+        "change1h": 1.2126771,
+        "change24h": 12.95761166,
+        "change7d": -19.89804867,
+        "volume24h": 27287326.68106925,
+        "volumeChange24h": -49.1766
+      },
+      {
+        "symbol": "FLOKI",
+        "priceUsd": 0.000025983868194963,
+        "change1h": -0.06257459,
+        "change24h": 0.29806445,
+        "change7d": 5.13308355,
+        "volume24h": 46579061.89381929,
+        "volumeChange24h": 70.9548
+      },
+      {
+        "symbol": "floki",
+        "priceUsd": null,
+        "change1h": -3e-8,
+        "change24h": -3e-8,
+        "change7d": -5.41697171,
+        "volume24h": 0,
+        "volumeChange24h": 0
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 5500,
+    "rationale": "LAB is down 1.07% over 24h and only up 0.11% in the last hour, showing weak momentum after its 55% weekly surge, while BEAT's 6.81% 1h and 17.32% 24h gains with $80M volume suggest a stronger short-term opportunity, but its -79% weekly trend and high volatility make conviction insufficient for a new",
+    "invalidation": "If LAB price breaks above $16.00 with volume confirming a resumption of the uptrend, or if BEAT's 1h momentum reverses below 1.8085.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "fdf86ef74fa17958f928297054bb084545bbff0514c2622b98126219c6af562a",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"LAB\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 5500,\n  \"rationale\": \"LAB is down 1.07% over 24h and only up 0.11% in the last hour, showing weak momentum after its 55% weekly surge, while BEAT's 6.81% 1h and 17.32% 24h gains with $80M volum"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.87,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.62,
+    "positionUsd": 0.94,
+    "inScopeUsd": 14.87,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "8a8a5a171098de5190f619f8d3e4c4384a11c89196bc421d7f93f49a4fbca52d",
+  "checksum": "c954f9f0ec12d5bbd49fed4b0d0302f33c5094868bafecdcb7ab394cb7db0046"
+}
