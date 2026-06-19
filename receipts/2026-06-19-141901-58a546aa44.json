@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T14:19:01.866Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e7700ac2f06d7a78661b1f3559d6b449775bd148f4314c2abcbb4bb09b83f43c"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=XPL,BEAT,DEXE,CAKE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d2c3712a6e351b2d85b9fd31d699f3dcb387d8d0fa7e97ece2357c04e558959f"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 3.56544364,
+        "change24h": -0.33669152,
+        "change7d": 9.16592121,
+        "volume24h": 190626826.42058322,
+        "marketCap": 179120268.0775845,
+        "priceUsd": 0.09951126004310251,
+        "heat": 11.73
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": -0.61523039,
+        "change24h": 24.24671132,
+        "change7d": -78.54574302,
+        "volume24h": 95063220.34906363,
+        "marketCap": 575350855.7101473,
+        "priceUsd": 1.9976304277827701,
+        "heat": 10.62
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.00009005,
+        "change24h": 13.44944547,
+        "change7d": -23.15479766,
+        "volume24h": 29797252.58884476,
+        "marketCap": 1384343085.6072133,
+        "priceUsd": 16.53269101890446,
+        "heat": 9.98
+      },
+      {
+        "symbol": "CAKE",
+        "name": "PancakeSwap",
+        "change1h": 1.67833935,
+        "change24h": 3.77498541,
+        "change7d": 5.40558187,
+        "volume24h": 27825002.01729411,
+        "marketCap": 452365682.1786858,
+        "priceUsd": 1.395784853583198,
+        "heat": 9.62
+      },
+      {
+        "symbol": "APE",
+        "name": "ApeCoin",
+        "change1h": 2.62151501,
+        "change24h": -0.44508064,
+        "change7d": 2.08640525,
+        "volume24h": 21012824.7053442,
+        "marketCap": 131639357.03996567,
+        "priceUsd": 0.13163935703996568,
+        "heat": 7.73
+      },
+      {
+        "symbol": "UNI",
+        "name": "Uniswap",
+        "change1h": 0.92704261,
+        "change24h": -0.40188191,
+        "change7d": 22.94295582,
+        "volume24h": 286159923.8590419,
+        "marketCap": 1926288136.8863158,
+        "priceUsd": 3.0985424810194573,
+        "heat": 5.82
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.09951126004310251,
+        "change1h": 3.56544364,
+        "change24h": -0.33669152,
+        "change7d": 9.16592121,
+        "volume24h": 190626826.42058322,
+        "volumeChange24h": -44.3061
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.9976304277827701,
+        "change1h": -0.61523039,
+        "change24h": 24.24671132,
+        "change7d": -78.54574302,
+        "volume24h": 95063220.34906363,
+        "volumeChange24h": 38.8576
+      },
+      {
+        "symbol": "CAKE",
+        "priceUsd": 1.395784853583198,
+        "change1h": 1.67833935,
+        "change24h": 3.77498541,
+        "change7d": 5.40558187,
+        "volume24h": 27825002.01729411,
+        "volumeChange24h": 8.1191
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.53269101890446,
+        "change1h": -0.00009005,
+        "change24h": 13.44944547,
+        "change7d": -23.15479766,
+        "volume24h": 29797252.58884476,
+        "volumeChange24h": -28.6997
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear, high-conviction long entry with strong momentum and volume support; XPL has +3.57% 1h but -0.34% 24h and volume down -44.3%, BEAT has +24.25% 24h but -78.55% 7d and recent 1h dip, CAKE is steady but volume growth is modest, DEXE has 24h gain but negative 1h and 7d performanc",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7d4b5f73d652ea59e08f2aea192d505419577f7120cfdf73a23f0bf1a1f1d53d",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"No symbol shows a clear, high-conviction long entry with strong momentum and volume support; XPL has +3.57% 1h but -0.34% 24h and volume down -44.3%, BEAT has +24."
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.75,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.52,
+    "positionUsd": 0,
+    "inScopeUsd": 14.75,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "1ecae633cbb405bf52cbdd20a2b7c44af3ac7169745ef78853825bb742f4cc1b",
+  "checksum": "58a546aa44097445772743372566111edee208786dbab0253ea29940bc97fa10"
+}
