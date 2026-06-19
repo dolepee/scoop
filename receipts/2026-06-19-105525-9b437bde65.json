@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-19T10:55:25.822Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c3be95a2f992818c5b0b6c8c8290df7492856be996cae27a82a065e3cfe29741"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,NIGHT,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "9907613a476e3cb7cdb4915981fb37cb69e7cfb1e85b135675ea1d39df1bc3c7"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 2.01330946,
+        "change24h": 10.04949535,
+        "change7d": -79.33187256,
+        "volume24h": 85010243.13848524,
+        "marketCap": 490787514.9154159,
+        "priceUsd": 1.70402470708211,
+        "heat": 4.19
+      },
+      {
+        "symbol": "NIGHT",
+        "name": "Midnight",
+        "change1h": 1.34818248,
+        "change24h": 1.11150114,
+        "change7d": -7.72111667,
+        "volume24h": 342353592.99827796,
+        "marketCap": 512122357.7675278,
+        "priceUsd": 0.0308369989425732,
+        "heat": 4
+      },
+      {
+        "symbol": "NIGHT",
+        "name": "Midnight (midnight.vip)",
+        "change1h": 1.31493818,
+        "change24h": 1.07664865,
+        "change7d": -7.57535515,
+        "volume24h": 63155991.11802322,
+        "marketCap": 0,
+        "priceUsd": 0.030840643601313892,
+        "heat": 3.89
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.90230819,
+        "change24h": -3.41530626,
+        "change7d": 55.02697055,
+        "volume24h": 61654820.32357822,
+        "marketCap": 4838129326.108859,
+        "priceUsd": 15.502095332251805,
+        "heat": 2.13
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 0.98738968,
+        "change24h": 0.99475085,
+        "change7d": -12.91598013,
+        "volume24h": 26458802.96832389,
+        "marketCap": 137293357.04248634,
+        "priceUsd": 0.40937015027759055,
+        "heat": 2.02
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -2.90411107,
+        "change24h": 13.57668236,
+        "change7d": -21.32500454,
+        "volume24h": 28252894.67250072,
+        "marketCap": 1378882862.5690365,
+        "priceUsd": 16.467481620076217,
+        "heat": 1.67
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.502095332251805,
+        "change1h": -0.90230819,
+        "change24h": -3.41530626,
+        "change7d": 55.02697055,
+        "volume24h": 61654820.32357822,
+        "volumeChange24h": 38.7315
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.70402470708211,
+        "change1h": 2.01330946,
+        "change24h": 10.04949535,
+        "change7d": -79.33187256,
+        "volume24h": 85010243.13848524,
+        "volumeChange24h": 25.6997
+      },
+      {
+        "symbol": "NIGHT",
+        "priceUsd": 0.0308369989425732,
+        "change1h": 1.34818248,
+        "change24h": 1.11150114,
+        "change7d": -7.72111667,
+        "volume24h": 342353592.99827796,
+        "volumeChange24h": 401.545
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry signal with strong momentum and volume support above the 5500 threshold.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "ab827b35013afc40feec6f504043c2ce75abd9c7ffa7a92a3bd8bf470893dba0",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry signal with strong momentum and volume support above the 5500 threshold.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-19",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-18T16:23:21.596Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.060259033553382524,
+    "entryPrice": 16.59502220715365,
+    "costUsd": 1,
+    "openedAt": "2026-06-18T16:23:21.596Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.85,
+    "usdtUsd": 13.31,
+    "usd1Usd": 0.6,
+    "positionUsd": 0.94,
+    "inScopeUsd": 14.85,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c954f9f0ec12d5bbd49fed4b0d0302f33c5094868bafecdcb7ab394cb7db0046",
+  "checksum": "9b437bde651c25cd2d254d8a100480508e3ed2abd0d838139fc6f3ecfd16d919"
+}
