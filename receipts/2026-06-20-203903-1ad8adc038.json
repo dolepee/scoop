@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-20T20:39:03.209Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "de55b0adeee2ec1cc830435a40cf7b5fcd4773d95ecd57f052cfdbd43b5525cc"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SIREN,AXS,EDGE,SLX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "687f475ec24866a308ce55bd0d0b9c07cf87c726d909b5bedfeb86b4a2a4d818"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 65.59721473,
+        "change24h": -0.88441867,
+        "change7d": -47.03689712,
+        "volume24h": 21337708.45251808,
+        "marketCap": 48638506.49315517,
+        "priceUsd": 0.0671428906278555,
+        "heat": 188.85
+      },
+      {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "change1h": -0.62488022,
+        "change24h": 21.93806615,
+        "change7d": 17.96922391,
+        "volume24h": 229172940.8222077,
+        "marketCap": 198957614.57168487,
+        "priceUsd": 1.1441689059351574,
+        "heat": 22.76
+      },
+      {
+        "symbol": "EDGE",
+        "name": "edgeX",
+        "change1h": 2.53428394,
+        "change24h": 9.65437113,
+        "change7d": -8.1872871,
+        "volume24h": 19840876.39479368,
+        "marketCap": 139838309.16874635,
+        "priceUsd": 0.39953802619641815,
+        "heat": 16.03
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -4.31798736,
+        "change24h": 24.54031434,
+        "change7d": 9.05943383,
+        "volume24h": 62292053.87709876,
+        "marketCap": 49556272.56383613,
+        "priceUsd": 0.20405769334238066,
+        "heat": 12.95
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": -0.49707926,
+        "change24h": 10.29574345,
+        "change7d": 7.50721822,
+        "volume24h": 25134363.75721806,
+        "marketCap": 190620112.3044904,
+        "priceUsd": 0.7176902071996627,
+        "heat": 9.93
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.4509794,
+        "change24h": 5.08737452,
+        "change7d": 38.36626562,
+        "volume24h": 31481727.1930007,
+        "marketCap": 4128826295.49428,
+        "priceUsd": 13.229381549942522,
+        "heat": 9.49
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "EDGE",
+        "priceUsd": 0.39953802619641815,
+        "change1h": 2.53428394,
+        "change24h": 9.65437113,
+        "change7d": -8.1872871,
+        "volume24h": 19840876.39479368,
+        "volumeChange24h": 119.8347
+      },
+      {
+        "symbol": "AXS",
+        "priceUsd": 1.1441689059351574,
+        "change1h": -0.62488022,
+        "change24h": 21.93806615,
+        "change7d": 17.96922391,
+        "volume24h": 229172940.8222077,
+        "volumeChange24h": 1561.2138
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.20405769334238066,
+        "change1h": -4.31798736,
+        "change24h": 24.54031434,
+        "change7d": 9.05943383,
+        "volume24h": 62292053.87709876,
+        "volumeChange24h": 249.2964
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.0671428906278555,
+        "change1h": 65.59721473,
+        "change24h": -0.88441867,
+        "change7d": -47.03689712,
+        "volume24h": 21337708.45251808,
+        "volumeChange24h": 16.3356
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "SIREN's +65.6% 1h pump lacks volume support (volume change 24h only +16.3%) and is likely a short-term spike after a -47% 7d decline, while other movers like AXS and SLX show strong 24h gains but are cooling off in the 1h timeframe.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "be68d33a768371c2a0b38a3bf010394c26674b156c5257335b008096ffc70cde",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"SIREN's +65.6% 1h pump lacks volume support (volume change 24h only +16.3%) and is likely a short-term spike after a -47% 7d decline, while other movers like AXS and SLX sho"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-20",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.47,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.24,
+    "positionUsd": 0,
+    "inScopeUsd": 14.47,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "a7ca9063f39d3b05e02b2c12851ef782aafc4eeb630fef60679c7262469de415",
+  "checksum": "1ad8adc038cf413ec0334a9f804757da09b0c0573734bb9b0cc09f87b7e7df48"
+}
