@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-20T04:38:12.506Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "26e89cc6b687ef4c7422845bb2ee12acc59b64e009d8e9822eafa4699270262a"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,AXS,BSB,XPL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "5e6f7f386cc8ca9fe5b630e2429958502573063b57898a1439c7b4461e087699"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.87907987,
+        "change24h": 15.96520201,
+        "change7d": -5.02140629,
+        "volume24h": 16465646.54962666,
+        "marketCap": 41644211.449528135,
+        "priceUsd": 0.1714782264648045,
+        "heat": 20.85
+      },
+      {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "change1h": -1.67273232,
+        "change24h": 19.79145029,
+        "change7d": 17.44099977,
+        "volume24h": 103558443.33443962,
+        "marketCap": 196445501.03999248,
+        "priceUsd": 1.1297221997996363,
+        "heat": 17.39
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": -0.28583749,
+        "change24h": 0.79196667,
+        "change7d": 63.6356298,
+        "volume24h": 111492664.15739961,
+        "marketCap": 91936846.74237098,
+        "priceUsd": 0.41292093753591275,
+        "heat": 9.48
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": 0.06746151,
+        "change24h": 5.22359916,
+        "change7d": 19.70077657,
+        "volume24h": 171482196.38083136,
+        "marketCap": 179890500.19943604,
+        "priceUsd": 0.09993916677746446,
+        "heat": 8.38
+      },
+      {
+        "symbol": "ZEC",
+        "name": "Zcash",
+        "change1h": 0.21293634,
+        "change24h": 5.53836028,
+        "change7d": 13.18764068,
+        "volume24h": 460963261.9285284,
+        "marketCap": 7841358922.159509,
+        "priceUsd": 469.3211271412765,
+        "heat": 8.16
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 1.66032103,
+        "change24h": 2.31476715,
+        "change7d": 5.66171095,
+        "volume24h": 36793471.99587996,
+        "marketCap": 108427274.15196212,
+        "priceUsd": 0.30463378188503976,
+        "heat": 8.14
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.09993916677746446,
+        "change1h": 0.06746151,
+        "change24h": 5.22359916,
+        "change7d": 19.70077657,
+        "volume24h": 171482196.38083136,
+        "volumeChange24h": -16.1939
+      },
+      {
+        "symbol": "AXS",
+        "priceUsd": 1.1297221997996363,
+        "change1h": -1.67273232,
+        "change24h": 19.79145029,
+        "change7d": 17.44099977,
+        "volume24h": 103558443.33443962,
+        "volumeChange24h": 488.299
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.41292093753591275,
+        "change1h": -0.28583749,
+        "change24h": 0.79196667,
+        "change7d": 63.6356298,
+        "volume24h": 111492664.15739961,
+        "volumeChange24h": 88.2325
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.1714782264648045,
+        "change1h": 1.87907987,
+        "change24h": 15.96520201,
+        "change7d": -5.02140629,
+        "volume24h": 16465646.54962666,
+        "volumeChange24h": -1.7924
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol shows a clear momentum setup with volume support above conviction floor; top movers have mixed signals or recent pullbacks.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "fc4bef60ab5f806db3d80aceb1baec1647708c53ace15fdc419f5efe3ab44b15",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol shows a clear momentum setup with volume support above conviction floor; top movers have mixed signals or recent pullbacks.\",\"invalidation\":\"N/A\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-20",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.59,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.36,
+    "positionUsd": 0,
+    "inScopeUsd": 14.59,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "55e1369cf6c1f55088c80c588bf94bfb690fab05c5c4d609a1610ba26b6a4062",
+  "checksum": "323f35d8c7f95fe21d5b08348ed72815ff01c12b13421c68afdd1f5d32598c72"
+}
