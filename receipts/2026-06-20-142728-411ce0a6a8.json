@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-20T14:27:28.844Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "645fdead758212d8ede69f1751d66859e12493edbea3b91787a029719339f0c9"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,AXS,SKYAI,PIEVERSE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "3b85f73afe4da7a32bc4dc684468f0d4069c68d548e075901261319c1bd923ef"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -4.86313268,
+        "change24h": 31.13716914,
+        "change7d": 14.84417806,
+        "volume24h": 55399960.63480468,
+        "marketCap": 50445799.4464255,
+        "priceUsd": 0.20772049513186971,
+        "heat": 18.77
+      },
+      {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "change1h": -1.50395425,
+        "change24h": 18.85066427,
+        "change7d": 16.05739309,
+        "volume24h": 196437934.72111085,
+        "marketCap": 195529024.62315276,
+        "priceUsd": 1.1244517113017303,
+        "heat": 16.75
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.30015869,
+        "change24h": 1.6313818,
+        "change7d": 2.95543823,
+        "volume24h": 22712308.19944028,
+        "marketCap": 357512660.7694306,
+        "priceUsd": 0.35751266076943056,
+        "heat": 5.98
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 0.26415056,
+        "change24h": 3.69363271,
+        "change7d": 6.51615734,
+        "volume24h": 23968987.53226859,
+        "marketCap": 187390913.3802234,
+        "priceUsd": 0.7055321803418036,
+        "heat": 5.46
+      },
+      {
+        "symbol": "RAY",
+        "name": "Raydium",
+        "change1h": 0.14865615,
+        "change24h": 4.18766217,
+        "change7d": 0.83615708,
+        "volume24h": 15086871.11336775,
+        "marketCap": 165737084.63945138,
+        "priceUsd": 0.6158851232448145,
+        "heat": 4.76
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 0.27401737,
+        "change24h": 2.80424579,
+        "change7d": 4.17745323,
+        "volume24h": 31765654.11317984,
+        "marketCap": 106748884.668424,
+        "priceUsd": 0.299902973332422,
+        "heat": 4.25
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "AXS",
+        "priceUsd": 1.1244517113017303,
+        "change1h": -1.50395425,
+        "change24h": 18.85066427,
+        "change7d": 16.05739309,
+        "volume24h": 196437934.72111085,
+        "volumeChange24h": 1007.9561
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.20772049513186971,
+        "change1h": -4.86313268,
+        "change24h": 31.13716914,
+        "change7d": 14.84417806,
+        "volume24h": 55399960.63480468,
+        "volumeChange24h": 226.5614
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.35751266076943056,
+        "change1h": 1.30015869,
+        "change24h": 1.6313818,
+        "change7d": 2.95543823,
+        "volume24h": 22712308.19944028,
+        "volumeChange24h": -26.8718
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7055321803418036,
+        "change1h": 0.26415056,
+        "change24h": 3.69363271,
+        "change7d": 6.51615734,
+        "volume24h": 23968987.53226859,
+        "volumeChange24h": -4.3471
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "SLX shows strong 24h momentum (+31.14%) with high heat (18.77) and volume surge (+226.56%), but the sharp 1h pullback (-4.86%) suggests immediate exhaustion, and AXS, while solid, lacks the explosive volume spike for a high-conviction entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7843c86380a1bffb25a7f9724667f6564abfc887337be322e9b1ebb2bbe065b6",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"SLX shows strong 24h momentum (+31.14%) with high heat (18.77) and volume surge (+226.56%), but the sharp 1h pullback (-4.86%) suggests immediate exhaustion, and AXS, while soli"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-20",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.53,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.3,
+    "positionUsd": 0,
+    "inScopeUsd": 14.53,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "2336fda37733550d30d81e59fcad021664a1f41fb4238dce1a006221aab6e969",
+  "checksum": "411ce0a6a8323c1f552cf13af90673a72e0d2a83efba4fc8bdc5d1048b69a60a"
+}
