@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-21T13:40:21.608Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "400a8fbb40e7434a0620296196c6c0c49e86bd740f71e11c3b20353071e70a71"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=UB,LAB,SOON,FIL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "1e1502000d2accb467d1d4cab958a1abc133e046ca8fc115670e17bc09cb4f9b"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": 1.53122138,
+        "change24h": 28.19739293,
+        "change7d": -22.96428733,
+        "volume24h": 27677404.66301372,
+        "marketCap": 241039301.80149236,
+        "priceUsd": 0.09641572072059694,
+        "heat": 29.35
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -4.39046731,
+        "change24h": 26.50556281,
+        "change7d": 53.889183,
+        "volume24h": 44607488.18276124,
+        "marketCap": 4753815849.49574,
+        "priceUsd": 15.231942249489679,
+        "heat": 21.42
+      },
+      {
+        "symbol": "SOON",
+        "name": "SOON",
+        "change1h": 1.15138252,
+        "change24h": 10.22317808,
+        "change7d": 0.4374298,
+        "volume24h": 16012839.26040541,
+        "marketCap": 94674779.97370969,
+        "priceUsd": 0.17701541683269278,
+        "heat": 13.74
+      },
+      {
+        "symbol": "FIL",
+        "name": "Filecoin",
+        "change1h": 1.44773441,
+        "change24h": 4.30080309,
+        "change7d": 6.38731121,
+        "volume24h": 53042008.21750826,
+        "marketCap": 643259948.7991844,
+        "priceUsd": 0.8134207664317286,
+        "heat": 9.6
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": 0.05978294,
+        "change24h": 7.10073234,
+        "change7d": 11.13935383,
+        "volume24h": 35103377.9272657,
+        "marketCap": 247372263.40002662,
+        "priceUsd": 1.4465963648287186,
+        "heat": 8.95
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": 1.49762342,
+        "change24h": 3.39371446,
+        "change7d": 0.77882872,
+        "volume24h": 27558399.84454683,
+        "marketCap": 327835571.40436816,
+        "priceUsd": 0.9308818636772609,
+        "heat": 8
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.231942249489679,
+        "change1h": -4.39046731,
+        "change24h": 26.50556281,
+        "change7d": 53.889183,
+        "volume24h": 44607488.18276124,
+        "volumeChange24h": 1.9319
+      },
+      {
+        "symbol": "SOON",
+        "priceUsd": 0.17701541683269278,
+        "change1h": 1.15138252,
+        "change24h": 10.22317808,
+        "change7d": 0.4374298,
+        "volume24h": 16012839.26040541,
+        "volumeChange24h": 129.1879
+      },
+      {
+        "symbol": "FIL",
+        "priceUsd": 0.8134207664317286,
+        "change1h": 1.44773441,
+        "change24h": 4.30080309,
+        "change7d": 6.38731121,
+        "volume24h": 53042008.21750826,
+        "volumeChange24h": 3.2952
+      },
+      {
+        "symbol": "UB",
+        "priceUsd": 0.09641572072059694,
+        "change1h": 1.53122138,
+        "change24h": 28.19739293,
+        "change7d": -22.96428733,
+        "volume24h": 27677404.66301372,
+        "volumeChange24h": 22.8303
+      },
+      {
+        "symbol": "SOon",
+        "priceUsd": 95.30030914015433,
+        "change1h": 0,
+        "change24h": 0,
+        "change7d": 0.7815953,
+        "volume24h": 0,
+        "volumeChange24h": 0
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with sustained momentum and volume support above the 5500 bps threshold.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "43a7cd2ca5fd299b2a099d8b7f4f3295a92ebe79ec640fee2cb539a6900e90bf",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"No symbol presents a clear, high-conviction long entry with sustained momentum and volume support above the 5500 bps threshold.\",\n    \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-21",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.31,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.08,
+    "positionUsd": 0,
+    "inScopeUsd": 14.31,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "47ea7e7bfca632e8ceb20a984511baf83539f08584ceeab30856059ed2446eee",
+  "checksum": "6f20653c680c89f001936a62af31cd108bfc963c1e0c5255743e94b8b8fe208f"
+}
