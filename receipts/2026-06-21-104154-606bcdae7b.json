@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-21T10:41:54.591Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ed3ea59efdc14f3fc4293f109f24bc415dd2e4eec19ac5a26a51545d27063188"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,IP,LDO,UB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ed3e3177307dd0681240bd4ee9b640486cb5c926f01c70e549e824e7a8b6cac3"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 4.05879024,
+        "change24h": 29.25908334,
+        "change7d": 58.25103332,
+        "volume24h": 39926942.01040751,
+        "marketCap": 4884395177.517435,
+        "priceUsd": 15.650338091140679,
+        "heat": 50.17
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 2.05176104,
+        "change24h": 8.92478309,
+        "change7d": 12.22143286,
+        "volume24h": 35053226.58271172,
+        "marketCap": 117522281.53476323,
+        "priceUsd": 0.33013387383548914,
+        "heat": 16.91
+      },
+      {
+        "symbol": "LDO",
+        "name": "Lido DAO",
+        "change1h": 2.64548847,
+        "change24h": 2.43775839,
+        "change7d": 8.44743909,
+        "volume24h": 25375807.97919372,
+        "marketCap": 240216254.5871297,
+        "priceUsd": 0.28500994406460506,
+        "heat": 11.64
+      },
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": 0.62012658,
+        "change24h": 13.85421951,
+        "change7d": -28.28414714,
+        "volume24h": 23096697.51945036,
+        "marketCap": 223441100.54432455,
+        "priceUsd": 0.08937644021772982,
+        "heat": 11.47
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": 0.69615722,
+        "change24h": 6.09916714,
+        "change7d": 9.89476328,
+        "volume24h": 35453204.5831349,
+        "marketCap": 251544725.2265559,
+        "priceUsd": 1.4709997458652386,
+        "heat": 9.67
+      },
+      {
+        "symbol": "APE",
+        "name": "ApeCoin",
+        "change1h": 1.77492959,
+        "change24h": 1.78035028,
+        "change7d": 10.18573255,
+        "volume24h": 16407603.76237638,
+        "marketCap": 140002478.60988715,
+        "priceUsd": 0.14000247860988715,
+        "heat": 8.63
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.650338091140679,
+        "change1h": 4.05879024,
+        "change24h": 29.25908334,
+        "change7d": 58.25103332,
+        "volume24h": 39926942.01040751,
+        "volumeChange24h": -15.0404
+      },
+      {
+        "symbol": "LDO",
+        "priceUsd": 0.28500994406460506,
+        "change1h": 2.64548847,
+        "change24h": 2.43775839,
+        "change7d": 8.44743909,
+        "volume24h": 25375807.97919372,
+        "volumeChange24h": -11.7719
+      },
+      {
+        "symbol": "UB",
+        "priceUsd": 0.08937644021772982,
+        "change1h": 0.62012658,
+        "change24h": 13.85421951,
+        "change7d": -28.28414714,
+        "volume24h": 23096697.51945036,
+        "volumeChange24h": 0.3718
+      },
+      {
+        "symbol": "IP",
+        "priceUsd": 0.330325190157583,
+        "change1h": 1.52055739,
+        "change24h": 9.16041847,
+        "change7d": 12.28620777,
+        "volume24h": 35172275.54655971,
+        "volumeChange24h": 1.0781
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "LAB shows strong momentum with +29.26% 24h and +58.25% 7d, but volume declined -15.04% suggesting weakening support, and no other symbols present a clear entry with volume confirmation.",
+    "invalidation": "If LAB's price breaks below $14.50 or volume fails to rebound on the next hourly candle.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "a07a2247f1d9b10d124ef0ec354cc2df370d20cde67df768fbd4caa888bb9995",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"LAB shows strong momentum with +29.26% 24h and +58.25% 7d, but volume declined -15.04% suggesting weakening support, and no other symbols present a clear entry wit"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-21",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.36,
+    "usdtUsd": 14.22,
+    "usd1Usd": 0.14,
+    "positionUsd": 0,
+    "inScopeUsd": 14.36,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "62decf8e7e88ed6dcaac5153397289f51c61a3380e0a1a184a9bd2b88aa5be23",
+  "checksum": "606bcdae7b509cd98aeef18345cfccf91767da207de49b0afb9b7257e1d10a00"
+}
