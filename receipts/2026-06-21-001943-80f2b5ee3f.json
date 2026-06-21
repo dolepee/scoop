@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-21T00:19:43.015Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7a7e6b7410e4017e43eeaaaec9de825d13498dda9cc4ccc116b127d3313117f6"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=KAVA,SLX,AXS,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "6f69679226dbd387324767d821ac13f440e31000718a5f6f0bd50b3f8cc690eb"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "KAVA",
+        "name": "Kava",
+        "change1h": 7.09716066,
+        "change24h": 7.07448927,
+        "change7d": 11.50940577,
+        "volume24h": 15565392.12196944,
+        "marketCap": 55134569.71454775,
+        "priceUsd": 0.05091630600203417,
+        "heat": 30.09
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.60042716,
+        "change24h": 19.75024665,
+        "change7d": 4.64390505,
+        "volume24h": 64430259.48960353,
+        "marketCap": 48786810.18253708,
+        "priceUsd": 0.20088928073751092,
+        "heat": 22.25
+      },
+      {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "change1h": -1.65139363,
+        "change24h": 21.01109273,
+        "change7d": 18.50223629,
+        "volume24h": 250837040.5428595,
+        "marketCap": 200359037.44360828,
+        "priceUsd": 1.1522282329308748,
+        "heat": 18.83
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.42061062,
+        "change24h": 4.42375397,
+        "change7d": 43.30287213,
+        "volume24h": 29524542.62788909,
+        "marketCap": 4189512517.4860506,
+        "priceUsd": 13.423829348928345,
+        "heat": 15.18
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": -0.49216797,
+        "change24h": 8.77179592,
+        "change7d": 9.40049722,
+        "volume24h": 24471255.8994895,
+        "marketCap": 190650791.155134,
+        "priceUsd": 0.7178057139550038,
+        "heat": 8.71
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 0.03182749,
+        "change24h": 4.90422839,
+        "change7d": 5.91095302,
+        "volume24h": 36382865.22255833,
+        "marketCap": 113322227.99593902,
+        "priceUsd": 0.31835360550040337,
+        "heat": 5.89
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 13.423829348928345,
+        "change1h": 1.42061062,
+        "change24h": 4.42375397,
+        "change7d": 43.30287213,
+        "volume24h": 29524542.62788909,
+        "volumeChange24h": -53.3579
+      },
+      {
+        "symbol": "KAVA",
+        "priceUsd": 0.05091630600203417,
+        "change1h": 7.09716066,
+        "change24h": 7.07448927,
+        "change7d": 11.50940577,
+        "volume24h": 15565392.12196944,
+        "volumeChange24h": 65.3102
+      },
+      {
+        "symbol": "AXS",
+        "priceUsd": 1.1522282329308748,
+        "change1h": -1.65139363,
+        "change24h": 21.01109273,
+        "change7d": 18.50223629,
+        "volume24h": 250837040.5428595,
+        "volumeChange24h": 1714.8127
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.20088928073751092,
+        "change1h": 0.60042716,
+        "change24h": 19.75024665,
+        "change7d": 4.64390505,
+        "volume24h": 64430259.48960353,
+        "volumeChange24h": 275.8667
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support meets the 5500 conviction threshold for a long entry.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "df0467b31da148aeb857765b8e1e0b706b130801462163fa8dad188417a57f6d",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support meets the 5500 conviction threshold for a long entry.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-21",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.41,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.18,
+    "positionUsd": 0,
+    "inScopeUsd": 14.41,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "0f3e9e59a1351becae1ba9d186543cd7f664a5be94bb1a5336403c567ef78de9",
+  "checksum": "80f2b5ee3f7c5ed3b26b73fab63d52e7e83029c520e89c31022e679c2620ecb6"
+}
