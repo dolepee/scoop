@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-21T06:16:41.389Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "8389ee509ea53704ef12ca55bb12c54be3def6875071ec98ea72054abee5b69f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,SIREN,PIEVERSE,GENIUS&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "bd7d4a79ffda668be04fefbf7dd163f8fbbe27dc0ff44bd17285169ee1648950"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.48361908,
+        "change24h": 18.91381267,
+        "change7d": 45.67277284,
+        "volume24h": 31264190.20017489,
+        "marketCap": 4442990025.601414,
+        "priceUsd": 14.236009476933788,
+        "heat": 30.22
+      },
+      {
+        "symbol": "SIREN",
+        "name": "siren",
+        "change1h": 8.86503888,
+        "change24h": 2.95392942,
+        "change7d": -62.71733723,
+        "volume24h": 20460883.23875256,
+        "marketCap": 32493560.128828265,
+        "priceUsd": 0.04485564445007356,
+        "heat": 20.14
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 2.91789085,
+        "change24h": 8.07507683,
+        "change7d": 8.91221509,
+        "volume24h": 23337962.85368319,
+        "marketCap": 189790604.9370802,
+        "priceUsd": 0.7145670880954241,
+        "heat": 18.17
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 0.72610619,
+        "change24h": 7.51325602,
+        "change7d": -4.33149546,
+        "volume24h": 17116724.56523625,
+        "marketCap": 141499016.6707559,
+        "priceUsd": 0.4219102436304562,
+        "heat": 9.04
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": -0.5702964,
+        "change24h": 6.6063383,
+        "change7d": 9.384241,
+        "volume24h": 36777449.07861264,
+        "marketCap": 251816812.12434554,
+        "priceUsd": 1.4726326281254873,
+        "heat": 6.3
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 2.09344376,
+        "change24h": 1.45242004,
+        "change7d": -15.89517794,
+        "volume24h": 17885306.82807091,
+        "marketCap": 141783701.9104661,
+        "priceUsd": 0.21451457419015793,
+        "heat": 5.35
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 14.236009476933788,
+        "change1h": 1.48361908,
+        "change24h": 18.91381267,
+        "change7d": 45.67277284,
+        "volume24h": 31264190.20017489,
+        "volumeChange24h": -39.5092
+      },
+      {
+        "symbol": "GENIUS",
+        "priceUsd": 0.4219102436304562,
+        "change1h": 0.72610619,
+        "change24h": 7.51325602,
+        "change7d": -4.33149546,
+        "volume24h": 17116724.56523625,
+        "volumeChange24h": -28.8156
+      },
+      {
+        "symbol": "SIREN",
+        "priceUsd": 0.04485564445007356,
+        "change1h": 8.86503888,
+        "change24h": 2.95392942,
+        "change7d": -62.71733723,
+        "volume24h": 20460883.23875256,
+        "volumeChange24h": 16.0432
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7145670880954241,
+        "change1h": 2.91789085,
+        "change24h": 8.07507683,
+        "change7d": 8.91221509,
+        "volume24h": 23337962.85368319,
+        "volumeChange24h": 9.046
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "LAB shows exceptional momentum with a 45.67% 7-day surge, strong 18.91% 24-hour gain, and solid $31.26M volume, indicating sustained bullish strength.",
+    "invalidation": "A daily close below $13.50 would break the immediate uptrend structure.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "a39fe2376b6ecd9f28c5448a246031f441706e5cbcdd8f3bce65d59a92b2b946",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"LAB\",\n  \"direction\": \"enter\",\n  \"convictionBps\": -1,\n  \"rationale\": \"LAB shows exceptional momentum with a 45.67% 7-day surge, strong 18.91% 24-hour gain, and solid $31.26M volume, indicating sustained bullish strength.\",\n  \"invalidation\": \"A d"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-21",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.39,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.16,
+    "positionUsd": 0,
+    "inScopeUsd": 14.39,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "80f2b5ee3f7c5ed3b26b73fab63d52e7e83029c520e89c31022e679c2620ecb6",
+  "checksum": "62decf8e7e88ed6dcaac5153397289f51c61a3380e0a1a184a9bd2b88aa5be23"
+}
