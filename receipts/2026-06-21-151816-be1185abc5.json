@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-21T15:18:16.629Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "24ca6a9b65f8cbd8d37a52332564fb055d9253bb08fc916f5f0178c817040312"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=UB,SOON,ZRO,PENDLE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e0c0ac365e4c62964b9f8c0045bb485751203cd40498498e00b0aeb4467a3501"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": 2.52324319,
+        "change24h": 24.43643485,
+        "change7d": -23.10722825,
+        "volume24h": 29887298.32352815,
+        "marketCap": 241899655.0293931,
+        "priceUsd": 0.09675986201175724,
+        "heat": 28.54
+      },
+      {
+        "symbol": "SOON",
+        "name": "SOON",
+        "change1h": 0.84372216,
+        "change24h": 9.13002998,
+        "change7d": 1.84495918,
+        "volume24h": 16381729.8860108,
+        "marketCap": 94755350.85782456,
+        "priceUsd": 0.1771636141045516,
+        "heat": 11.94
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": 1.9759917,
+        "change24h": 2.53126687,
+        "change7d": 1.82053724,
+        "volume24h": 28985760.98115196,
+        "marketCap": 330526186.31409556,
+        "priceUsd": 0.9385042247170287,
+        "heat": 8.73
+      },
+      {
+        "symbol": "PENDLE",
+        "name": "Pendle",
+        "change1h": 0.30201397,
+        "change24h": 4.55493157,
+        "change7d": 11.40623978,
+        "volume24h": 33799976.1119175,
+        "marketCap": 246745983.90797782,
+        "priceUsd": 1.4429329244925986,
+        "heat": 7.17
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.27053245,
+        "change24h": 1.9973375,
+        "change7d": 1.10224081,
+        "volume24h": 20142427.84566698,
+        "marketCap": 366760280.65438837,
+        "priceUsd": 0.36676028065438837,
+        "heat": 5.97
+      },
+      {
+        "symbol": "LTC",
+        "name": "Litecoin",
+        "change1h": 0.78534324,
+        "change24h": 2.88790006,
+        "change7d": 3.34150845,
+        "volume24h": 157000754.69149572,
+        "marketCap": 3511370967.635535,
+        "priceUsd": 45.422813821910346,
+        "heat": 5.75
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "SOON",
+        "priceUsd": 0.1771636141045516,
+        "change1h": 0.84372216,
+        "change24h": 9.13002998,
+        "change7d": 1.84495918,
+        "volume24h": 16381729.8860108,
+        "volumeChange24h": 133.6027
+      },
+      {
+        "symbol": "PENDLE",
+        "priceUsd": 1.4429329244925986,
+        "change1h": 0.30201397,
+        "change24h": 4.55493157,
+        "change7d": 11.40623978,
+        "volume24h": 33799976.1119175,
+        "volumeChange24h": 19.1212
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 0.9385042247170287,
+        "change1h": 1.9759917,
+        "change24h": 2.53126687,
+        "change7d": 1.82053724,
+        "volume24h": 28985760.98115196,
+        "volumeChange24h": 7.3489
+      },
+      {
+        "symbol": "UB",
+        "priceUsd": 0.09675986201175724,
+        "change1h": 2.52324319,
+        "change24h": 24.43643485,
+        "change7d": -23.10722825,
+        "volume24h": 29887298.32352815,
+        "volumeChange24h": 49.3363
+      },
+      {
+        "symbol": "SOon",
+        "priceUsd": 95.30030914015433,
+        "change1h": 0,
+        "change24h": 0,
+        "change7d": 0.7815953,
+        "volume24h": 0,
+        "volumeChange24h": 0
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "10385f662c4529e60577735641f4fdb00fb6ccd8aa42d8749f7a32b1a73e4bb6",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"\",\n  \"direction\": \"\",\n  \"convictionBps\": 0,\n  \"rationale\": \"\",\n  \"invalidation\": \"\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-21",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.29,
+    "usdtUsd": 14.23,
+    "usd1Usd": 0.06,
+    "positionUsd": 0,
+    "inScopeUsd": 14.29,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "6f20653c680c89f001936a62af31cd108bfc963c1e0c5255743e94b8b8fe208f",
+  "checksum": "be1185abc59a3f62a82d2583d43369849be16d10714fbac30bd811ae5725beca"
+}
