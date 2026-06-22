@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-22T12:23:51.058Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "d954e0b369ecefd9850622b5548871602ae58cbbd302241ca3c5e188cac2b4ff"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,BILL,SKYAI,SLX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "6327593746b3196b26dc2a72230694dfd46a80f10e28efb88a7fff44c30ca511"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.97102849,
+        "change24h": 17.93837807,
+        "change7d": -10.65044549,
+        "volume24h": 47152032.68162647,
+        "marketCap": 1418796274.824229,
+        "priceUsd": 16.944152554605292,
+        "heat": 19.25
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": 1.15935817,
+        "change24h": 15.60195772,
+        "change7d": -16.99909669,
+        "volume24h": 86362346.89764428,
+        "marketCap": 150716777.3620405,
+        "priceUsd": 0.06206948448237224,
+        "heat": 16.53
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 1.5678647,
+        "change24h": 5.91672885,
+        "change7d": 21.40194147,
+        "volume24h": 20974229.13828816,
+        "marketCap": 376594561.34586734,
+        "priceUsd": 0.37659456134586733,
+        "heat": 13.83
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.14194434,
+        "change24h": 8.65800602,
+        "change7d": 8.02104078,
+        "volume24h": 31242507.61245531,
+        "marketCap": 50383363.5288395,
+        "priceUsd": 0.2074634029684528,
+        "heat": 10.29
+      },
+      {
+        "symbol": "ETH",
+        "name": "Ethereum",
+        "change1h": 0.76264869,
+        "change24h": 2.57196508,
+        "change7d": 0.12823792,
+        "volume24h": 12053448935.103224,
+        "marketCap": 212684107434.07602,
+        "priceUsd": 1762.3241194704487,
+        "heat": 4.88
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 0.17886957,
+        "change24h": 3.59130569,
+        "change7d": 3.21472015,
+        "volume24h": 123503971.47794811,
+        "marketCap": 1177861321.0865722,
+        "priceUsd": 76.43662122436292,
+        "heat": 4.61
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.944152554605292,
+        "change1h": 0.97102849,
+        "change24h": 17.93837807,
+        "change7d": -10.65044549,
+        "volume24h": 47152032.68162647,
+        "volumeChange24h": 189.1422
+      },
+      {
+        "symbol": "BILL",
+        "priceUsd": 0.06206948448237224,
+        "change1h": 1.15935817,
+        "change24h": 15.60195772,
+        "change7d": -16.99909669,
+        "volume24h": 86362346.89764428,
+        "volumeChange24h": -5.905
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.2074634029684528,
+        "change1h": 0.14194434,
+        "change24h": 8.65800602,
+        "change7d": 8.02104078,
+        "volume24h": 31242507.61245531,
+        "volumeChange24h": -51.2997
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.37659456134586733,
+        "change1h": 1.5678647,
+        "change24h": 5.91672885,
+        "change7d": 21.40194147,
+        "volume24h": 20974229.13828816,
+        "volumeChange24h": -1.9433
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support above my 5500 conviction threshold; DEXE is up 17.94% but volume change is +189% which is positive, yet my honest conviction for a new entry or hold is below 5500 given the 7d decline and lack of exceptional setup.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "cd204cc761291e6aeef57af32c7d55e730c085c5f23312102b835900fdf9294d",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No clear momentum or story strength with volume support above my 5500 conviction threshold; DEXE is up 17.94% but volume change is +189% which is positive, yet my honest conviction for a new entry "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-22",
+      "tradesToday": 1,
+      "newRiskTodayPct": 3.53,
+      "lastTradeAt": "2026-06-22T12:14:16.240Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "DEXE",
+    "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+    "units": 0.02942050315042619,
+    "entryPrice": 15.593126602524135,
+    "costUsd": 0.5,
+    "openedAt": "2026-06-22T12:14:16.240Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 14.13,
+    "usdtUsd": 13.63,
+    "usd1Usd": 0.01,
+    "positionUsd": 0.49,
+    "inScopeUsd": 14.13,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "ad58795dfa33fd6d855e3673ab77dca30a2aeff3ec74cb300e75400341857df7",
+  "checksum": "a6c824013d63bb3bc2fa500254ad12a12785933309b6210b3ae958f4172bd62d"
+}
