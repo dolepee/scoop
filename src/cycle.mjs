@@ -15,6 +15,7 @@ import { loadPosition, savePosition, resolveToken, swap, USDT, USD1 } from "./ex
 import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
 import { isEligibleAddress } from "./allowlist.mjs";
 import { executableUsdAmount } from "./sizing.mjs";
+import { evaluateExitGuard } from "./exit-guard.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -139,8 +140,22 @@ async function main() {
     ? await formThesis({ movers, quotes, position, equityUsd })
     : { thesis: { action: "NO_TRADE", convictionBps: 0, rationale: "free_mode" }, provider: null, raw: null };
 
-  const proposal = thesis.action === "TRADE"
-    ? { kind: "TRADE", symbol: thesis.symbol, direction: thesis.direction, convictionBps: thesis.convictionBps }
+  const exitGuard = evaluateExitGuard({ position, quotes, positionUsd });
+  const effectiveThesis = exitGuard
+    ? {
+        action: "TRADE",
+        symbol: exitGuard.symbol,
+        direction: "exit",
+        convictionBps: 10000,
+        rationale: exitGuard.rationale,
+        invalidation: position.invalidation,
+        exitGuard,
+        modelThesis: thesis,
+      }
+    : thesis;
+
+  const proposal = effectiveThesis.action === "TRADE"
+    ? { kind: "TRADE", symbol: effectiveThesis.symbol, direction: effectiveThesis.direction, convictionBps: effectiveThesis.convictionBps }
     : { kind: "NONE" };
 
   // ---- Govern ------------------------------------------------------------
@@ -148,7 +163,7 @@ async function main() {
     ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
     : initialState(equityUsd, nowMs);
   if (!degraded) state = syncState(state, equityUsd, nowMs);
-  const complianceAction = chooseComplianceAction({ position, thesis, movers, nowMs });
+  const complianceAction = chooseComplianceAction({ position, thesis: effectiveThesis, movers, nowMs });
   const ruling = degraded
     ? { decision: "STAND_DOWN", symbol: null, sizedPct: 0, reasons: ["equity_degraded", ...equityNotes] }
     : decide(proposal, state, {
@@ -176,7 +191,7 @@ async function main() {
         const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
         const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
         const entryPrice = entryPriceFrom({ symbol: proposal.symbol, spendUsd, units });
-        savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: thesis.invalidation });
+        savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: effectiveThesis.invalidation });
         state = noteEntry(state, ruling.sizedPct, nowMs);
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
       } else {
@@ -265,7 +280,13 @@ async function main() {
       moversTop: movers.slice(0, 6),
       quotes,
     },
-    thesis: { ...thesis, provider, rawHash: raw ? sha256(canonical(raw)) : null, rawPreview: raw ? String(raw).slice(0, 280) : null },
+    thesis: {
+      ...effectiveThesis,
+      provider: exitGuard ? "deterministic:invalidation-guard" : provider,
+      modelProvider: exitGuard ? provider : undefined,
+      rawHash: raw ? sha256(canonical(raw)) : null,
+      rawPreview: raw ? String(raw).slice(0, 280) : null,
+    },
     governor: { state: { ...state }, ruling },
     position: loadPosition(),
     execution,
@@ -285,7 +306,7 @@ async function main() {
   console.log("SCOOP_CYCLE_COMPLETE");
   console.log(`modes=paid:${PAID},trade:${TRADE}`);
   console.log(`equityUsd=${equityUsd} dataSpend=$${budget.spentUsd}`);
-  console.log(`thesis=${thesis.action}${thesis.symbol ? ":" + thesis.symbol : ""} conviction=${thesis.convictionBps}`);
+  console.log(`thesis=${effectiveThesis.action}${effectiveThesis.symbol ? ":" + effectiveThesis.symbol : ""} conviction=${effectiveThesis.convictionBps}`);
   console.log(`decision=${ruling.decision} reasons=${ruling.reasons.join("|")}`);
   console.log(`receipt=${file}`);
   console.log(`checksum=${receipt.checksum}`);
