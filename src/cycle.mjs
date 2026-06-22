@@ -14,6 +14,7 @@ import { formThesis } from "./thesis.mjs";
 import { loadPosition, savePosition, resolveToken, swap, USDT, USD1 } from "./executor.mjs";
 import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
 import { isEligibleAddress } from "./allowlist.mjs";
+import { executableUsdAmount } from "./sizing.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -166,8 +167,12 @@ async function main() {
       if (proposal.direction === "enter") {
         if (position) throw new Error("position_already_open");
         const token = resolveToken(proposal.symbol);
-        const spendUsd = Math.min((ruling.sizedPct / 100) * equityUsd, usdtUsd * 0.98);
-        if (spendUsd < MIN_LIVE_TRADE_USD) throw new Error(`trade_size_below_min:${spendUsd.toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
+        const spendUsd = executableUsdAmount({
+          targetUsd: (ruling.sizedPct / 100) * equityUsd,
+          maxUsd: usdtUsd * 0.98,
+          minUsd: MIN_LIVE_TRADE_USD,
+        });
+        if (spendUsd === null) throw new Error(`trade_size_below_min:${((ruling.sizedPct / 100) * equityUsd).toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
         const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
         const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
         const entryPrice = entryPriceFrom({ symbol: proposal.symbol, spendUsd, units });
@@ -188,8 +193,12 @@ async function main() {
     try {
       if (position) throw new Error("position_already_open");
       const token = resolveToken(ruling.symbol);
-      const spendUsd = Math.min(ruling.complianceUsd, usdtUsd * 0.98);
-      if (spendUsd < MIN_LIVE_TRADE_USD) throw new Error(`insufficient_usdt_for_compliance:${spendUsd.toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
+      const spendUsd = executableUsdAmount({
+        targetUsd: ruling.complianceUsd,
+        maxUsd: usdtUsd * 0.98,
+        minUsd: MIN_LIVE_TRADE_USD,
+      });
+      if (spendUsd === null) throw new Error(`insufficient_usdt_for_compliance:${Math.min(ruling.complianceUsd, usdtUsd * 0.98).toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
       const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
       const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
       const entryPrice = entryPriceFrom({ symbol: ruling.symbol, spendUsd, units });
