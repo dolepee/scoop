@@ -13,6 +13,9 @@ on:
       trade:
         description: "Arm real trading for this run (1 = execute)"
         default: "0"
+      force:
+        description: "Bypass freshness guard (1 = run even if a recent receipt exists)"
+        default: "0"
 
 permissions:
   contents: write
@@ -31,6 +34,7 @@ jobs:
       BANKR_LLM_KEY: ${{ secrets.BANKR_LLM_KEY }}
       SCOOP_PAID: "1"
       SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
+      SCOOP_FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
       SCOOP_MIN_RUN_INTERVAL_MINUTES: "50"
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
@@ -56,6 +60,7 @@ jobs:
         run: node src/should-run-cycle.mjs
         env:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
+          SCOOP_FORCE_RUN: ${{ env.SCOOP_FORCE_RUN }}
 
       - name: restore agent wallet keystore
         if: steps.freshness.outputs.should_run == 'true'

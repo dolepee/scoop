@@ -2,6 +2,7 @@ import { appendFileSync } from "node:fs";
 import { latestReceipt } from "./receipts.mjs";
 
 const eventName = process.env.GITHUB_EVENT_NAME || process.env.GITHUB_EVENT_NAME_FALLBACK || "";
+const forceRun = String(process.env.SCOOP_FORCE_RUN || "").trim() === "1";
 const minIntervalMinutes = Number(process.env.SCOOP_MIN_RUN_INTERVAL_MINUTES ?? 50);
 const outputPath = process.env.GITHUB_OUTPUT;
 
@@ -22,8 +23,8 @@ function skip(reason, ageMinutes) {
   console.log(`SCOOP_SCHEDULE_GUARD skip reason=${reason}${ageMinutes !== undefined ? ` age_minutes=${ageMinutes}` : ""}`);
 }
 
-if (eventName !== "schedule") {
-  allow(`event:${eventName || "manual"}`);
+if (forceRun) {
+  allow(`force:${eventName || "manual"}`);
   process.exit(0);
 }
 
