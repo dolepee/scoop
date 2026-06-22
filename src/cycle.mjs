@@ -7,7 +7,7 @@
 // enabled; every stage of that ramp leaves the same chained receipts.
 
 import { execFileSync } from "node:child_process";
-import { decide, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
+import { DEFAULT_CONFIG, decide, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
 import { writeReceipt, latestReceipt, sha256, canonical } from "./receipts.mjs";
 import { buyMovers, buyQuotes, newDataBudget, describeCalls } from "./scout-rest.mjs";
 import { formThesis } from "./thesis.mjs";
@@ -20,7 +20,7 @@ import { join } from "node:path";
 const PAID = process.env.SCOOP_PAID === "1";
 const TRADE = process.env.SCOOP_TRADE === "1";
 const DATA_CAP_USD = Number(process.env.SCOOP_DATA_CAP_USD ?? 0.05);
-const MIN_COMPLIANCE_USD = 0.25;
+const MIN_LIVE_TRADE_USD = DEFAULT_CONFIG.minTradeUsd;
 const STATE_FILE = join(process.cwd(), "state", "governor-state.json");
 const WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
 
@@ -167,6 +167,7 @@ async function main() {
         if (position) throw new Error("position_already_open");
         const token = resolveToken(proposal.symbol);
         const spendUsd = Math.min((ruling.sizedPct / 100) * equityUsd, usdtUsd * 0.98);
+        if (spendUsd < MIN_LIVE_TRADE_USD) throw new Error(`trade_size_below_min:${spendUsd.toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
         const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
         const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
         const entryPrice = entryPriceFrom({ symbol: proposal.symbol, spendUsd, units });
@@ -188,7 +189,7 @@ async function main() {
       if (position) throw new Error("position_already_open");
       const token = resolveToken(ruling.symbol);
       const spendUsd = Math.min(ruling.complianceUsd, usdtUsd * 0.98);
-      if (spendUsd < MIN_COMPLIANCE_USD) throw new Error("insufficient_usdt_for_compliance");
+      if (spendUsd < MIN_LIVE_TRADE_USD) throw new Error(`insufficient_usdt_for_compliance:${spendUsd.toFixed(2)}<${MIN_LIVE_TRADE_USD}`);
       const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
       const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
       const entryPrice = entryPriceFrom({ symbol: ruling.symbol, spendUsd, units });

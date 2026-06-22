@@ -28,6 +28,8 @@ export const DEFAULT_CONFIG = {
   giveBackPct: 10,
   // Hard per-trade position cap as % of current equity.
   maxPositionPct: 35,
+  // Minimum live trade notional. Smaller swaps leak edge to data/route friction.
+  minTradeUsd: 2,
   // Total new risk that may be opened within one UTC day, % of equity.
   maxDailyNewRiskPct: 50,
   // Minimum model conviction (basis points) to consider a trade at all.
@@ -35,8 +37,8 @@ export const DEFAULT_CONFIG = {
   // From this UTC hour, with zero trades today, the compliance valve opens.
   // Midday UTC leaves retry room before the contest day closes.
   complianceHourUtc: 12,
-  // Size of the compliance trade in USD (tiny, fee-bounded, in-scope).
-  complianceUsd: 0.5,
+  // Size of the compliance trade in USD. Must clear minTradeUsd.
+  complianceUsd: 2,
 };
 
 export function initialState(startEquityUsd, nowMs) {
@@ -108,11 +110,24 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
       return maybeCompliance("VETO", reasons, state, context, config);
     }
 
-    // Size: conviction scales into the risk budget, hard-capped.
+    // Size: conviction scales into the risk budget, hard-capped, and must
+    // clear the live minimum notional so route/data friction does not dominate.
     const convictionFactor = Math.min(1, (proposal.convictionBps - config.minConvictionBps) / 4500);
-    const sizedPct = Math.min(
+    const minTradePct = equityUsd > 0 ? (config.minTradeUsd / equityUsd) * 100 : Infinity;
+    const ceilingPct = Math.min(
       config.maxPositionPct,
-      Math.max(5, riskBudgetPct * 0.5 * (0.5 + convictionFactor)),
+      config.maxDailyNewRiskPct - state.newRiskTodayPct,
+      riskBudgetPct,
+    );
+    if (minTradePct > ceilingPct) {
+      return maybeCompliance("VETO", [
+        ...reasons,
+        `trade_size_below_min:${round2((ceilingPct / 100) * equityUsd)}<${config.minTradeUsd}`,
+      ], state, context, config);
+    }
+    const sizedPct = Math.min(
+      ceilingPct,
+      Math.max(5, minTradePct, riskBudgetPct * 0.5 * (0.5 + convictionFactor)),
       config.maxDailyNewRiskPct - state.newRiskTodayPct,
     );
     return verdict("APPROVE", proposal.symbol, round2(sizedPct), [

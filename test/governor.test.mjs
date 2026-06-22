@@ -198,12 +198,12 @@ test("compliance buy fits rebaselined funded-equity room without loosening the f
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 0.5);
+  assert.equal(r.complianceUsd, 2);
   assert.ok(r.sizedPct > 0);
   assert.equal(state.floorUsd, 12.308200000000001);
 });
 
-test("compliance buy still fits after live-week x402 spend drawdown", () => {
+test("compliance buy stands down when the old live-week balance cannot support the minimum notional", () => {
   const state = {
     startEquityUsd: 15.01,
     peakEquityUsd: 15.04,
@@ -223,8 +223,33 @@ test("compliance buy still fits after live-week x402 spend drawdown", () => {
       complianceAction: COMPLIANCE_BUY,
     },
   );
+  assert.equal(r.decision, "STAND_DOWN");
+  assert.ok(r.reasons.some((reason) => reason.startsWith("compliance_risk_budget_exhausted")));
+});
+
+test("compliance buy fits after the wallet is topped up without loosening the ratchet", () => {
+  let state = {
+    startEquityUsd: 15.01,
+    peakEquityUsd: 15.04,
+    floorUsd: 13.536,
+    dayKey: "2026-06-22",
+    tradesToday: 0,
+    newRiskTodayPct: 0,
+    lastTradeAt: "2026-06-19T13:18:59.797Z",
+  };
+  state = syncState(state, 24, NOON);
+  const r = decide(
+    { kind: "NONE" },
+    state,
+    {
+      equityUsd: 24,
+      nowMs: NOON,
+      tradeArmed: true,
+      complianceAction: COMPLIANCE_BUY,
+    },
+  );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 0.5);
-  assert.ok(r.sizedPct < 4);
+  assert.equal(r.complianceUsd, 2);
+  assert.ok(r.sizedPct > 8 && r.sizedPct < 9);
   assert.ok(r.reasons.includes("compliance_buy:zero_trades_after_cutoff"));
 });
