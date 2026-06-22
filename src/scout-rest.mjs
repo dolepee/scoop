@@ -53,7 +53,22 @@ function paidGet(url, budget) {
     const payload = JSON.parse(out.slice(start));
     return { url, costUsd: COST_PER_CALL_USD, dataSource: "x402-paid", responseHash: sha256(canonical(payload)), payload };
   } catch (error) {
-    return freeFallbackGet(url, error);
+    try {
+      return freeFallbackGet(url, error);
+    } catch (fallbackError) {
+      // Resilience: a paid + free data miss must DEGRADE the cycle, never crash it.
+      // Returning (not throwing) lets the cycle proceed with no movers — the
+      // governor stands down on new entries, the open position is still managed,
+      // and a receipt is committed. A data hiccup never costs a scored day.
+      return {
+        url,
+        skipped: true,
+        failed: true,
+        reason: "data_unavailable",
+        dataSource: "none",
+        error: String(fallbackError?.message || fallbackError).slice(0, 200),
+      };
+    }
   }
 }
 
