@@ -198,7 +198,33 @@ test("compliance buy fits rebaselined funded-equity room without loosening the f
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 1);
+  assert.equal(r.complianceUsd, 0.5);
   assert.ok(r.sizedPct > 0);
   assert.equal(state.floorUsd, 12.308200000000001);
+});
+
+test("compliance buy still fits after live-week x402 spend drawdown", () => {
+  const state = {
+    startEquityUsd: 15.01,
+    peakEquityUsd: 15.04,
+    floorUsd: 13.536,
+    dayKey: "2026-06-22",
+    tradesToday: 0,
+    newRiskTodayPct: 0,
+    lastTradeAt: "2026-06-19T13:18:59.797Z",
+  };
+  const r = decide(
+    { kind: "NONE" },
+    state,
+    {
+      equityUsd: 14.2,
+      nowMs: NOON,
+      tradeArmed: true,
+      complianceAction: COMPLIANCE_BUY,
+    },
+  );
+  assert.equal(r.decision, "COMPLIANCE_BUY");
+  assert.equal(r.complianceUsd, 0.5);
+  assert.ok(r.sizedPct < 4);
+  assert.ok(r.reasons.includes("compliance_buy:zero_trades_after_cutoff"));
 });

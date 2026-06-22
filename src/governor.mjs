@@ -36,7 +36,7 @@ export const DEFAULT_CONFIG = {
   // Midday UTC leaves retry room before the contest day closes.
   complianceHourUtc: 12,
   // Size of the compliance trade in USD (tiny, fee-bounded, in-scope).
-  complianceUsd: 1,
+  complianceUsd: 0.5,
 };
 
 export function initialState(startEquityUsd, nowMs) {

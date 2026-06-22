@@ -20,6 +20,7 @@ import { join } from "node:path";
 const PAID = process.env.SCOOP_PAID === "1";
 const TRADE = process.env.SCOOP_TRADE === "1";
 const DATA_CAP_USD = Number(process.env.SCOOP_DATA_CAP_USD ?? 0.05);
+const MIN_COMPLIANCE_USD = 0.25;
 const STATE_FILE = join(process.cwd(), "state", "governor-state.json");
 const WALLET = "0x5927a9662588f5609154488111E8ee7f4075513C";
 
@@ -187,7 +188,7 @@ async function main() {
       if (position) throw new Error("position_already_open");
       const token = resolveToken(ruling.symbol);
       const spendUsd = Math.min(ruling.complianceUsd, usdtUsd * 0.98);
-      if (spendUsd < 1) throw new Error("insufficient_usdt_for_compliance");
+      if (spendUsd < MIN_COMPLIANCE_USD) throw new Error("insufficient_usdt_for_compliance");
       const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
       const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
       const entryPrice = entryPriceFrom({ symbol: ruling.symbol, spendUsd, units });
