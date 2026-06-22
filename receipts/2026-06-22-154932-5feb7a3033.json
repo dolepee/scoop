@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-22T15:49:32.044Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "52ffa658f11bccc3889eeb8e76f8aaf5634b14de41b53afe685c849cdf9f9583"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,SLX,IP&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "72739996d258fbeeda92e56c0ff63b98e36861015ecaf26866b015da2dae198f"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.93464471,
+        "change24h": 26.65745541,
+        "change7d": -3.22472532,
+        "volume24h": 61222450.99664534,
+        "marketCap": 1505958893.1454542,
+        "priceUsd": 17.985103061806647,
+        "heat": 23.37
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.18536386,
+        "change24h": 10.7508725,
+        "change7d": 50.52424433,
+        "volume24h": 65013021.58103736,
+        "marketCap": 4667988114.110338,
+        "priceUsd": 14.956937253464519,
+        "heat": 17.77
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.82771295,
+        "change24h": 4.72033688,
+        "change7d": 6.40616383,
+        "volume24h": 39198464.65005716,
+        "marketCap": 50455372.50092104,
+        "priceUsd": 0.20775991406548874,
+        "heat": 8.16
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 1.38562374,
+        "change24h": 1.75786141,
+        "change7d": 1.21396961,
+        "volume24h": 40049151.34854161,
+        "marketCap": 114488932.61350459,
+        "priceUsd": 0.32156208417074184,
+        "heat": 6.1
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 1.57435326,
+        "change24h": 1.16905271,
+        "change7d": -0.34699062,
+        "volume24h": 138997279.46470445,
+        "marketCap": 1170448480.9416926,
+        "priceUsd": 75.95522438151477,
+        "heat": 5.84
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": 0.51770509,
+        "change24h": 4.83062535,
+        "change7d": -17.07596974,
+        "volume24h": 39532377.61517576,
+        "marketCap": 344784638.54761595,
+        "priceUsd": 0.9786317447068184,
+        "heat": 3.82
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 14.956937253464519,
+        "change1h": -0.18536386,
+        "change24h": 10.7508725,
+        "change7d": 50.52424433,
+        "volume24h": 65013021.58103736,
+        "volumeChange24h": 37.8037
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 17.985103061806647,
+        "change1h": -0.93464471,
+        "change24h": 26.65745541,
+        "change7d": -3.22472532,
+        "volume24h": 61222450.99664534,
+        "volumeChange24h": 289.0906
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.20775991406548874,
+        "change1h": 0.82771295,
+        "change24h": 4.72033688,
+        "change7d": 6.40616383,
+        "volume24h": 39198464.65005716,
+        "volumeChange24h": -24.3765
+      },
+      {
+        "symbol": "IP",
+        "priceUsd": 0.32156208417074184,
+        "change1h": 1.38562374,
+        "change24h": 1.75786141,
+        "change7d": 1.21396961,
+        "volume24h": 40049151.34854161,
+        "volumeChange24h": 4.779
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "DEXE is up 26.66% in 24h with massive 289% volume surge, but the 1h momentum is negative (-0.93%) and the existing position is already profitable, suggesting a potential consolidation phase.",
+    "invalidation": "If DEXE breaks above $18.50 on sustained hourly volume, the uptrend may resume.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "cf6e11aff455b21d56a7b8c02cfd47ceca1f7008e588f41bbd27cbb707dda518",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"DEXE is up 26.66% in 24h with massive 289% volume surge, but the 1h momentum is negative (-0.93%) and the existing position is already profitable, suggesting a potential con"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-22",
+      "tradesToday": 1,
+      "newRiskTodayPct": 3.53,
+      "lastTradeAt": "2026-06-22T12:14:16.240Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "DEXE",
+    "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+    "units": 0.02942050315042619,
+    "entryPrice": 15.593126602524135,
+    "costUsd": 0.5,
+    "openedAt": "2026-06-22T12:14:16.240Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 14.13,
+    "usdtUsd": 13.59,
+    "usd1Usd": 0.01,
+    "positionUsd": 0.53,
+    "inScopeUsd": 14.13,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "c3eb78858f18b9e006491b0f29916d4fe6da4fe55e2753629c5ea4253ca9c351",
+  "checksum": "5feb7a3033f3660ea20592a477192e9f8caf4daf0c095cdd8da51a8bfb59ada8"
+}
