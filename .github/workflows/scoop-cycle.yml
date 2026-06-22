@@ -7,7 +7,7 @@ name: Scoop Cycle
 
 on:
   schedule:
-    - cron: "7 * * * *"
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:
     inputs:
       trade:
@@ -32,6 +32,7 @@ jobs:
       SCOOP_PAID: "1"
       SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
+      SCOOP_MIN_RUN_INTERVAL_MINUTES: "50"
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - uses: actions/checkout@v4
@@ -50,19 +51,29 @@ jobs:
           git pull --ff-only origin master
           npm run receipts:verify
 
+      - name: scheduled freshness guard
+        id: freshness
+        run: node src/should-run-cycle.mjs
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+
       - name: restore agent wallet keystore
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           mkdir -p ~/.twak && chmod 700 ~/.twak
           echo "${{ secrets.TWAK_WALLET_JSON_B64 }}" | base64 -d > ~/.twak/wallet.json
           chmod 600 ~/.twak/wallet.json
 
       - name: run cycle
+        if: steps.freshness.outputs.should_run == 'true'
         run: node src/cycle.mjs
 
       - name: verify receipt chain
+        if: steps.freshness.outputs.should_run == 'true'
         run: npm run receipts:verify
 
       - name: guard against stale head
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           git fetch origin master
           if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/master)" ]; then
@@ -71,9 +82,11 @@ jobs:
           fi
 
       - name: build dashboard feed
+        if: steps.freshness.outputs.should_run == 'true'
         run: node src/buildFeed.mjs
 
       - name: commit receipt
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           git add receipts/ state/ web/public/data/feed.json
           if git diff --staged --quiet; then
