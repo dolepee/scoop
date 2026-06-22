@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-22T19:10:25.886Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f7ee63edf6c42242da1bb2e93c18c9033ac1b5f19ad4c34c07faaef33ca77a9e"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,DEXE,STG,GWEI&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ef3c586f66261387f80a2c442da06ff71539aad844a659356cff7c32da66f0ee"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 6.48641691,
+        "change24h": 19.01255293,
+        "change7d": 66.97529337,
+        "volume24h": 64489930.05447939,
+        "marketCap": 5092495543.888519,
+        "priceUsd": 16.317123019925464,
+        "heat": 48.52
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.75771289,
+        "change24h": 27.51580197,
+        "change7d": -5.38079395,
+        "volume24h": 68262490.12878582,
+        "marketCap": 1501963716.092643,
+        "priceUsd": 17.937390158504954,
+        "heat": 24.44
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 2.81251433,
+        "change24h": 8.06296321,
+        "change7d": 1.27974787,
+        "volume24h": 20505836.73683274,
+        "marketCap": 146565713.3047545,
+        "priceUsd": 0.22174961689390987,
+        "heat": 16.69
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": -0.44529127,
+        "change24h": 18.11600908,
+        "change7d": -16.65146366,
+        "volume24h": 53512686.35949279,
+        "marketCap": 212016506.5212424,
+        "priceUsd": 0.12115228944070995,
+        "heat": 14.28
+      },
+      {
+        "symbol": "UB",
+        "name": "Unibase",
+        "change1h": 3.42611133,
+        "change24h": 2.28849931,
+        "change7d": -5.31541125,
+        "volume24h": 61458719.11907116,
+        "marketCap": 280842772.8042233,
+        "priceUsd": 0.11233710912168932,
+        "heat": 11.77
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": -0.00798258,
+        "change24h": 1.46354277,
+        "change7d": 3.85429079,
+        "volume24h": 568743898.0301052,
+        "marketCap": 31494382739.84386,
+        "priceUsd": 0.3320800950926152,
+        "heat": 2.02
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.317123019925464,
+        "change1h": 6.48641691,
+        "change24h": 19.01255293,
+        "change7d": 66.97529337,
+        "volume24h": 64489930.05447939,
+        "volumeChange24h": 28.8436
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 17.937390158504954,
+        "change1h": -0.75771289,
+        "change24h": 27.51580197,
+        "change7d": -5.38079395,
+        "volume24h": 68262490.12878582,
+        "volumeChange24h": 364.2647
+      },
+      {
+        "symbol": "STG",
+        "priceUsd": 0.22174961689390987,
+        "change1h": 2.81251433,
+        "change24h": 8.06296321,
+        "change7d": 1.27974787,
+        "volume24h": 20505836.73683274,
+        "volumeChange24h": 32.4391
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.12115228944070995,
+        "change1h": -0.44529127,
+        "change24h": 18.11600908,
+        "change7d": -16.65146366,
+        "volume24h": 53512686.35949279,
+        "volumeChange24h": -15.7941
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No symbol presents a clear, high-conviction long entry with strong momentum and volume support above the 5500 conviction floor.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "6d597f0218de4e81886d4fdcd710a166a2297a1e0be1b780a9cab113b63a6e00",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction long entry with strong momentum and volume support above the 5500 conviction floor.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-22",
+      "tradesToday": 2,
+      "newRiskTodayPct": 3.53,
+      "lastTradeAt": "2026-06-22T16:18:33.441Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 24.02,
+    "usdtUsd": 24.01,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 24.02,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "64202c9834a4ff099e44f81eb1e9457d446d58dc8115aa48124a9ae189cb1eee",
+  "checksum": "5ce8315b9010cc27a7758c5e8c897b1cb46cc71062df4d5380f01d6a3c712bd1"
+}
