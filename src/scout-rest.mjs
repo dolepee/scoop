@@ -7,7 +7,7 @@
 //   2. quotes/latest for the top candidates: precise 1h/24h/7d momentum and
 //      volume for the shortlist the thesis layer will reason over.
 //
-// Every call is paid ($0.01 USD1 on BSC, gasless eip3009) by the same
+// Every call is paid ($0.01 USDT on BSC via Permit2) by the same
 // self-custody wallet that trades, recorded with cost + response hash.
 
 import { execFileSync } from "node:child_process";
@@ -15,8 +15,8 @@ import { sha256, canonical } from "./receipts.mjs";
 import { isEligible } from "./allowlist.mjs";
 
 const BASE = "https://pro-api.coinmarketcap.com/x402";
-const MAX_PAYMENT_ATOMIC = "10000000000000000"; // $0.01 (18dp USD1)
-const USD1 = "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d";
+const MAX_PAYMENT_ATOMIC = "10000000000000000"; // $0.01 (18dp USDT on BSC)
+const USDT = "0x55d398326f99059fF775485246999027B3197955";
 export const COST_PER_CALL_USD = 0.01;
 
 export function newDataBudget(capUsd) {
@@ -40,10 +40,10 @@ function paidGet(url, budget) {
       [
         "twak", "x402", "request", url,
         "--prefer-network", "bsc",
-        "--prefer-method", "eip3009",
-        "--prefer-asset", USD1,
+        "--prefer-method", "permit2-exact",
+        "--prefer-asset", USDT,
         "--max-payment", MAX_PAYMENT_ATOMIC,
-        "--yes", "--json",
+        "--yes", "--auto-approve", "--json",
       ],
       { encoding: "utf8", timeout: 90_000, env: process.env },
     );
