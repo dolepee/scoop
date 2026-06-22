@@ -1,0 +1,184 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-22T11:18:20.258Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "eeebd177166411c8337ae724cfd993b39fee60922c9c7208e0bc7e658e91026f"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,SLX,SKYAI,BSB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "39b02ab3d1b625ae23215d6a8a9d6138f9ad5c7a57199ca57e9299cd853ff613"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 7.72691839,
+        "change24h": 20.20392432,
+        "change7d": -10.96690143,
+        "volume24h": 44232321.26159298,
+        "marketCap": 1413479040.9046764,
+        "priceUsd": 16.8806508212697,
+        "heat": 41.74
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.27100231,
+        "change24h": 6.3634261,
+        "change7d": 4.40964518,
+        "volume24h": 30955843.36176365,
+        "marketCap": 49828818.56484222,
+        "priceUsd": 0.2051799550747043,
+        "heat": 10.84
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": -0.06605169,
+        "change24h": 7.37624317,
+        "change7d": 11.80038852,
+        "volume24h": 21307918.23432457,
+        "marketCap": 370951600.3108719,
+        "priceUsd": 0.3709516003108719,
+        "heat": 8.95
+      },
+      {
+        "symbol": "BSB",
+        "name": "Block Street",
+        "change1h": 2.38311722,
+        "change24h": -2.96537253,
+        "change7d": 20.35918392,
+        "volume24h": 15882348.69322831,
+        "marketCap": 74754076.75902028,
+        "priceUsd": 0.33574703237826314,
+        "heat": 7.24
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 0.65195302,
+        "change24h": 2.28262541,
+        "change7d": 4.25387481,
+        "volume24h": 119279687.79827522,
+        "marketCap": 1175077437.4616976,
+        "priceUsd": 76.25596272547364,
+        "heat": 4.88
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": -2.42799713,
+        "change24h": 14.07938741,
+        "change7d": -17.36401113,
+        "volume24h": 85676205.97603083,
+        "marketCap": 148450508.8826145,
+        "priceUsd": 0.06113617023110794,
+        "heat": 4.19
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "DEXE",
+        "priceUsd": 16.8806508212697,
+        "change1h": 7.72691839,
+        "change24h": 20.20392432,
+        "change7d": -10.96690143,
+        "volume24h": 44232321.26159298,
+        "volumeChange24h": 175.4866
+      },
+      {
+        "symbol": "BSB",
+        "priceUsd": 0.33574703237826314,
+        "change1h": 2.38311722,
+        "change24h": -2.96537253,
+        "change7d": 20.35918392,
+        "volume24h": 15882348.69322831,
+        "volumeChange24h": 0.3773
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.2051799550747043,
+        "change1h": 1.27100231,
+        "change24h": 6.3634261,
+        "change7d": 4.40964518,
+        "volume24h": 30955843.36176365,
+        "volumeChange24h": -52.6691
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.3709516003108719,
+        "change1h": -0.06605169,
+        "change24h": 7.37624317,
+        "change7d": 11.80038852,
+        "volume24h": 21307918.23432457,
+        "volumeChange24h": 2.3832
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "DEXE",
+    "direction": "enter",
+    "convictionBps": 7800,
+    "rationale": "DEXE shows the strongest momentum with a 20.2% 24h surge and a 7.7% 1h gain, backed by high volume of $44.2M and a 175.5% volume spike, indicating strong buying pressure.",
+    "invalidation": "If price drops below $16.50 (support break) or 1h momentum reverses negative.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "66a5c3d70db75cad0789e70e0cbdb061d473a7f8307065ff6cd501551dc9f89d",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"DEXE\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 7800,\n  \"rationale\": \"DEXE shows the strongest momentum with a 20.2% 24h surge and a 7.7% 1h gain, backed by high volume of $44.2M and a 175.5% volume spike, indicating strong buying pressure.\","
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 15.04,
+      "floorUsd": 13.536,
+      "dayKey": "2026-06-22",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-19T13:18:59.797Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "DEXE",
+      "sizedPct": 5,
+      "reasons": [
+        "risk_budget_pct:4.54",
+        "conviction_bps:7800"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 14.18,
+    "usdtUsd": 14.17,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 14.18,
+    "inScopeWarning": false,
+    "floorUsd": 13.536,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "7979efb5d0d7661cb6e1c2c3fc77c89cafc5aab07f4054a56cd6bb4f90ac5788",
+  "checksum": "f40c51937815b97732d58298ce04510ba6f8b4ce356196055936bddcf7089076"
+}
