@@ -1,0 +1,196 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-22T23:48:50.966Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "56c47fc33fb05bff74cf5e8b393578f3ec402af30d733e761212387c11d14ad2"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,GWEI,IP&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e7a62aebf5bb5495cef9af8b6fe6feaf33f12ff107cce3218bf7123acd7de163"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.96345501,
+        "change24h": 26.85677675,
+        "change7d": -4.38387807,
+        "volume24h": 73883934.996148,
+        "marketCap": 1516989349.8359303,
+        "priceUsd": 18.11683567502735,
+        "heat": 29.09
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.13558293,
+        "change24h": 7.37911347,
+        "change7d": 77.21515463,
+        "volume24h": 60222439.5921663,
+        "marketCap": 5288669905.101638,
+        "priceUsd": 16.945695231267162,
+        "heat": 19.37
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": -0.41253911,
+        "change24h": 20.43784575,
+        "change7d": -20.2674569,
+        "volume24h": 54331758.35507414,
+        "marketCap": 207996734.87700197,
+        "priceUsd": 0.11885527707257255,
+        "heat": 16.16
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 4.0182985,
+        "change24h": 0.44012098,
+        "change7d": 1.34401614,
+        "volume24h": 47626350.08912793,
+        "marketCap": 113466378.027114,
+        "priceUsd": 0.31867633422405656,
+        "heat": 12.7
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.69190247,
+        "change24h": 2.37320788,
+        "change7d": 14.66318017,
+        "volume24h": 110134567.39840752,
+        "marketCap": 51255721.9964653,
+        "priceUsd": 0.21105551043460877,
+        "heat": 6.65
+      },
+      {
+        "symbol": "STG",
+        "name": "Stargate Finance",
+        "change1h": 0.58640702,
+        "change24h": 2.82650432,
+        "change7d": 0.72100421,
+        "volume24h": 21191814.88519639,
+        "marketCap": 135752791.46025717,
+        "priceUsd": 0.2053899839179805,
+        "heat": 4.69
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.945695231267162,
+        "change1h": 0.13558293,
+        "change24h": 7.37911347,
+        "change7d": 77.21515463,
+        "volume24h": 60222439.5921663,
+        "volumeChange24h": -6.7351
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 18.11683567502735,
+        "change1h": 0.96345501,
+        "change24h": 26.85677675,
+        "change7d": -4.38387807,
+        "volume24h": 73883934.996148,
+        "volumeChange24h": 418.8815
+      },
+      {
+        "symbol": "IP",
+        "priceUsd": 0.31867633422405656,
+        "change1h": 4.0182985,
+        "change24h": 0.44012098,
+        "change7d": 1.34401614,
+        "volume24h": 47626350.08912793,
+        "volumeChange24h": 37.2729
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.11885527707257255,
+        "change1h": -0.41253911,
+        "change24h": 20.43784575,
+        "change7d": -20.2674569,
+        "volume24h": 54331758.35507414,
+        "volumeChange24h": -14.296
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "LAB position is up 7.38% in 24h and still above its invalidation level of $16.00, while DEXE's 26.86% surge lacks volume confirmation with a -6.74% volume change, and no other mover shows a strong, volume-supported setup.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "1cd600005d0384f039880375cb95aae74a5bf58bfc0cd5a1cc14a52150f5baa0",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": null,\n    \"direction\": null,\n    \"convictionBps\": 0,\n    \"rationale\": \"LAB position is up 7.38% in 24h and still above its invalidation level of $16.00, while DEXE's 26.86% surge lacks volume confirmation with a -6.74% volume change, and "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-22",
+      "tradesToday": 3,
+      "newRiskTodayPct": 11.87,
+      "lastTradeAt": "2026-06-22T22:52:24.569Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.11726733869194601,
+    "entryPrice": 17.055047230617856,
+    "costUsd": 2,
+    "openedAt": "2026-06-22T22:52:24.569Z",
+    "invalidation": "Price closes below $16.00, indicating the uptrend has broken.",
+    "recoveryOf": {
+      "file": "2026-06-22-221308-f160ead2f4.json",
+      "checksum": "f160ead2f4d682f3da4bec76949e9f437c8513ad8e6b0946e18e4f68ebb4073e",
+      "reason": "trade_size_below_min:2.00<2"
+    }
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 23.9,
+    "usdtUsd": 21.93,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.96,
+    "inScopeUsd": 23.9,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "6532f7c164ce7d94bb83299ff9d253646f5d82a041f11349364377d2f9eecac8",
+  "checksum": "b3b065b70b448c944b170cabae3d744fddb2851297d5b48aad7fc3eb41c1310e"
+}
