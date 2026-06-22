@@ -1,1 +1,10 @@
-null
+{
+  "symbol": "DEXE",
+  "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+  "units": 0.02942050315042619,
+  "entryPrice": 15.593126602524135,
+  "costUsd": 0.5,
+  "openedAt": "2026-06-22T12:14:16.240Z",
+  "complianceTrade": true,
+  "complianceReason": "daily minimum, no conviction signal today"
+}
