@@ -1,10 +1,16 @@
-export function evaluateExitGuard({ position, quotes = [], positionUsd = 0 }) {
+export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minUsefulPositionUsd = 0 }) {
   if (!position?.symbol || !position?.invalidation) return null;
   const invalidationUsd = parseInvalidationPrice(position.invalidation);
   if (!Number.isFinite(invalidationUsd) || invalidationUsd <= 0) return null;
 
   const observed = observedPriceUsd({ position, quotes, positionUsd });
   if (!observed) return null;
+
+  const usefulFloor = Number(minUsefulPositionUsd);
+  const liveValue = Number(positionUsd);
+  if (Number.isFinite(usefulFloor) && usefulFloor > 0 && Number.isFinite(liveValue) && liveValue > 0 && liveValue < usefulFloor) {
+    return exit(position, "position_below_live_trade_min", invalidationUsd, observed, `${position.symbol} live value is $${formatPrice(liveValue)}, below the $${formatPrice(usefulFloor)} minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.`);
+  }
 
   if (observed.priceUsd <= invalidationUsd) {
     return exit(position, "stored_invalidation_price_breached", invalidationUsd, observed, `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`);

@@ -144,7 +144,7 @@ async function main() {
     ? momentumFallbackThesis({ movers, quotes })
     : null;
   const decisionThesis = fallbackThesis ?? thesis;
-  const exitGuard = evaluateExitGuard({ position, quotes, positionUsd });
+  const exitGuard = evaluateExitGuard({ position, quotes, positionUsd, minUsefulPositionUsd: MIN_LIVE_TRADE_USD });
   const effectiveThesis = exitGuard
     ? {
         action: "TRADE",

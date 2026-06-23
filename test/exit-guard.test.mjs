@@ -37,6 +37,17 @@ test("does not force exit while the thesis level still holds", () => {
   assert.equal(guard, null);
 });
 
+test("forces exit when a carried position is below the useful live-trade minimum", () => {
+  const guard = evaluateExitGuard({
+    position: LAB_POSITION,
+    quotes: [{ symbol: "LAB", priceUsd: 16.90, change1h: 0.1 }],
+    positionUsd: 1.9,
+    minUsefulPositionUsd: 5,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "position_below_live_trade_min");
+});
+
 test("forces exit before invalidation when open loss and 1h momentum fade", () => {
   const guard = evaluateExitGuard({
     position: LAB_POSITION,
