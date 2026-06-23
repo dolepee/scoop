@@ -1,0 +1,185 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T19:15:40.979Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "daf16ca8d10c7976221c29db209b51c80e03973e5f67aeb65e29ddb8c4e9b2fa"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,DEXE,HOME,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "1939c47b3d26734abd818d6b65c616480ce242faa4efdd7b7451f00e5234265a"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 3.1087008,
+        "change24h": 27.57431539,
+        "change7d": -14.08339359,
+        "volume24h": 30851923.40515362,
+        "marketCap": 601400582.2315458,
+        "priceUsd": 2.0880756332050097,
+        "heat": 34.79
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.25881495,
+        "change24h": 27.38821138,
+        "change7d": 24.55398667,
+        "volume24h": 144657538.57468733,
+        "marketCap": 1919650309.8107111,
+        "priceUsd": 22.925664718817835,
+        "heat": 30.29
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": 2.05311262,
+        "change24h": 3.0339955,
+        "change7d": -23.59615415,
+        "volume24h": 24667918.97218842,
+        "marketCap": 86170525.72621253,
+        "priceUsd": 0.020933524028433407,
+        "heat": 5.65
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 2.93007122,
+        "change24h": -7.3229172,
+        "change7d": 23.28085833,
+        "volume24h": 58316045.58060111,
+        "marketCap": 4819557980.817069,
+        "priceUsd": 15.44258994375219,
+        "heat": 4.96
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 1.89337943,
+        "change24h": -0.61393521,
+        "change7d": -0.76637156,
+        "volume24h": 49119059.02407151,
+        "marketCap": 110623107.67488103,
+        "priceUsd": 0.3106583101766358,
+        "heat": 4.95
+      },
+      {
+        "symbol": "WLFI",
+        "name": "World Liberty Financial",
+        "change1h": 0.58148933,
+        "change24h": 1.37634172,
+        "change7d": -2.42721296,
+        "volume24h": 28561262.57430496,
+        "marketCap": 1871302987.9990518,
+        "priceUsd": 0.058893957327527675,
+        "heat": 2.76
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.44258994375219,
+        "change1h": 2.93007122,
+        "change24h": -7.3229172,
+        "change7d": 23.28085833,
+        "volume24h": 58316045.58060111,
+        "volumeChange24h": -10.2505
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.1018851104326517,
+        "change1h": 3.94435654,
+        "change24h": 28.48507393,
+        "change7d": -13.50927946,
+        "volume24h": 30887463.04015611,
+        "volumeChange24h": 40.3656
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.925664718817835,
+        "change1h": -0.25881495,
+        "change24h": 27.38821138,
+        "change7d": 24.55398667,
+        "volume24h": 144657538.57468733,
+        "volumeChange24h": 111.6861
+      },
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.020933524028433407,
+        "change1h": 2.05311262,
+        "change24h": 3.0339955,
+        "change7d": -23.59615415,
+        "volume24h": 24667918.97218842,
+        "volumeChange24h": -33.0993
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "enter",
+    "convictionBps": 7600,
+    "rationale": "Deterministic momentum fallback: BEAT has 3.94% 1h, 28.49% 24h, and $30.89M volume while no LLM setup cleared.",
+    "invalidation": "Exit if BEAT trades below $1.9758 or 1h momentum turns negative.",
+    "fallback": "deterministic_momentum",
+    "provider": "deterministic:momentum-fallback",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "9e876c88da1481843128ceb8fe02358d80123b8bc52c7bfd527fc7fcd439620e",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol shows a clear, volume-supported momentum breakout with a conviction above the 5500 threshold.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 3,
+      "newRiskTodayPct": 30.7,
+      "lastTradeAt": "2026-06-23T08:31:48.201Z"
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "trade_size_below_min:4.53<5"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 23.45,
+    "usdtUsd": 23.44,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.45,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "aaa60a35e393d3f5114bcdcfa544f3d6d4bc4f50f20e9358ed7643b25f58ac0e",
+  "checksum": "92fdbecedae5a0bbf6b7cbd758291a42cc00816c3c77c6a5f06189bc5aa63fc5"
+}
