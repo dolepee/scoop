@@ -1,0 +1,204 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T06:52:19.514Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f9ce8616a9c1529946ee7a5fa33faafcd5debfef15e3da50d59d09151f71b9d0"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,GWEI,TRX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f088b347bb7f6e99d9fe9df77a158cd243e63ffe2a829009c29854a6a6d2c12f"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.58044641,
+        "change24h": 63.43672177,
+        "change7d": 14.75171922,
+        "volume24h": 120367611.73308195,
+        "marketCap": 1868992966.7296286,
+        "priceUsd": 22.32068304216156,
+        "heat": 63.91
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -1.12165277,
+        "change24h": 12.07560568,
+        "change7d": 67.97087578,
+        "volume24h": 44675805.94034621,
+        "marketCap": 5229416323.325612,
+        "priceUsd": 16.755837827391584,
+        "heat": 18.91
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 1.81781291,
+        "change24h": 14.84892222,
+        "change7d": -14.60932745,
+        "volume24h": 54291122.12599327,
+        "marketCap": 213674200.61404228,
+        "priceUsd": 0.12209954320802416,
+        "heat": 18.11
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": 0.00242594,
+        "change24h": 0.86954016,
+        "change7d": 4.20252242,
+        "volume24h": 576484803.506201,
+        "marketCap": 31432810029.391945,
+        "priceUsd": 0.33142714381133376,
+        "heat": 1.51
+      },
+      {
+        "symbol": "U",
+        "name": "United Stables",
+        "change1h": 0.01034296,
+        "change24h": 0.026531,
+        "change7d": 0.00040163,
+        "volume24h": 131269378.13656852,
+        "marketCap": 1011840714.7201271,
+        "priceUsd": 0.9998834257842207,
+        "heat": 0.06
+      },
+      {
+        "symbol": "HTX",
+        "name": "HTX",
+        "change1h": -0.16515381,
+        "change24h": 0.19401425,
+        "change7d": 1.98322186,
+        "volume24h": 37609132.15961135,
+        "marketCap": 1569713497.047796,
+        "priceUsd": 0.0000017331348285027605,
+        "heat": 0
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.755837827391584,
+        "change1h": -1.12165277,
+        "change24h": 12.07560568,
+        "change7d": 67.97087578,
+        "volume24h": 44675805.94034621,
+        "volumeChange24h": -44.3022
+      },
+      {
+        "symbol": "TRX",
+        "priceUsd": 0.33142714381133376,
+        "change1h": 0.00242594,
+        "change24h": 0.86954016,
+        "change7d": 4.20252242,
+        "volume24h": 576484803.506201,
+        "volumeChange24h": 50.301
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.32068304216156,
+        "change1h": -0.58044641,
+        "change24h": 63.43672177,
+        "change7d": 14.75171922,
+        "volume24h": 120367611.73308195,
+        "volumeChange24h": 508.8676
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.12209954320802416,
+        "change1h": 1.81781291,
+        "change24h": 14.84892222,
+        "change7d": -14.60932745,
+        "volume24h": 54291122.12599327,
+        "volumeChange24h": -9.2115
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "LAB",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "LAB live value is $1.99, below the $5 minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.",
+    "invalidation": "Price closes below $16.00, indicating the uptrend has broken.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "LAB",
+      "direction": "exit",
+      "reason": "position_below_live_trade_min",
+      "invalidationUsd": 16,
+      "priceUsd": 16.755837827391584,
+      "priceSource": "paid_quote",
+      "rationale": "LAB live value is $1.99, below the $5 minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "rationale": "No clear momentum or story strength with volume support among eligible symbols; DEXE's 63.44% 24h surge is cooling with -0.58% 1h change, LAB is in a downtrend from entry, and others lack strong setups.",
+      "invalidation": "N/A"
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "51ff79543c182400329fb3faac069dffea6b5a4e6840451056d7673219a6831d",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"No clear momentum or story strength with volume support among eligible symbols; DEXE's 63.44% 24h surge is cooling with -0.58% 1h change, LAB is in a downtrend fro"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-23T06:52:19.514Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "LAB",
+      "sizedPct": 8.364859184531316,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0xedda1fe9913fe23bfaaaac78f7dd022b3d26aa9b8b2f03461225aaec491b6a47",
+    "closedUnits": 0.11700708935144365
+  },
+  "counters": {
+    "equityUsd": 23.79,
+    "usdtUsd": 21.79,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.99,
+    "inScopeUsd": 23.79,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "08e604764a166094237f6018ff2f29663ebd497f6227408d94d4009ee871dfa4",
+  "checksum": "b566cf1b5b0cb6faa528119fb75c3a85abaa7b4679a1fa9e497149714434dc4a"
+}
