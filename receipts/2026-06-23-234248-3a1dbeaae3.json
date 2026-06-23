@@ -1,0 +1,185 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T23:42:48.998Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "5019633142edbe3240cf48f16886f56c1b6e31e95b595400a17db1c7cf818d22"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,DEXE,SLX,SAHARA&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "916d2e3dfd90b44278d2fa13d357c7e40eee213854e081b28db808a2af598ff6"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 6.51054388,
+        "change24h": 37.08901636,
+        "change7d": -7.2198037,
+        "volume24h": 61202762.93723401,
+        "marketCap": 662004205.499727,
+        "priceUsd": 2.298492704237216,
+        "heat": 55.54
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.04229332,
+        "change24h": 28.70219687,
+        "change7d": 25.03008168,
+        "volume24h": 150075575.070267,
+        "marketCap": 1959938133.2035682,
+        "priceUsd": 23.406807105342736,
+        "heat": 32.33
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 4.73150002,
+        "change24h": 6.93487712,
+        "change7d": 25.96781725,
+        "volume24h": 153860956.07582563,
+        "marketCap": 55022073.41087579,
+        "priceUsd": 0.226564202718747,
+        "heat": 25.02
+      },
+      {
+        "symbol": "SAHARA",
+        "name": "Sahara AI",
+        "change1h": 4.05861054,
+        "change24h": 0.5257687,
+        "change7d": -15.44248159,
+        "volume24h": 43478778.85567197,
+        "marketCap": 42303323.040384434,
+        "priceUsd": 0.012416666192189967,
+        "heat": 10.39
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -0.01631991,
+        "change24h": 5.49498337,
+        "change7d": -4.73572992,
+        "volume24h": 154536238.47666442,
+        "marketCap": 159344367.32584018,
+        "priceUsd": 0.08852464851435565,
+        "heat": 4.74
+      },
+      {
+        "symbol": "AVAX",
+        "name": "Avalanche",
+        "change1h": 0.28766979,
+        "change24h": 4.08201097,
+        "change7d": -6.05532537,
+        "volume24h": 343485160.04543215,
+        "marketCap": 2795617858.999675,
+        "priceUsd": 6.474755450487141,
+        "heat": 4.04
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.298492704237216,
+        "change1h": 6.51054388,
+        "change24h": 37.08901636,
+        "change7d": -7.2198037,
+        "volume24h": 61202762.93723401,
+        "volumeChange24h": 160.2933
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 23.406807105342736,
+        "change1h": -0.04229332,
+        "change24h": 28.70219687,
+        "change7d": 25.03008168,
+        "volume24h": 150075575.070267,
+        "volumeChange24h": 103.2126
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.226564202718747,
+        "change1h": 4.73150002,
+        "change24h": 6.93487712,
+        "change7d": 25.96781725,
+        "volume24h": 153860956.07582563,
+        "volumeChange24h": 39.7349
+      },
+      {
+        "symbol": "SAHARA",
+        "priceUsd": 0.012416666192189967,
+        "change1h": 4.05861054,
+        "change24h": 0.5257687,
+        "change7d": -15.44248159,
+        "volume24h": 43478778.85567197,
+        "volumeChange24h": 67.7017
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "enter",
+    "convictionBps": 7600,
+    "rationale": "Deterministic momentum fallback: BEAT has 6.51% 1h, 37.09% 24h, and $61.2M volume while no LLM setup cleared.",
+    "invalidation": "Exit if BEAT trades below $2.1606 or 1h momentum turns negative.",
+    "fallback": "deterministic_momentum",
+    "provider": "deterministic:momentum-fallback",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "9bd4b73d9827574a9a65a8a19728a46f0f36d93d36cec4c0bb0538a1ce534f12",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol presents a clear, high-conviction momentum setup with volume support above the 5500 threshold; BEAT shows strong 1h and 24h gains but has a negative 7d trend and high heat, suggesting pot"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 3,
+      "newRiskTodayPct": 30.7,
+      "lastTradeAt": "2026-06-23T08:31:48.201Z"
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "trade_size_below_min:4.51<5"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 23.39,
+    "usdtUsd": 23.38,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.39,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3f1c0c3d9982565aa7dcab24259d974c356e67a1ad47f0bee31599f6ac38196b",
+  "checksum": "3a1dbeaae39182079807be4d24d845e494245002c3bc5e81a5e999138566a795"
+}
