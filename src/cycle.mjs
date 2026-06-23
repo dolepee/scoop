@@ -200,10 +200,12 @@ async function main() {
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
       } else {
         if (!position) throw new Error("no_position_to_exit");
-        const res = swap({ amount: String(position.units), from: position.address, to: USDT.address, slippagePct: 5 });
+        const closeUnits = closeableUnits(position);
+        if (closeUnits <= 0) throw new Error("no_live_units_to_exit");
+        const res = swap({ amount: formatTokenAmount(closeUnits), from: position.address, to: USDT.address, slippagePct: 5 });
         savePosition(null);
         state = noteTrade(state, nowMs);
-        execution = { executed: true, kind: "exit", txHash: res.txHash, closedUnits: position.units };
+        execution = { executed: true, kind: "exit", txHash: res.txHash, closedUnits: closeUnits };
       }
     } catch (error) {
       execution = { executed: false, error: String(error.message).slice(0, 200) };
@@ -247,7 +249,9 @@ async function main() {
   } else if (TRADE && ruling.decision === "COMPLIANCE_SELL") {
     try {
       if (!position?.complianceTrade) throw new Error("no_compliance_position_to_sell");
-      const res = swap({ amount: String(position.units), from: position.address, to: USDT.address, slippagePct: 5 });
+      const closeUnits = closeableUnits(position);
+      if (closeUnits <= 0) throw new Error("no_live_units_to_exit");
+      const res = swap({ amount: formatTokenAmount(closeUnits), from: position.address, to: USDT.address, slippagePct: 5 });
       savePosition(null);
       state = noteTrade(state, nowMs);
       execution = {
@@ -256,7 +260,7 @@ async function main() {
         complianceTrade: true,
         reason: COMPLIANCE_REASON,
         txHash: res.txHash,
-        closedUnits: position.units,
+        closedUnits: closeUnits,
       };
     } catch (error) {
       execution = { executed: false, error: String(error.message).slice(0, 200) };
@@ -320,4 +324,15 @@ await main();
 
 function round2(value) {
   return Math.round(value * 100) / 100;
+}
+
+function closeableUnits(position) {
+  const liveUnits = tokenUnits(position.address);
+  const recorded = Number(position.units) || 0;
+  const base = liveUnits > 0 ? Math.min(liveUnits, recorded || liveUnits) : recorded;
+  return base > 0 ? base * 0.999 : 0;
+}
+
+function formatTokenAmount(value) {
+  return Number(value).toFixed(18).replace(/0+$/, "").replace(/\.$/, "");
 }
