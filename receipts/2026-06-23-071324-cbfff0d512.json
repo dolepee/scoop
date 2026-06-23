@@ -1,0 +1,196 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T07:13:24.674Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "080d69e9d0683ec38d04a56db8a2e4095361aa03396871e865cd3152655316da"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,GWEI,SLX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "6af4b052bf4125c6e42bbf70140935b7c7e5d1bffec198653d974b3f6f3aab3d"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 11.22550124,
+        "change24h": 75.42195391,
+        "change7d": 24.97403283,
+        "volume24h": 134021878.1033836,
+        "marketCap": 1995309854.4549975,
+        "priceUsd": 23.829238325129694,
+        "heat": 112.84
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 2.99035936,
+        "change24h": 10.9346832,
+        "change7d": 65.76267715,
+        "volume24h": 45473865.98451234,
+        "marketCap": 5170135102.213436,
+        "priceUsd": 16.5658918629185,
+        "heat": 29.77
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 2.84439559,
+        "change24h": 13.61449411,
+        "change7d": -14.7299735,
+        "volume24h": 54260268.56887138,
+        "marketCap": 213345239.22901815,
+        "priceUsd": 0.12191156527372465,
+        "heat": 19.94
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 1.04312514,
+        "change24h": -0.26280963,
+        "change7d": 11.29016205,
+        "volume24h": 108855535.10218784,
+        "marketCap": 47461081.51435543,
+        "priceUsd": 0.1954303323535594,
+        "heat": 4.56
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": 0.89289321,
+        "change24h": -1.29590503,
+        "change7d": 3.02550434,
+        "volume24h": 20683523.21886035,
+        "marketCap": 74468312.28815003,
+        "priceUsd": 0.03384923285825001,
+        "heat": 1.84
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": 0.03803328,
+        "change24h": 0.73196641,
+        "change7d": 4.32126939,
+        "volume24h": 569696824.2295218,
+        "marketCap": 31441206705.016922,
+        "priceUsd": 0.33151559534475994,
+        "heat": 1.49
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.5658918629185,
+        "change1h": 2.99035936,
+        "change24h": 10.9346832,
+        "change7d": 65.76267715,
+        "volume24h": 45473865.98451234,
+        "volumeChange24h": -42.6822
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 23.829238325129694,
+        "change1h": 11.22550124,
+        "change24h": 75.42195391,
+        "change7d": 24.97403283,
+        "volume24h": 134021878.1033836,
+        "volumeChange24h": 581.014
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.1954303323535594,
+        "change1h": 1.04312514,
+        "change24h": -0.26280963,
+        "change7d": 11.29016205,
+        "volume24h": 108855535.10218784,
+        "volumeChange24h": 262.3509
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.12191156527372465,
+        "change1h": 2.84439559,
+        "change24h": 13.61449411,
+        "change7d": -14.7299735,
+        "volume24h": 54260268.56887138,
+        "volumeChange24h": -8.5685
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "DEXE",
+    "direction": "enter",
+    "convictionBps": 7800,
+    "rationale": "DEXE shows explosive momentum with +75.42% in 24h, +11.23% in 1h, and massive volume surge of 581% supporting the breakout.",
+    "invalidation": "Price falls below $22.50, indicating a failed breakout.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7a19cf79e1e4ea407ccadb58e8d8225affd90d1f309e087a72c0f265e2563d22",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"DEXE\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 7800,\n  \"rationale\": \"DEXE shows explosive momentum with +75.42% in 24h, +11.23% in 1h, and massive volume surge of 581% supporting the breakout.\",\n  \"invalidation\": \"Price falls below $22.50, i"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 2,
+      "newRiskTodayPct": 30.7,
+      "lastTradeAt": "2026-06-23T07:13:24.674Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "DEXE",
+      "sizedPct": 30.7,
+      "reasons": [
+        "risk_budget_pct:8.98",
+        "stop_risk_pct:8",
+        "conviction_bps:7800"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "DEXE",
+    "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+    "units": 0.3050113668762249,
+    "entryPrice": 22.28821650354937,
+    "costUsd": 7.3,
+    "openedAt": "2026-06-23T07:13:24.674Z",
+    "invalidation": "Price falls below $22.50, indicating a failed breakout."
+  },
+  "execution": {
+    "executed": true,
+    "kind": "enter",
+    "txHash": "0x2bd41697d37f1da65b73459b0c857a36aa26edf8f72451a4597f204e8abf6276",
+    "spentUsd": 7.3,
+    "units": 0.3050113668762249
+  },
+  "counters": {
+    "equityUsd": 23.75,
+    "usdtUsd": 23.74,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.75,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "b566cf1b5b0cb6faa528119fb75c3a85abaa7b4679a1fa9e497149714434dc4a",
+  "checksum": "cbfff0d512fc1423753248061a38899c9dc8e1da0806c49a2e6effda90933fcc"
+}

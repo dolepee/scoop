@@ -1,1 +1,9 @@
-null
+{
+  "symbol": "DEXE",
+  "address": "0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e",
+  "units": 0.3050113668762249,
+  "entryPrice": 22.28821650354937,
+  "costUsd": 7.3,
+  "openedAt": "2026-06-23T07:13:24.674Z",
+  "invalidation": "Price falls below $22.50, indicating a failed breakout."
+}
