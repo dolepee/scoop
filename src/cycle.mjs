@@ -70,9 +70,10 @@ function carriedPositionUsd(prevValue, costUsd) {
 }
 
 function entryPriceFrom({ symbol, spendUsd, units }) {
+  if (units > 0 && spendUsd > 0) return spendUsd / units;
   const quoted = priceUsd(symbol);
   if (quoted > 0) return quoted;
-  return units > 0 ? spendUsd / units : 0;
+  return 0;
 }
 
 async function main() {
