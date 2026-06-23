@@ -1,0 +1,215 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T06:33:54.437Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "0cee25cfa47022b256b5039a221a397a05c49c6263f014b1b1e2a00874d66cc1"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,GWEI,TRX&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "08e3db9ee56c2e0c481a351a93f12ae483c86563c6d6546dd762ab692126c99b"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -1.84163048,
+        "change24h": 59.36366931,
+        "change7d": 11.16098993,
+        "volume24h": 118637762.15126194,
+        "marketCap": 1806112099.2389014,
+        "priceUsd": 21.569720391332215,
+        "heat": 55.51
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -3.21675893,
+        "change24h": 9.68321982,
+        "change7d": 63.97258001,
+        "volume24h": 43748970.92007784,
+        "marketCap": 5120230368.119255,
+        "priceUsd": 16.405989575626634,
+        "heat": 9.63
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": -2.50019059,
+        "change24h": 14.67184957,
+        "change7d": -18.25268208,
+        "volume24h": 54012739.51559561,
+        "marketCap": 208922558.15185523,
+        "priceUsd": 0.11938431894391727,
+        "heat": 4.43
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": -0.23658738,
+        "change24h": 0.846542,
+        "change7d": 4.10658156,
+        "volume24h": 572575588.1264905,
+        "marketCap": 31396500051.052296,
+        "priceUsd": 0.33104437518910734,
+        "heat": 0.75
+      },
+      {
+        "symbol": "U",
+        "name": "United Stables",
+        "change1h": 0.02790007,
+        "change24h": 0.02543848,
+        "change7d": 0.00974627,
+        "volume24h": 131360227.36572476,
+        "marketCap": 1011902369.9543359,
+        "priceUsd": 0.9999443524161514,
+        "heat": 0.11
+      },
+      {
+        "symbol": "HTX",
+        "name": "HTX",
+        "change1h": -0.22171313,
+        "change24h": 0.20533669,
+        "change7d": 2.1331034,
+        "volume24h": 37647423.2673265,
+        "marketCap": 1570854488.5760646,
+        "priceUsd": 0.0000017343946075391184,
+        "heat": -0.14
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.405989575626634,
+        "change1h": -3.21675893,
+        "change24h": 9.68321982,
+        "change7d": 63.97258001,
+        "volume24h": 43748970.92007784,
+        "volumeChange24h": -45.8046
+      },
+      {
+        "symbol": "TRX",
+        "priceUsd": 0.33104437518910734,
+        "change1h": -0.23658738,
+        "change24h": 0.846542,
+        "change7d": 4.10658156,
+        "volume24h": 572575588.1264905,
+        "volumeChange24h": 50.7198
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 21.569720391332215,
+        "change1h": -1.84163048,
+        "change24h": 59.36366931,
+        "change7d": 11.16098993,
+        "volume24h": 118637762.15126194,
+        "volumeChange24h": 508.2648
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.11938431894391727,
+        "change1h": -2.50019059,
+        "change24h": 14.67184957,
+        "change7d": -18.25268208,
+        "volume24h": 54012739.51559561,
+        "volumeChange24h": -10.1009
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "LAB",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "LAB is down -3.81% from entry and the paid quote shows -3.22% over 1h; exiting before the hard invalidation is hit.",
+    "invalidation": "Price closes below $16.00, indicating the uptrend has broken.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "LAB",
+      "direction": "exit",
+      "reason": "position_momentum_faded",
+      "invalidationUsd": 16,
+      "priceUsd": 16.405989575626634,
+      "priceSource": "paid_quote",
+      "rationale": "LAB is down -3.81% from entry and the paid quote shows -3.22% over 1h; exiting before the hard invalidation is hit."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "rationale": "LAB is down -3.22% in the last hour and is trading below my invalidation level of $16.00, but no other symbol shows a clear, high-conviction momentum setup with sufficient volume support to justify a new entry.",
+      "invalidation": "N/A"
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "95fd87299201c690663635eb8042084e2fd6523f818897a2adeb88bc0e5824fa",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": null,\n    \"direction\": null,\n    \"convictionBps\": 0,\n    \"rationale\": \"LAB is down -3.22% in the last hour and is trading below my invalidation level of $16.00, but no other symbol shows a clear, high-conviction momentum setup with suffic"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-22T22:52:24.569Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "LAB",
+      "sizedPct": 8.350818296265212,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.11726733869194601,
+    "entryPrice": 17.055047230617856,
+    "costUsd": 2,
+    "openedAt": "2026-06-22T22:52:24.569Z",
+    "invalidation": "Price closes below $16.00, indicating the uptrend has broken.",
+    "recoveryOf": {
+      "file": "2026-06-22-221308-f160ead2f4.json",
+      "checksum": "f160ead2f4d682f3da4bec76949e9f437c8513ad8e6b0946e18e4f68ebb4073e",
+      "reason": "trade_size_below_min:2.00<2"
+    }
+  },
+  "execution": {
+    "executed": false,
+    "error": "twak failed: Note: --password [redacted] visible in shell history. Use `twak wallet keychain save` or TWAK_WALLET_PASSWORD instead.\nSwapping 0.11726733869194601 LAB -> 1.94922782917660558 USDT via Liq"
+  },
+  "counters": {
+    "equityUsd": 23.83,
+    "usdtUsd": 21.83,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.99,
+    "inScopeUsd": 23.83,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "23d45fd4073f66277f567389902d58eb6225408ddce101d9ef68681c2fdb3b77",
+  "checksum": "439e10f2577391ca8a5cbd1c09da9311a9d474f420192839d3eb5bbb568dcd06"
+}
