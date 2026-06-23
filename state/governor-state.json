@@ -2,8 +2,8 @@
   "startEquityUsd": 15.01,
   "peakEquityUsd": 24.02,
   "floorUsd": 21.618,
-  "dayKey": "2026-06-22",
-  "tradesToday": 3,
-  "newRiskTodayPct": 11.87,
+  "dayKey": "2026-06-23",
+  "tradesToday": 0,
+  "newRiskTodayPct": 0,
   "lastTradeAt": "2026-06-22T22:52:24.569Z"
 }
