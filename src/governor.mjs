@@ -27,9 +27,12 @@ export const DEFAULT_CONFIG = {
   // floor = max(floor, peak * (1 - giveBackPct/100))
   giveBackPct: 10,
   // Hard per-trade position cap as % of current equity.
-  maxPositionPct: 35,
+  maxPositionPct: 45,
   // Minimum live trade notional. Smaller swaps leak edge to data/route friction.
-  minTradeUsd: 2,
+  minTradeUsd: 5,
+  // Sizing treats the stop/invalidation band as the capital at risk, not the
+  // whole notional. A 45% notional entry with an 8% stop risks about 3.6%.
+  assumedStopLossPct: 8,
   // Total new risk that may be opened within one UTC day, % of equity.
   maxDailyNewRiskPct: 50,
   // Minimum model conviction (basis points) to consider a trade at all.
@@ -38,7 +41,7 @@ export const DEFAULT_CONFIG = {
   // Midday UTC leaves retry room before the contest day closes.
   complianceHourUtc: 12,
   // Size of the compliance trade in USD. Must clear minTradeUsd.
-  complianceUsd: 2,
+  complianceUsd: 5,
 };
 
 export function initialState(startEquityUsd, nowMs) {
@@ -100,7 +103,7 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
     if ((proposal.convictionBps ?? 0) < config.minConvictionBps) {
       reasons.push(`conviction_below_floor:${proposal.convictionBps ?? 0}<${config.minConvictionBps}`);
     }
-    if (riskBudgetPct < 4) {
+    if (riskBudgetPct < 1.5) {
       reasons.push(`risk_budget_exhausted:${riskBudgetPct.toFixed(2)}pct_to_floor`);
     }
     if (state.newRiskTodayPct >= config.maxDailyNewRiskPct) {
@@ -114,10 +117,12 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
     // clear the live minimum notional so route/data friction does not dominate.
     const convictionFactor = Math.min(1, (proposal.convictionBps - config.minConvictionBps) / 4500);
     const minTradePct = equityUsd > 0 ? (config.minTradeUsd / equityUsd) * 100 : Infinity;
+    const stopLossPct = Math.max(1, Number(config.assumedStopLossPct) || DEFAULT_CONFIG.assumedStopLossPct);
+    const stopRiskRoomPct = riskBudgetPct / (stopLossPct / 100);
     const ceilingPct = Math.min(
       config.maxPositionPct,
       config.maxDailyNewRiskPct - state.newRiskTodayPct,
-      riskBudgetPct,
+      stopRiskRoomPct,
     );
     if (minTradePct > ceilingPct) {
       return maybeCompliance("VETO", [
@@ -125,13 +130,15 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
         `trade_size_below_min:${round2((ceilingPct / 100) * equityUsd)}<${config.minTradeUsd}`,
       ], state, context, config);
     }
+    const aggression = 0.35 + 0.65 * convictionFactor;
     const sizedPct = Math.min(
       ceilingPct,
-      Math.max(5, minTradePct, riskBudgetPct * 0.5 * (0.5 + convictionFactor)),
+      Math.max(minTradePct, ceilingPct * aggression),
       config.maxDailyNewRiskPct - state.newRiskTodayPct,
     );
     return verdict("APPROVE", proposal.symbol, round2(sizedPct), [
       `risk_budget_pct:${round2(riskBudgetPct)}`,
+      `stop_risk_pct:${stopLossPct}`,
       `conviction_bps:${proposal.convictionBps}`,
     ]);
   }
@@ -171,12 +178,14 @@ function maybeCompliance(baseDecision, reasons, state, context, config) {
     }
     const riskBudgetPct = Math.max(0, ((equityUsd - state.floorUsd) / equityUsd) * 100);
     const sizedPct = round2((config.complianceUsd / equityUsd) * 100);
-    if (riskBudgetPct < sizedPct) {
+    const stopLossPct = Math.max(1, Number(config.assumedStopLossPct) || DEFAULT_CONFIG.assumedStopLossPct);
+    const stopRiskPct = sizedPct * (stopLossPct / 100);
+    if (riskBudgetPct < stopRiskPct) {
       return {
         decision: baseDecision,
         symbol: null,
         sizedPct: 0,
-        reasons: [...reasons, `compliance_risk_budget_exhausted:${riskBudgetPct.toFixed(2)}<${sizedPct}`],
+        reasons: [...reasons, `compliance_risk_budget_exhausted:${riskBudgetPct.toFixed(2)}<${round2(stopRiskPct)}`],
       };
     }
     return {

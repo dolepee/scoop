@@ -6,6 +6,7 @@ const LAB_POSITION = {
   symbol: "LAB",
   units: 0.11726733869194601,
   costUsd: 2,
+  entryPrice: 17.055047230617856,
   invalidation: "Price closes below $16.00, indicating the uptrend has broken.",
 };
 
@@ -30,10 +31,21 @@ test("forces exit when the paid quote breaches the stored invalidation", () => {
 test("does not force exit while the thesis level still holds", () => {
   const guard = evaluateExitGuard({
     position: LAB_POSITION,
-    quotes: [{ symbol: "LAB", priceUsd: 16.01 }],
+    quotes: [{ symbol: "LAB", priceUsd: 16.90, change1h: 0.1 }],
     positionUsd: 1.9,
   });
   assert.equal(guard, null);
+});
+
+test("forces exit before invalidation when open loss and 1h momentum fade", () => {
+  const guard = evaluateExitGuard({
+    position: LAB_POSITION,
+    quotes: [{ symbol: "LAB", priceUsd: 16.41, change1h: -3.12 }],
+    positionUsd: 1.9,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "position_momentum_faded");
+  assert.equal(guard.priceSource, "paid_quote");
 });
 
 test("falls back to wallet value when the paid quote is unavailable", () => {

@@ -10,7 +10,7 @@ import { execFileSync } from "node:child_process";
 import { DEFAULT_CONFIG, decide, initialState, noteEntry, noteTrade, syncState } from "./governor.mjs";
 import { writeReceipt, latestReceipt, sha256, canonical } from "./receipts.mjs";
 import { buyMovers, buyQuotes, newDataBudget, describeCalls } from "./scout-rest.mjs";
-import { formThesis } from "./thesis.mjs";
+import { formThesis, momentumFallbackThesis } from "./thesis.mjs";
 import { loadPosition, savePosition, resolveToken, swap, USDT, USD1 } from "./executor.mjs";
 import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
 import { isEligibleAddress } from "./allowlist.mjs";
@@ -140,6 +140,10 @@ async function main() {
     ? await formThesis({ movers, quotes, position, equityUsd })
     : { thesis: { action: "NO_TRADE", convictionBps: 0, rationale: "free_mode" }, provider: null, raw: null };
 
+  const fallbackThesis = !position && thesis.action !== "TRADE"
+    ? momentumFallbackThesis({ movers, quotes })
+    : null;
+  const decisionThesis = fallbackThesis ?? thesis;
   const exitGuard = evaluateExitGuard({ position, quotes, positionUsd });
   const effectiveThesis = exitGuard
     ? {
@@ -150,9 +154,9 @@ async function main() {
         rationale: exitGuard.rationale,
         invalidation: position.invalidation,
         exitGuard,
-        modelThesis: thesis,
+        modelThesis: decisionThesis,
       }
-    : thesis;
+    : decisionThesis;
 
   const proposal = effectiveThesis.action === "TRADE"
     ? { kind: "TRADE", symbol: effectiveThesis.symbol, direction: effectiveThesis.direction, convictionBps: effectiveThesis.convictionBps }
@@ -282,8 +286,8 @@ async function main() {
     },
     thesis: {
       ...effectiveThesis,
-      provider: exitGuard ? "deterministic:invalidation-guard" : provider,
-      modelProvider: exitGuard ? provider : undefined,
+      provider: exitGuard ? "deterministic:exit-guard" : fallbackThesis ? "deterministic:momentum-fallback" : provider,
+      modelProvider: exitGuard || fallbackThesis ? provider : undefined,
       rawHash: raw ? sha256(canonical(raw)) : null,
       rawPreview: raw ? String(raw).slice(0, 280) : null,
     },

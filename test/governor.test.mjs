@@ -198,7 +198,7 @@ test("compliance buy fits rebaselined funded-equity room without loosening the f
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 2);
+  assert.equal(r.complianceUsd, 5);
   assert.ok(r.sizedPct > 0);
   assert.equal(state.floorUsd, 12.308200000000001);
 });
@@ -217,7 +217,7 @@ test("compliance buy stands down when the old live-week balance cannot support t
     { kind: "NONE" },
     state,
     {
-      equityUsd: 14.2,
+      equityUsd: 13.8,
       nowMs: NOON,
       tradeArmed: true,
       complianceAction: COMPLIANCE_BUY,
@@ -249,7 +249,27 @@ test("compliance buy fits after the wallet is topped up without loosening the ra
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 2);
-  assert.ok(r.sizedPct > 8 && r.sizedPct < 9);
+  assert.equal(r.complianceUsd, 5);
+  assert.ok(r.sizedPct > 20 && r.sizedPct < 21);
   assert.ok(r.reasons.includes("compliance_buy:zero_trades_after_cutoff"));
+});
+
+test("entry sizing uses stop-risk room instead of treating full notional as lost", () => {
+  const state = {
+    startEquityUsd: 15.01,
+    peakEquityUsd: 24.02,
+    floorUsd: 21.618,
+    dayKey: "2026-06-23",
+    tradesToday: 0,
+    newRiskTodayPct: 0,
+    lastTradeAt: null,
+  };
+  const r = decide(
+    { kind: "TRADE", symbol: "CAKE", direction: "enter", convictionBps: 7200 },
+    state,
+    { equityUsd: 23.87, nowMs: NOON, tradeArmed: true },
+  );
+  assert.equal(r.decision, "APPROVE");
+  assert.ok(r.sizedPct >= 25, `expected meaningful deployment, got ${r.sizedPct}`);
+  assert.ok(r.reasons.includes("stop_risk_pct:8"));
 });

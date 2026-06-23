@@ -78,6 +78,48 @@ export function sanitize(p) {
   };
 }
 
+export function momentumFallbackThesis({ movers = [], quotes = [] }) {
+  const quoteBySymbol = new Map(quotes.map((q) => [String(q.symbol ?? "").toUpperCase(), q]));
+  const candidates = movers
+    .slice(0, 10)
+    .map((mover) => {
+      const symbol = String(mover.symbol ?? "").toUpperCase();
+      const quote = quoteBySymbol.get(symbol) ?? {};
+      const priceUsd = Number(quote.priceUsd ?? mover.priceUsd);
+      const change1h = Number(quote.change1h ?? mover.change1h);
+      const change24h = Number(quote.change24h ?? mover.change24h);
+      const change7d = Number(quote.change7d ?? mover.change7d);
+      const volume24h = Number(quote.volume24h ?? mover.volume24h);
+      const volumeChange24h = Number(quote.volumeChange24h ?? 0);
+      const heat = Number(mover.heat ?? (change1h * 3 + change24h + change7d * 0.15));
+      const overextensionPenalty = Math.max(0, change24h - 45) * 0.45;
+      const score = change1h * 5 + change24h * 0.45 + Math.max(0, volumeChange24h) * 0.035 + heat * 0.15 - overextensionPenalty;
+      return { symbol, priceUsd, change1h, change24h, change7d, volume24h, volumeChange24h, score };
+    })
+    .filter((c) =>
+      c.symbol &&
+      Number.isFinite(c.priceUsd) && c.priceUsd > 0 &&
+      Number.isFinite(c.change1h) && c.change1h >= 0.35 &&
+      Number.isFinite(c.change24h) && c.change24h >= 3 &&
+      Number.isFinite(c.volume24h) && c.volume24h >= 5_000_000,
+    )
+    .sort((a, b) => b.score - a.score);
+
+  const best = candidates[0];
+  if (!best || best.score < 4) return null;
+  const convictionBps = clampInt(5600 + best.score * 80, 5600, 7600);
+  const invalidation = best.priceUsd * 0.94;
+  return {
+    action: "TRADE",
+    symbol: best.symbol,
+    direction: "enter",
+    convictionBps,
+    rationale: `Deterministic momentum fallback: ${best.symbol} has ${fmt(best.change1h)}% 1h, ${fmt(best.change24h)}% 24h, and $${fmt(best.volume24h / 1_000_000)}M volume while no LLM setup cleared.`,
+    invalidation: `Exit if ${best.symbol} trades below $${formatPrice(invalidation)} or 1h momentum turns negative.`,
+    fallback: "deterministic_momentum",
+  };
+}
+
 function noTrade(reason) {
   return { action: "NO_TRADE", symbol: null, direction: null, convictionBps: 0, rationale: reason, invalidation: "" };
 }
@@ -85,6 +127,14 @@ function noTrade(reason) {
 function clampInt(x, lo, hi) {
   const n = Math.round(Number(x) || 0);
   return Math.max(lo, Math.min(hi, n));
+}
+
+function fmt(value) {
+  return Number(value).toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function formatPrice(value) {
+  return Number(value).toFixed(value >= 1 ? 4 : 8).replace(/0+$/, "").replace(/\.$/, "");
 }
 
 async function sha256Hex(text) {

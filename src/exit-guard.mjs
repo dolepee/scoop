@@ -4,18 +4,22 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0 }) {
   if (!Number.isFinite(invalidationUsd) || invalidationUsd <= 0) return null;
 
   const observed = observedPriceUsd({ position, quotes, positionUsd });
-  if (!observed || observed.priceUsd > invalidationUsd) return null;
+  if (!observed) return null;
 
-  return {
-    action: "FORCE_EXIT",
-    symbol: position.symbol,
-    direction: "exit",
-    reason: "stored_invalidation_price_breached",
-    invalidationUsd,
-    priceUsd: observed.priceUsd,
-    priceSource: observed.source,
-    rationale: `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`,
-  };
+  if (observed.priceUsd <= invalidationUsd) {
+    return exit(position, "stored_invalidation_price_breached", invalidationUsd, observed, `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`);
+  }
+
+  const entryPrice = Number(position.entryPrice);
+  const change1h = Number(observed.change1h);
+  if (Number.isFinite(entryPrice) && entryPrice > 0 && observed.source === "paid_quote") {
+    const openReturnPct = ((observed.priceUsd - entryPrice) / entryPrice) * 100;
+    if (openReturnPct <= -3 || (openReturnPct < 0 && Number.isFinite(change1h) && change1h <= -2.5)) {
+      return exit(position, "position_momentum_faded", invalidationUsd, observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry and the paid quote shows ${formatPct(change1h)} over 1h; exiting before the hard invalidation is hit.`);
+    }
+  }
+
+  return null;
 }
 
 export function parseInvalidationPrice(invalidation) {
@@ -30,7 +34,7 @@ export function parseInvalidationPrice(invalidation) {
 function observedPriceUsd({ position, quotes, positionUsd }) {
   const quote = quotes.find((item) => String(item?.symbol ?? "").toUpperCase() === String(position.symbol).toUpperCase());
   const quotePrice = Number(quote?.priceUsd);
-  if (Number.isFinite(quotePrice) && quotePrice > 0) return { priceUsd: quotePrice, source: "paid_quote" };
+  if (Number.isFinite(quotePrice) && quotePrice > 0) return { priceUsd: quotePrice, change1h: Number(quote?.change1h), source: "paid_quote" };
 
   const units = Number(position.units);
   const value = Number(positionUsd);
@@ -42,4 +46,21 @@ function observedPriceUsd({ position, quotes, positionUsd }) {
 
 function formatPrice(value) {
   return Number(value).toFixed(value >= 1 ? 4 : 8).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function formatPct(value) {
+  return `${Number(value).toFixed(2).replace(/0+$/, "").replace(/\.$/, "")}%`;
+}
+
+function exit(position, reason, invalidationUsd, observed, rationale) {
+  return {
+    action: "FORCE_EXIT",
+    symbol: position.symbol,
+    direction: "exit",
+    reason,
+    invalidationUsd,
+    priceUsd: observed.priceUsd,
+    priceSource: observed.source,
+    rationale,
+  };
 }
