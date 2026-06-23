@@ -1,0 +1,183 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T15:18:23.803Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "736835a261804b9d8cdf706dba122066bab52d226d5646d7e14aebc9f36a0c31"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,LAB,BEAT,ZAMA&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e2687be95c87357d0ffc33f4bf8b4a778473d1a48f163e9ec2546056232129bc"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.86417352,
+        "change24h": 25.57176502,
+        "change7d": 19.82904268,
+        "volume24h": 139154151.76254976,
+        "marketCap": 1879208279.1845014,
+        "priceUsd": 22.4426806930574,
+        "heat": 31.14
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 1.59353205,
+        "change24h": 2.91266136,
+        "change7d": 16.89889849,
+        "volume24h": 59958546.74203562,
+        "marketCap": 4817630291.240191,
+        "priceUsd": 15.436413335898719,
+        "heat": 10.23
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 0.97751915,
+        "change24h": 7.10778507,
+        "change7d": -40.55775918,
+        "volume24h": 22626710.20101776,
+        "marketCap": 531897509.6190601,
+        "priceUsd": 1.846759484463514,
+        "heat": 3.96
+      },
+      {
+        "symbol": "ZAMA",
+        "name": "Zama",
+        "change1h": -0.02885356,
+        "change24h": 1.39019134,
+        "change7d": 2.49265533,
+        "volume24h": 21299593.26974506,
+        "marketCap": 73140390.37821503,
+        "priceUsd": 0.03324563199009774,
+        "heat": 1.68
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.71198521,
+        "change24h": -2.88006559,
+        "change7d": 14.85649105,
+        "volume24h": 134024734.4592389,
+        "marketCap": 48959314.893622786,
+        "priceUsd": 0.20159960279390646,
+        "heat": 1.48
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": 0.05749032,
+        "change24h": -0.58951201,
+        "change7d": 4.06767651,
+        "volume24h": 572968799.0667369,
+        "marketCap": 31275729739.72142,
+        "priceUsd": 0.3297713701980305,
+        "heat": 0.19
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 15.436413335898719,
+        "change1h": 1.59353205,
+        "change24h": 2.91266136,
+        "change7d": 16.89889849,
+        "volume24h": 59958546.74203562,
+        "volumeChange24h": -8.8972
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 1.846759484463514,
+        "change1h": 0.97751915,
+        "change24h": 7.10778507,
+        "change7d": -40.55775918,
+        "volume24h": 22626710.20101776,
+        "volumeChange24h": -0.0694
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.4426806930574,
+        "change1h": 0.86417352,
+        "change24h": 25.57176502,
+        "change7d": 19.82904268,
+        "volume24h": 139154151.76254976,
+        "volumeChange24h": 132.4772
+      },
+      {
+        "symbol": "ZAMA",
+        "priceUsd": 0.03324563199009774,
+        "change1h": -0.02885356,
+        "change24h": 1.39019134,
+        "change7d": 2.49265533,
+        "volume24h": 21299593.26974506,
+        "volumeChange24h": -2.7741
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "DEXE",
+    "direction": "enter",
+    "convictionBps": 7200,
+    "rationale": "DEXE shows exceptional momentum with +25.57% 24h change and +19.83% 7d change, supported by a massive 132.48% volume surge to $139M.",
+    "invalidation": "Price falls below $21.50, indicating momentum exhaustion.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "8048d32c1fea32fc5e8b4ac9d47678fe7c53cde8368a824d116d3a8c11dc5281",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"DEXE\",\n  \"direction\": \"enter\",\n  \"convictionBps\": 7200,\n  \"rationale\": \"DEXE shows exceptional momentum with +25.57% 24h change and +19.83% 7d change, supported by a massive 132.48% volume surge to $139M.\",\n  \"invalidation\": \"Price falls below "
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 3,
+      "newRiskTodayPct": 30.7,
+      "lastTradeAt": "2026-06-23T08:31:48.201Z"
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "trade_size_below_min:4.53<5"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 23.48,
+    "usdtUsd": 23.47,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.48,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "aab64d919456670f7078660d23e7a5b554f6cf9415d47b91801187b976ec7c70",
+  "checksum": "4774c7f807cf5f229b43f9cd4fc086633d5ca427cb04eade003a76d49a376a05"
+}
