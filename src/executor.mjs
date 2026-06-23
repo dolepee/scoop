@@ -3,7 +3,7 @@
 // bookkeeping lives in state/position.json: Scoop holds at most ONE momentum
 // position at a time, parked in USDT otherwise.
 
-import { execFileSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { getEligibleToken } from "./allowlist.mjs";
@@ -13,7 +13,13 @@ export const USDT = requireEligibleToken("USDT");
 export const USD1 = requireEligibleToken("USD1");
 
 function twak(args, timeout = 120_000) {
-  const out = execFileSync("npx", ["twak", ...args, "--json"], { encoding: "utf8", timeout, env: process.env });
+  const fullArgs = ["twak", ...args, "--json"];
+  const res = spawnSync("npx", fullArgs, { encoding: "utf8", timeout, env: process.env });
+  const out = res.stdout ?? "";
+  if (res.status !== 0) {
+    const detail = sanitizeTwakError(`${res.stderr ?? ""}\n${out}`.trim() || `exit_${res.status}`);
+    throw new Error(`twak failed: ${detail}`);
+  }
   const startObj = out.indexOf("{");
   const startArr = out.indexOf("[");
   const idx = startArr >= 0 && (startArr < startObj || startObj < 0) ? startArr : startObj;
@@ -68,4 +74,12 @@ function requireEligibleToken(symbol) {
     decimals: token.decimals ?? 18,
     name: token.name ?? token.symbol,
   };
+}
+
+function sanitizeTwakError(message) {
+  const password = process.env.TWAK_WALLET_PASSWORD;
+  let text = String(message ?? "");
+  if (password) text = text.split(password).join("[redacted]");
+  text = text.replace(/--password\s+\S+/g, "--password [redacted]");
+  return text.slice(0, 500);
 }

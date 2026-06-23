@@ -200,7 +200,7 @@ async function main() {
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
       } else {
         if (!position) throw new Error("no_position_to_exit");
-        const res = swap({ amount: String(position.units), from: position.address, to: USDT.address });
+        const res = swap({ amount: String(position.units), from: position.address, to: USDT.address, slippagePct: 5 });
         savePosition(null);
         state = noteTrade(state, nowMs);
         execution = { executed: true, kind: "exit", txHash: res.txHash, closedUnits: position.units };
@@ -247,7 +247,7 @@ async function main() {
   } else if (TRADE && ruling.decision === "COMPLIANCE_SELL") {
     try {
       if (!position?.complianceTrade) throw new Error("no_compliance_position_to_sell");
-      const res = swap({ amount: String(position.units), from: position.address, to: USDT.address });
+      const res = swap({ amount: String(position.units), from: position.address, to: USDT.address, slippagePct: 5 });
       savePosition(null);
       state = noteTrade(state, nowMs);
       execution = {
