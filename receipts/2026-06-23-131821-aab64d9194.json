@@ -1,0 +1,185 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T13:18:21.224Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "447a8383006a99599d0d54f0e795251dd8e10e1244d7737428c8da8e11573522"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=GWEI,DEXE,PIEVERSE,AXS&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "b6eff1222c34c8f51d29133f1e2cb00a01a34e4cb3933dba6cd12138558d1dc6"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 8.17974271,
+        "change24h": 20.82361892,
+        "change7d": -9.30284666,
+        "volume24h": 56250327.24010063,
+        "marketCap": 224642835.58577666,
+        "priceUsd": 0.1283673346204438,
+        "heat": 43.97
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.28798653,
+        "change24h": 28.21398636,
+        "change7d": 23.33137215,
+        "volume24h": 135432544.28781122,
+        "marketCap": 1918864545.8231988,
+        "priceUsd": 22.91628063379268,
+        "heat": 30.85
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 1.82987772,
+        "change24h": -2.74131193,
+        "change7d": -2.38056343,
+        "volume24h": 23792101.10976601,
+        "marketCap": 182909559.8256307,
+        "priceUsd": 0.6886597552747514,
+        "heat": 2.39
+      },
+      {
+        "symbol": "AXS",
+        "name": "Axie Infinity",
+        "change1h": 0.57769331,
+        "change24h": -1.39861285,
+        "change7d": 3.64320354,
+        "volume24h": 54515627.83479157,
+        "marketCap": 180158383.53912896,
+        "priceUsd": 1.0360579615551329,
+        "heat": 0.88
+      },
+      {
+        "symbol": "U",
+        "name": "United Stables",
+        "change1h": 0.00625815,
+        "change24h": 0.01508709,
+        "change7d": 0.03655068,
+        "volume24h": 117147567.92517999,
+        "marketCap": 1012839141.4369419,
+        "priceUsd": 0.9998813957232978,
+        "heat": 0.04
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": -0.04103563,
+        "change24h": -0.62323027,
+        "change7d": 3.81892617,
+        "volume24h": 583418645.2872441,
+        "marketCap": 31226136922.309498,
+        "priceUsd": 0.329247984279857,
+        "heat": -0.17
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "AXS",
+        "priceUsd": 1.0360579615551329,
+        "change1h": 0.57769331,
+        "change24h": -1.39861285,
+        "change7d": 3.64320354,
+        "volume24h": 54515627.83479157,
+        "volumeChange24h": 12.9356
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.91628063379268,
+        "change1h": -0.28798653,
+        "change24h": 28.21398636,
+        "change7d": 23.33137215,
+        "volume24h": 135432544.28781122,
+        "volumeChange24h": 159.4428
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.6886597552747514,
+        "change1h": 1.82987772,
+        "change24h": -2.74131193,
+        "change7d": -2.38056343,
+        "volume24h": 23792101.10976601,
+        "volumeChange24h": 25.4635
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.1283673346204438,
+        "change1h": 8.17974271,
+        "change24h": 20.82361892,
+        "change7d": -9.30284666,
+        "volume24h": 56250327.24010063,
+        "volumeChange24h": 2.1264
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "GWEI",
+    "direction": "enter",
+    "convictionBps": 7600,
+    "rationale": "Deterministic momentum fallback: GWEI has 8.18% 1h, 20.82% 24h, and $56.25M volume while no LLM setup cleared.",
+    "invalidation": "Exit if GWEI trades below $0.12066529 or 1h momentum turns negative.",
+    "fallback": "deterministic_momentum",
+    "provider": "deterministic:momentum-fallback",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "cd638cc532939a86d36cb34083052edabe796eda583878cb64f7f1cbae393660",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"No symbol shows a clear, volume-supported momentum setup strong enough to meet the 5500 conviction floor for entry.\",\"invalidation\":\"N/A\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 3,
+      "newRiskTodayPct": 30.7,
+      "lastTradeAt": "2026-06-23T08:31:48.201Z"
+    },
+    "ruling": {
+      "decision": "VETO",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "trade_size_below_min:4.54<5"
+      ]
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 23.51,
+    "usdtUsd": 23.5,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.51,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "5d68e992e04d0792059b2f714918a7347071ff3b937cd494a881d451729432f8",
+  "checksum": "aab64d919456670f7078660d23e7a5b554f6cf9415d47b91801187b976ec7c70"
+}
