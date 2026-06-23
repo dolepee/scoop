@@ -1,0 +1,196 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-23T05:32:17.573Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "24a302183f30445abf74b45c666bd6f64c8b47b8231ed0b346f85ac1083f1983"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=DEXE,GWEI,LAB,ZRO&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "27580c652a2be94f6cf233658f95dd4585e8d42c73ead766b8ced7960b7bf72f"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -1.01765043,
+        "change24h": 62.49271612,
+        "change7d": 14.1989616,
+        "volume24h": 102444489.94619617,
+        "marketCap": 1855180781.310663,
+        "priceUsd": 22.1557292845261,
+        "heat": 61.57
+      },
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 2.03294405,
+        "change24h": 18.85665715,
+        "change7d": -16.05762016,
+        "volume24h": 54015208.44844383,
+        "marketCap": 214527678.52833223,
+        "priceUsd": 0.1225872448733327,
+        "heat": 22.55
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": -0.84769135,
+        "change24h": 13.46399686,
+        "change7d": 71.057452,
+        "volume24h": 41594181.61655699,
+        "marketCap": 5295706129.514067,
+        "priceUsd": 16.96824035444772,
+        "heat": 21.58
+      },
+      {
+        "symbol": "ZRO",
+        "name": "LayerZero",
+        "change1h": -0.22809225,
+        "change24h": 5.61931511,
+        "change7d": -15.39574831,
+        "volume24h": 37290238.18080686,
+        "marketCap": 341055165.1458228,
+        "priceUsd": 0.9678852615690047,
+        "heat": 2.63
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": -0.16241112,
+        "change24h": 1.18166542,
+        "change7d": 4.46573362,
+        "volume24h": 550182063.8888469,
+        "marketCap": 31471223296.14346,
+        "priceUsd": 0.331832499155463,
+        "heat": 1.36
+      },
+      {
+        "symbol": "HTX",
+        "name": "HTX",
+        "change1h": -0.16232199,
+        "change24h": 0.6114169,
+        "change7d": 2.50096289,
+        "volume24h": 34065711.86865161,
+        "marketCap": 1575145776.2160196,
+        "priceUsd": 0.0000017391326569232366,
+        "heat": 0.5
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.96824035444772,
+        "change1h": -0.84769135,
+        "change24h": 13.46399686,
+        "change7d": 71.057452,
+        "volume24h": 41594181.61655699,
+        "volumeChange24h": -49.3407
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.1557292845261,
+        "change1h": -1.01765043,
+        "change24h": 62.49271612,
+        "change7d": 14.1989616,
+        "volume24h": 102444489.94619617,
+        "volumeChange24h": 427.1828
+      },
+      {
+        "symbol": "ZRO",
+        "priceUsd": 0.9678852615690047,
+        "change1h": -0.22809225,
+        "change24h": 5.61931511,
+        "change7d": -15.39574831,
+        "volume24h": 37290238.18080686,
+        "volumeChange24h": 20.0643
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.1225872448733327,
+        "change1h": 2.03294405,
+        "change24h": 18.85665715,
+        "change7d": -16.05762016,
+        "volume24h": 54015208.44844383,
+        "volumeChange24h": -12.253
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No eligible mover presents a clear, high-conviction long setup with strong momentum and volume support above the 5500 bps execution floor.",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "4d0b6ab48f8e0a745ec86387481faef002aceb40cfc790e85cada7d1cd42fa61",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No eligible mover presents a clear, high-conviction long setup with strong momentum and volume support above the 5500 bps execution floor.\",\n  \"invalidation\": \"\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-23",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-22T22:52:24.569Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "LAB",
+    "address": "0x7ec43Cf65F1663F820427C62A5780b8f2E25593A",
+    "units": 0.11726733869194601,
+    "entryPrice": 17.055047230617856,
+    "costUsd": 2,
+    "openedAt": "2026-06-22T22:52:24.569Z",
+    "invalidation": "Price closes below $16.00, indicating the uptrend has broken.",
+    "recoveryOf": {
+      "file": "2026-06-22-221308-f160ead2f4.json",
+      "checksum": "f160ead2f4d682f3da4bec76949e9f437c8513ad8e6b0946e18e4f68ebb4073e",
+      "reason": "trade_size_below_min:2.00<2"
+    }
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 23.89,
+    "usdtUsd": 21.89,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.99,
+    "inScopeUsd": 23.89,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "dac9d0240552ca02f4d04742dc2f3f1687fad88dbc3bcecb9e6465f9c71c9b57",
+  "checksum": "4d87dd9c9b004e00230c3be2a906cf752f96e7a69617b674911caf30be0e61f0"
+}
