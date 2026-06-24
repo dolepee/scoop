@@ -96,3 +96,39 @@ test("entry guard rejects recovery setups below 2.5R", () => {
   assert.equal(guard.ok, false);
   assert.equal(guard.reason, "recovery_reward_risk_below_floor");
 });
+
+test("entry guard blocks weak candidates during risk-off market regimes", () => {
+  const guard = evaluateEntryGuard({
+    thesis: {
+      ...GOOD_THESIS,
+      convictionBps: 7000,
+    },
+    quotes: [GOOD_QUOTE],
+    marketRegime: {
+      riskOff: true,
+      state: "risk_off",
+      reasons: ["btc_down:-0.8h1/-2.1d1"],
+    },
+  });
+
+  assert.equal(guard.ok, false);
+  assert.equal(guard.reason, "risk_off_conviction_below_floor");
+});
+
+test("entry guard accepts only strong candidates during risk-off market regimes", () => {
+  const guard = evaluateEntryGuard({
+    thesis: {
+      ...GOOD_THESIS,
+      convictionBps: 7600,
+    },
+    quotes: [{ ...GOOD_QUOTE, change1h: 1.8, change24h: 9 }],
+    marketRegime: {
+      riskOff: true,
+      state: "risk_off",
+      reasons: ["btc_down:-0.8h1/-2.1d1"],
+    },
+  });
+
+  assert.equal(guard.ok, true);
+  assert.equal(guard.marketRegime.state, "risk_off");
+});

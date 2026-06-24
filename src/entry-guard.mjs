@@ -10,9 +10,13 @@ export const ENTRY_GUARD_CONFIG = {
   recoveryMinVolume24h: 10_000_000,
   recoveryTakeProfitPct: 12,
   recoveryMinRewardRisk: 2.5,
+  riskOffMinConvictionBps: 7200,
+  riskOffMaxStopDistancePct: 4,
+  riskOffMinChange1hPct: 1.5,
+  riskOffMinChange24hPct: 6,
 };
 
-export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryMode = false, config = ENTRY_GUARD_CONFIG }) {
+export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryMode = false, marketRegime = null, config = ENTRY_GUARD_CONFIG }) {
   if (thesis?.action !== "TRADE" || thesis?.direction !== "enter") {
     return { ok: true, reason: "not_an_entry" };
   }
@@ -37,7 +41,7 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
   }
 
   const stopDistancePct = ((observed.priceUsd - stopUsd) / observed.priceUsd) * 100;
-  if (stopDistancePct < config.minStopDistancePct) {
+  if (stopDistancePct < config.minStopDistancePct - 1e-9) {
     return block("entry_stop_too_tight", {
       symbol,
       entryPriceUsd: observed.priceUsd,
@@ -45,7 +49,7 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
       stopDistancePct,
     });
   }
-  if (stopDistancePct > config.maxStopDistancePct) {
+  if (stopDistancePct > config.maxStopDistancePct + 1e-9) {
     return block("entry_stop_too_wide", {
       symbol,
       entryPriceUsd: observed.priceUsd,
@@ -62,7 +66,7 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
         requiredBps: config.recoveryMinConvictionBps,
       });
     }
-    if (stopDistancePct > config.recoveryMaxStopDistancePct) {
+    if (stopDistancePct > config.recoveryMaxStopDistancePct + 1e-9) {
       return block("recovery_stop_too_wide_for_2r", {
         symbol,
         stopDistancePct,
@@ -102,6 +106,41 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
     }
   }
 
+  if (marketRegime?.riskOff) {
+    if ((thesis.convictionBps ?? 0) < config.riskOffMinConvictionBps) {
+      return block("risk_off_conviction_below_floor", {
+        symbol,
+        convictionBps: thesis.convictionBps ?? 0,
+        requiredBps: config.riskOffMinConvictionBps,
+        marketRegime,
+      });
+    }
+    if (stopDistancePct > config.riskOffMaxStopDistancePct + 1e-9) {
+      return block("risk_off_stop_too_wide", {
+        symbol,
+        stopDistancePct,
+        maxStopDistancePct: config.riskOffMaxStopDistancePct,
+        marketRegime,
+      });
+    }
+    if ((observed.change1h ?? -Infinity) < config.riskOffMinChange1hPct) {
+      return block("risk_off_candidate_momentum_too_weak", {
+        symbol,
+        change1h: observed.change1h ?? null,
+        requiredPct: config.riskOffMinChange1hPct,
+        marketRegime,
+      });
+    }
+    if ((observed.change24h ?? -Infinity) < config.riskOffMinChange24hPct) {
+      return block("risk_off_candidate_trend_too_weak", {
+        symbol,
+        change24h: observed.change24h ?? null,
+        requiredPct: config.riskOffMinChange24hPct,
+        marketRegime,
+      });
+    }
+  }
+
   return {
     ok: true,
     symbol,
@@ -109,6 +148,7 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
     stopUsd,
     stopDistancePct,
     recoveryMode,
+    marketRegime,
     source: observed.source,
   };
 }

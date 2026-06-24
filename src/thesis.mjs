@@ -17,13 +17,15 @@ const SYSTEM = [
   "- invalidation: the concrete condition that would make this wrong (price level or signal reversal).",
 ].join("\n");
 
-export async function formThesis({ movers, quotes, position, equityUsd }) {
+export async function formThesis({ movers, quotes, marketContext = [], marketRegime = null, position, equityUsd }) {
   const key = process.env.BANKR_LLM_KEY;
   if (!key) return { thesis: noTrade("no_llm_key"), promptHash: null, raw: null, provider: null };
 
   const user = JSON.stringify({
     task: "Decide this cycle's single best action.",
     portfolio: { equityUsd, openPosition: position ?? null },
+    marketContext,
+    marketRegime,
     eligibleMoversTop: movers.slice(0, 12),
     shortlistQuotes: quotes,
   });

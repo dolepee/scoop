@@ -3,6 +3,8 @@ export const EXIT_GUARD_CONFIG = {
   takeProfitPct: 10,
   breakevenArmPct: 3,
   breakevenFloorPct: 0.4,
+  earlyTrailArmPct: 3,
+  earlyTrailGivebackPct: 1.5,
   trailArmPct: 5,
   trailGivebackPct: 2.5,
   greenMomentumFade1hPct: -1,
@@ -35,10 +37,13 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
     const peakPrice = Number(position.peakPriceUsd);
     if (Number.isFinite(peakPrice) && peakPrice > entryPrice) {
       const peakReturnPct = ((peakPrice - entryPrice) / entryPrice) * 100;
+      const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
+      if (peakReturnPct >= config.earlyTrailArmPct && peakReturnPct < config.trailArmPct && drawdownFromPeakPct <= -config.earlyTrailGivebackPct) {
+        return exit(position, "early_profit_trail", invalidationUsd, observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has already given back ${formatPct(Math.abs(drawdownFromPeakPct))}; closing before a small win round-trips.`);
+      }
       if (peakReturnPct >= config.breakevenArmPct && openReturnPct <= config.breakevenFloorPct) {
         return exit(position, "breakeven_profit_protection", invalidationUsd, observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has faded back to ${formatPct(openReturnPct)}; closing near breakeven before a green trade turns into a loss.`);
       }
-      const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
       if (peakReturnPct >= config.trailArmPct && drawdownFromPeakPct <= -config.trailGivebackPct) {
         return exit(position, "trailing_profit_protection", invalidationUsd, observed, `${position.symbol} armed a trailing exit after ${formatPct(peakReturnPct)} open profit and has given back ${formatPct(Math.abs(drawdownFromPeakPct))} from the peak.`);
       }

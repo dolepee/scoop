@@ -18,6 +18,7 @@ import { executableUsdAmount } from "./sizing.mjs";
 import { evaluateExitGuard } from "./exit-guard.mjs";
 import { evaluateEntryGuard } from "./entry-guard.mjs";
 import { evaluateDexGuard } from "./dex-guard.mjs";
+import { evaluateMarketRegime, splitMarketContext, withMarketContext } from "./market-regime.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -87,10 +88,12 @@ async function main() {
   // ---- Perceive ---------------------------------------------------------
   let movers = [];
   let quotes = [];
+  let tradeQuotes = [];
+  let marketContext = [];
   const paidCalls = [];
   if (PAID) {
     if (position) {
-      const q = buyQuotes([position.symbol], budget);
+      const q = buyQuotes(withMarketContext([position.symbol]), budget);
       paidCalls.push(q.call);
       quotes = q.quotes;
     } else {
@@ -98,11 +101,13 @@ async function main() {
       paidCalls.push(m.call);
       movers = m.movers;
       const shortlist = [...new Set(movers.slice(0, 4).map((x) => x.symbol))];
-      const q = buyQuotes(shortlist, budget);
+      const q = buyQuotes(withMarketContext(shortlist), budget);
       paidCalls.push(q.call);
       quotes = q.quotes;
     }
   }
+  ({ tradeQuotes, marketContext } = splitMarketContext(quotes));
+  const marketRegime = evaluateMarketRegime({ marketContext });
 
   // ---- Equity ------------------------------------------------------------
   // A flaky balance read must never zero the governor's view of equity:
@@ -132,7 +137,7 @@ async function main() {
         equityNotes.push(`position_value_read_failed:${position.symbol}`);
       }
     }
-    position = updatePositionPeak(position, quotes, positionUsd, generatedAt);
+    position = updatePositionPeak(position, tradeQuotes, positionUsd, generatedAt);
   }
   const equityUsd = Math.round((usdtUsd + usd1Usd + positionUsd) * 100) / 100;
   const inScopeUsd = round2(
@@ -150,14 +155,14 @@ async function main() {
 
   // ---- Think -------------------------------------------------------------
   const { thesis, provider, raw } = PAID
-    ? await formThesis({ movers, quotes, position, equityUsd })
+    ? await formThesis({ movers, quotes: tradeQuotes, marketContext, marketRegime, position, equityUsd })
     : { thesis: { action: "NO_TRADE", convictionBps: 0, rationale: "free_mode" }, provider: null, raw: null };
 
   const fallbackThesis = !recoveryMode && !position && thesis.action !== "TRADE"
-    ? momentumFallbackThesis({ movers, quotes })
+    ? momentumFallbackThesis({ movers, quotes: tradeQuotes })
     : null;
   const decisionThesis = fallbackThesis ?? thesis;
-  const exitGuard = evaluateExitGuard({ position, quotes, positionUsd, minUsefulPositionUsd: MIN_LIVE_TRADE_USD });
+  const exitGuard = evaluateExitGuard({ position, quotes: tradeQuotes, positionUsd, minUsefulPositionUsd: MIN_LIVE_TRADE_USD });
   const effectiveThesis = exitGuard
     ? {
         action: "TRADE",
@@ -178,7 +183,7 @@ async function main() {
   // ---- Govern ------------------------------------------------------------
   const complianceAction = chooseComplianceAction({ position, thesis: effectiveThesis, movers, nowMs });
   const entryGuard = proposal.kind === "TRADE" && proposal.direction === "enter"
-    ? evaluateEntryGuard({ thesis: effectiveThesis, quotes, movers, recoveryMode })
+    ? evaluateEntryGuard({ thesis: effectiveThesis, quotes: tradeQuotes, movers, recoveryMode, marketRegime })
     : { ok: true, reason: "not_an_entry" };
   const dexGuard = entryGuard.ok && proposal.kind === "TRADE" && proposal.direction === "enter"
     ? await evaluateProposalDexGuard({ symbol: proposal.symbol, paidPriceUsd: entryGuard.entryPriceUsd, recoveryMode })
@@ -333,8 +338,10 @@ async function main() {
       dataSource,
       paidCalls: describedCalls,
       dataSpendUsd: budget.spentUsd,
+      marketContext,
+      marketRegime,
       moversTop: movers.slice(0, 6),
-      quotes,
+      quotes: tradeQuotes,
     },
     thesis: {
       ...effectiveThesis,
