@@ -3,12 +3,13 @@ import { parseInvalidationPrice } from "./exit-guard.mjs";
 export const ENTRY_GUARD_CONFIG = {
   minStopDistancePct: 2,
   maxStopDistancePct: 8,
-  recoveryMaxStopDistancePct: 6,
+  recoveryMaxStopDistancePct: 5,
   recoveryMinConvictionBps: 6200,
   recoveryMinChange1hPct: 0.5,
   recoveryMinChange24hPct: 4,
   recoveryMinVolume24h: 10_000_000,
   recoveryTakeProfitPct: 12,
+  recoveryMinRewardRisk: 2.5,
 };
 
 export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryMode = false, config = ENTRY_GUARD_CONFIG }) {
@@ -69,11 +70,12 @@ export function evaluateEntryGuard({ thesis, quotes = [], movers = [], recoveryM
       });
     }
     const rewardRisk = config.recoveryTakeProfitPct / stopDistancePct;
-    if (rewardRisk < 2) {
-      return block("recovery_reward_risk_below_2x", {
+    if (rewardRisk < config.recoveryMinRewardRisk) {
+      return block("recovery_reward_risk_below_floor", {
         symbol,
         stopDistancePct,
         takeProfitPct: config.recoveryTakeProfitPct,
+        requiredRewardRisk: config.recoveryMinRewardRisk,
         rewardRisk,
       });
     }

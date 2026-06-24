@@ -89,6 +89,16 @@ test("protects green trades with trailing peak giveback", () => {
   assert.equal(guard.reason, "trailing_profit_protection");
 });
 
+test("protects a green trade that fades back near breakeven", () => {
+  const guard = evaluateExitGuard({
+    position: { ...LAB_POSITION, peakPriceUsd: 17.70 },
+    quotes: [{ symbol: "LAB", priceUsd: 17.10, change1h: -0.2 }],
+    positionUsd: 2.01,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "breakeven_profit_protection");
+});
+
 test("exits green trades when 1h momentum rolls over", () => {
   const guard = evaluateExitGuard({
     position: LAB_POSITION,

@@ -273,3 +273,30 @@ test("entry sizing uses stop-risk room instead of treating full notional as lost
   assert.ok(r.sizedPct >= 25, `expected meaningful deployment, got ${r.sizedPct}`);
   assert.ok(r.reasons.includes("stop_risk_pct:8"));
 });
+
+test("recovery entries are capped by dollar notional and actual stop distance", () => {
+  const state = {
+    startEquityUsd: 15.01,
+    peakEquityUsd: 24.02,
+    floorUsd: 21.618,
+    dayKey: "2026-06-24",
+    tradesToday: 0,
+    newRiskTodayPct: 0,
+    lastTradeAt: null,
+  };
+  const r = decide(
+    { kind: "TRADE", symbol: "CAKE", direction: "enter", convictionBps: 7600 },
+    state,
+    {
+      equityUsd: 22.57,
+      nowMs: NOON,
+      tradeArmed: true,
+      recoveryMode: true,
+      entryStopDistancePct: 4,
+    },
+  );
+  assert.equal(r.decision, "APPROVE");
+  assert.ok(r.sizedPct <= 33.24, `expected recovery cap near $7.50, got ${r.sizedPct}%`);
+  assert.ok(r.reasons.includes("stop_risk_pct:4"));
+  assert.ok(r.reasons.includes("recovery_cap_usd:7.5"));
+});

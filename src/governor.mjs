@@ -28,6 +28,9 @@ export const DEFAULT_CONFIG = {
   giveBackPct: 10,
   // Hard per-trade position cap as % of current equity.
   maxPositionPct: 45,
+  // When below the ratchet peak, recover with capped notional instead of
+  // scaling activity. This keeps one bad setup from deciding the tournament.
+  recoveryMaxTradeUsd: 7.5,
   // Minimum live trade notional. Smaller swaps leak edge to data/route friction.
   minTradeUsd: 5,
   // Sizing treats the stop/invalidation band as the capital at risk, not the
@@ -117,10 +120,20 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
     // clear the live minimum notional so route/data friction does not dominate.
     const convictionFactor = Math.min(1, (proposal.convictionBps - config.minConvictionBps) / 4500);
     const minTradePct = equityUsd > 0 ? (config.minTradeUsd / equityUsd) * 100 : Infinity;
-    const stopLossPct = Math.max(1, Number(config.assumedStopLossPct) || DEFAULT_CONFIG.assumedStopLossPct);
+    const observedStopLossPct = Number(context.entryStopDistancePct);
+    const stopLossPct = Math.max(
+      1,
+      Number.isFinite(observedStopLossPct) && observedStopLossPct > 0
+        ? observedStopLossPct
+        : Number(config.assumedStopLossPct) || DEFAULT_CONFIG.assumedStopLossPct,
+    );
     const stopRiskRoomPct = riskBudgetPct / (stopLossPct / 100);
+    const recoveryMaxPositionPct = context.recoveryMode && equityUsd > 0
+      ? (config.recoveryMaxTradeUsd / equityUsd) * 100
+      : Infinity;
     const ceilingPct = Math.min(
       config.maxPositionPct,
+      recoveryMaxPositionPct,
       config.maxDailyNewRiskPct - state.newRiskTodayPct,
       stopRiskRoomPct,
     );
@@ -140,6 +153,7 @@ export function decide(proposal, state, context, config = DEFAULT_CONFIG) {
       `risk_budget_pct:${round2(riskBudgetPct)}`,
       `stop_risk_pct:${stopLossPct}`,
       `conviction_bps:${proposal.convictionBps}`,
+      ...(context.recoveryMode ? [`recovery_cap_usd:${config.recoveryMaxTradeUsd}`] : []),
     ]);
   }
 

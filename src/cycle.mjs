@@ -209,6 +209,8 @@ async function main() {
       tradeArmed: TRADE,
       degraded,
       complianceAction,
+      recoveryMode,
+      entryStopDistancePct: entryGuard.stopDistancePct,
     });
 
   // ---- Execute -----------------------------------------------------------

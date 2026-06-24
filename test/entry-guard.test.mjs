@@ -7,7 +7,7 @@ const GOOD_THESIS = {
   symbol: "CAKE",
   direction: "enter",
   convictionBps: 7000,
-  invalidation: "Exit if CAKE trades below $9.40",
+  invalidation: "Exit if CAKE trades below $9.60",
 };
 
 const GOOD_QUOTE = {
@@ -69,7 +69,7 @@ test("entry guard rejects weak recovery momentum", () => {
   assert.equal(guard.reason, "recovery_1h_momentum_too_weak");
 });
 
-test("entry guard accepts a liquid 2R recovery setup", () => {
+test("entry guard accepts a liquid 2.5R recovery setup", () => {
   const guard = evaluateEntryGuard({
     thesis: GOOD_THESIS,
     quotes: [GOOD_QUOTE],
@@ -79,6 +79,20 @@ test("entry guard accepts a liquid 2R recovery setup", () => {
   assert.equal(guard.ok, true);
   assert.equal(guard.symbol, "CAKE");
   assert.equal(guard.entryPriceUsd, 10);
-  assert.equal(guard.stopUsd, 9.4);
-  assert.ok(guard.stopDistancePct > 5.9 && guard.stopDistancePct < 6.1);
+  assert.equal(guard.stopUsd, 9.6);
+  assert.ok(guard.stopDistancePct > 3.9 && guard.stopDistancePct < 4.1);
+});
+
+test("entry guard rejects recovery setups below 2.5R", () => {
+  const guard = evaluateEntryGuard({
+    thesis: {
+      ...GOOD_THESIS,
+      invalidation: "Exit if CAKE trades below $9.51",
+    },
+    quotes: [GOOD_QUOTE],
+    recoveryMode: true,
+  });
+
+  assert.equal(guard.ok, false);
+  assert.equal(guard.reason, "recovery_reward_risk_below_floor");
 });
