@@ -1,1 +1,12 @@
-null
+{
+  "symbol": "BEAT",
+  "address": "0xcf3232B85b43BCa90E51D38cc06Cc8bB8C8A3E36",
+  "units": 2.1568579493607376,
+  "entryPrice": 2.3181869726200235,
+  "peakPriceUsd": 2.3181869726200235,
+  "peakPriceSource": "entry",
+  "peakAt": "2026-06-24T09:48:58.123Z",
+  "costUsd": 5,
+  "openedAt": "2026-06-24T09:48:58.123Z",
+  "invalidation": "Exit if BEAT trades below $2.1557 or 1h momentum turns negative."
+}

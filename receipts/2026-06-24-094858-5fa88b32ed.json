@@ -1,0 +1,211 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T09:48:58.123Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "c5ed0066e8623c5f3bcb095dc442d39bf85f25b90c0c64f09c116f22fd6e4810"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,BEAT,SAHARA,LAB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "7ff87641c6714893c1f8c08be6abe590bcc797fe73def946bb83bfa73ab576b7"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -0.12081554,
+        "change24h": 40.71847932,
+        "change7d": 64.68474859,
+        "volume24h": 184839236.6628281,
+        "marketCap": 68374562.67577243,
+        "priceUsd": 0.28154570190765194,
+        "heat": 50.06
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 1.21045126,
+        "change24h": 34.90280274,
+        "change7d": 20.3638776,
+        "volume24h": 94928234.7625668,
+        "marketCap": 660505423.1769193,
+        "priceUsd": 2.2932889000837173,
+        "heat": 41.59
+      },
+      {
+        "symbol": "SAHARA",
+        "name": "Sahara AI",
+        "change1h": 1.50488692,
+        "change24h": 20.40426893,
+        "change7d": -4.08404903,
+        "volume24h": 93359083.47812706,
+        "marketCap": 46968812.00860778,
+        "priceUsd": 0.013786057884811182,
+        "heat": 24.31
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 0.99749468,
+        "change24h": 2.59263124,
+        "change7d": 24.84420453,
+        "volume24h": 52420723.46606807,
+        "marketCap": 5078191147.583765,
+        "priceUsd": 16.271289578890734,
+        "heat": 9.31
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 1.4330681,
+        "change24h": 5.64820787,
+        "change7d": -4.44998061,
+        "volume24h": 15874297.14393046,
+        "marketCap": 133435881.71369612,
+        "priceUsd": 0.39786824451131025,
+        "heat": 9.28
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 0.24220169,
+        "change24h": 4.03423682,
+        "change7d": -1.50037486,
+        "volume24h": 23584736.30545885,
+        "marketCap": 181343953.0772194,
+        "priceUsd": 0.6827652008225661,
+        "heat": 4.54
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 16.271289578890734,
+        "change1h": 0.99749468,
+        "change24h": 2.59263124,
+        "change7d": 24.84420453,
+        "volume24h": 52420723.46606807,
+        "volumeChange24h": 5.9304
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.2932889000837173,
+        "change1h": 1.21045126,
+        "change24h": 34.90280274,
+        "change7d": 20.3638776,
+        "volume24h": 94928234.7625668,
+        "volumeChange24h": 298.4509
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.28141059537406893,
+        "change1h": -0.06072453,
+        "change24h": 40.66692964,
+        "change7d": 64.58206138,
+        "volume24h": 184860843.65753695,
+        "volumeChange24h": 59.5889
+      },
+      {
+        "symbol": "SAHARA",
+        "priceUsd": 0.013786057884811182,
+        "change1h": 1.50488692,
+        "change24h": 20.40426893,
+        "change7d": -4.08404903,
+        "volume24h": 93359083.47812706,
+        "volumeChange24h": 233.3632
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "enter",
+    "convictionBps": 7600,
+    "rationale": "Deterministic momentum fallback: BEAT has 1.21% 1h, 34.9% 24h, and $94.93M volume while no LLM setup cleared.",
+    "invalidation": "Exit if BEAT trades below $2.1557 or 1h momentum turns negative.",
+    "fallback": "deterministic_momentum",
+    "provider": "deterministic:momentum-fallback",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "d8ad028ed61dc915e4a8117193122d839589666d640a4c278580cc299c47afc2",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support meets the 5500 conviction floor for a disciplined entry.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 3,
+      "newRiskTodayPct": 42.93,
+      "lastTradeAt": "2026-06-24T09:48:58.123Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "BEAT",
+      "sizedPct": 21.53,
+      "reasons": [
+        "risk_budget_pct:6.9",
+        "stop_risk_pct:8",
+        "conviction_bps:7600"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "symbol": "BEAT",
+      "entryPriceUsd": 2.2932889000837173,
+      "stopUsd": 2.1557,
+      "stopDistancePct": 5.999632234678093,
+      "recoveryMode": true,
+      "source": "paid_quote"
+    }
+  },
+  "position": {
+    "symbol": "BEAT",
+    "address": "0xcf3232B85b43BCa90E51D38cc06Cc8bB8C8A3E36",
+    "units": 2.1568579493607376,
+    "entryPrice": 2.3181869726200235,
+    "peakPriceUsd": 2.3181869726200235,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-24T09:48:58.123Z",
+    "costUsd": 5,
+    "openedAt": "2026-06-24T09:48:58.123Z",
+    "invalidation": "Exit if BEAT trades below $2.1557 or 1h momentum turns negative."
+  },
+  "execution": {
+    "executed": true,
+    "kind": "enter",
+    "txHash": "0x20c4d28279a7e6dc9ae77236ce4db986ac84284d538e0db9d1deecdbb65f673f",
+    "spentUsd": 5,
+    "units": 2.1568579493607376
+  },
+  "counters": {
+    "equityUsd": 23.22,
+    "usdtUsd": 23.21,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.22,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "2950575f45dbbae0efcb4c1d7bf25a82597cc863d9c53a5be99c7335e4ad8d64",
+  "checksum": "5fa88b32ed61cd679bb0473349e076ba64d342d7a6b8fbc96bbdbb3d781ad642"
+}
