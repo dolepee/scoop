@@ -1,0 +1,109 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T05:51:27.131Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=HOME&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "633c109961e32894144f16412509a90b7c531c5b7cec698a4a4578539578353a"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.0208947332753629,
+        "change1h": -4.0219727,
+        "change24h": 5.24163503,
+        "change7d": -21.49681579,
+        "volume24h": 33840128.55967059,
+        "volumeChange24h": 49.4696
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "HOME",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "HOME is down -1.75% from entry and the paid quote shows -4.02% over 1h; exiting before the hard invalidation is hit.",
+    "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "HOME",
+      "direction": "exit",
+      "reason": "position_momentum_faded",
+      "invalidationUsd": 0.0199154,
+      "priceUsd": 0.0208947332753629,
+      "priceSource": "paid_quote",
+      "rationale": "HOME is down -1.75% from entry and the paid quote shows -4.02% over 1h; exiting before the hard invalidation is hit."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "rationale": "HOME is down 4.02% in the last hour and remains below its entry price of $0.02127, showing no clear momentum or volume surge to justify adding or exiting now.",
+      "invalidation": "N/A"
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "cc47f751024343612fa192b9b031292f3b1a7ab3387eb79e4323f6eea9c24d13",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"HOME is down 4.02% in the last hour and remains below its entry price of $0.02127, showing no clear momentum or volume surge to justify adding or exiting now.\",\"invalidation\":\"N/A\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 2,
+      "newRiskTodayPct": 21.4,
+      "lastTradeAt": "2026-06-24T05:51:27.131Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "HOME",
+      "sizedPct": 21.109200343938088,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0x83320a27de35c358c82fd50117f7bb1f8fc004598654428bae0fd722068e3fe1",
+    "closedUnits": 234.8716719370592
+  },
+  "counters": {
+    "equityUsd": 23.26,
+    "usdtUsd": 18.34,
+    "usd1Usd": 0.01,
+    "positionUsd": 4.91,
+    "inScopeUsd": 23.26,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "49843fb3453309fea95f60d39850dcb75f83aab49a461904d9aaecd07b82559a",
+  "checksum": "2950575f45dbbae0efcb4c1d7bf25a82597cc863d9c53a5be99c7335e4ad8d64"
+}

@@ -1,12 +1,1 @@
-{
-  "symbol": "HOME",
-  "address": "0x4BfAa776991E85e5f8b1255461cbbd216cFc714f",
-  "units": 235.106778715775,
-  "entryPrice": 0.02126693252874939,
-  "costUsd": 5,
-  "openedAt": "2026-06-24T01:33:36.558Z",
-  "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative.",
-  "peakPriceUsd": 0.021507865769088856,
-  "peakPriceSource": "paid_quote",
-  "peakAt": "2026-06-24T03:18:24.449Z"
-}
+null
