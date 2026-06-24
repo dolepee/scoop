@@ -17,6 +17,7 @@ import { isEligibleAddress } from "./allowlist.mjs";
 import { executableUsdAmount } from "./sizing.mjs";
 import { evaluateExitGuard } from "./exit-guard.mjs";
 import { evaluateEntryGuard } from "./entry-guard.mjs";
+import { evaluateDexGuard } from "./dex-guard.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -141,12 +142,18 @@ async function main() {
   );
   const inScopeWarning = inScopeUsd < 2;
 
+  let state = existsSync(STATE_FILE)
+    ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
+    : initialState(equityUsd, nowMs);
+  if (!degraded) state = syncState(state, equityUsd, nowMs);
+  const recoveryMode = isRecoveryMode(state, equityUsd);
+
   // ---- Think -------------------------------------------------------------
   const { thesis, provider, raw } = PAID
     ? await formThesis({ movers, quotes, position, equityUsd })
     : { thesis: { action: "NO_TRADE", convictionBps: 0, rationale: "free_mode" }, provider: null, raw: null };
 
-  const fallbackThesis = !position && thesis.action !== "TRADE"
+  const fallbackThesis = !recoveryMode && !position && thesis.action !== "TRADE"
     ? momentumFallbackThesis({ movers, quotes })
     : null;
   const decisionThesis = fallbackThesis ?? thesis;
@@ -169,14 +176,12 @@ async function main() {
     : { kind: "NONE" };
 
   // ---- Govern ------------------------------------------------------------
-  let state = existsSync(STATE_FILE)
-    ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
-    : initialState(equityUsd, nowMs);
-  if (!degraded) state = syncState(state, equityUsd, nowMs);
-  const recoveryMode = isRecoveryMode(state, equityUsd);
   const complianceAction = chooseComplianceAction({ position, thesis: effectiveThesis, movers, nowMs });
   const entryGuard = proposal.kind === "TRADE" && proposal.direction === "enter"
     ? evaluateEntryGuard({ thesis: effectiveThesis, quotes, movers, recoveryMode })
+    : { ok: true, reason: "not_an_entry" };
+  const dexGuard = entryGuard.ok && proposal.kind === "TRADE" && proposal.direction === "enter"
+    ? await evaluateProposalDexGuard({ symbol: proposal.symbol, paidPriceUsd: entryGuard.entryPriceUsd, recoveryMode })
     : { ok: true, reason: "not_an_entry" };
   const ruling = degraded
     ? { decision: "STAND_DOWN", symbol: null, sizedPct: 0, reasons: ["equity_degraded", ...equityNotes] }
@@ -189,6 +194,13 @@ async function main() {
             `entry_guard:${entryGuard.reason}`,
             ...(entryGuard.stopDistancePct ? [`stop_distance_pct:${round2(entryGuard.stopDistancePct)}`] : []),
           ],
+        }
+    : !dexGuard.ok
+      ? {
+          decision: "VETO",
+          symbol: null,
+          sizedPct: 0,
+          reasons: [`dex_guard:${dexGuard.reason}`],
         }
     : decide(proposal, state, {
       equityUsd,
@@ -329,7 +341,7 @@ async function main() {
       rawHash: raw ? sha256(canonical(raw)) : null,
       rawPreview: raw ? String(raw).slice(0, 280) : null,
     },
-    governor: { state: { ...state }, ruling, recoveryMode, entryGuard },
+    governor: { state: { ...state }, ruling, recoveryMode, entryGuard, dexGuard },
     position: loadPosition(),
     execution,
     counters: {
@@ -401,4 +413,16 @@ function observedPositionPrice(position, quotes, positionUsd) {
 function isRecoveryMode(state, equityUsd) {
   const peak = Number(state?.peakEquityUsd);
   return Number.isFinite(peak) && peak > 0 && Number(equityUsd) < peak * 0.995;
+}
+
+async function evaluateProposalDexGuard({ symbol, paidPriceUsd, recoveryMode }) {
+  try {
+    return await evaluateDexGuard({
+      token: resolveToken(symbol),
+      paidPriceUsd,
+      recoveryMode,
+    });
+  } catch (error) {
+    return { ok: false, reason: "dex_token_resolution_failed", error: String(error?.message ?? error).slice(0, 120) };
+  }
 }
