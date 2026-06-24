@@ -1,0 +1,113 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T12:27:14.691Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "3ff3a3ce9f38b1eecaa0905c281a3acf873a6ac23d0d59b5065a162394781243"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.015722624633543,
+        "change1h": -2.58204474,
+        "change24h": 15.03822376,
+        "change7d": 12.15678864,
+        "volume24h": 105398473.21246591,
+        "volumeChange24h": 361.1762
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BEAT",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "BEAT is down -13.05% from entry, hitting the hard -6% loss limit.",
+    "invalidation": "Exit if BEAT trades below $2.1557 or 1h momentum turns negative.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "BEAT",
+      "direction": "exit",
+      "reason": "hard_stop_loss",
+      "invalidationUsd": 2.1557,
+      "priceUsd": 2.015722624633543,
+      "priceSource": "paid_quote",
+      "rationale": "BEAT is down -13.05% from entry, hitting the hard -6% loss limit."
+    },
+    "modelThesis": {
+      "action": "TRADE",
+      "symbol": "BEAT",
+      "direction": "exit",
+      "convictionBps": 7200,
+      "rationale": "BEAT price at $2.0157 is below the invalidation level of $2.1557 and shows a -2.58% 1h decline, confirming negative momentum.",
+      "invalidation": "If BEAT reclaims and holds above $2.16 with a sustained 1h positive reversal."
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "2764f44f5d2474182edfc17737b2aa4db4cb1f538d674e865c624c097ef34fa0",
+    "rawPreview": "{\n  \"action\": \"TRADE\",\n  \"symbol\": \"BEAT\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 7200,\n  \"rationale\": \"BEAT price at $2.0157 is below the invalidation level of $2.1557 and shows a -2.58% 1h decline, confirming negative momentum.\",\n  \"invalidation\": \"If BEAT reclaims and holds"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 4,
+      "newRiskTodayPct": 42.93,
+      "lastTradeAt": "2026-06-24T12:27:14.691Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "BEAT",
+      "sizedPct": 21.787709497206706,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0x16fc38b6e9a113cf770dad9e37442fe55d5bb557cf1eb520fb70c6f4b1fb8070",
+    "closedUnits": 2.154701091411377
+  },
+  "counters": {
+    "equityUsd": 23.27,
+    "usdtUsd": 18.19,
+    "usd1Usd": 0.01,
+    "positionUsd": 5.07,
+    "inScopeUsd": 23.27,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3ddc0d8d25ec556aad6824bbd4b93706c2e1b27fdb4f2464d3db58d3c5f25595",
+  "checksum": "e526ee25828892943991320427f9c16d2b6300a9f0b280a98c91297f1648ce8a"
+}
