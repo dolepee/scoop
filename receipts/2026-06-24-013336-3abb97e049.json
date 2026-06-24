@@ -1,0 +1,198 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T01:33:36.558Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f380bc590828ff31f0a5bf56e9faf797470d1fb99a2604bd7abbd602fe573a6a"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BEAT,SLX,IP,XPL&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "e9fa0ea917c9635deb0c27a0db0d88ae509825d96f4a0d488f7a720a2b14b2fa"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": -1.62362146,
+        "change24h": 40.55248702,
+        "change7d": -1.62596111,
+        "volume24h": 66151447.6777334,
+        "marketCap": 672428309.0934756,
+        "priceUsd": 2.334685413980438,
+        "heat": 35.44
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -0.51846214,
+        "change24h": 15.91151075,
+        "change7d": 34.16643183,
+        "volume24h": 157804532.3296405,
+        "marketCap": 56491940.252287485,
+        "priceUsd": 0.23261666836358652,
+        "heat": 19.48
+      },
+      {
+        "symbol": "IP",
+        "name": "Story",
+        "change1h": 1.5875417,
+        "change24h": 1.44265526,
+        "change7d": 4.23350528,
+        "volume24h": 45060210.90306852,
+        "marketCap": 116720144.21949549,
+        "priceUsd": 0.32776968168364734,
+        "heat": 6.84
+      },
+      {
+        "symbol": "XPL",
+        "name": "Plasma",
+        "change1h": -0.24306263,
+        "change24h": 4.10138538,
+        "change7d": -3.20714798,
+        "volume24h": 153104893.91256973,
+        "marketCap": 159790834.6537145,
+        "priceUsd": 0.08877268591873028,
+        "heat": 2.89
+      },
+      {
+        "symbol": "HOME",
+        "name": "Defi App",
+        "change1h": 0.75480887,
+        "change24h": 3.22979772,
+        "change7d": -22.03132875,
+        "volume24h": 29749198.03805553,
+        "marketCap": 87212269.13470547,
+        "priceUsd": 0.021186596183783102,
+        "heat": 2.19
+      },
+      {
+        "symbol": "AVAX",
+        "name": "Avalanche",
+        "change1h": -0.24582702,
+        "change24h": 3.56223709,
+        "change7d": -5.61394445,
+        "volume24h": 353213688.7304424,
+        "marketCap": 2805614764.2134285,
+        "priceUsd": 6.497908656606634,
+        "heat": 1.98
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "XPL",
+        "priceUsd": 0.08877268591873028,
+        "change1h": -0.24306263,
+        "change24h": 4.10138538,
+        "change7d": -3.20714798,
+        "volume24h": 153104893.91256973,
+        "volumeChange24h": 35.6598
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.334685413980438,
+        "change1h": -1.62362146,
+        "change24h": 40.55248702,
+        "change7d": -1.62596111,
+        "volume24h": 66151447.6777334,
+        "volumeChange24h": 181.17
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.23261666836358652,
+        "change1h": -0.51846214,
+        "change24h": 15.91151075,
+        "change7d": 34.16643183,
+        "volume24h": 157804532.3296405,
+        "volumeChange24h": 46.1774
+      },
+      {
+        "symbol": "IP",
+        "priceUsd": 0.32776968168364734,
+        "change1h": 1.5875417,
+        "change24h": 1.44265526,
+        "change7d": 4.23350528,
+        "volume24h": 45060210.90306852,
+        "volumeChange24h": 1.397
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "HOME",
+    "direction": "enter",
+    "convictionBps": 6044,
+    "rationale": "Deterministic momentum fallback: HOME has 0.75% 1h, 3.23% 24h, and $29.75M volume while no LLM setup cleared.",
+    "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative.",
+    "fallback": "deterministic_momentum",
+    "provider": "deterministic:momentum-fallback",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "814597eb066c0f7d73709aad898edd4750142f38cebb65c26b3a93d49cfea362",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"No symbol presents a clear, high-conviction momentum setup with supportive volume and positive short-term trend for a long entry.\",\n  \"invalidation\": \"N/A\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 1,
+      "newRiskTodayPct": 21.4,
+      "lastTradeAt": "2026-06-24T01:33:36.558Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "HOME",
+      "sizedPct": 21.4,
+      "reasons": [
+        "risk_budget_pct:7.46",
+        "stop_risk_pct:8",
+        "conviction_bps:6044"
+      ]
+    }
+  },
+  "position": {
+    "symbol": "HOME",
+    "address": "0x4BfAa776991E85e5f8b1255461cbbd216cFc714f",
+    "units": 235.106778715775,
+    "entryPrice": 0.02126693252874939,
+    "costUsd": 5,
+    "openedAt": "2026-06-24T01:33:36.558Z",
+    "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative."
+  },
+  "execution": {
+    "executed": true,
+    "kind": "enter",
+    "txHash": "0x73c2b01a004dc165eab295e15da113ca6ce5c4b19b7c4db6d5c12d7f47baf83a",
+    "spentUsd": 5,
+    "units": 235.106778715775
+  },
+  "counters": {
+    "equityUsd": 23.36,
+    "usdtUsd": 23.35,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 23.36,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3a1dbeaae39182079807be4d24d845e494245002c3bc5e81a5e999138566a795",
+  "checksum": "3abb97e0491c301014ec264d0c6957884115a3bf46f9952faeea320dac05912a"
+}
