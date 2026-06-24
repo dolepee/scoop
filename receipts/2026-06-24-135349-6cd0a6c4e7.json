@@ -1,0 +1,192 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T13:53:49.012Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "42cca781ab088c4adf078aa25ad23bca00dd3310e432f1b245cac9f8ffc5adf8"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,SLX,SAHARA,DEXE&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "983bd54e8d31098c2333826df376e7ea04895028f92ce4525474bc2e4925a5da"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 8.1399677,
+        "change24h": 21.60356572,
+        "change7d": 40.41257121,
+        "volume24h": 69707695.22819367,
+        "marketCap": 5833005718.168532,
+        "priceUsd": 18.68982919258656,
+        "heat": 52.09
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -4.44583396,
+        "change24h": 38.17384449,
+        "change7d": 58.3335672,
+        "volume24h": 196295174.23733565,
+        "marketCap": 66796651.90852295,
+        "priceUsd": 0.27504834416045115,
+        "heat": 33.59
+      },
+      {
+        "symbol": "SAHARA",
+        "name": "Sahara AI",
+        "change1h": 0.67021065,
+        "change24h": 15.15210122,
+        "change7d": -8.83512859,
+        "volume24h": 127068311.04751498,
+        "marketCap": 44865302.44940196,
+        "priceUsd": 0.013168645961785524,
+        "heat": 15.84
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.72754855,
+        "change24h": 4.25080832,
+        "change7d": 44.83703291,
+        "volume24h": 58775602.62317307,
+        "marketCap": 1920610183.4785006,
+        "priceUsd": 22.93712813054845,
+        "heat": 8.79
+      },
+      {
+        "symbol": "U",
+        "name": "United Stables",
+        "change1h": -0.00828388,
+        "change24h": -0.03590273,
+        "change7d": 0.06117687,
+        "volume24h": 77944085.356131,
+        "marketCap": 1016243811.7019881,
+        "priceUsd": 0.9996903892075281,
+        "heat": -0.05
+      },
+      {
+        "symbol": "TRX",
+        "name": "TRON",
+        "change1h": -0.60817582,
+        "change24h": -0.21317125,
+        "change7d": 2.75373828,
+        "volume24h": 563503935.3965275,
+        "marketCap": 31198111386.586376,
+        "priceUsd": 0.32894853351234615,
+        "heat": -1.62
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 18.68982919258656,
+        "change1h": 8.1399677,
+        "change24h": 21.60356572,
+        "change7d": 40.41257121,
+        "volume24h": 69707695.22819367,
+        "volumeChange24h": 19.695
+      },
+      {
+        "symbol": "DEXE",
+        "priceUsd": 22.93712813054845,
+        "change1h": -0.72754855,
+        "change24h": 4.25080832,
+        "change7d": 44.83703291,
+        "volume24h": 58775602.62317307,
+        "volumeChange24h": -56.9135
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.27504834416045115,
+        "change1h": -4.44583396,
+        "change24h": 38.17384449,
+        "change7d": 58.3335672,
+        "volume24h": 196295174.23733565,
+        "volumeChange24h": 51.0262
+      },
+      {
+        "symbol": "SAHARA",
+        "priceUsd": 0.013168645961785524,
+        "change1h": 0.67021065,
+        "change24h": 15.15210122,
+        "change7d": -8.83512859,
+        "volume24h": 127068311.04751498,
+        "volumeChange24h": 346.3187
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "7b942c24b99ab4bb8d9f0091dc05cafc0ef2bce6e17d3b4440f2d32ca2531ff2",
+    "rawPreview": "{\"action\":\"NO_TRADE\",\"symbol\":null,\"direction\":null,\"convictionBps\":0,\"rationale\":\"\",\"invalidation\":\"\"}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 4,
+      "newRiskTodayPct": 42.93,
+      "lastTradeAt": "2026-06-24T12:27:14.691Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 22.53,
+    "usdtUsd": 22.52,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 22.53,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "e526ee25828892943991320427f9c16d2b6300a9f0b280a98c91297f1648ce8a",
+  "checksum": "6cd0a6c4e77ea709a213c896d2f07dc077ad4cb95586576c885306add3f51253"
+}
