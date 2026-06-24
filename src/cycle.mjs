@@ -16,6 +16,7 @@ import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
 import { isEligibleAddress } from "./allowlist.mjs";
 import { executableUsdAmount } from "./sizing.mjs";
 import { evaluateExitGuard } from "./exit-guard.mjs";
+import { evaluateEntryGuard } from "./entry-guard.mjs";
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -80,23 +81,26 @@ async function main() {
   const nowMs = Date.now();
   const generatedAt = new Date(nowMs).toISOString();
   const budget = newDataBudget(PAID ? DATA_CAP_USD : 0);
-  const position = loadPosition();
+  let position = loadPosition();
 
   // ---- Perceive ---------------------------------------------------------
   let movers = [];
   let quotes = [];
   const paidCalls = [];
   if (PAID) {
-    const m = buyMovers(budget);
-    paidCalls.push(m.call);
-    movers = m.movers;
-    const shortlist = [...new Set([
-      ...movers.slice(0, 4).map((x) => x.symbol),
-      ...(position ? [position.symbol] : []),
-    ])];
-    const q = buyQuotes(shortlist, budget);
-    paidCalls.push(q.call);
-    quotes = q.quotes;
+    if (position) {
+      const q = buyQuotes([position.symbol], budget);
+      paidCalls.push(q.call);
+      quotes = q.quotes;
+    } else {
+      const m = buyMovers(budget);
+      paidCalls.push(m.call);
+      movers = m.movers;
+      const shortlist = [...new Set(movers.slice(0, 4).map((x) => x.symbol))];
+      const q = buyQuotes(shortlist, budget);
+      paidCalls.push(q.call);
+      quotes = q.quotes;
+    }
   }
 
   // ---- Equity ------------------------------------------------------------
@@ -127,6 +131,7 @@ async function main() {
         equityNotes.push(`position_value_read_failed:${position.symbol}`);
       }
     }
+    position = updatePositionPeak(position, quotes, positionUsd, generatedAt);
   }
   const equityUsd = Math.round((usdtUsd + usd1Usd + positionUsd) * 100) / 100;
   const inScopeUsd = round2(
@@ -168,9 +173,23 @@ async function main() {
     ? JSON.parse(readFileSync(STATE_FILE, "utf8"))
     : initialState(equityUsd, nowMs);
   if (!degraded) state = syncState(state, equityUsd, nowMs);
+  const recoveryMode = isRecoveryMode(state, equityUsd);
   const complianceAction = chooseComplianceAction({ position, thesis: effectiveThesis, movers, nowMs });
+  const entryGuard = proposal.kind === "TRADE" && proposal.direction === "enter"
+    ? evaluateEntryGuard({ thesis: effectiveThesis, quotes, movers, recoveryMode })
+    : { ok: true, reason: "not_an_entry" };
   const ruling = degraded
     ? { decision: "STAND_DOWN", symbol: null, sizedPct: 0, reasons: ["equity_degraded", ...equityNotes] }
+    : !entryGuard.ok
+      ? {
+          decision: "VETO",
+          symbol: null,
+          sizedPct: 0,
+          reasons: [
+            `entry_guard:${entryGuard.reason}`,
+            ...(entryGuard.stopDistancePct ? [`stop_distance_pct:${round2(entryGuard.stopDistancePct)}`] : []),
+          ],
+        }
     : decide(proposal, state, {
       equityUsd,
       nowMs,
@@ -196,7 +215,18 @@ async function main() {
         const res = swap({ amount: spendUsd.toFixed(2), from: USDT.address, to: token.address });
         const units = tokenUnits(token.address) || Number(String(res.output ?? "0").split(" ")[0]) || 0;
         const entryPrice = entryPriceFrom({ symbol: proposal.symbol, spendUsd, units });
-        savePosition({ symbol: proposal.symbol, address: token.address, units, entryPrice, costUsd: spendUsd, openedAt: generatedAt, invalidation: effectiveThesis.invalidation });
+        savePosition({
+          symbol: proposal.symbol,
+          address: token.address,
+          units,
+          entryPrice,
+          peakPriceUsd: entryPrice,
+          peakPriceSource: "entry",
+          peakAt: generatedAt,
+          costUsd: spendUsd,
+          openedAt: generatedAt,
+          invalidation: effectiveThesis.invalidation,
+        });
         state = noteEntry(state, ruling.sizedPct, nowMs);
         execution = { executed: true, kind: "enter", txHash: res.txHash, spentUsd: spendUsd, units };
       } else {
@@ -229,6 +259,9 @@ async function main() {
         address: token.address,
         units,
         entryPrice,
+        peakPriceUsd: entryPrice,
+        peakPriceSource: "entry",
+        peakAt: generatedAt,
         costUsd: spendUsd,
         openedAt: generatedAt,
         complianceTrade: true,
@@ -296,7 +329,7 @@ async function main() {
       rawHash: raw ? sha256(canonical(raw)) : null,
       rawPreview: raw ? String(raw).slice(0, 280) : null,
     },
-    governor: { state: { ...state }, ruling },
+    governor: { state: { ...state }, ruling, recoveryMode, entryGuard },
     position: loadPosition(),
     execution,
     counters: {
@@ -336,4 +369,36 @@ function closeableUnits(position) {
 
 function formatTokenAmount(value) {
   return Number(value).toFixed(18).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function updatePositionPeak(position, quotes, positionUsd, generatedAt) {
+  const observed = observedPositionPrice(position, quotes, positionUsd);
+  if (!observed?.priceUsd) return position;
+  const priorPeak = Number(position.peakPriceUsd);
+  if (Number.isFinite(priorPeak) && priorPeak >= observed.priceUsd) return position;
+  const next = {
+    ...position,
+    peakPriceUsd: observed.priceUsd,
+    peakPriceSource: observed.source,
+    peakAt: generatedAt,
+  };
+  savePosition(next);
+  return next;
+}
+
+function observedPositionPrice(position, quotes, positionUsd) {
+  const quote = quotes.find((item) => String(item?.symbol ?? "").toUpperCase() === String(position.symbol).toUpperCase());
+  const quotePrice = Number(quote?.priceUsd);
+  if (Number.isFinite(quotePrice) && quotePrice > 0) return { priceUsd: quotePrice, source: "paid_quote" };
+  const units = Number(position.units);
+  const value = Number(positionUsd);
+  if (Number.isFinite(units) && units > 0 && Number.isFinite(value) && value > 0) {
+    return { priceUsd: value / units, source: "wallet_value" };
+  }
+  return null;
+}
+
+function isRecoveryMode(state, equityUsd) {
+  const peak = Number(state?.peakEquityUsd);
+  return Number.isFinite(peak) && peak > 0 && Number(equityUsd) < peak * 0.995;
 }

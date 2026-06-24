@@ -1,4 +1,13 @@
-export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minUsefulPositionUsd = 0 }) {
+export const EXIT_GUARD_CONFIG = {
+  hardStopLossPct: -6,
+  takeProfitPct: 12,
+  trailArmPct: 5,
+  trailGivebackPct: 3,
+  greenMomentumFade1hPct: -1,
+  dustExitFractionOfMinUseful: 0.5,
+};
+
+export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minUsefulPositionUsd = 0, config = EXIT_GUARD_CONFIG }) {
   if (!position?.symbol || !position?.invalidation) return null;
   const invalidationUsd = parseInvalidationPrice(position.invalidation);
   if (!Number.isFinite(invalidationUsd) || invalidationUsd <= 0) return null;
@@ -8,21 +17,43 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
 
   const usefulFloor = Number(minUsefulPositionUsd);
   const liveValue = Number(positionUsd);
-  if (Number.isFinite(usefulFloor) && usefulFloor > 0 && Number.isFinite(liveValue) && liveValue > 0 && liveValue < usefulFloor) {
+  const dustFloor = usefulFloor * config.dustExitFractionOfMinUseful;
+  if (Number.isFinite(usefulFloor) && usefulFloor > 0 && Number.isFinite(liveValue) && liveValue > 0 && liveValue < dustFloor) {
     return exit(position, "position_below_live_trade_min", invalidationUsd, observed, `${position.symbol} live value is $${formatPrice(liveValue)}, below the $${formatPrice(usefulFloor)} minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.`);
-  }
-
-  if (observed.priceUsd <= invalidationUsd) {
-    return exit(position, "stored_invalidation_price_breached", invalidationUsd, observed, `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`);
   }
 
   const entryPrice = Number(position.entryPrice);
   const change1h = Number(observed.change1h);
   if (Number.isFinite(entryPrice) && entryPrice > 0 && observed.source === "paid_quote") {
     const openReturnPct = ((observed.priceUsd - entryPrice) / entryPrice) * 100;
+    if (openReturnPct >= config.takeProfitPct) {
+      return exit(position, "take_profit_target_hit", invalidationUsd, observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry, meeting the ${formatPct(config.takeProfitPct)} profit-capture target.`);
+    }
+
+    const peakPrice = Number(position.peakPriceUsd);
+    if (Number.isFinite(peakPrice) && peakPrice > entryPrice) {
+      const peakReturnPct = ((peakPrice - entryPrice) / entryPrice) * 100;
+      const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
+      if (peakReturnPct >= config.trailArmPct && drawdownFromPeakPct <= -config.trailGivebackPct) {
+        return exit(position, "trailing_profit_protection", invalidationUsd, observed, `${position.symbol} armed a trailing exit after ${formatPct(peakReturnPct)} open profit and has given back ${formatPct(Math.abs(drawdownFromPeakPct))} from the peak.`);
+      }
+    }
+
+    if (openReturnPct >= config.trailArmPct && Number.isFinite(change1h) && change1h <= config.greenMomentumFade1hPct) {
+      return exit(position, "green_momentum_rolled_over", invalidationUsd, observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry but paid quote momentum rolled to ${formatPct(change1h)} over 1h.`);
+    }
+
+    if (openReturnPct <= config.hardStopLossPct) {
+      return exit(position, "hard_stop_loss", invalidationUsd, observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry, hitting the hard ${formatPct(config.hardStopLossPct)} loss limit.`);
+    }
+
     if (openReturnPct <= -3 || (openReturnPct < 0 && Number.isFinite(change1h) && change1h <= -2.5)) {
       return exit(position, "position_momentum_faded", invalidationUsd, observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry and the paid quote shows ${formatPct(change1h)} over 1h; exiting before the hard invalidation is hit.`);
     }
+  }
+
+  if (observed.priceUsd <= invalidationUsd) {
+    return exit(position, "stored_invalidation_price_breached", invalidationUsd, observed, `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`);
   }
 
   return null;

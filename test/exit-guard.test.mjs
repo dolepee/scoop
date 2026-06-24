@@ -59,6 +59,46 @@ test("forces exit before invalidation when open loss and 1h momentum fade", () =
   assert.equal(guard.priceSource, "paid_quote");
 });
 
+test("forces exit on hard stop loss before waiting for a wider thesis level", () => {
+  const guard = evaluateExitGuard({
+    position: LAB_POSITION,
+    quotes: [{ symbol: "LAB", priceUsd: 15.95, change1h: -0.1 }],
+    positionUsd: 1.9,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "hard_stop_loss");
+});
+
+test("captures profit at the take-profit target", () => {
+  const guard = evaluateExitGuard({
+    position: LAB_POSITION,
+    quotes: [{ symbol: "LAB", priceUsd: 19.20, change1h: 2.1 }],
+    positionUsd: 2.25,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "take_profit_target_hit");
+});
+
+test("protects green trades with trailing peak giveback", () => {
+  const guard = evaluateExitGuard({
+    position: { ...LAB_POSITION, peakPriceUsd: 18.10 },
+    quotes: [{ symbol: "LAB", priceUsd: 17.50, change1h: 0.2 }],
+    positionUsd: 2.05,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "trailing_profit_protection");
+});
+
+test("exits green trades when 1h momentum rolls over", () => {
+  const guard = evaluateExitGuard({
+    position: LAB_POSITION,
+    quotes: [{ symbol: "LAB", priceUsd: 18.05, change1h: -1.2 }],
+    positionUsd: 2.12,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "green_momentum_rolled_over");
+});
+
 test("falls back to wallet value when the paid quote is unavailable", () => {
   const guard = evaluateExitGuard({
     position: LAB_POSITION,
