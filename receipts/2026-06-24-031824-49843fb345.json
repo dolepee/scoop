@@ -1,0 +1,99 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T03:18:24.449Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=HOME&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "04fd9293b72f5c74e9896cd5dbd052c5f2ea5861992c015689fc6d2376a995b0"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "HOME",
+        "priceUsd": 0.021507865769088856,
+        "change1h": 0.2584509,
+        "change24h": 6.46119264,
+        "change7d": -20.08874313,
+        "volume24h": 30338009.37879699,
+        "volumeChange24h": 14.5568
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 5500,
+    "rationale": "HOME is up 0.26% in the last hour and 6.46% in the last 24 hours with strong volume of $30.3M, but the 7-day trend is still down -20.09%, and the current price of $0.02151 is near the recent peak, suggesting momentum may be topping.",
+    "invalidation": "If HOME breaks and holds above $0.02175 with sustained volume, the uptrend could extend.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "a0f62ca05a6da1c7bbd366db123cc3b0940ffc0bdb8f8c9ccc55d24c020ecbe6",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"HOME\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 5500,\n  \"rationale\": \"HOME is up 0.26% in the last hour and 6.46% in the last 24 hours with strong volume of $30.3M, but the 7-day trend is still down -20.09%, and the current price of $0.0215"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 1,
+      "newRiskTodayPct": 21.4,
+      "lastTradeAt": "2026-06-24T01:33:36.558Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": {
+    "symbol": "HOME",
+    "address": "0x4BfAa776991E85e5f8b1255461cbbd216cFc714f",
+    "units": 235.106778715775,
+    "entryPrice": 0.02126693252874939,
+    "costUsd": 5,
+    "openedAt": "2026-06-24T01:33:36.558Z",
+    "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative.",
+    "peakPriceUsd": 0.021507865769088856,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-24T03:18:24.449Z"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 23.42,
+    "usdtUsd": 18.35,
+    "usd1Usd": 0.01,
+    "positionUsd": 5.06,
+    "inScopeUsd": 23.42,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "3abb97e0491c301014ec264d0c6957884115a3bf46f9952faeea320dac05912a",
+  "checksum": "49843fb3453309fea95f60d39850dcb75f83aab49a461904d9aaecd07b82559a"
+}

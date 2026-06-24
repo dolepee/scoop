@@ -5,5 +5,8 @@
   "entryPrice": 0.02126693252874939,
   "costUsd": 5,
   "openedAt": "2026-06-24T01:33:36.558Z",
-  "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative."
+  "invalidation": "Exit if HOME trades below $0.0199154 or 1h momentum turns negative.",
+  "peakPriceUsd": 0.021507865769088856,
+  "peakPriceSource": "paid_quote",
+  "peakAt": "2026-06-24T03:18:24.449Z"
 }
