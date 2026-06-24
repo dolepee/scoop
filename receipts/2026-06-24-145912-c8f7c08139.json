@@ -1,0 +1,233 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-24T14:59:12.675Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "8018b4961e946535cc41ae835aeb2902cd02181ccb3522eed21843f3f738ad82"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=LAB,SLX,SAHARA,AAVE,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "a2b5ffc0d51e1bf2eec4f630f2e0c6b3e825013ce285b2672fbb28532afe5f23"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60928.90130177204,
+        "change1h": -0.54478596,
+        "change24h": -2.37543608,
+        "change7d": -6.37389103,
+        "volume24h": 27399739473.457703,
+        "volumeChange24h": -9.0317
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 568.7301389762064,
+        "change1h": -0.21678145,
+        "change24h": -0.75420763,
+        "change7d": -5.46452435,
+        "volume24h": 960513742.0938205,
+        "volumeChange24h": -2.7941
+      }
+    ],
+    "marketRegime": {
+      "state": "risk_off",
+      "riskOff": true,
+      "reasons": [
+        "btc_down:-0.54h1/-2.38d1"
+      ],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60928.90130177204,
+        "change1h": -0.54478596,
+        "change24h": -2.37543608,
+        "change7d": -6.37389103
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 568.7301389762064,
+        "change1h": -0.21678145,
+        "change24h": -0.75420763,
+        "change7d": -5.46452435
+      }
+    },
+    "moversTop": [
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 5.8759723,
+        "change24h": 25.63868272,
+        "change7d": 49.48657361,
+        "volume24h": 76419751.4349687,
+        "marketCap": 6215132074.175096,
+        "priceUsd": 19.914219613035286,
+        "heat": 50.69
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -1.09290376,
+        "change24h": 33.98503979,
+        "change7d": 56.18417405,
+        "volume24h": 194760221.94532326,
+        "marketCap": 65203839.827556744,
+        "priceUsd": 0.26848962732493536,
+        "heat": 39.13
+      },
+      {
+        "symbol": "SAHARA",
+        "name": "Sahara AI",
+        "change1h": 1.74505073,
+        "change24h": 18.61102662,
+        "change7d": -6.39181733,
+        "volume24h": 132078658.67827189,
+        "marketCap": 45946173.202741675,
+        "priceUsd": 0.013485897902686434,
+        "heat": 22.89
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": 2.08958139,
+        "change24h": 3.54182549,
+        "change7d": 1.42782107,
+        "volume24h": 221078561.2626807,
+        "marketCap": 1171111429.4263165,
+        "priceUsd": 75.99810673363118,
+        "heat": 10.02
+      },
+      {
+        "symbol": "GENIUS",
+        "name": "Genius Terminal",
+        "change1h": 2.08112933,
+        "change24h": 3.44048093,
+        "change7d": -7.2445585,
+        "volume24h": 20094913.7790027,
+        "marketCap": 129667727.42536928,
+        "priceUsd": 0.38663266894880033,
+        "heat": 8.6
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": -0.66740565,
+        "change24h": 0.79313803,
+        "change7d": 44.67638642,
+        "volume24h": 53150816.87078547,
+        "marketCap": 1907517960.4688087,
+        "priceUsd": 22.780772614332694,
+        "heat": 5.49
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 19.914219613035286,
+        "change1h": 5.8759723,
+        "change24h": 25.63868272,
+        "change7d": 49.48657361,
+        "volume24h": 76419751.4349687,
+        "volumeChange24h": 28.1861
+      },
+      {
+        "symbol": "AAVE",
+        "priceUsd": 75.99810673363118,
+        "change1h": 2.08958139,
+        "change24h": 3.54182549,
+        "change7d": 1.42782107,
+        "volume24h": 221078561.2626807,
+        "volumeChange24h": 24.1387
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.26848962732493536,
+        "change1h": -1.09290376,
+        "change24h": 33.98503979,
+        "change7d": 56.18417405,
+        "volume24h": 194760221.94532326,
+        "volumeChange24h": 45.0377
+      },
+      {
+        "symbol": "SAHARA",
+        "priceUsd": 0.013485897902686434,
+        "change1h": 1.74505073,
+        "change24h": 18.61102662,
+        "change7d": -6.39181733,
+        "volume24h": 132078658.67827189,
+        "volumeChange24h": 365.364
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "Market is in risk-off with BTC down -0.54% 1h and -2.38% 24h, and top movers like LAB (+25.64% 24h) show high volatility but lack a clear, sustainable momentum signal amid the broader downturn.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "8f276696deaa6db468133c7bc6438108437a7b9345d1005d3a42af7f6401adbc",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"Market is in risk-off with BTC down -0.54% 1h and -2.38% 24h, and top movers like LAB (+25.64% 24h) show high volatility but lack a clear, sustainable momentum signal amid the b"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-24",
+      "tradesToday": 4,
+      "newRiskTodayPct": 42.93,
+      "lastTradeAt": "2026-06-24T12:27:14.691Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 22.51,
+    "usdtUsd": 22.5,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 22.51,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "6cd0a6c4e77ea709a213c896d2f07dc077ad4cb95586576c885306add3f51253",
+  "checksum": "c8f7c08139a88b25d8964d15d28554c64da1fb4bd5d739602352197ae5a1d2b4"
+}
