@@ -7,7 +7,7 @@ name: Scoop Cycle
 
 on:
   schedule:
-    - cron: "7,27,47 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       trade:
@@ -37,6 +37,7 @@ jobs:
       SCOOP_FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
       SCOOP_MIN_RUN_INTERVAL_MINUTES: "50"
+      SCOOP_OPEN_POSITION_INTERVAL_MINUTES: "10"
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - uses: actions/checkout@v4
