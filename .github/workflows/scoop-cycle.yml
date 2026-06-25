@@ -28,6 +28,9 @@ on:
       stable_amount:
         description: "Stable amount for daily gate repair, max 10"
         default: "5"
+      close_position:
+        description: "Close current recorded position to USDT (1 = yes)"
+        default: "0"
 
 permissions:
   contents: write
@@ -51,6 +54,7 @@ jobs:
       SCOOP_STABLE_FROM: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_from || 'USDT' }}
       SCOOP_STABLE_TO: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_to || 'USDC' }}
       SCOOP_STABLE_AMOUNT: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_amount || '5' }}
+      SCOOP_CLOSE_POSITION: ${{ github.event_name == 'workflow_dispatch' && inputs.close_position || '0' }}
       SCOOP_DATA_CAP_USD: "0.05"
       SCOOP_MIN_RUN_INTERVAL_MINUTES: "50"
       SCOOP_OPEN_POSITION_INTERVAL_MINUTES: "10"
@@ -89,7 +93,9 @@ jobs:
       - name: run cycle
         if: steps.freshness.outputs.should_run == 'true'
         run: |
-          if [ "$SCOOP_STABLE_COMPLIANCE" = "1" ]; then
+          if [ "$SCOOP_CLOSE_POSITION" = "1" ]; then
+            node src/manual-close-position.mjs
+          elif [ "$SCOOP_STABLE_COMPLIANCE" = "1" ]; then
             node src/manual-stable-compliance.mjs
           else
             node src/cycle.mjs
