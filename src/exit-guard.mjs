@@ -93,7 +93,7 @@ function observedPriceUsd({ position, quotes, positionUsd, config = EXIT_GUARD_C
     }
     return {
       priceUsd: walletPrice,
-      change1h: Number(quote?.change1h),
+      change1h: null,
       source: "wallet_value",
       rejectedQuotePriceUsd: quotePrice,
       quoteDivergencePct: priceDivergencePct(quotePrice, walletPrice),

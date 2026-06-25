@@ -16,6 +16,7 @@ import { chooseComplianceAction, COMPLIANCE_REASON } from "./compliance.mjs";
 import { isEligibleAddress } from "./allowlist.mjs";
 import { executableUsdAmount } from "./sizing.mjs";
 import { evaluateExitGuard } from "./exit-guard.mjs";
+import { evaluateExitSignalGuard } from "./exit-signal-guard.mjs";
 import { evaluateEntryGuard } from "./entry-guard.mjs";
 import { evaluateDexGuard } from "./dex-guard.mjs";
 import { evaluateMarketRegime, splitMarketContext, withMarketContext } from "./market-regime.mjs";
@@ -163,6 +164,9 @@ async function main() {
     : null;
   const decisionThesis = fallbackThesis ?? thesis;
   const exitGuard = evaluateExitGuard({ position, quotes: tradeQuotes, positionUsd, minUsefulPositionUsd: MIN_LIVE_TRADE_USD });
+  const exitSignalGuard = exitGuard
+    ? { ok: true, reason: "deterministic_exit_guard" }
+    : evaluateExitSignalGuard({ position, thesis: decisionThesis, quotes: tradeQuotes, positionUsd });
   const effectiveThesis = exitGuard
     ? {
         action: "TRADE",
@@ -174,6 +178,17 @@ async function main() {
         exitGuard,
         modelThesis: decisionThesis,
       }
+    : !exitSignalGuard.ok
+      ? {
+          action: "NO_TRADE",
+          symbol: null,
+          direction: null,
+          convictionBps: 0,
+          rationale: `Blocked model exit: ${exitSignalGuard.reason}.`,
+          invalidation: "",
+          exitSignalGuard,
+          modelThesis: decisionThesis,
+        }
     : decisionThesis;
 
   const proposal = effectiveThesis.action === "TRADE"
@@ -350,7 +365,7 @@ async function main() {
       rawHash: raw ? sha256(canonical(raw)) : null,
       rawPreview: raw ? String(raw).slice(0, 280) : null,
     },
-    governor: { state: { ...state }, ruling, recoveryMode, entryGuard, dexGuard },
+    governor: { state: { ...state }, ruling, recoveryMode, entryGuard, dexGuard, exitSignalGuard },
     position: loadPosition(),
     execution,
     counters: {
