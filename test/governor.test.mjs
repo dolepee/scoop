@@ -9,7 +9,8 @@ import {
   syncState,
 } from "../src/governor.mjs";
 
-const MORNING = Date.parse("2026-06-22T09:00:00Z");
+const MORNING = Date.parse("2026-06-22T08:00:00Z");
+const CUTOFF = Date.parse("2026-06-22T09:00:00Z");
 const NOON = Date.parse("2026-06-22T12:00:00Z");
 const LATE = Date.parse("2026-06-22T21:30:00Z");
 const COMPLIANCE_BUY = { action: "buy", symbol: "CAKE", reason: "daily minimum, no conviction signal today" };
@@ -114,7 +115,7 @@ test("compliance valve opens at the UTC cutoff when armed with zero trades", () 
   const r = decide(
     { kind: "NONE" },
     freshState(),
-    { equityUsd: 20, nowMs: NOON, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
+    { equityUsd: 20, nowMs: CUTOFF, tradeArmed: true, complianceAction: COMPLIANCE_BUY },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
   assert.ok(r.complianceUsd > 0);

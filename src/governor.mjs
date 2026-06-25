@@ -41,8 +41,8 @@ export const DEFAULT_CONFIG = {
   // Minimum model conviction (basis points) to consider a trade at all.
   minConvictionBps: 5500,
   // From this UTC hour, with zero trades today, the compliance valve opens.
-  // Midday UTC leaves retry room before the contest day closes.
-  complianceHourUtc: 12,
+  // Morning UTC leaves retry room and avoids missing the daily-trade rule.
+  complianceHourUtc: 9,
   // Size of the compliance trade in USD. Must clear minTradeUsd.
   complianceUsd: 5,
 };
