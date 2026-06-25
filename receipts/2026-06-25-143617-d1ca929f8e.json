@@ -1,0 +1,150 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-25T14:36:17.838Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "0be427e421e9b4ce86604f8291a3c87b5ec68d89848f870a534c2c1ddddb9f92"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 59958.380342921526,
+        "change1h": -1.57580045,
+        "change24h": -2.09868579,
+        "change7d": -6.0624432,
+        "volume24h": 48722682604.775,
+        "volumeChange24h": 80.5776
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 554.2419562627715,
+        "change1h": -1.91225231,
+        "change24h": -2.79675634,
+        "change7d": -5.99438262,
+        "volume24h": 1588233348.558847,
+        "volumeChange24h": 66.5178
+      }
+    ],
+    "marketRegime": {
+      "state": "risk_off",
+      "riskOff": true,
+      "reasons": [
+        "btc_down:-1.58h1/-2.1d1",
+        "bnb_down:-1.91h1/-2.8d1"
+      ],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 59958.380342921526,
+        "change1h": -1.57580045,
+        "change24h": -2.09868579,
+        "change7d": -6.0624432
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 554.2419562627715,
+        "change1h": -1.91225231,
+        "change24h": -2.79675634,
+        "change7d": -5.99438262
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.39334870938495137,
+        "change1h": -2.870349,
+        "change24h": 48.00218889,
+        "change7d": 174.31078493,
+        "volume24h": 205361198.47980326,
+        "volumeChange24h": 4.1793
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "Market is in risk-off with BTC and BNB down over 1.5% in 1h, and my open position SLX is up 48% in 24h but currently down 2.87% in 1h, showing no clear momentum for entry or exit.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "1640f30d4f702355e640cb7562c2b25601dbbfd356f00aa8dee9d3fd14e19a44",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"Market is in risk-off with BTC and BNB down over 1.5% in 1h, and my open position SLX is up 48% in 24h but currently down 2.87% in 1h, showing no clear momentum for entry or exi"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-25",
+      "tradesToday": 1,
+      "newRiskTodayPct": 22.41,
+      "lastTradeAt": "2026-06-25T13:17:38.593Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "SLX",
+    "address": "0x8A063A9ff4dE28dcB87117cc759BE6cE70e09F81",
+    "units": 4231.876581442062,
+    "entryPrice": 0.0011815089367034873,
+    "peakPriceUsd": 0.0011815089367034873,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-25T13:17:38.593Z",
+    "costUsd": 5,
+    "openedAt": "2026-06-25T13:17:38.593Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 22.29,
+    "usdtUsd": 17.29,
+    "usd1Usd": 0.01,
+    "positionUsd": 4.99,
+    "inScopeUsd": 22.29,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "54f6d82bc409b39118c6339906a46f4ed52c7ae998c475c5413140b729a9678f",
+  "checksum": "d1ca929f8e5280860ac4fc4c03e870e5df5a75e9668507942ccc9e7f181752e5"
+}
