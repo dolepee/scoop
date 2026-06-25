@@ -16,6 +16,18 @@ on:
       force:
         description: "Bypass freshness guard (1 = run even if a recent receipt exists)"
         default: "0"
+      stable_compliance:
+        description: "Run stable-to-stable daily gate repair instead of strategy cycle (1 = yes)"
+        default: "0"
+      stable_from:
+        description: "Stable input symbol for daily gate repair"
+        default: "USDT"
+      stable_to:
+        description: "Stable output symbol for daily gate repair"
+        default: "USDC"
+      stable_amount:
+        description: "Stable amount for daily gate repair, max 10"
+        default: "5"
 
 permissions:
   contents: write
@@ -35,6 +47,10 @@ jobs:
       SCOOP_PAID: "1"
       SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
       SCOOP_FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
+      SCOOP_STABLE_COMPLIANCE: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_compliance || '0' }}
+      SCOOP_STABLE_FROM: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_from || 'USDT' }}
+      SCOOP_STABLE_TO: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_to || 'USDC' }}
+      SCOOP_STABLE_AMOUNT: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_amount || '5' }}
       SCOOP_DATA_CAP_USD: "0.05"
       SCOOP_MIN_RUN_INTERVAL_MINUTES: "50"
       SCOOP_OPEN_POSITION_INTERVAL_MINUTES: "10"
@@ -72,7 +88,12 @@ jobs:
 
       - name: run cycle
         if: steps.freshness.outputs.should_run == 'true'
-        run: node src/cycle.mjs
+        run: |
+          if [ "$SCOOP_STABLE_COMPLIANCE" = "1" ]; then
+            node src/manual-stable-compliance.mjs
+          else
+            node src/cycle.mjs
+          fi
 
       - name: verify receipt chain
         if: steps.freshness.outputs.should_run == 'true'
