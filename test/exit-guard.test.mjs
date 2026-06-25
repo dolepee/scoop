@@ -137,6 +137,23 @@ test("protects compliance trades without a stored invalidation", () => {
   assert.equal(guard.invalidationUsd, null);
 });
 
+test("ignores paid symbol quote when it diverges from wallet-implied position value", () => {
+  const guard = evaluateExitGuard({
+    position: {
+      symbol: "SLX",
+      units: 4231.876581442062,
+      costUsd: 5,
+      entryPrice: 0.0011815089367034873,
+      peakPriceUsd: 0.39995684582176166,
+      peakPriceSource: "paid_quote",
+      complianceTrade: true,
+    },
+    quotes: [{ symbol: "SLX", priceUsd: 0.39995684582176166, change1h: 15.56 }],
+    positionUsd: 4.99,
+  });
+  assert.equal(guard, null);
+});
+
 test("hard-stops compliance trades without a stored invalidation", () => {
   const guard = evaluateExitGuard({
     position: {

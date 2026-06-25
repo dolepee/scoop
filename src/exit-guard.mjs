@@ -9,6 +9,7 @@ export const EXIT_GUARD_CONFIG = {
   trailGivebackPct: 2.5,
   greenMomentumFade1hPct: -1,
   dustExitFractionOfMinUseful: 0.5,
+  maxQuoteWalletDivergencePct: 35,
 };
 
 export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minUsefulPositionUsd = 0, config = EXIT_GUARD_CONFIG }) {
@@ -36,7 +37,8 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
     }
 
     const peakPrice = Number(position.peakPriceUsd);
-    if (Number.isFinite(peakPrice) && peakPrice > entryPrice) {
+    const peakTrusted = isTrustedPeak(position, observed, config);
+    if (peakTrusted && Number.isFinite(peakPrice) && peakPrice > entryPrice) {
       const peakReturnPct = ((peakPrice - entryPrice) / entryPrice) * 100;
       const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
       if (peakReturnPct >= config.earlyTrailArmPct && peakReturnPct < config.trailArmPct && drawdownFromPeakPct <= -config.earlyTrailGivebackPct) {
@@ -79,17 +81,42 @@ export function parseInvalidationPrice(invalidation) {
   return dollar ? Number(dollar[1]) : null;
 }
 
-function observedPriceUsd({ position, quotes, positionUsd }) {
+function observedPriceUsd({ position, quotes, positionUsd, config = EXIT_GUARD_CONFIG }) {
   const quote = quotes.find((item) => String(item?.symbol ?? "").toUpperCase() === String(position.symbol).toUpperCase());
   const quotePrice = Number(quote?.priceUsd);
-  if (Number.isFinite(quotePrice) && quotePrice > 0) return { priceUsd: quotePrice, change1h: Number(quote?.change1h), source: "paid_quote" };
-
   const units = Number(position.units);
   const value = Number(positionUsd);
+  const walletPrice = Number.isFinite(units) && units > 0 && Number.isFinite(value) && value > 0 ? value / units : null;
+  if (Number.isFinite(quotePrice) && quotePrice > 0) {
+    if (!walletPrice || priceDivergencePct(quotePrice, walletPrice) <= config.maxQuoteWalletDivergencePct) {
+      return { priceUsd: quotePrice, change1h: Number(quote?.change1h), source: "paid_quote" };
+    }
+    return {
+      priceUsd: walletPrice,
+      change1h: Number(quote?.change1h),
+      source: "wallet_value",
+      rejectedQuotePriceUsd: quotePrice,
+      quoteDivergencePct: priceDivergencePct(quotePrice, walletPrice),
+    };
+  }
   if (Number.isFinite(units) && units > 0 && Number.isFinite(value) && value > 0) {
     return { priceUsd: value / units, source: "wallet_value" };
   }
   return null;
+}
+
+function isTrustedPeak(position, observed, config) {
+  const peakPrice = Number(position.peakPriceUsd);
+  if (!Number.isFinite(peakPrice) || peakPrice <= 0) return false;
+  if (observed.source !== "wallet_value" || position.peakPriceSource !== "paid_quote") return true;
+  return priceDivergencePct(peakPrice, observed.priceUsd) <= config.maxQuoteWalletDivergencePct;
+}
+
+function priceDivergencePct(a, b) {
+  const left = Number(a);
+  const right = Number(b);
+  if (!Number.isFinite(left) || !Number.isFinite(right) || left <= 0 || right <= 0) return Infinity;
+  return (Math.abs(left - right) / right) * 100;
 }
 
 function formatPrice(value) {

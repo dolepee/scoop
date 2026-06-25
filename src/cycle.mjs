@@ -410,13 +410,26 @@ function updatePositionPeak(position, quotes, positionUsd, generatedAt) {
 function observedPositionPrice(position, quotes, positionUsd) {
   const quote = quotes.find((item) => String(item?.symbol ?? "").toUpperCase() === String(position.symbol).toUpperCase());
   const quotePrice = Number(quote?.priceUsd);
-  if (Number.isFinite(quotePrice) && quotePrice > 0) return { priceUsd: quotePrice, source: "paid_quote" };
   const units = Number(position.units);
   const value = Number(positionUsd);
+  const walletPrice = Number.isFinite(units) && units > 0 && Number.isFinite(value) && value > 0 ? value / units : null;
+  if (Number.isFinite(quotePrice) && quotePrice > 0) {
+    if (!walletPrice || priceDivergencePct(quotePrice, walletPrice) <= 35) {
+      return { priceUsd: quotePrice, source: "paid_quote" };
+    }
+    return { priceUsd: walletPrice, source: "wallet_value" };
+  }
   if (Number.isFinite(units) && units > 0 && Number.isFinite(value) && value > 0) {
     return { priceUsd: value / units, source: "wallet_value" };
   }
   return null;
+}
+
+function priceDivergencePct(a, b) {
+  const left = Number(a);
+  const right = Number(b);
+  if (!Number.isFinite(left) || !Number.isFinite(right) || left <= 0 || right <= 0) return Infinity;
+  return (Math.abs(left - right) / right) * 100;
 }
 
 function isRecoveryMode(state, equityUsd) {
