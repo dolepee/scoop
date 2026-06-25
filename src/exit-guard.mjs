@@ -12,9 +12,10 @@ export const EXIT_GUARD_CONFIG = {
 };
 
 export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minUsefulPositionUsd = 0, config = EXIT_GUARD_CONFIG }) {
-  if (!position?.symbol || !position?.invalidation) return null;
+  if (!position?.symbol) return null;
   const invalidationUsd = parseInvalidationPrice(position.invalidation);
-  if (!Number.isFinite(invalidationUsd) || invalidationUsd <= 0) return null;
+  const hasInvalidation = Number.isFinite(invalidationUsd) && invalidationUsd > 0;
+  if (!hasInvalidation && !position.complianceTrade) return null;
 
   const observed = observedPriceUsd({ position, quotes, positionUsd });
   if (!observed) return null;
@@ -23,7 +24,7 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
   const liveValue = Number(positionUsd);
   const dustFloor = usefulFloor * config.dustExitFractionOfMinUseful;
   if (Number.isFinite(usefulFloor) && usefulFloor > 0 && Number.isFinite(liveValue) && liveValue > 0 && liveValue < dustFloor) {
-    return exit(position, "position_below_live_trade_min", invalidationUsd, observed, `${position.symbol} live value is $${formatPrice(liveValue)}, below the $${formatPrice(usefulFloor)} minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.`);
+    return exit(position, "position_below_live_trade_min", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} live value is $${formatPrice(liveValue)}, below the $${formatPrice(usefulFloor)} minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.`);
   }
 
   const entryPrice = Number(position.entryPrice);
@@ -31,7 +32,7 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
   if (Number.isFinite(entryPrice) && entryPrice > 0 && observed.source === "paid_quote") {
     const openReturnPct = ((observed.priceUsd - entryPrice) / entryPrice) * 100;
     if (openReturnPct >= config.takeProfitPct) {
-      return exit(position, "take_profit_target_hit", invalidationUsd, observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry, meeting the ${formatPct(config.takeProfitPct)} profit-capture target.`);
+      return exit(position, "take_profit_target_hit", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry, meeting the ${formatPct(config.takeProfitPct)} profit-capture target.`);
     }
 
     const peakPrice = Number(position.peakPriceUsd);
@@ -39,30 +40,30 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
       const peakReturnPct = ((peakPrice - entryPrice) / entryPrice) * 100;
       const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
       if (peakReturnPct >= config.earlyTrailArmPct && peakReturnPct < config.trailArmPct && drawdownFromPeakPct <= -config.earlyTrailGivebackPct) {
-        return exit(position, "early_profit_trail", invalidationUsd, observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has already given back ${formatPct(Math.abs(drawdownFromPeakPct))}; closing before a small win round-trips.`);
+        return exit(position, "early_profit_trail", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has already given back ${formatPct(Math.abs(drawdownFromPeakPct))}; closing before a small win round-trips.`);
       }
       if (peakReturnPct >= config.breakevenArmPct && openReturnPct <= config.breakevenFloorPct) {
-        return exit(position, "breakeven_profit_protection", invalidationUsd, observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has faded back to ${formatPct(openReturnPct)}; closing near breakeven before a green trade turns into a loss.`);
+        return exit(position, "breakeven_profit_protection", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has faded back to ${formatPct(openReturnPct)}; closing near breakeven before a green trade turns into a loss.`);
       }
       if (peakReturnPct >= config.trailArmPct && drawdownFromPeakPct <= -config.trailGivebackPct) {
-        return exit(position, "trailing_profit_protection", invalidationUsd, observed, `${position.symbol} armed a trailing exit after ${formatPct(peakReturnPct)} open profit and has given back ${formatPct(Math.abs(drawdownFromPeakPct))} from the peak.`);
+        return exit(position, "trailing_profit_protection", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} armed a trailing exit after ${formatPct(peakReturnPct)} open profit and has given back ${formatPct(Math.abs(drawdownFromPeakPct))} from the peak.`);
       }
     }
 
     if (openReturnPct >= config.trailArmPct && Number.isFinite(change1h) && change1h <= config.greenMomentumFade1hPct) {
-      return exit(position, "green_momentum_rolled_over", invalidationUsd, observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry but paid quote momentum rolled to ${formatPct(change1h)} over 1h.`);
+      return exit(position, "green_momentum_rolled_over", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry but paid quote momentum rolled to ${formatPct(change1h)} over 1h.`);
     }
 
     if (openReturnPct <= config.hardStopLossPct) {
-      return exit(position, "hard_stop_loss", invalidationUsd, observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry, hitting the hard ${formatPct(config.hardStopLossPct)} loss limit.`);
+      return exit(position, "hard_stop_loss", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry, hitting the hard ${formatPct(config.hardStopLossPct)} loss limit.`);
     }
 
     if (openReturnPct <= -3 || (openReturnPct < 0 && Number.isFinite(change1h) && change1h <= -2.5)) {
-      return exit(position, "position_momentum_faded", invalidationUsd, observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry and the paid quote shows ${formatPct(change1h)} over 1h; exiting before the hard invalidation is hit.`);
+      return exit(position, "position_momentum_faded", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} is down ${formatPct(openReturnPct)} from entry and the paid quote shows ${formatPct(change1h)} over 1h; exiting before the hard invalidation is hit.`);
     }
   }
 
-  if (observed.priceUsd <= invalidationUsd) {
+  if (hasInvalidation && observed.priceUsd <= invalidationUsd) {
     return exit(position, "stored_invalidation_price_breached", invalidationUsd, observed, `${position.symbol} observed price $${formatPrice(observed.priceUsd)} is at or below the stored invalidation level $${formatPrice(invalidationUsd)}.`);
   }
 
@@ -97,6 +98,10 @@ function formatPrice(value) {
 
 function formatPct(value) {
   return `${Number(value).toFixed(2).replace(/0+$/, "").replace(/\.$/, "")}%`;
+}
+
+function invalidationUsdForReceipt(value) {
+  return Number.isFinite(value) && value > 0 ? value : null;
 }
 
 function exit(position, reason, invalidationUsd, observed, rationale) {

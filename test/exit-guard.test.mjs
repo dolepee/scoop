@@ -118,3 +118,39 @@ test("falls back to wallet value when the paid quote is unavailable", () => {
   assert.equal(guard.action, "FORCE_EXIT");
   assert.equal(guard.priceSource, "wallet_value");
 });
+
+test("protects compliance trades without a stored invalidation", () => {
+  const guard = evaluateExitGuard({
+    position: {
+      symbol: "SLX",
+      units: 4231.876581442062,
+      costUsd: 5,
+      entryPrice: 0.0011815089367034873,
+      peakPriceUsd: 0.0011815089367034873,
+      complianceTrade: true,
+    },
+    quotes: [{ symbol: "SLX", priceUsd: 0.00131, change1h: 5.1 }],
+    positionUsd: 5.54,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "take_profit_target_hit");
+  assert.equal(guard.invalidationUsd, null);
+});
+
+test("hard-stops compliance trades without a stored invalidation", () => {
+  const guard = evaluateExitGuard({
+    position: {
+      symbol: "SLX",
+      units: 4231.876581442062,
+      costUsd: 5,
+      entryPrice: 0.0011815089367034873,
+      peakPriceUsd: 0.0011815089367034873,
+      complianceTrade: true,
+    },
+    quotes: [{ symbol: "SLX", priceUsd: 0.00112, change1h: -3.5 }],
+    positionUsd: 4.74,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "hard_stop_loss");
+  assert.equal(guard.invalidationUsd, null);
+});
