@@ -1,0 +1,161 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-25T13:29:29.273Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SLX,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "23f332166cfe0bae8d5e1f1ab843544d6d08652b512d7f2d3baeb02ed34cf4b1"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 61132.79564299598,
+        "change1h": 0.14518545,
+        "change24h": -0.99946481,
+        "change7d": -4.8962119,
+        "volume24h": 44152330467.226135,
+        "volumeChange24h": 80.6416
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 566.7096510908016,
+        "change1h": 1.02441745,
+        "change24h": -0.54992089,
+        "change7d": -4.15357332,
+        "volume24h": 1452599739.155194,
+        "volumeChange24h": 58.7293
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 61132.79564299598,
+        "change1h": 0.14518545,
+        "change24h": -0.99946481,
+        "change7d": -4.8962119
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 566.7096510908016,
+        "change1h": 1.02441745,
+        "change24h": -0.54992089,
+        "change7d": -4.15357332
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.39995684582176166,
+        "change1h": 15.56255329,
+        "change24h": 39.35443744,
+        "change7d": 180.02926346,
+        "volume24h": 186468584.06130216,
+        "volumeChange24h": -5.2534
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "SLX",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "SLX is up 33751.36% from entry, meeting the 10% profit-capture target.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "SLX",
+      "direction": "exit",
+      "reason": "take_profit_target_hit",
+      "invalidationUsd": null,
+      "priceUsd": 0.39995684582176166,
+      "priceSource": "paid_quote",
+      "rationale": "SLX is up 33751.36% from entry, meeting the 10% profit-capture target."
+    },
+    "modelThesis": {
+      "action": "TRADE",
+      "symbol": "SLX",
+      "direction": "exit",
+      "convictionBps": 8500,
+      "rationale": "SLX surged 15.6% in 1h and 39.4% in 24h with massive 180% weekly gains, but volume is declining -5.3% indicating momentum may be peaking.",
+      "invalidation": "If SLX breaks above $0.42 with volume surge confirming continuation."
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "ae0efefb3514c5b9cec0fda660cb381630bdd137520d37c276573c7b8efe8d44",
+    "rawPreview": "{\"action\":\"TRADE\",\"symbol\":\"SLX\",\"direction\":\"exit\",\"convictionBps\":8500,\"rationale\":\"SLX surged 15.6% in 1h and 39.4% in 24h with massive 180% weekly gains, but volume is declining -5.3% indicating momentum may be peaking.\",\"invalidation\":\"If SLX breaks above $0.42 with volume s"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-25",
+      "tradesToday": 1,
+      "newRiskTodayPct": 22.41,
+      "lastTradeAt": "2026-06-25T13:17:38.593Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "SLX",
+      "sizedPct": 22.386720502467476,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    }
+  },
+  "position": {
+    "symbol": "SLX",
+    "address": "0x8A063A9ff4dE28dcB87117cc759BE6cE70e09F81",
+    "units": 4231.876581442062,
+    "entryPrice": 0.0011815089367034873,
+    "peakPriceUsd": 0.39995684582176166,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-25T13:29:29.273Z",
+    "costUsd": 5,
+    "openedAt": "2026-06-25T13:17:38.593Z",
+    "complianceTrade": true,
+    "complianceReason": "daily minimum, no conviction signal today"
+  },
+  "execution": {
+    "executed": false,
+    "error": "twak failed: Note: --password [redacted] visible in shell history. Use `twak wallet keychain save` or TWAK_WALLET_PASSWORD instead.\nSwapping 4227.644704860619640385 SLX -> 4.995182566594473162 USDT vi"
+  },
+  "counters": {
+    "equityUsd": 22.29,
+    "usdtUsd": 17.29,
+    "usd1Usd": 0.01,
+    "positionUsd": 4.99,
+    "inScopeUsd": 22.29,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "025044c4b3e453197deb616569276460a5367b5468cda2b777d32d81f4f67ed1",
+  "checksum": "54f6d82bc409b39118c6339906a46f4ed52c7ae998c475c5413140b729a9678f"
+}
