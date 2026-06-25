@@ -53,3 +53,33 @@ test("open positions still skip very fresh receipts", () => {
   assert.equal(decision.shouldRun, false);
   assert.equal(decision.reason, "fresh_open_position:5m<10m");
 });
+
+test("armed scheduled run ignores a fresh observe-only receipt", () => {
+  const decision = scheduleDecision({
+    eventName: "schedule",
+    tradeArmed: true,
+    latestTradeArmed: false,
+    latestGeneratedAt: "2026-06-24T12:25:00Z",
+    nowMs: NOW,
+    minIntervalMinutes: 50,
+    openPosition: false,
+  });
+
+  assert.equal(decision.shouldRun, true);
+  assert.equal(decision.reason, "armed_schedule_after_observe:5m");
+});
+
+test("observe-only bypass does not apply when schedule is not armed", () => {
+  const decision = scheduleDecision({
+    eventName: "schedule",
+    tradeArmed: false,
+    latestTradeArmed: false,
+    latestGeneratedAt: "2026-06-24T12:25:00Z",
+    nowMs: NOW,
+    minIntervalMinutes: 50,
+    openPosition: false,
+  });
+
+  assert.equal(decision.shouldRun, false);
+  assert.equal(decision.reason, "fresh_receipt:5m<50m");
+});
