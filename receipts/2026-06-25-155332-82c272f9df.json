@@ -1,0 +1,108 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-25T15:53:32.472Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualClose": true
+  },
+  "perception": {
+    "dataSource": "manual-close-position",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_risk_off_close"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "SLX",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "Manual risk-off close of SLX back to USDT to avoid further drawdown near the tournament DQ line.",
+    "invalidation": "N/A",
+    "provider": "manual:close-position",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-25",
+      "tradesToday": 2,
+      "newRiskTodayPct": 22.41,
+      "lastTradeAt": "2026-06-25T15:53:32.472Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_CLOSE",
+      "symbol": "SLX",
+      "sizedPct": 28.88,
+      "reasons": [
+        "manual_risk_off_close",
+        "near_drawdown_gate",
+        "SLX_to_USDT"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "manual_close",
+    "txHash": "0x480a6b45f513a79f20a0dc75a63e4977cad2a8c8c4a4062e3e2c1509c23e1939",
+    "tokenIn": "SLX",
+    "tokenInAddress": "0x8A063A9ff4dE28dcB87117cc759BE6cE70e09F81",
+    "tokenOut": "USDT",
+    "tokenOutAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "closedUnits": 4227.64470486062,
+    "slippagePct": 5,
+    "provider": "LiquidMesh",
+    "beforePositionUsd": 4.99,
+    "costUsd": 5,
+    "realizedPnlUsd": -0.01,
+    "realizedPnlPct": -0.2
+  },
+  "counters": {
+    "equityUsd": 17.27,
+    "usdtUsd": 17.26,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 17.27,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 17.28,
+      "usdtUsd": 12.28,
+      "usd1Usd": 0.01,
+      "positionUsd": 4.99,
+      "inScopeUsd": 17.28,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "e8b73e83a908379773a3625336409ed64eac9dbcf329716a48db6b2a839d63dc",
+  "checksum": "82c272f9dfc8a5aff0984d9b664db15f63f2292a7faded30de76b3daf8dad0fb"
+}
