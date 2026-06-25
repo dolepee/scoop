@@ -1,0 +1,235 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-25T17:18:26.655Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "155eff1270ca4607d4cbb1832c9e5da995f260ddd81b2d0cb103915125a111bd"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=EDGE,SLX,BEAT,LAB,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "9648c5e42bde5bf5047a900e02a75b6e0dbb5172ee20b3811de794a3ddab6ecd"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 59411.66936187964,
+        "change1h": -0.34432154,
+        "change24h": -0.39975262,
+        "change7d": -4.85950489,
+        "volume24h": 46463568718.91509,
+        "volumeChange24h": 36.5177
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 555.4844353549134,
+        "change1h": 0.10767331,
+        "change24h": 0.17231301,
+        "change7d": -3.44866849,
+        "volume24h": 1522357395.814502,
+        "volumeChange24h": 39.1686
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 59411.66936187964,
+        "change1h": -0.34432154,
+        "change24h": -0.39975262,
+        "change7d": -4.85950489
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 555.4844353549134,
+        "change1h": 0.10767331,
+        "change24h": 0.17231301,
+        "change7d": -3.44866849
+      }
+    },
+    "moversTop": [
+      {
+        "symbol": "EDGE",
+        "name": "Definitive",
+        "change1h": 15.89521088,
+        "change24h": 36.10032963,
+        "change7d": 24.31218965,
+        "volume24h": 38151092.17320238,
+        "marketCap": 19698641.17535833,
+        "priceUsd": 0.07778694753505584,
+        "heat": 87.43
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": 0.34813569,
+        "change24h": 44.42842749,
+        "change7d": 171.26445533,
+        "volume24h": 223631320.3637478,
+        "marketCap": 95384470.22468767,
+        "priceUsd": 0.39276430546026647,
+        "heat": 71.16
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 1.89803612,
+        "change24h": 33.23260526,
+        "change7d": 24.6154652,
+        "volume24h": 57637753.86854725,
+        "marketCap": 602505135.4466016,
+        "priceUsd": 2.0919106654980917,
+        "heat": 42.62
+      },
+      {
+        "symbol": "LAB",
+        "name": "LAB",
+        "change1h": 3.22465061,
+        "change24h": 15.19495095,
+        "change7d": 14.4977401,
+        "volume24h": 39641216.57258692,
+        "marketCap": 5850720771.521228,
+        "priceUsd": 18.74659089269396,
+        "heat": 27.04
+      },
+      {
+        "symbol": "DEXE",
+        "name": "DeXe",
+        "change1h": 0.04790904,
+        "change24h": 5.33908466,
+        "change7d": 52.36334477,
+        "volume24h": 36129582.15769237,
+        "marketCap": 1953895722.3438869,
+        "priceUsd": 23.334644855398338,
+        "heat": 13.34
+      },
+      {
+        "symbol": "BAS",
+        "name": "BNB Attestation Service",
+        "change1h": 3.34527037,
+        "change24h": -2.92022937,
+        "change7d": 35.92539961,
+        "volume24h": 38426914.65670836,
+        "marketCap": 103740880.67610459,
+        "priceUsd": 0.041496352270441836,
+        "heat": 12.5
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "LAB",
+        "priceUsd": 18.74659089269396,
+        "change1h": 3.22465061,
+        "change24h": 15.19495095,
+        "change7d": 14.4977401,
+        "volume24h": 39641216.57258692,
+        "volumeChange24h": -51.1196
+      },
+      {
+        "symbol": "EDGE",
+        "priceUsd": 0.07778694753505584,
+        "change1h": 15.89521088,
+        "change24h": 36.10032963,
+        "change7d": 24.31218965,
+        "volume24h": 38151092.17320238,
+        "volumeChange24h": 3182.7451
+      },
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.0919106654980917,
+        "change1h": 1.89803612,
+        "change24h": 33.23260526,
+        "change7d": 24.6154652,
+        "volume24h": 57637753.86854725,
+        "volumeChange24h": -48.9918
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.39276430546026647,
+        "change1h": 0.34813569,
+        "change24h": 44.42842749,
+        "change7d": 171.26445533,
+        "volume24h": 223631320.3637478,
+        "volumeChange24h": 17.1691
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "While EDGE shows strong momentum with +15.9% 1h and +36.1% 24h gains on massive 3182% volume surge, the market regime is neutral with BTC and BNB slightly negative, and such extreme volume spikes in low-cap tokens often precede sharp reversals, making risk/reward unfavorable for a disciplined entry.",
+    "invalidation": "Price fails to hold above $0.0775 and 1h momentum turns negative.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "f5bd290def1ccb28533e5c3cdba7862aa17278cb7d2ad687caf86710d09816c9",
+    "rawPreview": "{\n    \"action\": \"NO_TRADE\",\n    \"symbol\": \"null\",\n    \"direction\": \"null\",\n    \"convictionBps\": 0,\n    \"rationale\": \"While EDGE shows strong momentum with +15.9% 1h and +36.1% 24h gains on massive 3182% volume surge, the market regime is neutral with BTC and BNB slightly negative"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-25",
+      "tradesToday": 2,
+      "newRiskTodayPct": 22.41,
+      "lastTradeAt": "2026-06-25T15:53:32.472Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 17.25,
+    "usdtUsd": 17.24,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 17.25,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "82c272f9dfc8a5aff0984d9b664db15f63f2292a7faded30de76b3daf8dad0fb",
+  "checksum": "18858a3e2c1ae6ea17ffc96ba2ebaecd46b45a40543c42f265919b88fdd68c17"
+}
