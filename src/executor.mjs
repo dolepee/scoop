@@ -45,6 +45,15 @@ export function balanceOf(addressOrNative) {
   return twak(args);
 }
 
+export function tokenUnits(addressOrNative) {
+  try {
+    const balance = balanceOf(addressOrNative);
+    return Number(balance.total ?? balance.available ?? 0) || 0;
+  } catch {
+    return 0;
+  }
+}
+
 // amount is in source-token units as a string (twak takes human units).
 export function swap({ amount, from, to, slippagePct = 1.5 }) {
   const password = process.env.TWAK_WALLET_PASSWORD;

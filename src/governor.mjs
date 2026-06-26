@@ -31,8 +31,9 @@ export const DEFAULT_CONFIG = {
   // When below the ratchet peak, recover with capped notional instead of
   // scaling activity. This keeps one bad setup from deciding the tournament.
   recoveryMaxTradeUsd: 7.5,
-  // Minimum live trade notional. Smaller swaps leak edge to data/route friction.
-  minTradeUsd: 5,
+  // Minimum live trade notional. The contest daily gate appears to count $1+
+  // eligible-token swaps, so the fallback should not force oversized exposure.
+  minTradeUsd: 1,
   // Sizing treats the stop/invalidation band as the capital at risk, not the
   // whole notional. A 45% notional entry with an 8% stop risks about 3.6%.
   assumedStopLossPct: 8,
@@ -43,8 +44,9 @@ export const DEFAULT_CONFIG = {
   // From this UTC hour, with zero trades today, the compliance valve opens.
   // Morning UTC leaves retry room and avoids missing the daily-trade rule.
   complianceHourUtc: 9,
-  // Size of the compliance trade in USD. Must clear minTradeUsd.
-  complianceUsd: 5,
+  // Size of the compliance trade in USD. This is only the daily gate valve;
+  // alpha entries still size from conviction, stop distance, and risk room.
+  complianceUsd: 1.25,
 };
 
 export function initialState(startEquityUsd, nowMs) {

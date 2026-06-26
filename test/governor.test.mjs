@@ -199,12 +199,12 @@ test("compliance buy fits rebaselined funded-equity room without loosening the f
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 5);
+  assert.equal(r.complianceUsd, 1.25);
   assert.ok(r.sizedPct > 0);
   assert.equal(state.floorUsd, 12.308200000000001);
 });
 
-test("compliance buy stands down when the old live-week balance cannot support the minimum notional", () => {
+test("micro compliance buy can use a small risk budget without loosening the floor", () => {
   const state = {
     startEquityUsd: 15.01,
     peakEquityUsd: 15.04,
@@ -224,8 +224,10 @@ test("compliance buy stands down when the old live-week balance cannot support t
       complianceAction: COMPLIANCE_BUY,
     },
   );
-  assert.equal(r.decision, "STAND_DOWN");
-  assert.ok(r.reasons.some((reason) => reason.startsWith("compliance_risk_budget_exhausted")));
+  assert.equal(r.decision, "COMPLIANCE_BUY");
+  assert.equal(r.complianceUsd, 1.25);
+  assert.ok(r.sizedPct > 9 && r.sizedPct < 10);
+  assert.equal(state.floorUsd, 13.536);
 });
 
 test("compliance buy fits after the wallet is topped up without loosening the ratchet", () => {
@@ -250,8 +252,8 @@ test("compliance buy fits after the wallet is topped up without loosening the ra
     },
   );
   assert.equal(r.decision, "COMPLIANCE_BUY");
-  assert.equal(r.complianceUsd, 5);
-  assert.ok(r.sizedPct > 20 && r.sizedPct < 21);
+  assert.equal(r.complianceUsd, 1.25);
+  assert.ok(r.sizedPct > 5 && r.sizedPct < 6);
   assert.ok(r.reasons.includes("compliance_buy:zero_trades_after_cutoff"));
 });
 

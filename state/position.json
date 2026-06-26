@@ -1,1 +1,14 @@
-null
+{
+  "symbol": "CAKE",
+  "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+  "units": 0.9323480096659007,
+  "entryPrice": 1.3407010977026994,
+  "peakPriceUsd": 1.3407010977026994,
+  "peakPriceSource": "entry",
+  "peakAt": "2026-06-26T06:49:16.287Z",
+  "costUsd": 1.25,
+  "openedAt": "2026-06-26T06:49:16.287Z",
+  "complianceTrade": true,
+  "complianceReason": "micro real-token daily gate, near DQ buffer",
+  "microCompliance": true
+}

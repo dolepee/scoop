@@ -16,11 +16,11 @@ test("compliance chooses the thesis symbol when it is eligible", () => {
   assert.equal(action.reason, COMPLIANCE_REASON);
 });
 
-test("compliance falls back to the top heat-ranked eligible mover", () => {
+test("compliance falls back to the conservative eligible basket before heat-ranked movers", () => {
   const action = chooseComplianceAction({
     position: null,
     thesis: { symbol: "NOTREAL" },
-    movers: [{ symbol: "NOTREAL" }, { symbol: "CAKE" }],
+    movers: [{ symbol: "NOTREAL" }, { symbol: "FLOKI" }],
     nowMs: NOW,
   });
   assert.equal(action.action, "buy");

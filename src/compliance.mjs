@@ -3,6 +3,7 @@ import { DEFAULT_CONFIG } from "./governor.mjs";
 
 export const COMPLIANCE_REASON = "daily minimum, no conviction signal today";
 export const COMPLIANCE_MIN_AGE_MS = 20 * 60 * 60 * 1000;
+const CONSERVATIVE_FALLBACK_SYMBOLS = ["CAKE", "AAVE", "ETH", "LINK", "DOGE"];
 
 export function chooseComplianceAction({ position, thesis, movers, nowMs }) {
   if (isMatureCompliancePosition(position, nowMs)) {
@@ -11,8 +12,9 @@ export function chooseComplianceAction({ position, thesis, movers, nowMs }) {
   if (position) return null;
 
   const thesisSymbol = thesis?.symbol && isEligible(thesis.symbol) ? thesis.symbol : null;
+  const fallbackSymbol = CONSERVATIVE_FALLBACK_SYMBOLS.find((symbol) => isEligible(symbol)) ?? null;
   const moverSymbol = (movers ?? []).find((mover) => isEligible(mover?.symbol))?.symbol ?? null;
-  const symbol = thesisSymbol ?? moverSymbol;
+  const symbol = thesisSymbol ?? fallbackSymbol ?? moverSymbol;
   if (!symbol) return null;
 
   return {

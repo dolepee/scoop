@@ -1,0 +1,118 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-26T06:49:16.287Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualMicroCompliance": true
+  },
+  "perception": {
+    "dataSource": "manual-micro-compliance",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "near_dq_micro_real_token_gate"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "CAKE",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "Manual micro real-token trade in CAKE to satisfy the daily gate without using stable-to-stable and without adding meaningful DQ risk.",
+    "invalidation": "Manual micro compliance; close if drawdown risk increases or next cycle exits.",
+    "provider": "manual:micro-compliance",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-26",
+      "tradesToday": 1,
+      "newRiskTodayPct": 7.29,
+      "lastTradeAt": "2026-06-26T06:49:16.287Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_MICRO_COMPLIANCE",
+      "symbol": "CAKE",
+      "sizedPct": 7.29,
+      "reasons": [
+        "daily_gate_real_token",
+        "near_dq_micro_size",
+        "USDT_to_CAKE"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "manual_micro_real_token"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_micro_real_token"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "CAKE",
+    "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "units": 0.9323480096659007,
+    "entryPrice": 1.3407010977026994,
+    "peakPriceUsd": 1.3407010977026994,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-26T06:49:16.287Z",
+    "costUsd": 1.25,
+    "openedAt": "2026-06-26T06:49:16.287Z",
+    "complianceTrade": true,
+    "complianceReason": "micro real-token daily gate, near DQ buffer",
+    "microCompliance": true
+  },
+  "execution": {
+    "executed": true,
+    "kind": "manual_micro_compliance",
+    "txHash": "0x8c41665fe25da0c0acff736889c07baa19a5480db1074c43e583ec6a0d98a6ce",
+    "tokenIn": "USDT",
+    "tokenInAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "tokenOut": "CAKE",
+    "tokenOutAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "spentUsd": 1.25,
+    "units": 0.9323480096659007,
+    "slippagePct": 1.2,
+    "provider": "LiquidMesh"
+  },
+  "counters": {
+    "equityUsd": 17.13,
+    "usdtUsd": 15.88,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.24,
+    "inScopeUsd": 17.13,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 17.14,
+      "usdtUsd": 17.13,
+      "usd1Usd": 0.01,
+      "positionUsd": 0,
+      "inScopeUsd": 17.14,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "5ca1bc2f07916e3bb9ceea00c7aa9f82d95cb2e8c19fed0e4bc0424cd0225a37",
+  "checksum": "44ccdd6927fa104fe7dc34bbe00a3968edb8da13d76129078051eb2fa49cbe93"
+}
