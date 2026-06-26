@@ -1,0 +1,119 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-26T07:04:25.108Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualStableCompliance": true
+  },
+  "perception": {
+    "dataSource": "manual-stable-compliance",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_stable_consolidation"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "USDC->USDT",
+    "direction": "stable_compliance",
+    "convictionBps": 0,
+    "rationale": "Manual stable-to-stable consolidation without adding directional exposure.",
+    "invalidation": "N/A",
+    "provider": "manual:stable-compliance",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-26",
+      "tradesToday": 1,
+      "newRiskTodayPct": 7.29,
+      "lastTradeAt": "2026-06-26T06:49:16.287Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_STABLE_COMPLIANCE",
+      "symbol": "USDT",
+      "sizedPct": 22.45,
+      "reasons": [
+        "stable_consolidation",
+        "stable_to_stable_only",
+        "USDC_to_USDT"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_directional_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "stable_to_stable_manual"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "CAKE",
+    "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "units": 0.9323480096659007,
+    "entryPrice": 1.3407010977026994,
+    "peakPriceUsd": 1.3407010977026994,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-26T06:49:16.287Z",
+    "costUsd": 1.25,
+    "openedAt": "2026-06-26T06:49:16.287Z",
+    "complianceTrade": true,
+    "complianceReason": "micro real-token daily gate, near DQ buffer",
+    "microCompliance": true
+  },
+  "execution": {
+    "executed": true,
+    "kind": "manual_stable_compliance",
+    "txHash": "0xd6ab1bce75da7315b0a2379c6f666ea02ea8172e05a753d18a94afbcd890a92c",
+    "tokenIn": "USDC",
+    "tokenInAddress": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "tokenOut": "USDT",
+    "tokenOutAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "amountIn": 4.961715863846592,
+    "slippagePct": 2,
+    "provider": "LiquidMesh"
+  },
+  "counters": {
+    "equityUsd": 22.09,
+    "usdtUsd": 20.84,
+    "usdcUsd": 0,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.24,
+    "inScopeUsd": 22.09,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 22.1,
+      "usdtUsd": 15.88,
+      "usdcUsd": 4.96,
+      "usd1Usd": 0.01,
+      "positionUsd": 1.25,
+      "inScopeUsd": 22.1,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "44ccdd6927fa104fe7dc34bbe00a3968edb8da13d76129078051eb2fa49cbe93",
+  "checksum": "35cf5bbf0dcbaebcaf6c18ccde12349bb639a580c8ee27ebc171682939e7dc62"
+}

@@ -19,11 +19,15 @@ function stable(symbol) {
   return resolveToken(normalized);
 }
 
-function amountInput() {
-  const amount = Number(process.env.SCOOP_STABLE_AMOUNT ?? 5);
+function amountInput(sourceBalance = null) {
+  const raw = String(process.env.SCOOP_STABLE_AMOUNT ?? "5").trim();
+  const amountText = raw.toLowerCase() === "all"
+    ? String(sourceBalance?.total ?? sourceBalance?.available ?? "0")
+    : raw;
+  const amount = Number(amountText);
   if (!Number.isFinite(amount) || amount <= 0) throw new Error("invalid_stable_amount");
   if (amount > 10) throw new Error("stable_amount_cap:10");
-  return amount;
+  return { amount, amountText };
 }
 
 function usd(balance) {
@@ -88,7 +92,6 @@ async function main() {
     throw new Error("stable_from_to_must_differ");
   }
 
-  const amount = amountInput();
   const slippagePct = Number(process.env.SCOOP_STABLE_SLIPPAGE_PCT ?? 0.8);
   if (!Number.isFinite(slippagePct) || slippagePct <= 0 || slippagePct > 2) {
     throw new Error("invalid_stable_slippage");
@@ -98,12 +101,13 @@ async function main() {
   const position = loadPosition();
   const before = balanceSnapshot(position);
   const sourceBalance = from.symbol === "USDT" ? before.usdt : from.symbol === "USDC" ? before.usdc : before.usd1;
+  const { amount, amountText } = amountInput(sourceBalance);
   if (units(sourceBalance) < amount) {
     throw new Error(`insufficient_${from.symbol.toLowerCase()}:${units(sourceBalance)}<${amount}`);
   }
 
   const result = swap({
-    amount: amount.toFixed(2),
+    amount: amountText,
     from: from.address,
     to: to.address,
     slippagePct,
@@ -127,7 +131,7 @@ async function main() {
       paidCalls: [],
       dataSpendUsd: 0,
       marketContext: [],
-      marketRegime: { regime: "manual_daily_gate_repair" },
+      marketRegime: { regime: "manual_stable_consolidation" },
       moversTop: [],
       quotes: [],
     },
@@ -136,7 +140,7 @@ async function main() {
       symbol: `${from.symbol}->${to.symbol}`,
       direction: "stable_compliance",
       convictionBps: 0,
-      rationale: "Manual stable-to-stable eligible swap to repair the UTC daily strict-trade gate without adding directional exposure.",
+      rationale: "Manual stable-to-stable consolidation without adding directional exposure.",
       invalidation: "N/A",
       provider: "manual:stable-compliance",
       rawHash: null,
@@ -149,7 +153,7 @@ async function main() {
         symbol: to.symbol,
         sizedPct: before.counters.equityUsd > 0 ? round2((amount / before.counters.equityUsd) * 100) : 0,
         reasons: [
-          "leaderboard_daily_gate_repair",
+          "stable_consolidation",
           "stable_to_stable_only",
           `${from.symbol}_to_${to.symbol}`,
         ],
