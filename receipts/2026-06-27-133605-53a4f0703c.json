@@ -1,0 +1,156 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T13:36:05.333Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "effc7c8b4c7adf7fe7e525acfa1a8ad1ad44d5d2aec84a145e34aff48e57ffe9"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60357.824787775,
+        "change1h": 0.15194418,
+        "change24h": 2.62566673,
+        "change7d": -4.66110649,
+        "volume24h": 24443745337.064377,
+        "volumeChange24h": -50.3523
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 563.1567705544859,
+        "change1h": 0.0953146,
+        "change24h": 1.36292804,
+        "change7d": -3.42773384,
+        "volume24h": 1038831724.2834306,
+        "volumeChange24h": -36.1451
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60357.824787775,
+        "change1h": 0.15194418,
+        "change24h": 2.62566673,
+        "change7d": -4.66110649
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 563.1567705544859,
+        "change1h": 0.0953146,
+        "change24h": 1.36292804,
+        "change7d": -3.42773384
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.34406837857217615,
+        "change1h": -4.96457883,
+        "change24h": 1.95088146,
+        "change7d": -3.06154707,
+        "volume24h": 28392795.33313951,
+        "volumeChange24h": -6.9704
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "SKYAI",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "SKYAI is down -6.97% from entry, hitting the hard -5% loss limit.",
+    "invalidation": "Exit if SKYAI trades below $0.356906 or 1h momentum turns negative.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "SKYAI",
+      "direction": "exit",
+      "reason": "hard_stop_loss",
+      "invalidationUsd": 0.356906,
+      "priceUsd": 0.34406837857217615,
+      "priceSource": "paid_quote",
+      "rationale": "SKYAI is down -6.97% from entry, hitting the hard -5% loss limit."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "rationale": "The current open position in SKYAI is down -6.97% from entry and showing a -4.96% 1h decline, but it is not yet below the defined invalidation level of $0.356906, and the market regime is neutral with BTC and BNB up slightly.",
+      "invalidation": "N/A"
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "49a835e965c639ceb407ba6987d4bb93970ff5a9c1f726c460b09529dc60ec46",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"The current open position in SKYAI is down -6.97% from entry and showing a -4.96% 1h decline, but it is not yet below the defined invalidation level of $0.356906, and the market"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 5,
+      "newRiskTodayPct": 137.23,
+      "lastTradeAt": "2026-06-27T13:36:05.333Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "SKYAI",
+      "sizedPct": 91.00244498777506,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "deterministic_exit_guard"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0x0849727f16a35ef5f45d2433fdc44ee54f7d89b6a96c2079c7d2e302ab19a7c4",
+    "closedUnits": 54.02175336759397
+  },
+  "counters": {
+    "equityUsd": 20.45,
+    "usdtUsd": 1.83,
+    "usd1Usd": 0.01,
+    "positionUsd": 18.61,
+    "inScopeUsd": 20.45,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "f4ca74e1b35109fae2dadf7e4f30d3096751d3dbe102f89a31842289271d2783",
+  "checksum": "a73e7de57b5f8709b10a7a99d974ca220f269e1c58f5091ce292e50983e4acb9"
+}
