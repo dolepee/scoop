@@ -1,0 +1,151 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T20:00:31.487Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BAS,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "4f7d8f283349ddfa49102ab40113dfc027639ae6ca1ae781ca5ce61fb985eb9e"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60082.58745105232,
+        "change1h": -0.62747314,
+        "change24h": 0.51945072,
+        "change7d": -5.90533832,
+        "volume24h": 15985505050.798857,
+        "volumeChange24h": -61.589
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 558.3302389081075,
+        "change1h": -0.53503881,
+        "change24h": -1.40479601,
+        "change7d": -4.62042758,
+        "volume24h": 893233601.8816085,
+        "volumeChange24h": -40.2336
+      }
+    ],
+    "marketRegime": {
+      "state": "risk_off",
+      "riskOff": true,
+      "reasons": [
+        "bnb_down:-0.54h1/-1.4d1"
+      ],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60082.58745105232,
+        "change1h": -0.62747314,
+        "change24h": 0.51945072,
+        "change7d": -5.90533832
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 558.3302389081075,
+        "change1h": -0.53503881,
+        "change24h": -1.40479601,
+        "change7d": -4.62042758
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "BAS",
+        "priceUsd": 0.043339097677945436,
+        "change1h": -0.47319939,
+        "change24h": -11.4272591,
+        "change7d": 40.5886433,
+        "volume24h": 14757877.482412,
+        "volumeChange24h": -31.2648
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "Current open position in BAS is down -11.4% over 24h with negative 1h momentum (-0.47%), and the broader market regime is risk-off with BTC and BNB both negative on the 1h timeframe.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "fc18a8389f5f391e5434047c1a29fea82b6e73f1d1caf6bd42dbfbca7f53367f",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"Current open position in BAS is down -11.4% over 24h with negative 1h momentum (-0.47%), and the broader market regime is risk-off with BTC and BNB both negative on the 1h timef"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 6,
+      "newRiskTodayPct": 226.8,
+      "lastTradeAt": "2026-06-27T17:41:12.072Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "BAS",
+    "address": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
+    "units": 410.6017955028084,
+    "entryPrice": 0.04140264408532945,
+    "peakPriceUsd": 0.043339097677945436,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-27T20:00:31.487Z",
+    "costUsd": 17,
+    "openedAt": "2026-06-27T17:41:12.072Z",
+    "invalidation": "Exit if BAS trades below $0.038297 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+    "endgameComeback": true
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 19.1,
+    "usdtUsd": 1.95,
+    "usd1Usd": 0.01,
+    "positionUsd": 17.14,
+    "inScopeUsd": 19.1,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "1491f06f98cbe68e10f333a314ff89d00e4935d349790fc794bc22d21844fd7d",
+  "checksum": "7957df2429b59378d381dbd535a09a165fa65cebcce2d4df0a0dbbcf214ab2fa"
+}
