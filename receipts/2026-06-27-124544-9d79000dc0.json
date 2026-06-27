@@ -1,0 +1,127 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T12:45:44.261Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualRecovery": true,
+    "endgameComeback": true
+  },
+  "perception": {
+    "dataSource": "manual-recovery-entry",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_recovery_swing"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "SKYAI",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "Manual endgame rotation into SKYAI: paid scan showed positive 1h and 24h momentum, high eligible volume, and DEX guard showed deep PancakeSwap liquidity. The account needs a concentrated but bounded move to challenge top five.",
+    "invalidation": "Exit if SKYAI trades below $0.356906 or 1h momentum turns negative.",
+    "provider": "manual:recovery-entry",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 4,
+      "newRiskTodayPct": 137.23,
+      "lastTradeAt": "2026-06-27T12:45:44.261Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_RECOVERY_ENTRY",
+      "symbol": "SKYAI",
+      "sizedPct": 91.53,
+      "reasons": [
+        "endgame_recovery_swing",
+        "eligible_token",
+        "explicit_stop",
+        "top5_comeback_notional",
+        "USDT_to_SKYAI"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing",
+      "stopDistancePct": 3.5
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "SKYAI",
+    "address": "0x92aa03137385F18539301349dcfC9EbC923fFb10",
+    "units": 54.075829196790764,
+    "entryPrice": 0.36985100916745517,
+    "peakPriceUsd": 0.36985100916745517,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-27T12:45:44.261Z",
+    "costUsd": 20,
+    "openedAt": "2026-06-27T12:45:44.261Z",
+    "invalidation": "Exit if SKYAI trades below $0.356906 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+    "endgameComeback": true
+  },
+  "execution": {
+    "executed": true,
+    "kind": "manual_recovery_entry",
+    "txHash": "0x4da68a3aef41957e5de6ae81da3bd79643fad04e28d354e822e33fc0c95c8405",
+    "tokenIn": "USDT",
+    "tokenInAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "tokenOut": "SKYAI",
+    "tokenOutAddress": "0x92aa03137385F18539301349dcfC9EbC923fFb10",
+    "spentUsd": 20,
+    "units": 54.075829196790764,
+    "entryPrice": 0.36985100916745517,
+    "invalidationPrice": 0.356906,
+    "stopPct": 3.5,
+    "slippagePct": 2,
+    "provider": "LiquidMesh",
+    "balanceReadNote": null
+  },
+  "counters": {
+    "equityUsd": 21.75,
+    "usdtUsd": 1.87,
+    "usd1Usd": 0.01,
+    "positionUsd": 19.87,
+    "inScopeUsd": 21.75,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 21.85,
+      "usdtUsd": 21.84,
+      "usd1Usd": 0.01,
+      "positionUsd": 0,
+      "inScopeUsd": 21.85,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "a8b7e3176ba829b2fd1ae70c625b5aff8ad65e98893df689875d6d48edea54bf",
+  "checksum": "224deac6da8152aada561166752d95ac1f1abc0e5a08dd99e9a31e20bc2e0888"
+}

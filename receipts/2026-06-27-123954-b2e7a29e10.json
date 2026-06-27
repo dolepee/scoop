@@ -1,0 +1,148 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T12:39:54.243Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": false
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=AAVE,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "8f6e81cc17eb58a9ffba0fba320520418f34a2c8c46a442214d01e91d19c17c3"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60270.86888235283,
+        "change1h": 0.16379752,
+        "change24h": 1.15247126,
+        "change7d": -5.18234738,
+        "volume24h": 27482086735.170013,
+        "volumeChange24h": -42.5407
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 562.6934361250179,
+        "change1h": 0.11802126,
+        "change24h": 0.80735906,
+        "change7d": -3.93698512,
+        "volume24h": 1084741177.5134034,
+        "volumeChange24h": -33.2353
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60270.86888235283,
+        "change1h": 0.16379752,
+        "change24h": 1.15247126,
+        "change7d": -5.18234738
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 562.6934361250179,
+        "change1h": 0.11802126,
+        "change24h": 0.80735906,
+        "change7d": -3.93698512
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "AAVE",
+        "priceUsd": 95.81279622136492,
+        "change1h": 0.45454917,
+        "change24h": 8.96356932,
+        "change7d": 28.22675813,
+        "volume24h": 517482887.6922592,
+        "volumeChange24h": 5.6576
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "AAVE is the only quoted asset, up 0.45% in 1h and 8.96% in 24h with strong weekly momentum, but my honest conviction for a new entry or exit does not meet the 5500 minimum threshold given the neutral market regime and lack of fresh catalysts.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "5a11b9307ea5deeaf2d8c6dc5ad42a85ffb708e4ec54bef32b7b30d768e5cb7a",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"AAVE is the only quoted asset, up 0.45% in 1h and 8.96% in 24h with strong weekly momentum, but my honest conviction for a new entry or exit does not meet the 5500 minimum thres"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 2,
+      "newRiskTodayPct": 45.7,
+      "lastTradeAt": "2026-06-27T05:59:08.000Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "AAVE",
+    "address": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+    "units": 0.10527172709053419,
+    "entryPrice": 94.99226693032169,
+    "peakPriceUsd": 95.81279622136492,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-27T12:39:54.243Z",
+    "costUsd": 10,
+    "openedAt": "2026-06-27T05:58:24.342Z",
+    "invalidation": "Exit if AAVE trades below $90.7176 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection"
+  },
+  "execution": {
+    "executed": false,
+    "mode": "observe"
+  },
+  "counters": {
+    "equityUsd": 22.02,
+    "usdtUsd": 11.81,
+    "usd1Usd": 0.01,
+    "positionUsd": 10.2,
+    "inScopeUsd": 22.02,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "21234eab655143542212ac5564744a510c5c295157683b114e4f6c6efc2881ba",
+  "checksum": "a6a3508c94ddd9cf8c550b94a8866b6896ca735a4c4745756bb01facfb98ae81"
+}

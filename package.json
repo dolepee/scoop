@@ -11,7 +11,8 @@
     "receipts:verify": "node src/verify-receipts.mjs",
     "build:feed": "node src/buildFeed.mjs",
     "cycle:paid": "SCOOP_PAID=1 node src/cycle.mjs",
-    "cycle:live": "SCOOP_PAID=1 SCOOP_TRADE=1 node src/cycle.mjs"
+    "cycle:live": "SCOOP_PAID=1 SCOOP_TRADE=1 node src/cycle.mjs",
+    "manual:recovery": "node src/manual-recovery-entry.mjs"
   },
   "dependencies": {
     "@trustwallet/cli": "^0.17.0"

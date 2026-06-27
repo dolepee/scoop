@@ -79,6 +79,16 @@ test("captures profit at the take-profit target", () => {
   assert.equal(guard.reason, "take_profit_target_hit");
 });
 
+test("captures endgame comeback profit before the normal target", () => {
+  const guard = evaluateExitGuard({
+    position: { ...LAB_POSITION, endgameComeback: true },
+    quotes: [{ symbol: "LAB", priceUsd: 18.36, change1h: 2.1 }],
+    positionUsd: 2.15,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "take_profit_target_hit");
+});
+
 test("protects green trades with trailing peak giveback", () => {
   const guard = evaluateExitGuard({
     position: { ...LAB_POSITION, peakPriceUsd: 18.10 },
@@ -87,6 +97,16 @@ test("protects green trades with trailing peak giveback", () => {
   });
   assert.equal(guard.action, "FORCE_EXIT");
   assert.equal(guard.reason, "trailing_profit_protection");
+});
+
+test("protects endgame comeback profit with tighter trailing giveback", () => {
+  const guard = evaluateExitGuard({
+    position: { ...LAB_POSITION, endgameComeback: true, peakPriceUsd: 18.10 },
+    quotes: [{ symbol: "LAB", priceUsd: 17.78, change1h: 0.4 }],
+    positionUsd: 2.08,
+  });
+  assert.equal(guard.action, "FORCE_EXIT");
+  assert.equal(guard.reason, "endgame_profit_trail");
 });
 
 test("protects an early green trade before it round-trips", () => {

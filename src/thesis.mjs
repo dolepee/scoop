@@ -40,12 +40,18 @@ export async function formThesis({ movers, quotes, marketContext = [], marketReg
     ],
   };
 
-  const res = await fetch(BANKR_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(60_000),
-  });
+  let res;
+  try {
+    res = await fetch(BANKR_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(60_000),
+    });
+  } catch (error) {
+    const reason = String(error?.cause?.code || error?.message || "llm_fetch_failed").slice(0, 80);
+    return { thesis: noTrade(`llm_unavailable:${reason}`), promptHash: hashOf(user), raw: null, provider: `bankr:${MODEL}` };
+  }
   if (!res.ok) {
     return { thesis: noTrade(`llm_http_${res.status}`), promptHash: hashOf(user), raw: null, provider: `bankr:${MODEL}` };
   }

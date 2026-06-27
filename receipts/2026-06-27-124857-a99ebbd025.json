@@ -1,0 +1,149 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T12:48:57.679Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=SKYAI,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "fa79ba1920f9516ed6f1c57a58e82cc2cbe6c4711173bfa5b0a00ef726a94bbc"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60220.89077989986,
+        "change1h": -0.11227684,
+        "change24h": 1.59262786,
+        "change7d": -5.26657431,
+        "volume24h": 27095053314.63981,
+        "volumeChange24h": -44.2563
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 562.8020864531018,
+        "change1h": 0.12201765,
+        "change24h": 1.32063048,
+        "change7d": -3.90484956,
+        "volume24h": 1073225994.724045,
+        "volumeChange24h": -34.0752
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60220.89077989986,
+        "change1h": -0.11227684,
+        "change24h": 1.59262786,
+        "change7d": -5.26657431
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 562.8020864531018,
+        "change1h": 0.12201765,
+        "change24h": 1.32063048,
+        "change7d": -3.90484956
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.36799615125470353,
+        "change1h": 1.52841216,
+        "change24h": 10.37380755,
+        "change7d": 4.1336494,
+        "volume24h": 27020766.93983146,
+        "volumeChange24h": -12.3271
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "SKYAI is the only eligible symbol, currently up 1.53% in 1h and 10.37% in 24h, but my existing position is already open and its price of $0.3680 is still below my entry of $0.36985, so no clear new entry signal exists.",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "b77e4f48954f9aa4ca9f1bfec22c6b2a09c9383fd0f32efc668f56eb5cd4e892",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"SKYAI is the only eligible symbol, currently up 1.53% in 1h and 10.37% in 24h, but my existing position is already open and its price of $0.3680 is still below my entry of $0.36"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 4,
+      "newRiskTodayPct": 137.23,
+      "lastTradeAt": "2026-06-27T12:45:44.261Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "SKYAI",
+    "address": "0x92aa03137385F18539301349dcfC9EbC923fFb10",
+    "units": 54.075829196790764,
+    "entryPrice": 0.36985100916745517,
+    "peakPriceUsd": 0.36985100916745517,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-27T12:45:44.261Z",
+    "costUsd": 20,
+    "openedAt": "2026-06-27T12:45:44.261Z",
+    "invalidation": "Exit if SKYAI trades below $0.356906 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+    "endgameComeback": true
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 21.75,
+    "usdtUsd": 1.85,
+    "usd1Usd": 0.01,
+    "positionUsd": 19.89,
+    "inScopeUsd": 21.75,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "224deac6da8152aada561166752d95ac1f1abc0e5a08dd99e9a31e20bc2e0888",
+  "checksum": "f2d25f400e5e2946cded6e2d5389857f074931d08cc3d2677e08a4e0c6eed976"
+}

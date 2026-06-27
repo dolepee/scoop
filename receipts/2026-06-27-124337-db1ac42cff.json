@@ -1,0 +1,108 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T12:43:37.370Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualClose": true
+  },
+  "perception": {
+    "dataSource": "manual-close-position",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_risk_off_close"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "AAVE",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "Manual risk-off close of AAVE back to USDT to avoid further drawdown near the tournament DQ line.",
+    "invalidation": "Exit if AAVE trades below $90.7176 or 1h momentum turns negative.",
+    "provider": "manual:close-position",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 3,
+      "newRiskTodayPct": 45.7,
+      "lastTradeAt": "2026-06-27T12:43:37.370Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_CLOSE",
+      "symbol": "AAVE",
+      "sizedPct": 46.36,
+      "reasons": [
+        "manual_risk_off_close",
+        "near_drawdown_gate",
+        "AAVE_to_USDT"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "manual_close",
+    "txHash": "0x1ddf77be887088a35d6da077fda2e6bb7870b260d48359919b9a639626fedf8c",
+    "tokenIn": "AAVE",
+    "tokenInAddress": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+    "tokenOut": "USDT",
+    "tokenOutAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "closedUnits": 0.10516645536344366,
+    "slippagePct": 5,
+    "provider": "LiquidMesh",
+    "beforePositionUsd": 10.2,
+    "costUsd": 10,
+    "realizedPnlUsd": 0.2,
+    "realizedPnlPct": 2
+  },
+  "counters": {
+    "equityUsd": 21.85,
+    "usdtUsd": 21.84,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 21.85,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 22,
+      "usdtUsd": 11.79,
+      "usd1Usd": 0.01,
+      "positionUsd": 10.2,
+      "inScopeUsd": 22,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "a6a3508c94ddd9cf8c550b94a8866b6896ca735a4c4745756bb01facfb98ae81",
+  "checksum": "a8b7e3176ba829b2fd1ae70c625b5aff8ad65e98893df689875d6d48edea54bf"
+}

@@ -1,1 +1,15 @@
-null
+{
+  "symbol": "SKYAI",
+  "address": "0x92aa03137385F18539301349dcfC9EbC923fFb10",
+  "units": 54.075829196790764,
+  "entryPrice": 0.36985100916745517,
+  "peakPriceUsd": 0.36985100916745517,
+  "peakPriceSource": "entry",
+  "peakAt": "2026-06-27T12:45:44.261Z",
+  "costUsd": 20,
+  "openedAt": "2026-06-27T12:45:44.261Z",
+  "invalidation": "Exit if SKYAI trades below $0.356906 or 1h momentum turns negative.",
+  "manualRecovery": true,
+  "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+  "endgameComeback": true
+}

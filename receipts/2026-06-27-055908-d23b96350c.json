@@ -1,0 +1,132 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T05:59:08.000Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualRecovery": true,
+    "repairedReceipt": true
+  },
+  "perception": {
+    "dataSource": "manual-recovery-entry",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_recovery_swing"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "AAVE",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "Manual endgame recovery entry: AAVE was the cleanest quoted recovery candidate with positive 1h and 24h momentum, deep volume, and enough liquidity to give the account a realistic top-five comeback path without risking the full wallet.",
+    "invalidation": "Exit if AAVE trades below $90.7176 or 1h momentum turns negative.",
+    "provider": "manual:recovery-entry",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 2,
+      "newRiskTodayPct": 45.7,
+      "lastTradeAt": "2026-06-27T05:59:08.000Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_RECOVERY_ENTRY",
+      "symbol": "AAVE",
+      "sizedPct": 45.7,
+      "reasons": [
+        "endgame_recovery_swing",
+        "eligible_token",
+        "explicit_stop",
+        "USDT_to_AAVE",
+        "receipt_repaired_from_verified_bscscan_tx"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing",
+      "stopDistancePct": 4.5
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "AAVE",
+    "address": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+    "units": 0.10527172709053419,
+    "entryPrice": 94.99226693032169,
+    "peakPriceUsd": 94.99226693032169,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-27T05:58:24.342Z",
+    "costUsd": 10,
+    "openedAt": "2026-06-27T05:58:24.342Z",
+    "invalidation": "Exit if AAVE trades below $90.7176 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection"
+  },
+  "execution": {
+    "executed": true,
+    "kind": "manual_recovery_entry",
+    "txHash": "0x4669d04cb62859479f1b4b47a0142f16bb8a1039d2bf84e1654eeeeae4e7f548",
+    "approveTxHash": "0xe3eef627645e5fdcf40c392d1d0445b56c908d696f3f8212153380828296ba40",
+    "tokenIn": "USDT",
+    "tokenInAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "tokenOut": "AAVE",
+    "tokenOutAddress": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+    "spentUsd": 10,
+    "units": 0.10527172709053419,
+    "entryPrice": 94.99226693032169,
+    "invalidationPrice": 90.7176,
+    "stopPct": 4.5,
+    "slippagePct": 1.5,
+    "provider": "trust-wallet-agent-kit",
+    "repairNote": "Initial script completed the swap and saved position, then TWAK failed on post-trade balance read before receipt write. Receipt repaired from BscScan and live balances."
+  },
+  "counters": {
+    "equityUsd": 21.81,
+    "usdtUsd": 11.89,
+    "usd1Usd": 0.01,
+    "positionUsd": 9.91,
+    "inScopeUsd": 21.81,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [
+      "manual_recovery_receipt_repair",
+      "bscscan_verified_aave_transfer"
+    ],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 21.88,
+      "usdtUsd": 21.87,
+      "usd1Usd": 0.01,
+      "positionUsd": 0,
+      "inScopeUsd": 21.88,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": [
+        "recovery_receipt_repaired_after_post_swap_balance_read_failed"
+      ]
+    }
+  },
+  "prevChecksum": "788ec488d8b5e4203640892e5cfeb09ca5cf79edbe59929bae39ccbdb0ae6230",
+  "checksum": "21234eab655143542212ac5564744a510c5c295157683b114e4f6c6efc2881ba"
+}

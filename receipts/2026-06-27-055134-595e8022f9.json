@@ -1,0 +1,108 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T05:51:34.368Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualClose": true
+  },
+  "perception": {
+    "dataSource": "manual-close-position",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_risk_off_close"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "CAKE",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "Manual risk-off close of CAKE back to USDT to avoid further drawdown near the tournament DQ line.",
+    "invalidation": "N/A",
+    "provider": "manual:close-position",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-27T05:51:34.368Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_CLOSE",
+      "symbol": "CAKE",
+      "sizedPct": 5.61,
+      "reasons": [
+        "manual_risk_off_close",
+        "near_drawdown_gate",
+        "CAKE_to_USDT"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "manual_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "manual_close",
+    "txHash": "0xd72b9e3b6e48d94af5fc7c31386f08f57818c7b8756d0d746e54e4cd78a4b501",
+    "tokenIn": "CAKE",
+    "tokenInAddress": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "tokenOut": "USDT",
+    "tokenOutAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "closedUnits": 0.9314156616562348,
+    "slippagePct": 5,
+    "provider": "LiquidMesh",
+    "beforePositionUsd": 1.23,
+    "costUsd": 1.25,
+    "realizedPnlUsd": -0.02,
+    "realizedPnlPct": -1.6
+  },
+  "counters": {
+    "equityUsd": 21.9,
+    "usdtUsd": 21.89,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 21.9,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 21.91,
+      "usdtUsd": 20.67,
+      "usd1Usd": 0.01,
+      "positionUsd": 1.23,
+      "inScopeUsd": 21.91,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "227a937b1a07792351c0287d8873179775dea9de00f8605ce98c4765f472dce1",
+  "checksum": "c348f91af70d591187d0a0da8c7b944dc33c79662d4fba18cfc87ef2fd1cc53b"
+}
