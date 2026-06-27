@@ -1,0 +1,149 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T18:50:54.871Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BAS,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "daeeeee81a597131492064b90619be02e99a2b0db0644b681f8ab93d5725bc37"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60440.302756407225,
+        "change1h": -0.06534246,
+        "change24h": 1.47107418,
+        "change7d": -5.20269664,
+        "volume24h": 15896493156.533197,
+        "volumeChange24h": -62.3495
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 561.243595109627,
+        "change1h": -0.33813081,
+        "change24h": -0.5765493,
+        "change7d": -4.09431652,
+        "volume24h": 897262410.8835288,
+        "volumeChange24h": -39.8947
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60440.302756407225,
+        "change1h": -0.06534246,
+        "change24h": 1.47107418,
+        "change7d": -5.20269664
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 561.243595109627,
+        "change1h": -0.33813081,
+        "change24h": -0.5765493,
+        "change7d": -4.09431652
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "BAS",
+        "priceUsd": 0.042697881173835266,
+        "change1h": 2.62436056,
+        "change24h": -12.09564393,
+        "change7d": 39.09027073,
+        "volume24h": 14547272.29521327,
+        "volumeChange24h": -32.8429
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "BAS is up 2.62% in the last hour and has reached its peak price of $0.042698, but the 24-hour change is -12.10% and the market regime is neutral with BTC and BBN both negative on the 1-hour timeframe, indicating insufficient momentum for a new entry and prudent to exit the existing position for risk",
+    "invalidation": "If BAS holds above $0.0427 and shows sustained 1-hour positive momentum with volume support, the exit may be premature.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "e23f1a317f4770c91ff7bee5b7c01d713c0faf4b9b4dd81ec17c6a3cc5622614",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"BAS\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 0,\n  \"rationale\": \"BAS is up 2.62% in the last hour and has reached its peak price of $0.042698, but the 24-hour change is -12.10% and the market regime is neutral with BTC and BBN both negativ"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 6,
+      "newRiskTodayPct": 226.8,
+      "lastTradeAt": "2026-06-27T17:41:12.072Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "BAS",
+    "address": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
+    "units": 410.6017955028084,
+    "entryPrice": 0.04140264408532945,
+    "peakPriceUsd": 0.042697881173835266,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-27T18:50:54.871Z",
+    "costUsd": 17,
+    "openedAt": "2026-06-27T17:41:12.072Z",
+    "invalidation": "Exit if BAS trades below $0.038297 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+    "endgameComeback": true
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 19.68,
+    "usdtUsd": 1.96,
+    "usd1Usd": 0.01,
+    "positionUsd": 17.71,
+    "inScopeUsd": 19.68,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "5051ccfb1070d417687ad8d1644b78d3886f762a8f5ed685b975a92a9281e745",
+  "checksum": "1491f06f98cbe68e10f333a314ff89d00e4935d349790fc794bc22d21844fd7d"
+}
