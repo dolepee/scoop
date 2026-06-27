@@ -1,0 +1,155 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T07:29:23.219Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=CAKE,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "4e9f80c0aa53b0fddd7ab71ba454e2cb01fbcc6f366c72a86f8f0dd3a14df688"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60316.73424727755,
+        "change1h": 0.32826024,
+        "change24h": -0.28247285,
+        "change7d": -5.31176331,
+        "volume24h": 33204981223.540207,
+        "volumeChange24h": -26.4563
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 564.6772915075957,
+        "change1h": 0.10854408,
+        "change24h": -0.45341077,
+        "change7d": -3.97214396,
+        "volume24h": 1275312595.10321,
+        "volumeChange24h": -14.7774
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60316.73424727755,
+        "change1h": 0.32826024,
+        "change24h": -0.28247285,
+        "change7d": -5.31176331
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 564.6772915075957,
+        "change1h": 0.10854408,
+        "change24h": -0.45341077,
+        "change7d": -3.97214396
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "CAKE",
+        "priceUsd": 1.321498234443303,
+        "change1h": 0.12168837,
+        "change24h": -1.79272532,
+        "change7d": -4.08325237,
+        "volume24h": 29365132.28209911,
+        "volumeChange24h": -31.5335
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "CAKE",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "CAKE live value is $0.00093235, below the $1 minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "CAKE",
+      "direction": "exit",
+      "reason": "position_below_live_trade_min",
+      "invalidationUsd": null,
+      "priceUsd": 0.0010000000000000646,
+      "priceSource": "wallet_value",
+      "rationale": "CAKE live value is $0.00093235, below the $1 minimum useful trade size; closing it so the agent can redeploy capital on the next qualified setup."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 5000,
+      "rationale": "CAKE is down -1.79% over 24h with volume declining -31.53%, showing weak momentum and no clear reversal signal.",
+      "invalidation": "If CAKE breaks above $1.34 with volume surge >50%."
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "bbb3a2bd0f65a40528f5b1e4b0cbc1580c9ab025ad3f46d35a057b6895e2c6fa",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"CAKE\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 5000,\n  \"rationale\": \"CAKE is down -1.79% over 24h with volume declining -31.53%, showing weak momentum and no clear reversal signal.\",\n  \"invalidation\": \"If CAKE breaks above $1.34 with volum"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-27T07:29:23.219Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "CAKE",
+      "sizedPct": 0.00784144667507116,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "deterministic_exit_guard"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0x9ff549b4740abfedc6e0973f00e903db0d6629016d7835a5a632094bc4540f46",
+    "closedUnits": 0.0009314156616562951
+  },
+  "counters": {
+    "equityUsd": 11.89,
+    "usdtUsd": 11.88,
+    "usd1Usd": 0.01,
+    "positionUsd": 0.000932348009665961,
+    "inScopeUsd": 11.89,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "16ec6eff4e5e1fd85c94e11febef391a8987457a85d4010605879fcf32e8282f",
+  "checksum": "22ded3b14506af117667b5523a9aa81ca96e884c6eb27fba0a2fb5193bfce56b"
+}
