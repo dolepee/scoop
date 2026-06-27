@@ -1,0 +1,148 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T00:17:39.502Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=CAKE,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ee998aaff8d6bca209ac9f24f6fd860de2a4310c93ba676a3f585e59cbaeb457"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60040.81722578667,
+        "change1h": 0.08182797,
+        "change24h": 0.41872031,
+        "change7d": -5.39814362,
+        "volume24h": 41083610720.94286,
+        "volumeChange24h": 1.2763
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 567.4275689616222,
+        "change1h": -0.04912274,
+        "change24h": 0.87340918,
+        "change7d": -2.35713723,
+        "volume24h": 1466676146.6615503,
+        "volumeChange24h": 8.3433
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60040.81722578667,
+        "change1h": 0.08182797,
+        "change24h": 0.41872031,
+        "change7d": -5.39814362
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 567.4275689616222,
+        "change1h": -0.04912274,
+        "change24h": 0.87340918,
+        "change7d": -2.35713723
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "CAKE",
+        "priceUsd": 1.3385350220324481,
+        "change1h": -0.13445952,
+        "change24h": 1.3112681,
+        "change7d": -2.43599322,
+        "volume24h": 34096618.571343,
+        "volumeChange24h": -20.9272
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 5500,
+    "rationale": "CAKE is down -0.13% over 1h and volume has dropped -20.93% over 24h, showing weak momentum and fading interest.",
+    "invalidation": "If CAKE price reclaims above 1.35 with volume surge >+30%.",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "92ab07adefa9b91d8341a91d570c84b914f32fbcab620340e4207e142947070b",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"CAKE\",\n  \"direction\": \"exit\",\n  \"convictionBps\": 5500,\n  \"rationale\": \"CAKE is down -0.13% over 1h and volume has dropped -20.93% over 24h, showing weak momentum and fading interest.\",\n  \"invalidation\": \"If CAKE price reclaims above 1.35 wit"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 0,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-26T06:49:16.287Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "CAKE",
+    "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "units": 0.9323480096659007,
+    "entryPrice": 1.3407010977026994,
+    "peakPriceUsd": 1.3485376025923184,
+    "peakPriceSource": "paid_quote",
+    "peakAt": "2026-06-26T07:32:06.591Z",
+    "costUsd": 1.25,
+    "openedAt": "2026-06-26T06:49:16.287Z",
+    "complianceTrade": true,
+    "complianceReason": "micro real-token daily gate, near DQ buffer",
+    "microCompliance": true
+  },
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 21.95,
+    "usdtUsd": 20.69,
+    "usd1Usd": 0.01,
+    "positionUsd": 1.25,
+    "inScopeUsd": 21.95,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "e4634849f168011b239abc78dc053439ee4da9cda4ffd11bdcb95c489ead96ec",
+  "checksum": "0cf078f552fd0ced1aca2ef5f9f57e11ec8bad31179217cf52c35334f4cb1ff5"
+}
