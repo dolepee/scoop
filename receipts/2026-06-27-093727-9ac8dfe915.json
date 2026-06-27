@@ -1,0 +1,235 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-27T09:37:27.010Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "f2e96798c5d4452db62bddbe5bf0c3269abad1c3dfe332e02d738d6abfca96e9"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=MYX,EDGE,SKYAI,PIEVERSE,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ddc1c07e63fd74be24dae44ea95ca209dad892c68ac476080e9468da9931781c"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60326.77482934659,
+        "change1h": -0.05017867,
+        "change24h": 0.56051475,
+        "change7d": -5.08197161,
+        "volume24h": 30717490522.410378,
+        "volumeChange24h": -34.8252
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 563.8579105491002,
+        "change1h": -0.01338232,
+        "change24h": -0.43480018,
+        "change7d": -3.86996197,
+        "volume24h": 1228647118.010519,
+        "volumeChange24h": -19.961
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60326.77482934659,
+        "change1h": -0.05017867,
+        "change24h": 0.56051475,
+        "change7d": -5.08197161
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 563.8579105491002,
+        "change1h": -0.01338232,
+        "change24h": -0.43480018,
+        "change7d": -3.86996197
+      }
+    },
+    "moversTop": [
+      {
+        "symbol": "MYX",
+        "name": "MYX Finance",
+        "change1h": 3.70018866,
+        "change24h": 46.90580051,
+        "change7d": -13.48049324,
+        "volume24h": 23187651.04432129,
+        "marketCap": 36424668.30642963,
+        "priceUsd": 0.11033562437399413,
+        "heat": 55.98
+      },
+      {
+        "symbol": "EDGE",
+        "name": "Definitive",
+        "change1h": -0.76333941,
+        "change24h": 28.44530262,
+        "change7d": 42.63485483,
+        "volume24h": 33541432.14101547,
+        "marketCap": 22367129.51151627,
+        "priceUsd": 0.08797749303071442,
+        "heat": 32.55
+      },
+      {
+        "symbol": "SKYAI",
+        "name": "SKYAI",
+        "change1h": 4.97305452,
+        "change24h": 10.42876125,
+        "change7d": -5.41409752,
+        "volume24h": 25229924.84455056,
+        "marketCap": 354611379.0486129,
+        "priceUsd": 0.3546113790486129,
+        "heat": 24.54
+      },
+      {
+        "symbol": "PIEVERSE",
+        "name": "Pieverse",
+        "change1h": 1.62693985,
+        "change24h": 11.68039238,
+        "change7d": 3.40456073,
+        "volume24h": 28887932.64606954,
+        "marketCap": 189314647.9851839,
+        "priceUsd": 0.7127750964776721,
+        "heat": 17.07
+      },
+      {
+        "symbol": "AAVE",
+        "name": "Aave",
+        "change1h": -0.00656757,
+        "change24h": 11.75387783,
+        "change7d": 28.22240942,
+        "volume24h": 528428762.7056113,
+        "marketCap": 1471713254.6778522,
+        "priceUsd": 95.502706192861,
+        "heat": 15.97
+      },
+      {
+        "symbol": "XCN",
+        "name": "Onyxcoin",
+        "change1h": 2.02803289,
+        "change24h": 7.61723654,
+        "change7d": -1.22870393,
+        "volume24h": 24478163.10724689,
+        "marketCap": 150459878.56090352,
+        "priceUsd": 0.003901355783561289,
+        "heat": 13.52
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "EDGE",
+        "priceUsd": 0.08797749303071442,
+        "change1h": -0.76333941,
+        "change24h": 28.44530262,
+        "change7d": 42.63485483,
+        "volume24h": 33541432.14101547,
+        "volumeChange24h": 17.0742
+      },
+      {
+        "symbol": "MYX",
+        "priceUsd": 0.11033562437399413,
+        "change1h": 3.70018866,
+        "change24h": 46.90580051,
+        "change7d": -13.48049324,
+        "volume24h": 23187651.04432129,
+        "volumeChange24h": 43.7903
+      },
+      {
+        "symbol": "SKYAI",
+        "priceUsd": 0.3546113790486129,
+        "change1h": 4.97305452,
+        "change24h": 10.42876125,
+        "change7d": -5.41409752,
+        "volume24h": 25229924.84455056,
+        "volumeChange24h": -24.5369
+      },
+      {
+        "symbol": "PIEVERSE",
+        "priceUsd": 0.7127750964776721,
+        "change1h": 1.62693985,
+        "change24h": 11.68039238,
+        "change7d": 3.40456073,
+        "volume24h": 28887932.64606954,
+        "volumeChange24h": 13.1793
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support meets the 5500 conviction floor for a disciplined entry.",
+    "invalidation": "",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "a2adef7a598d85412176b04c48c0d42c55e6b648ef0a016bd80a364048d111d5",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"\",\n  \"direction\": \"\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support meets the 5500 conviction floor for a disciplined entry.\",\n  \"invalidation\": \"\"\n}"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-27",
+      "tradesToday": 1,
+      "newRiskTodayPct": 0,
+      "lastTradeAt": "2026-06-27T07:29:23.219Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 11.87,
+    "usdtUsd": 11.86,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 11.87,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "22ded3b14506af117667b5523a9aa81ca96e884c6eb27fba0a2fb5193bfce56b",
+  "checksum": "9ac8dfe9150d3ac41dc41c89a563e0796c88445b7776c29a9d4294294f4369c7"
+}
