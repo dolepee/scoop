@@ -12,7 +12,8 @@
     "build:feed": "node src/buildFeed.mjs",
     "cycle:paid": "SCOOP_PAID=1 node src/cycle.mjs",
     "cycle:live": "SCOOP_PAID=1 SCOOP_TRADE=1 node src/cycle.mjs",
-    "manual:recovery": "node src/manual-recovery-entry.mjs"
+    "manual:recovery": "node src/manual-recovery-entry.mjs",
+    "state:reconcile-position": "node src/reconcile-position-state.mjs"
   },
   "dependencies": {
     "@trustwallet/cli": "^0.17.0"
