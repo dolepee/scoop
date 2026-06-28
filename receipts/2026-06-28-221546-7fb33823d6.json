@@ -1,0 +1,235 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-28T22:15:46.209Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/listings/latest?limit=200&sort=volume_24h&sort_dir=desc&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "203e799eb91d01161968ffb64fcb36a90677a84f558ccbcc1620ca5b93451942"
+      },
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=GWEI,RAVE,SLX,BEAT,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "3a2635c5c267bbe4e1251a1f9005d9c67060a1edac44fec5d15085da1f9f0b9c"
+      }
+    ],
+    "dataSpendUsd": 0.02,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 59532.227967128856,
+        "change1h": -0.09720277,
+        "change24h": -0.8571114,
+        "change7d": -6.305374,
+        "volume24h": 15686747538.291563,
+        "volumeChange24h": 6.2158
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 550.0604208952187,
+        "change1h": 0.08372487,
+        "change24h": -1.09617076,
+        "change7d": -6.3246893,
+        "volume24h": 882078171.1947359,
+        "volumeChange24h": -1.6978
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 59532.227967128856,
+        "change1h": -0.09720277,
+        "change24h": -0.8571114,
+        "change7d": -6.305374
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 550.0604208952187,
+        "change1h": 0.08372487,
+        "change24h": -1.09617076,
+        "change7d": -6.3246893
+      }
+    },
+    "moversTop": [
+      {
+        "symbol": "GWEI",
+        "name": "ETHGas",
+        "change1h": 2.10504226,
+        "change24h": 24.58554258,
+        "change7d": 64.33647968,
+        "volume24h": 47336476.60765447,
+        "marketCap": 286128120.0809472,
+        "priceUsd": 0.16350178290339842,
+        "heat": 40.55
+      },
+      {
+        "symbol": "RAVE",
+        "name": "RaveDAO",
+        "change1h": 2.73787954,
+        "change24h": 24.87737527,
+        "change7d": 22.3008807,
+        "volume24h": 34726038.86630879,
+        "marketCap": 81425759.19348629,
+        "priceUsd": 0.3225030901626713,
+        "heat": 36.44
+      },
+      {
+        "symbol": "SLX",
+        "name": "Solstice",
+        "change1h": -1.78707607,
+        "change24h": 7.32926834,
+        "change7d": 173.63297433,
+        "volume24h": 176653454.19155207,
+        "marketCap": 138555292.34301767,
+        "priceUsd": 0.5705286514330767,
+        "heat": 28.01
+      },
+      {
+        "symbol": "BEAT",
+        "name": "Audiera",
+        "change1h": 3.69644107,
+        "change24h": 7.79124092,
+        "change7d": 45.96309425,
+        "volume24h": 39034703.74889347,
+        "marketCap": 761490415.2545177,
+        "priceUsd": 2.6439109438705803,
+        "heat": 25.78
+      },
+      {
+        "symbol": "BILL",
+        "name": "Billions Network",
+        "change1h": 4.26194288,
+        "change24h": 12.08177746,
+        "change7d": -24.64163509,
+        "volume24h": 30381556.09121326,
+        "marketCap": 106152649.35559352,
+        "priceUsd": 0.0437167005376747,
+        "heat": 21.17
+      },
+      {
+        "symbol": "BAS",
+        "name": "BNB Attestation Service",
+        "change1h": 0.61881686,
+        "change24h": 2.01234432,
+        "change7d": 48.5319557,
+        "volume24h": 25182501.8794625,
+        "marketCap": 116266516.19581445,
+        "priceUsd": 0.04650660647832578,
+        "heat": 11.15
+      }
+    ],
+    "quotes": [
+      {
+        "symbol": "BEAT",
+        "priceUsd": 2.6439109438705803,
+        "change1h": 3.69644107,
+        "change24h": 7.79124092,
+        "change7d": 45.96309425,
+        "volume24h": 39034703.74889347,
+        "volumeChange24h": -18.119
+      },
+      {
+        "symbol": "SLX",
+        "priceUsd": 0.5705286514330767,
+        "change1h": -1.78707607,
+        "change24h": 7.32926834,
+        "change7d": 173.63297433,
+        "volume24h": 176653454.19155207,
+        "volumeChange24h": -20.2947
+      },
+      {
+        "symbol": "RAVE",
+        "priceUsd": 0.3237883796416794,
+        "change1h": 3.31899788,
+        "change24h": 25.380255,
+        "change7d": 22.77276105,
+        "volume24h": 34739041.26855087,
+        "volumeChange24h": 57.1095
+      },
+      {
+        "symbol": "GWEI",
+        "priceUsd": 0.16350178290339842,
+        "change1h": 2.10504226,
+        "change24h": 24.58554258,
+        "change7d": 64.33647968,
+        "volume24h": 47336476.60765447,
+        "volumeChange24h": 24.9612
+      }
+    ]
+  },
+  "thesis": {
+    "action": "NO_TRADE",
+    "symbol": null,
+    "direction": null,
+    "convictionBps": 0,
+    "rationale": "No clear momentum or story strength with volume support among eligible movers; top candidates like GWEI and RAVE show high recent gains but volume changes are mixed and market regime is neutral with BTC/BNB down.",
+    "invalidation": "N/A",
+    "provider": "bankr:deepseek-v3.2",
+    "rawHash": "40bd727d823d9c91a812138a5df3d509bcf6bc237098f3ae6494d0c69847fafd",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": \"null\",\n  \"direction\": \"null\",\n  \"convictionBps\": 0,\n  \"rationale\": \"No clear momentum or story strength with volume support among eligible movers; top candidates like GWEI and RAVE show high recent gains but volume changes are mixed and mark"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-28",
+      "tradesToday": 2,
+      "newRiskTodayPct": 89.42,
+      "lastTradeAt": "2026-06-28T08:14:07.678Z"
+    },
+    "ruling": {
+      "decision": "STAND_DOWN",
+      "symbol": null,
+      "sizedPct": 0,
+      "reasons": [
+        "no_qualifying_thesis"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": false,
+    "mode": "armed"
+  },
+  "counters": {
+    "equityUsd": 17.35,
+    "usdtUsd": 17.34,
+    "usd1Usd": 0.01,
+    "positionUsd": 0,
+    "inScopeUsd": 17.35,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "209ff1e66f143f741b0bbb2ecaa9875e9e730099fe4aebc653e2f2ebd396e905",
+  "checksum": "7fb33823d64098104b6774a7fd6d1b4792b587bd279bbc4962367473255bd783"
+}
