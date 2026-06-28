@@ -1,0 +1,127 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-28T05:51:30.302Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": false,
+    "trade": true,
+    "manualRecovery": true,
+    "endgameComeback": true
+  },
+  "perception": {
+    "dataSource": "manual-recovery-entry",
+    "paidCalls": [],
+    "dataSpendUsd": 0,
+    "marketContext": [],
+    "marketRegime": {
+      "regime": "manual_recovery_swing"
+    },
+    "moversTop": [],
+    "quotes": []
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BAS",
+    "direction": "enter",
+    "convictionBps": 0,
+    "rationale": "Manual BAS re-entry: BAS remains the strongest eligible BSC momentum and liquidity setup. The prior fixed take-profit exited too early for the tournament comeback, so this reopens with explicit invalidation.",
+    "invalidation": "Exit if BAS trades below $0.04619 or 1h momentum turns negative.",
+    "provider": "manual:recovery-entry",
+    "rawHash": null,
+    "rawPreview": null
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-28",
+      "tradesToday": 1,
+      "newRiskTodayPct": 89.42,
+      "lastTradeAt": "2026-06-28T05:51:30.302Z"
+    },
+    "ruling": {
+      "decision": "MANUAL_RECOVERY_ENTRY",
+      "symbol": "BAS",
+      "sizedPct": 89.42,
+      "reasons": [
+        "endgame_recovery_swing",
+        "eligible_token",
+        "explicit_stop",
+        "top5_comeback_notional",
+        "USDT_to_BAS"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing",
+      "stopDistancePct": 5
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "manual_recovery_swing"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "not_an_exit"
+    }
+  },
+  "position": {
+    "symbol": "BAS",
+    "address": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
+    "units": 370.2085247392412,
+    "entryPrice": 0.04862124666815389,
+    "peakPriceUsd": 0.04862124666815389,
+    "peakPriceSource": "entry",
+    "peakAt": "2026-06-28T05:51:30.302Z",
+    "costUsd": 18,
+    "openedAt": "2026-06-28T05:51:30.302Z",
+    "invalidation": "Exit if BAS trades below $0.04619 or 1h momentum turns negative.",
+    "manualRecovery": true,
+    "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
+    "endgameComeback": true
+  },
+  "execution": {
+    "executed": true,
+    "kind": "manual_recovery_entry",
+    "txHash": "0x52614d7a0a9501fef248f44ea1cdebe1d4a37c5b4a2fea24ffec2aa740452242",
+    "tokenIn": "USDT",
+    "tokenInAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "tokenOut": "BAS",
+    "tokenOutAddress": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
+    "spentUsd": 18,
+    "units": 370.2085247392412,
+    "entryPrice": 0.04862124666815389,
+    "invalidationPrice": 0.04619,
+    "stopPct": 5,
+    "slippagePct": 2,
+    "provider": "LiquidMesh",
+    "balanceReadNote": null
+  },
+  "counters": {
+    "equityUsd": 20.18,
+    "usdtUsd": 2.15,
+    "usd1Usd": 0.01,
+    "positionUsd": 18.02,
+    "inScopeUsd": 20.18,
+    "inScopeWarning": false,
+    "degraded": false,
+    "equityNotes": [],
+    "floorUsd": 21.618,
+    "before": {
+      "equityUsd": 20.13,
+      "usdtUsd": 20.12,
+      "usd1Usd": 0.01,
+      "positionUsd": 0,
+      "inScopeUsd": 20.13,
+      "inScopeWarning": false,
+      "degraded": false,
+      "equityNotes": []
+    }
+  },
+  "prevChecksum": "7973687a2474c3e2a96f18a862ab8df926a8a20606ea9a7b32bddf50f93a8ecc",
+  "checksum": "99ce88981541fc1ad532df9d3894b527fec21fddbd1acb40b4b8f4e5022cc31e"
+}
