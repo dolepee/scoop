@@ -1,15 +1,1 @@
-{
-  "symbol": "BAS",
-  "address": "0x0F0df6cB17ee5E883eddFEf9153fC6036BDB4e37",
-  "units": 370.2085247392412,
-  "entryPrice": 0.04862124666815389,
-  "peakPriceUsd": 0.04862124666815389,
-  "peakPriceSource": "entry",
-  "peakAt": "2026-06-28T05:51:30.302Z",
-  "costUsd": 18,
-  "openedAt": "2026-06-28T05:51:30.302Z",
-  "invalidation": "Exit if BAS trades below $0.04619 or 1h momentum turns negative.",
-  "manualRecovery": true,
-  "recoveryReason": "endgame comeback attempt with explicit stop and profit protection",
-  "endgameComeback": true
-}
+null

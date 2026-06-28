@@ -1,0 +1,156 @@
+{
+  "version": "scoop.receipt.v1",
+  "generatedAt": "2026-06-28T08:14:07.678Z",
+  "agent": "Scoop",
+  "wallet": "0x5927a9662588f5609154488111E8ee7f4075513C",
+  "chain": "bsc",
+  "modes": {
+    "paid": true,
+    "trade": true
+  },
+  "perception": {
+    "dataSource": "x402-paid",
+    "paidCalls": [
+      {
+        "url": "https://pro-api.coinmarketcap.com/x402/v3/cryptocurrency/quotes/latest?symbol=BAS,BTC,BNB&convert=USD",
+        "costUsd": 0.01,
+        "dataSource": "x402-paid",
+        "responseHash": "ed9fab48af5a5355b470df8d92035364f9999442ab59e9afa471df68ed87d9a0"
+      }
+    ],
+    "dataSpendUsd": 0.01,
+    "marketContext": [
+      {
+        "symbol": "BTC",
+        "priceUsd": 60070.91578917746,
+        "change1h": 0.03120177,
+        "change24h": -0.53203889,
+        "change7d": -6.25834838,
+        "volume24h": 14463909569.403837,
+        "volumeChange24h": -54.3406
+      },
+      {
+        "symbol": "BNB",
+        "priceUsd": 554.9993678537505,
+        "change1h": -0.06067866,
+        "change24h": -1.673123,
+        "change7d": -5.91172804,
+        "volume24h": 845323755.570172,
+        "volumeChange24h": -32.5464
+      }
+    ],
+    "marketRegime": {
+      "state": "neutral",
+      "riskOff": false,
+      "reasons": [],
+      "btc": {
+        "symbol": "BTC",
+        "priceUsd": 60070.91578917746,
+        "change1h": 0.03120177,
+        "change24h": -0.53203889,
+        "change7d": -6.25834838
+      },
+      "bnb": {
+        "symbol": "BNB",
+        "priceUsd": 554.9993678537505,
+        "change1h": -0.06067866,
+        "change24h": -1.673123,
+        "change7d": -5.91172804
+      }
+    },
+    "moversTop": [],
+    "quotes": [
+      {
+        "symbol": "BAS",
+        "priceUsd": 0.041719617310522296,
+        "change1h": -23.90158739,
+        "change24h": 7.37188956,
+        "change7d": 33.27605106,
+        "volume24h": 20589351.31557088,
+        "volumeChange24h": 1.8924
+      }
+    ]
+  },
+  "thesis": {
+    "action": "TRADE",
+    "symbol": "BAS",
+    "direction": "exit",
+    "convictionBps": 10000,
+    "rationale": "BAS is down -14.19% from entry, hitting the hard -5% loss limit.",
+    "invalidation": "Exit if BAS trades below $0.04619 or 1h momentum turns negative.",
+    "exitGuard": {
+      "action": "FORCE_EXIT",
+      "symbol": "BAS",
+      "direction": "exit",
+      "reason": "hard_stop_loss",
+      "invalidationUsd": 0.04619,
+      "priceUsd": 0.041719617310522296,
+      "priceSource": "paid_quote",
+      "rationale": "BAS is down -14.19% from entry, hitting the hard -5% loss limit."
+    },
+    "modelThesis": {
+      "action": "NO_TRADE",
+      "symbol": null,
+      "direction": null,
+      "convictionBps": 0,
+      "rationale": "My open BAS position is down -14.2% from entry and has just experienced a severe -23.9% 1h drop, violating its defined invalidation condition of '1h momentum turns negative'.",
+      "invalidation": "N/A"
+    },
+    "provider": "deterministic:exit-guard",
+    "modelProvider": "bankr:deepseek-v3.2",
+    "rawHash": "b34219b29b3a756c1205db9ec2ac13281c4931df03211bda238b891d17f0c0b4",
+    "rawPreview": "{\n  \"action\": \"NO_TRADE\",\n  \"symbol\": null,\n  \"direction\": null,\n  \"convictionBps\": 0,\n  \"rationale\": \"My open BAS position is down -14.2% from entry and has just experienced a severe -23.9% 1h drop, violating its defined invalidation condition of '1h momentum turns negative'.\",\n"
+  },
+  "governor": {
+    "state": {
+      "startEquityUsd": 15.01,
+      "peakEquityUsd": 24.02,
+      "floorUsd": 21.618,
+      "dayKey": "2026-06-28",
+      "tradesToday": 2,
+      "newRiskTodayPct": 89.42,
+      "lastTradeAt": "2026-06-28T08:14:07.678Z"
+    },
+    "ruling": {
+      "decision": "APPROVE",
+      "symbol": "BAS",
+      "sizedPct": 87.70022883295195,
+      "reasons": [
+        "exit_always_allowed"
+      ]
+    },
+    "recoveryMode": true,
+    "entryGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "dexGuard": {
+      "ok": true,
+      "reason": "not_an_entry"
+    },
+    "exitSignalGuard": {
+      "ok": true,
+      "reason": "deterministic_exit_guard"
+    }
+  },
+  "position": null,
+  "execution": {
+    "executed": true,
+    "kind": "exit",
+    "txHash": "0x8bca2b29651418d7527a0c5808fd19f24726884b205dc944248ad5516f52bbdb",
+    "closedUnits": 369.83831621450196
+  },
+  "counters": {
+    "equityUsd": 17.48,
+    "usdtUsd": 2.14,
+    "usd1Usd": 0.01,
+    "positionUsd": 15.33,
+    "inScopeUsd": 17.48,
+    "inScopeWarning": false,
+    "floorUsd": 21.618,
+    "degraded": false,
+    "equityNotes": []
+  },
+  "prevChecksum": "99ce88981541fc1ad532df9d3894b527fec21fddbd1acb40b4b8f4e5022cc31e",
+  "checksum": "d70b34997e27227cd57601ed865c0973705182486c2408985d0624ae11637297"
+}
