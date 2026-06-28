@@ -7,9 +7,9 @@ export const EXIT_GUARD_CONFIG = {
   earlyTrailGivebackPct: 1.5,
   trailArmPct: 5,
   trailGivebackPct: 2.5,
-  endgameTakeProfitPct: 7.5,
-  endgameTrailArmPct: 5,
-  endgameTrailGivebackPct: 1.75,
+  endgameTakeProfitPct: null,
+  endgameTrailArmPct: 12,
+  endgameTrailGivebackPct: 4,
   greenMomentumFade1hPct: -1,
   dustExitFractionOfMinUseful: 0.5,
   maxQuoteWalletDivergencePct: 35,
@@ -36,7 +36,7 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
   if (Number.isFinite(entryPrice) && entryPrice > 0 && observed.source === "paid_quote") {
     const openReturnPct = ((observed.priceUsd - entryPrice) / entryPrice) * 100;
     const takeProfitPct = position.endgameComeback ? config.endgameTakeProfitPct : config.takeProfitPct;
-    if (openReturnPct >= takeProfitPct) {
+    if (Number.isFinite(takeProfitPct) && takeProfitPct > 0 && openReturnPct >= takeProfitPct) {
       return exit(position, "take_profit_target_hit", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} is up ${formatPct(openReturnPct)} from entry, meeting the ${formatPct(takeProfitPct)} profit-capture target.`);
     }
 
@@ -45,16 +45,16 @@ export function evaluateExitGuard({ position, quotes = [], positionUsd = 0, minU
     if (peakTrusted && Number.isFinite(peakPrice) && peakPrice > entryPrice) {
       const peakReturnPct = ((peakPrice - entryPrice) / entryPrice) * 100;
       const drawdownFromPeakPct = ((observed.priceUsd - peakPrice) / peakPrice) * 100;
-      if (peakReturnPct >= config.earlyTrailArmPct && peakReturnPct < config.trailArmPct && drawdownFromPeakPct <= -config.earlyTrailGivebackPct) {
+      if (!position.endgameComeback && peakReturnPct >= config.earlyTrailArmPct && peakReturnPct < config.trailArmPct && drawdownFromPeakPct <= -config.earlyTrailGivebackPct) {
         return exit(position, "early_profit_trail", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has already given back ${formatPct(Math.abs(drawdownFromPeakPct))}; closing before a small win round-trips.`);
       }
       if (position.endgameComeback && peakReturnPct >= config.endgameTrailArmPct && drawdownFromPeakPct <= -config.endgameTrailGivebackPct) {
         return exit(position, "endgame_profit_trail", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry in endgame mode and has given back ${formatPct(Math.abs(drawdownFromPeakPct))}; closing before a leaderboard win round-trips.`);
       }
-      if (peakReturnPct >= config.breakevenArmPct && openReturnPct <= config.breakevenFloorPct) {
+      if (!position.endgameComeback && peakReturnPct >= config.breakevenArmPct && openReturnPct <= config.breakevenFloorPct) {
         return exit(position, "breakeven_profit_protection", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} was up ${formatPct(peakReturnPct)} from entry and has faded back to ${formatPct(openReturnPct)}; closing near breakeven before a green trade turns into a loss.`);
       }
-      if (peakReturnPct >= config.trailArmPct && drawdownFromPeakPct <= -config.trailGivebackPct) {
+      if (!position.endgameComeback && peakReturnPct >= config.trailArmPct && drawdownFromPeakPct <= -config.trailGivebackPct) {
         return exit(position, "trailing_profit_protection", invalidationUsdForReceipt(invalidationUsd), observed, `${position.symbol} armed a trailing exit after ${formatPct(peakReturnPct)} open profit and has given back ${formatPct(Math.abs(drawdownFromPeakPct))} from the peak.`);
       }
     }
