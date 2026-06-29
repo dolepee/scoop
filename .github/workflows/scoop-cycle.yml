@@ -1,13 +1,10 @@
 name: Scoop Cycle
 
-# The agent's heartbeat. Observe mode (SCOOP_PAID only) until a manual
-# dispatch or repository variable arms SCOOP_TRADE; live mode runs hourly. Every run
-# pays for its own data from the agent wallet and commits a chained receipt,
-# so the git history timestamps each decision before the market grades it.
+# Post-competition safety: this workflow is manual-only and closed by default.
+# Paid research requires both SCOOP_PAID=1 and SCOOP_RESEARCH_LIVE=1 in code,
+# and this workflow sets the research unlock to 0.
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       trade:
@@ -47,8 +44,10 @@ jobs:
       TWAK_HMAC_SECRET: ${{ secrets.TWAK_HMAC_SECRET }}
       TWAK_WALLET_PASSWORD: ${{ secrets.TWAK_WALLET_PASSWORD }}
       BANKR_LLM_KEY: ${{ secrets.BANKR_LLM_KEY }}
-      SCOOP_PAID: "1"
-      SCOOP_TRADE: ${{ github.event_name == 'workflow_dispatch' && inputs.trade || vars.SCOOP_TRADE_LIVE || '0' }}
+      SCOOP_COMPETITION_CLOSED: "1"
+      SCOOP_PAID: "0"
+      SCOOP_RESEARCH_LIVE: "0"
+      SCOOP_TRADE: "0"
       SCOOP_FORCE_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.force || '0' }}
       SCOOP_STABLE_COMPLIANCE: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_compliance || '0' }}
       SCOOP_STABLE_FROM: ${{ github.event_name == 'workflow_dispatch' && inputs.stable_from || 'USDT' }}

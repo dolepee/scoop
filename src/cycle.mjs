@@ -1,7 +1,8 @@
 // One Scoop cycle: perceive (paid) -> think -> govern -> execute -> receipt.
 //
 // Safety model, controlled by env:
-//   SCOOP_PAID=1   allow x402 spend (paid perception). Default: free only.
+//   SCOOP_PAID=1   requests x402 spend. Post-competition, this still requires
+//                  SCOOP_RESEARCH_LIVE=1 so stale schedulers fail closed.
 //   SCOOP_TRADE=1  allow real swaps. Default: decisions are logged, not executed.
 // Cron runs perceive+think+govern for days before the first real trade is
 // enabled; every stage of that ramp leaves the same chained receipts.
@@ -23,7 +24,9 @@ import { evaluateMarketRegime, splitMarketContext, withMarketContext } from "./m
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-const PAID = process.env.SCOOP_PAID === "1";
+const PAID_REQUESTED = process.env.SCOOP_PAID === "1";
+const RESEARCH_LIVE = process.env.SCOOP_RESEARCH_LIVE === "1";
+const PAID = PAID_REQUESTED && RESEARCH_LIVE;
 const TRADE = process.env.SCOOP_TRADE === "1";
 const DATA_CAP_USD = Number(process.env.SCOOP_DATA_CAP_USD ?? 0.05);
 const MIN_LIVE_TRADE_USD = DEFAULT_CONFIG.minTradeUsd;
@@ -348,7 +351,7 @@ async function main() {
     agent: "Scoop",
     wallet: WALLET,
     chain: "bsc",
-    modes: { paid: PAID, trade: TRADE },
+    modes: { paid: PAID, paidRequested: PAID_REQUESTED, researchLive: RESEARCH_LIVE, trade: TRADE },
     perception: {
       dataSource,
       paidCalls: describedCalls,
@@ -382,7 +385,7 @@ async function main() {
   });
 
   console.log("SCOOP_CYCLE_COMPLETE");
-  console.log(`modes=paid:${PAID},trade:${TRADE}`);
+  console.log(`modes=paid:${PAID},paidRequested:${PAID_REQUESTED},researchLive:${RESEARCH_LIVE},trade:${TRADE}`);
   console.log(`equityUsd=${equityUsd} dataSpend=$${budget.spentUsd}`);
   console.log(`thesis=${effectiveThesis.action}${effectiveThesis.symbol ? ":" + effectiveThesis.symbol : ""} conviction=${effectiveThesis.convictionBps}`);
   console.log(`decision=${ruling.decision} reasons=${ruling.reasons.join("|")}`);

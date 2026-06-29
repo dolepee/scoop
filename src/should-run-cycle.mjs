@@ -5,6 +5,7 @@ import { scheduleDecision } from "./schedule-guard.mjs";
 const eventName = process.env.GITHUB_EVENT_NAME || process.env.GITHUB_EVENT_NAME_FALLBACK || "";
 const forceRun = String(process.env.SCOOP_FORCE_RUN || "").trim() === "1";
 const tradeArmed = String(process.env.SCOOP_TRADE || "").trim() === "1";
+const competitionClosed = String(process.env.SCOOP_COMPETITION_CLOSED || "").trim() === "1";
 const minIntervalMinutes = Number(process.env.SCOOP_MIN_RUN_INTERVAL_MINUTES ?? 50);
 const openPositionIntervalMinutes = Number(process.env.SCOOP_OPEN_POSITION_INTERVAL_MINUTES ?? 10);
 const outputPath = process.env.GITHUB_OUTPUT;
@@ -14,6 +15,13 @@ function setOutput(key, value) {
 }
 
 const latest = latestReceipt();
+if (competitionClosed) {
+  setOutput("should_run", "false");
+  setOutput("reason", "competition_closed");
+  console.log("SCOOP_SCHEDULE_GUARD skip reason=competition_closed");
+  process.exit(0);
+}
+
 const decision = scheduleDecision({
   forceRun,
   eventName,

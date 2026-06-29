@@ -92,14 +92,15 @@ npm run build:feed
 | `TWAK_WALLET_JSON_B64` | GitHub Actions secret used to restore the encrypted keystore. |
 | `BANKR_LLM_KEY` | Enables live structured thesis generation. |
 | `SCOOP_LLM_MODEL` | Optional model override. |
-| `SCOOP_PAID` | `1` enables paid x402 perception. |
+| `SCOOP_PAID` | `1` requests paid x402 perception. Post-competition, paid research still requires `SCOOP_RESEARCH_LIVE=1`. |
+| `SCOOP_RESEARCH_LIVE` | `1` is the explicit paid-research unlock. Keep unset/`0` after the competition. |
 | `SCOOP_TRADE` | `1` arms real swaps; unset means observe-only receipts. |
 | `SCOOP_DATA_CAP_USD` | Per-cycle data spend cap. |
 | `CMC_API_KEY` | Optional free-tier fallback if paid CMC x402 fails. |
 
-Observe mode: `npm run cycle:paid` buys data and writes receipts without real swaps.
-Armed mode: `npm run cycle:live` enables TWAK swaps and should be used only for rehearsal/scored windows.
-GitHub Actions runs `.github/workflows/scoop-cycle.yml` hourly, verifies the public receipt head before and after each cycle, rebuilds the feed, and commits new receipts only if `origin/master` did not move during the run. A local dispatcher, if used, must call the same cycle path and must not bypass `npm run receipts:verify`.
+Post-competition observe mode: `npm run cycle:paid` writes a free/local receipt and does not buy research.
+Paid research, if ever intentionally re-enabled, requires `npm run cycle:research`.
+GitHub Actions `.github/workflows/scoop-cycle.yml` is post-competition manual-only and closed by default. If deliberately re-enabled later, it must verify the public receipt head before and after each cycle, rebuild the feed, and commit new receipts only if `origin/master` did not move during the run. A local dispatcher, if used, must call the same cycle path and must not bypass `npm run receipts:verify`.
 
 Live trading switch: observe mode is the default. Manual dispatch with `trade=1` arms one run. For the scored week, set the repository variable `SCOOP_TRADE_LIVE=1` only after confirming wallet funding, gas reserve, current dashboard deployment, and the latest receipt head.
 
