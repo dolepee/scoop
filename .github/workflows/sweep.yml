@@ -1,0 +1,27 @@
+name: Sweep Wallet
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: "destination address (0x...)"
+        required: true
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    env:
+      TWAK_WALLET_PASSWORD: ${{ secrets.TWAK_WALLET_PASSWORD }}
+      SWEEP_TO: ${{ inputs.to }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: restore agent wallet keystore
+        run: |
+          mkdir -p ~/.twak && chmod 700 ~/.twak
+          echo "${{ secrets.TWAK_WALLET_JSON_B64 }}" | base64 -d > ~/.twak/wallet.json
+          chmod 600 ~/.twak/wallet.json
+      - name: install ethers
+        run: npm i ethers@6 --no-save --no-audit --no-fund --ignore-scripts
+      - name: sweep
+        run: node scripts/sweep.mjs
